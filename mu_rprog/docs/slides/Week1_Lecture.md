@@ -39,35 +39,35 @@ I'm pumped for this.
 
 <b class="toc_header"> I. Introduction to R </b>
 <ol class="toc" type="none">
-    <li> Personal Introduction <span style="float:right"> 5 </span></li>
-    <li> Syllabus Review       <span style="float:right"> 6 </span></li>
-    <li> Course Objectives     <span style="float:right"> 7 </span></li>
+    <li> Personal Introduction <span style="float:right"> 6 </span></li>
+    <li> Syllabus Review       <span style="float:right"> 7 </span></li>
+    <li> Course Objectives     <span style="float:right"> 8 </span></li>
 </ol>
 
 <b class="toc_header"> II. Setting Up Your Environment </b>
 <ol class = "toc" type="none">
-    <li> Installing R + RStudio             <span style="float:right"> 9  </span></li>
-    <li> Authoring Scripts in RStudio       <span style="float:right"> 10 </span></li>
+    <li> Installing R + RStudio             <span style="float:right"> 10  </span></li>
+    <li> Authoring Scripts in RStudio       <span style="float:right"> 11 </span></li>
     <li> Installing Sublime Text            <span style="float:right"> 12 </span></li>
-    <li> Authoring Scripts in a Text Editor <span style="float:right"> 11 </span></li>
-    <li> R from the Command Line            <span style="float:right"> 12 </span></li>
+    <li> Authoring Scripts in a Text Editor <span style="float:right"> 13 </span></li>
+    <li> R from the Command Line            <span style="float:right"> 14 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> III. Introduction to R </b>
 <ol class = "toc" type="none">
-    <li> R is an interpreted language      <span style="float:right"> 14 </span></li>
-    <li> R is dynamically typed language   <span style="float:right"> 14 </span></li>
-    <li> R has a few of its own file types <span style="float:right"> 14 </span></li>
+    <li> R is an interpreted language      <span style="float:right"> 16 </span></li>
+    <li> R is dynamically typed language   <span style="float:right"> 17 </span></li>
+    <li> R has a few of its own file types <span style="float:right"> 18 </span></li>
 </ol>
 
 <b class="toc_header"> IV. Programming Fundamentals </b>
 <ol class = "toc" type="none">
-    <li> Variables and Namespaces    <span style="float:right"> 15    </span></li>
-    <li> Introduction to Types       <span style="float:right"> 15    </span></li>
-    <li> Dollarstore Calculator Math <span style="float:right"> 16-18 </span></li>
-    <li> Controlling Program Flow    <span style="float:right"> 19-20 </span></li>
+    <li> Variables and Namespaces    <span style="float:right"> 20    </span></li>
+    <li> Introduction to Types       <span style="float:right"> 21    </span></li>
+    <li> Dollarstore Calculator Math <span style="float:right"> 22-24 </span></li>
+    <li> Controlling Program Flow    <span style="float:right"> 25-26 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -83,29 +83,29 @@ I'm pumped for this.
 
 <b class="toc_header"> V. Functions in R </b>
 <ol class="toc" type="none">
-    <li> Intro to Functional Programming <span style="float:right"> 22 </span></li>
-    <li> Required and Default Arguments  <span style="float:right"> 22 </span></li>
-    <li> Lexical Scoping                 <span style="float:right"> 23 </span></li>
-    <li> Lexical Scoping (pt. 2)         <span style="float:right"> 24 </span></li>
-    <li> Handling Errors                 <span style="float:right"> 24 </span></li>
-    <li> User-Defined Functions          <span style="float:right"> 24 </span></li>
+    <li> Intro to Functional Programming <span style="float:right"> 28 </span></li>
+    <li> Required and Default Arguments  <span style="float:right"> 29 </span></li>
+    <li> Lexical Scoping                 <span style="float:right"> 30 </span></li>
+    <li> Lexical Scoping (pt. 2)         <span style="float:right"> 31 </span></li>
+    <li> Handling Errors                 <span style="float:right"> 32 </span></li>
+    <li> User-Defined Functions          <span style="float:right"> 33 </span></li>
 </ol>
 
 <b class="toc_header"> VI. Common R Data Structures </b>
 <ol class = "toc" type="none">
-    <li> Vectors pt. 1     <span style="float:right"> 29-30 </span></li>
-    <li> Lists pt. 1       <span style="float:right"> 31-32 </span></li>
-    <li> Data Frames pt. 1 <span style="float:right"> 33-35 </span></li>
+    <li> Vectors          <span style="float:right"> 35-36 </span></li>
+    <li> Lists            <span style="float:right"> 37-38 </span></li>
+    <li> Data Frames      <span style="float:right"> 39-41 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> VII. Introduction to Version Control </b>
 <ol class = "toc" type="none">
-    <li> What is Git?                <span style="float:right"> 29-30 </span></li>
-    <li> Setting Up Your Repo        <span style="float:right"> 31-32 </span></li>
-    <li> Local vs. Remote Repos      <span style="float:right"> 33-35 </span></li>
-    <li> Getting Started with GitHub <span style="float:right"> 33-35 </span></li>
+    <li> What is Git?                <span style="float:right"> 43-44 </span></li>
+    <li> Setting Up Your Repo        <span style="float:right"> 45-46 </span></li>
+    <li> Local vs. Remote Repos      <span style="float:right"> 47-48 </span></li>
+    <li> Getting Started with GitHub <span style="float:right"> 49-50 </span></li>
 </ol>
 
 --- .section_slide
@@ -266,6 +266,92 @@ text tbd
 </br></br></br>
 <h2>Programming Fundamentals</h2>
 
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(1,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Variables and Namespaces</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(2,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Introduction to Types</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(3,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Dollarstore Calculator Math (pt 1)</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(4,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Dollarstore Calculator Math (pt 2)</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(5,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Dollarstore Calculator Math (pt 3)</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(6,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Controlling Program Flow: If-Else</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(7,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Controlling Program Flow: For Loops</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(8,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Controlling Program Flow: While Loops</h2>
+
 text tbd
 
 --- .section_slide
@@ -274,6 +360,70 @@ text tbd
 <hr></hr>
 </br></br></br>
 <h2>Functions in R</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(1,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Intro to Functional Programming</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(2,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Required and Default Arguments</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(3,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Lexical Scoping</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(4,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Lexical Scoping (pt 2)</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(5,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Handling Errors</h2>
+
+text tbd
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(6,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>User-Defined Functions</h2>
 
 text tbd
 
@@ -284,7 +434,68 @@ text tbd
 </br></br></br>
 <h2>Common R Data Structures</h2>
 
-text tbd
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(1,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Vectors (pt 1)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(2,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Vectors (pt 2)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(3,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Lists (pt 1)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(4,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Vectors (pt 2)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(5,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Data Frames (pt 1)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(6,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Data Frames (pt 2)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(7,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Data Frames (pt 3)</h2>
 
 --- .section_slide
 
@@ -293,5 +504,84 @@ text tbd
 </br></br></br>
 <h2>Introduction to Version Control</h2>
 
-text tbd
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(1,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>What is Git?</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(2,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 1)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(3,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 2)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(4,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 3)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(5,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Local vs. Remote Repos (pt 1)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(6,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Local vs. Remote Repos (pt 2)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(7,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Getting Started with GitHub (pt 1)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(8,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Getting Started with GitHub (pt 2)</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(9,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Getting Started with GitHub (pt 3)</h2>
 
