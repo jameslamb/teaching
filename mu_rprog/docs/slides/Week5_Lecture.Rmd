@@ -1,0 +1,85 @@
+---
+title       : ECON 6931 - R Programming
+subtitle    : Week 5
+author      : James Lamb
+job         : Data Scientist | Uptake
+logo        : 
+framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap]            # {mathjax, quiz}
+mode        : selfcontained # {selfcontained, standalone, draft}
+lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
+knit        : slidify::knit2slides
+--- .toc_slide &twocol
+
+<script src="assets/js/footer_bubbles.js"></script>
+
+<footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> I. Final Project Presentations </b>
+<ol class="toc" type="none">
+    <li> Personal Introduction <span style="float:right"> 5 </span></li>
+</ol>
+
+<b class="toc_header"> II. Advanced Functional Programming </b>
+<ol class = "toc" type="none">
+    <li> Installing R + RStudio             <span style="float:right"> 9  </span></li>
+</ol>
+
+*** =right
+
+<b class="toc_header"> III. Wrapping Your Code in a Package </b>
+<ol class = "toc" type="none">
+    <li> R is an interpreted language      <span style="float:right"> 14 </span></li>
+</ol>
+
+<b class="toc_header"> IV. R/Data Science AMA </b>
+<ol class = "toc" type="none">
+    <li> Variables and Namespaces    <span style="float:right"> 15    </span></li>
+</ol>
+
+--- .section_slide
+
+<h2>Section I.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Final Project Code Reviews</h2>
+
+--- .section_slide
+
+<h2>Section II.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Advanced Functional Programming</h2>
+
+--- .section_slide
+
+<h2>Section III.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Wrapping Your Code in a Package</h2>
+
+--- .section_slide
+
+<h2>Section IV.</h2>
+<hr></hr>
+</br></br></br>
+<h2>R/Data Science AMA</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,7)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Personal Introduction</h2>
+

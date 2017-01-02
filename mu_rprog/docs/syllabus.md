@@ -113,7 +113,8 @@ Due before class: Quiz 2, Programming Assignment 1
     \item Getting data from databases
     \item Working with web APIs
     \item Dealing with missing data
-    \item Visualizing Data
+    \item Visualization with R's base plotting system
+    \item Visualization with external packages (ggplot2, rbokeh)
     \item More data.table
     \item Final Project Discussion
 \end{itemize}
@@ -124,22 +125,21 @@ Due before class: Programming Assignment 2, Final Project Proposal
 
 \begin{itemize}
     \item Introduction to regular expressions
-    \item Dates and Time Series
-    \item Review of Material From Weeks 1-3
-    \item Discussion of Project Proposals
+    \item Review of weeks 1-3
+    \item Discussion of project proposals
 \end{itemize}
 
 \underline{Week 5: February 11, 2017}
 
 Due before class: Final Project script + report
 
-In class: Final Project code reviews
+In class: Final Project code review
 
 \begin{itemize}
-    \item Final Project Code Reviews
+    \item Final project presentations
     \item Intermediate R: functional programming
     \item Intermediate R: wrapping your code in a package
-    \item R/Data Science AMA
+    \item Strategies for speeding up R code
 \end{itemize}
 
 \section{II. Grading and Assignments}

@@ -1,0 +1,122 @@
+---
+title       : ECON 6931 - R Programming
+subtitle    : Week 3
+author      : James Lamb
+job         : Data Scientist | Uptake
+logo        : 
+framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap]            # {mathjax, quiz}
+mode        : selfcontained # {selfcontained, standalone, draft}
+lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
+knit        : slidify::knit2slides
+--- .toc_slide &twocol
+
+<script src="assets/js/footer_bubbles.js"></script>
+
+<footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> I. Getting Data from Databases </b>
+<ol class="toc" type="none">
+    <li> Personal Introduction <span style="float:right"> 5 </span></li>
+</ol>
+
+<b class="toc_header"> II. Working with Web APIs </b>
+<ol class = "toc" type="none">
+    <li> Installing R + RStudio             <span style="float:right"> 9  </span></li>
+</ol>
+
+*** =right
+
+<b class="toc_header"> III. Dealing with Missing Data </b>
+<ol class = "toc" type="none">
+    <li> R is an interpreted language      <span style="float:right"> 14 </span></li>
+</ol>
+
+<b class="toc_header"> IV. Visualizing Data </b>
+<ol class = "toc" type="none">
+    <li> Variables and Namespaces    <span style="float:right"> 15    </span></li>
+</ol>
+
+--- .toc_slide &twocol
+
+<footer>
+  <hr></hr>
+  <span style="float:right"> ECON 6931 - R Programming </span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> V. More data.table </b>
+<ol class = "toc" type="none">
+    <li> Vectors pt. 1     <span style="float:right"> 29-30 </span></li>
+</ol>
+
+*** =right
+
+<b class="toc_header"> VI. Final Project Discussion </b>
+<ol class = "toc" type="none">
+    <li> What is Git?                <span style="float:right"> 29-30 </span></li>
+</ol>
+
+--- .section_slide
+
+<h2>Section I.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Getting Data from Databases</h2>
+
+--- .section_slide
+
+<h2>Section II.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Working With Web APIs</h2>
+
+--- .section_slide
+
+<h2>Section III.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Dealing With Missing Data</h2>
+
+--- .section_slide
+
+<h2>Section IV.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Visualizing Data</h2>
+
+--- .section_slide
+
+<h2>Section V.</h2>
+<hr></hr>
+</br></br></br>
+<h2>More data.table</h2>
+
+--- .section_slide
+
+<h2>Section VI.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Final Project Discussion</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,7)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Personal Introduction</h2>
+
