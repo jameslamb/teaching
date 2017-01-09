@@ -26,24 +26,28 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> I. Final Project Presentations </b>
 <ol class="toc" type="none">
-    <li> Personal Introduction <span style="float:right"> 5 </span></li>
+    <li> Project Presentation GUidelines <span style="float:right"> 5 </span></li>
 </ol>
 
 <b class="toc_header"> II. Advanced Functional Programming </b>
 <ol class = "toc" type="none">
-    <li> Installing R + RStudio             <span style="float:right"> 9  </span></li>
+    <li> Introduction to purrr <span style="float:right"> 9-12  </span></li>
+    <li> Functions Within Functions <span style="float:right"> 14-16 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> III. Wrapping Your Code in a Package </b>
 <ol class = "toc" type="none">
-    <li> R is an interpreted language      <span style="float:right"> 14 </span></li>
+    <li> Getting Started <span style="float:right"> 14 </span></li>
+    <li> Managing Dependencies <span style="float:right"> 14-16 </span></li>
+    <li> Unit Testing with testthat <span style="float:right"> 17-18 </span></li>
+    <li> Installing a Local Package <span style="float:right"> 17-18 </span></li>
 </ol>
 
 <b class="toc_header"> IV. R/Data Science AMA </b>
 <ol class = "toc" type="none">
-    <li> Variables and Namespaces    <span style="float:right"> 15    </span></li>
+    <li> Ask Me Anything <span style="float:right"> 15    </span></li>
 </ol>
 
 --- .section_slide

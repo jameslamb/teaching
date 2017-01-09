@@ -26,24 +26,39 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> I. Introduction to Regular Expressions </b>
 <ol class="toc" type="none">
-    <li> Personal Introduction <span style="float:right"> 5 </span></li>
+    <li> Matching Simple Phrases <span style="float:right"> 5 </span></li>
+    <li> Matching Character Sets<span style="float:right"> 5 </span></li>
+    <li> Extracting Sub-Strings From a Match <span style="float:right"> 5 </span></li>
+    <li> grep() vs. grepl() <span style="float:right"> 5 </span></li>
+    <li> Regex + stringr <span style="float:right"> 5-7 </span></li>
 </ol>
 
 <b class="toc_header"> II. Dates and Time Series </b>
 <ol class = "toc" type="none">
-    <li> Installing R + RStudio             <span style="float:right"> 9  </span></li>
+    <li> Default Date Class<span style="float:right"> 9  </span></li>
+    <li> Using POSIX <span style="float:right"> 5 </span></li>
+    <li> Navigating Time Zones <span style="float:right"> 5 </span></li>
+    <li> Using lubridate to Clean Dates <span style="float:right"> 5 </span></li>
+    <li> Regular Time Series: zoo <span style="float:right"> 5-8 </span></li>
+    <li> Ordered but Irregular Time Series: xts <span style="float:right"> 5-8 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> III. Review of Material from Weeks 1-3 </b>
 <ol class = "toc" type="none">
-    <li> R is an interpreted language      <span style="float:right"> 14 </span></li>
+    <li> Subsetting <span style="float:right"> 14 </span></li>
+    <li> Handling Missing Data <span style="float:right"> 14 </span></li>
+    <li> Fitting and Predicting with Regression <span style="float:right"> 15-17 </span></li>
+    <li> apply() Functions <span style="float:right"> 14-15 </span></li>
+    <li>  <span style="float:right"> 14 </span></li>
 </ol>
 
-<b class="toc_header"> IV. Discussion of Project Proposals </b>
+<b class="toc_header"> IV. Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Variables and Namespaces    <span style="float:right"> 15    </span></li>
+    <li> Code Review Tips <span style="float:right"> 15    </span></li>
+    <li> Scripting: Style Notes <span style="float:right"> 16-18 </span></li>
+    <li> Report Guidelines <span style="float:right"> 15    </span></li>
 </ol>
 
 --- .section_slide

@@ -26,24 +26,40 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> I. Getting Data from Databases </b>
 <ol class="toc" type="none">
-    <li> Personal Introduction <span style="float:right"> 5 </span></li>
+    <li> Connecting to the DB <span style="float:right"> 5 </span></li>
+    <li> Exploring Without Querying  <span style="float:right"> 5 </span></li>
+    <li> Executing Queries <span style="float:right"> 5 </span></li>
 </ol>
 
 <b class="toc_header"> II. Working with Web APIs </b>
 <ol class = "toc" type="none">
-    <li> Installing R + RStudio             <span style="float:right"> 9  </span></li>
+    <li> Application Programming Interfaces<span style="float:right"> 9  </span></li>
+    <li> REST API Definition<span style="float:right"> 9  </span></li>
+    <li> Authentication with API Keys<span style="float:right"> 9  </span></li>
+    <li> Executing a Query<span style="float:right"> 9  </span></li>
+    <li> Introduction to JSON<span style="float:right"> 9  </span></li>
+    <li> Working with JSON in R<span style="float:right"> 9  </span></li>
+    <li> What is an API?<span style="float:right"> 9  </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> III. Dealing with Missing Data </b>
 <ol class = "toc" type="none">
-    <li> R is an interpreted language      <span style="float:right"> 14 </span></li>
+    <li> Specialness of NAs<span style="float:right"> 14 </span></li>
+    <li> You Should Care About NAs<span style="float:right"> 9  </span></li>
+    <li> Strategy 1: Total Eradication<span style="float:right"> 9  </span></li>
+    <li> Strategy 2: Handle At Application Level<span style="float:right"> 9  </span></li>
+    <li> Strategy 3: Imputation<span style="float:right"> 9  </span></li>
 </ol>
 
 <b class="toc_header"> IV. Visualizing Data </b>
 <ol class = "toc" type="none">
-    <li> Variables and Namespaces    <span style="float:right"> 15    </span></li>
+    <li> Graphics Devices<span style="float:right"> 15    </span></li>
+    <li> Base Plotting System<span style="float:right"> 16-21</span></li>
+    <li> ggplot2<span style="float:right"> 22-27</span></li>
+    <li> rCharts<span style="float:right"> 28-30</span></li>
+    <li> rbokeh<span style="float:right"> 31-32</span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -57,16 +73,28 @@ knit        : slidify::knit2slides
 
 *** =left
 
-<b class="toc_header"> V. More data.table </b>
+<b class="toc_header"> V. The apply() Family of Functions </b>
 <ol class = "toc" type="none">
-    <li> Vectors pt. 1     <span style="float:right"> 29-30 </span></li>
+    <li> apply() <span style="float:right"> 29-30 </span></li>
+    <li> lapply() <span style="float:right"> 31</span></li>
+    <li> sapply() <span style="float:right"> 32-34</span></li>
+    <li> apply Functions with UDFs <span style="float:right"> 35-36</span></li>
+</ol>
+
+<b class="toc_header"> VI. More data.table </b>
+<ol class = "toc" type="none">
+    <li> Applying functions over many columns<span style="float:right"> 29-30 </span></li>
+    <li> data.table joins <span style="float:right"> 28-29 </span></li>
+    <li> Fast rbind-ing of data.table objects <span style="float:right"> 28-29</span></li>
+    <li> rbind-ing Heterogeneous Tables <span style="float:right"> 28-29</span></li>
 </ol>
 
 *** =right
 
-<b class="toc_header"> VI. Final Project Discussion </b>
+<b class="toc_header"> VII. Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> What is Git?                <span style="float:right"> 29-30 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 29-30 </span></li>
+    <li> Final Project Outline <span style="float:right"> 29-30 </span></li>
 </ol>
 
 --- .section_slide
@@ -102,11 +130,18 @@ knit        : slidify::knit2slides
 <h2>Section V.</h2>
 <hr></hr>
 </br></br></br>
-<h2>More data.table</h2>
+<h2>The apply() Family of Functions</h2>
 
 --- .section_slide
 
 <h2>Section VI.</h2>
+<hr></hr>
+</br></br></br>
+<h2>More data.table</h2>
+
+--- .section_slide
+
+<h2>Section VII.</h2>
 <hr></hr>
 </br></br></br>
 <h2>Final Project Discussion</h2>

@@ -16,9 +16,15 @@ urlcolor: blue
 
 \section{I. Course Info}
 
-Welcome to R Programming! In this course, we'll explore the basic building blocks of statistical programming in R. My hope is that by the end, you will be able to use R code to turn your ideas into scripts, packages, and applications.
+Welcome to R Programming! 
 
-\subsection{A. Course Resources}
+\subsection{A. Learning Objectives and Outcomes}
+
+In this course, we'll explore the basic building blocks of statistical programming in R. The course focuses on three parallel learning objectives: setting up an open-source software environment for practicing data science, translation of ideas to software solutions using R, and management and sharing of code. There will of course be some time spent learning syntax (e.g. "this is the command to do this thing in R"), but you'll also get the opportunity to hit each of these learning objectives through quizzes, programming assignments, a flexibly-defined final project and (finally) a "code review" presentation of your work.
+
+The R language is huge and there are new packages being added daily. You will not learn all or even most of what the language has to offer in this course, but you will leave with enough knowledge to hack together solutions to data-rich problems in your academic and professional lives.
+
+\subsection{B. Course Resources}
 
 **Your Professor:**
 
@@ -50,9 +56,9 @@ Instructions for setting up all of these components can be found in the section 
 
 Slides and assignment rubrics will be available both in the "Content" section of the course page on D2L and on the course [GitHub repository](https://github.com/jameslamb/teaching/tree/master/mu_rprog).
 
-\subsection{B. To-Do Before the First Session}
+\subsection{C. To-Do Before the First Session}
 
-The course begins on 1/14/2017. Before class on that date, please do the following:
+The course begins on 1/21/2017. Before class on that date, please do the following:
 
 **1. Take the pre-course survey on [d2l](https://d2l.mu.edu/)**
 
@@ -70,11 +76,11 @@ I'll devote some time in the first class to ensuring everyone is set up and reso
 
 I hope you'll be able to install these components using the information at those links and some moderate Googling. If you run into any issues, please email me and I'll help you out.
 
-\subsection{C. Course Outline}
+\subsection{D. Course Outline}
 
 The (tentative) outline below describes my goals for each lecture. Assignment due dates and lecture dates are fixed but content may change as the class progresses.
 
-\underline{Week 1: January 14, 2017}
+\underline{Week 1: January 21, 2017}
 
 Due before class: Pre-course survey
 
@@ -91,7 +97,7 @@ Due before class: Pre-course survey
     \item Introduction to version control: Git and GitHub
 \end{itemize}
 
-\underline{Week 2: January 21, 2017}
+\underline{Week 2: January 28, 2017}
 
 Due before class: Quiz 1
 
@@ -105,7 +111,7 @@ Due before class: Quiz 1
     \item Debugging Strategies
 \end{itemize}
 
-\underline{Week 3: January 28, 2017}
+\underline{Week 3: February 4, 2017}
 
 Due before class: Quiz 2, Programming Assignment 1
 
@@ -118,7 +124,7 @@ Due before class: Quiz 2, Programming Assignment 1
     \item Final Project Discussion
 \end{itemize}
 
-\underline{Week 4: February 4, 2017}
+\underline{Week 4: February 11, 2017}
 
 Due before class: Programming Assignment 2, Final Project Proposal
 
@@ -129,7 +135,7 @@ Due before class: Programming Assignment 2, Final Project Proposal
     \item Discussion of Project Proposals
 \end{itemize}
 
-\underline{Week 5: February 11, 2017}
+\underline{Week 5: February 18, 2017}
 
 Due before class: Final Project script + report
 
@@ -142,11 +148,13 @@ In class: Final Project code reviews
     \item R/Data Science AMA
 \end{itemize}
 
+\pagebreak
+
 \section{II. Grading and Assignments}
 
 You will receive a letter grade for this course. Grades will be assigned using the following scheme (also available under the "Grades" section of the course D2L page).
 
-|                                |Proportion of Final Grade |
+|Grade Item                      |Proportion of Final Grade |
 |:------------------------------:|:------------------------:|
 |Pre-Class Quiz                  |5\%                       |
 |Quiz 1                          |10\%                      |
@@ -167,7 +175,6 @@ And letter grades will be assigned using the following scale:
 > \textbf{C}  - 70\% $\leq$ grade < 75\% \newline
 > \textbf{F}  - Less than 70\%
 
-
 \subsection{A. Quizzes (25\%)}
 
 There will be two quizzes which will test your mastery of topics covered in class. These quizzes will test your knowledge of terminology and core concepts. In addition, quizzes may require you to interpret pseudo-code or to write a bit of R code yourself to solve questions.
@@ -176,9 +183,9 @@ Quizzes will be delivered online via D2L (see the "Quizzes" section of the cours
 
 |Quiz                       |Opens                       |Due                           |
 |:-------------------------:|:--------------------------:|:----------------------------:|
-|Pre-class survey           | Immediately                | Prior to class on January 14 |
-|Quiz 1                     | After class on January 14  | Prior to class on January 21 |
-|Quiz 2                     | After class on January 21  | Prior to class on January 28 |
+|Pre-class survey           | Immediately                | Prior to class on January 21 |
+|Quiz 1                     | After class on January 21  | Prior to class on January 28 |
+|Quiz 2                     | After class on January 28  | Prior to class on February 4 |
 
 
 \subsection{B. Programming Assignments (30\%)}
@@ -191,8 +198,8 @@ Your completed assignment must be uploaded to the appropriate folder in the "Dro
 
 |Assignment                 |Description Available       |Due                           |
 |:-------------------------:|:--------------------------:|:----------------------------:|
-|Programming Assignment 1   | Immediately                | Prior to class on January 28 |
-|Programming Assignment 2   | Immediately                | Prior to class on February 4 | 
+|Programming Assignment 1   | Immediately                | Prior to class on February 4 |
+|Programming Assignment 2   | Immediately                | Prior to class on February 11| 
 
 \subsection{C. Final Project (45\%)}
 
@@ -211,9 +218,13 @@ Full details of the project and each of its components are available in the "Fin
 
 |Assignment                      |Description Available       |Due                            |
 |:------------------------------:|:--------------------------:|:-----------------------------:|
-|Final Project proposal          | After class on January 14  | Prior to class on February 4  |
-|Final Project (script + report) | After class on January 14  | Prior to class on February 11 |
-|Final Project code review       | After class on January 14  | In class on February 11       |
+|Final Project proposal          | After class on January 21  | Prior to class on February 11 |
+|Final Project (script + report) | After class on January 28  | Prior to class on February 18 |
+|Final Project code review       | After class on January 28  | In class on February 18       |
+
+\subsection{D. Grade Appeal}
+
+The grading policies described above will be used to calculate your final grade for the course. Individual assignment grades will follow rubrics available on the D2L site for this course. If you disagree with any grade assigned to you in this course, please frame all appeals in the language of this document + those rubrics.
 
 \section{III. Administrative Information}
 
@@ -231,6 +242,16 @@ The Marquette University Graduate School of Management considers regular class a
 
 For this course, anything more than 1 class period is determined to be "excessive". Because this is a short (5-week) course, missing even one week will make it difficult to learn the material and satisfactorily complete the course requirements. If you miss more than one class, your grade will be reduced by a full letter grade for each absence after the first. All students are expected to complete all quizzes, assignments, and the final project.
 
+The policy above applies to "unexcused" absences. There are a handful of situations which are considered "excused" absences:
+
+\begin{itemize}
+    \item absences resulting from legal obligations (such as jury duty)
+    \item absences resulting from university-sanctioned activities and related travel
+    \item absences resulting from religious observance
+\end{itemize}
+
+If you anticipate missing any classes (even for the "excused" reasons mentioned above), please let me know as early as possible so we can plan accordingly.
+
 \subsection{D. College of Business Administration Assessment Statement}
 
 The fundamental mission of the College of Business Administration is to provide a quality education grounded in Catholic, Jesuit intellectual values.  Students are expected to learn how to function effectively in a diverse and global economy and develop into responsible members of the business community.  As one of many methods of assuring that the goals of our educational mission are successfully met, the college regularly and systematically engages in the assessment of these competencies.
@@ -242,3 +263,39 @@ Assessment takes place each semester in all programs and settings using quantifi
 \subsection{E. Academic Integrity}
 
 Don't cheat. For more see http://www.marquette.edu/provost/integrity-pledge.php.
+
+**DEFINITIONS OF ACADEMIC DISHONESTY**
+
+Academic dishonesty applies equally to electronic media and print and involves text, images and ideas. It includes but is not limited to the following examples: 
+
+\begin{itemize}
+    \item \textbf{Cheating}
+    \begin{itemize}
+        \item Copying from others during an examination.
+        \item Communicating exam answers with other students during an examination.
+        \item Offering another person's work as one's own.
+        \item Taking an examination for another student or having someone take an examination for oneself.
+        \item Sharing answers for a take-home exam or assignment unless specifically authorized by the instructor.
+        \item Tampering with an examination after it has been corrected and then returning it for more credit.
+        \item Using unauthorized materials during an examination.
+        \item Allowing others to do the research and writing of an assigned paper (including use of the services of a commercial term-paper company).
+    \end{itemize}
+    \item \textbf{Dishonest Condut}
+    \begin{itemize}
+        \item Stealing or attempting to steal an examination or answer key from the instructor.
+        \item Changing or attempting to change academic records without proper sanction.
+        \item Submitting substantial portions of the same work for credit in more than one course without consulting all instructors involved.
+        \item Intentionally disrupting the educational process in any manner.
+        \item Allowing another student to copy off of one's own work during a test.
+    \end{itemize}
+    \item \textbf{Plagiarism}
+    \begin{itemize}
+        \item Stealing or passing off as one's own the ideas or words, images or other creative works of another
+        \item Using a creative production without crediting the source, even if only minimal information is available to identify it for citation. Credit must be given for every direct quotation, for paraphrasing or summarizing a work (in whole, in part, in one's own words) and for information that is not common knowledge.
+    \end{itemize}
+    \item \textbf{Collusion}
+    \begin{itemize}
+        \item Knowingly or intentionally helping another student perform any of the above acts of cheating, dishonest conduct or plagiarism.
+    \end{itemize}
+\end{itemize}
+
