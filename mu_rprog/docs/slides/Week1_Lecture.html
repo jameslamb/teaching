@@ -105,7 +105,7 @@
     <li> Variables and Namespaces    <span style="float:right"> 21    </span></li>
     <li> Introduction to Types       <span style="float:right"> 22    </span></li>
     <li> Dollarstore Calculator Math <span style="float:right"> 23-25 </span></li>
-    <li> Controlling Program Flow    <span style="float:right"> 26-28 </span></li>
+    <li> Controlling Program Flow    <span style="float:right"> 26-30 </span></li>
 </ol>
 
 </div>
@@ -126,19 +126,17 @@
   <p><b class="toc_header"> V. Functions in R </b></p>
 
 <ol class="toc" type="none">
-    <li> Intro to Functional Programming <span style="float:right"> 29 </span></li>
-    <li> Required and Default Arguments  <span style="float:right"> 30 </span></li>
-    <li> Lexical Scoping                 <span style="float:right"> 31 </span></li>
-    <li> Lexical Scoping (pt. 2)         <span style="float:right"> 32 </span></li>
-    <li> User-Defined Functions          <span style="float:right"> 34 </span></li>
+    <li> Intro to Functional Programming <span style="float:right"> 32 </span></li>
+    <li> Required and Default Arguments  <span style="float:right"> 33-34 </span></li>
+    <li> User-Defined Functions          <span style="float:right"> 35 </span></li>
 </ol>
 
 <p><b class="toc_header"> VI. Common R Data Structures </b></p>
 
 <ol class = "toc" type="none">
-    <li> Vectors          <span style="float:right"> 36-37 </span></li>
-    <li> Lists            <span style="float:right"> 38-39 </span></li>
-    <li> Data Frames      <span style="float:right"> 40-42 </span></li>
+    <li> Vectors          <span style="float:right"> 37-38 </span></li>
+    <li> Lists            <span style="float:right"> 39-40 </span></li>
+    <li> Data Frames      <span style="float:right"> 41-43 </span></li>
 </ol>
 
 </div>
@@ -146,10 +144,15 @@
   <p><b class="toc_header"> VII. Introduction to Version Control </b></p>
 
 <ol class = "toc" type="none">
-    <li> What is Git?                <span style="float:right"> 44-45 </span></li>
-    <li> Setting Up Your Repo        <span style="float:right"> 46-47 </span></li>
-    <li> Local vs. Remote Repos      <span style="float:right"> 48-49 </span></li>
-    <li> Getting Started with GitHub <span style="float:right"> 50-51 </span></li>
+    <li> What is Git?                <span style="float:right"> 45 </span></li>
+    <li> Setting Up Your Repo        <span style="float:right"> 46-49 </span></li>
+    <li> Getting Started with GitHub <span style="float:right"> 50-52 </span></li>
+</ol>
+
+<p><b class="toc_header"> VIII. Additional Resources </b></p>
+
+<ol class = "toc" type="none">
+    <li> Learning More on Your Own<span style="float:right">54</span></li>
 </ol>
 
 </div>
@@ -733,7 +736,7 @@ if (x &gt; 5){
 }
 </code></pre>
 
-<p>See the <a href="jameslamb.github.io/teaching/mu_rprog/docs/slides/Week1_Supplement.html">Week 1 Code Supplement</a> for more examples.</p>
+<p>See the <a href="jameslamb.github.io/teaching/mu_rprog/docs/code/Week1_Supplement.html">Week 1 Code Supplement</a> for more examples.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -806,7 +809,7 @@ for (some_number in x){
 
 <p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R &quot;look through an alphabetized list of movies and tell me if you find Apocalypse Now&quot;. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
 
-<p>Consult the <a href="jameslamb.github.io/teaching/mu_rprog/docs/slides/Week1_Supplement.html">Week 1 Code Supplement</a> for the <code>for</code> loop implementation to solve this problem.</p>
+<p>Consult the <a href="jameslamb.github.io/teaching/mu_rprog/docs/code/Week1_Supplement.html">Week 1 Code Supplement</a> for the <code>for</code> loop implementation to solve this problem.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -821,7 +824,7 @@ for (some_number in x){
 
 <h2>Controlling Program Flow: While Loops (pt 2)</h2>
 
-<p>The <code>while</code> loop implementation can be found in the <a href="jameslamb.github.io/teaching/mu_rprog/docs/slides/Week1_Supplement.html">Week 1 Code Supplement</a>. Notice that it stops checking once it finds what it wants, making it potentially more efficient than the <code>for</code> implementation.</p>
+<p>The <code>while</code> loop implementation can be found in the <a href="jameslamb.github.io/teaching/mu_rprog/docs/code/Week1_Supplement.html">Week 1 Code Supplement</a>. Notice that it stops checking once it finds what it wants, making it potentially more efficient than the <code>for</code> implementation.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -851,6 +854,21 @@ for (some_number in x){
 <h2>Intro to Functional Programming</h2>
 
 <p>R is a <a href="http://adv-r.had.co.nz/Functions.html">functional programming language</a>. To write powerful, concise code, you&#39;ll need to master the use and creation of functions. </p>
+
+<blockquote>
+<p>&quot;If you find yourself copying and pasting the same code more than twice, it&#39;s time to write a function.&quot; - Hadley Wickham</p>
+</blockquote>
+
+<pre><code class="r"># Function to return only the even numbers from a vector
+answers &lt;- c(1, 3, 4, 8, 13, 24)
+
+getPrimes &lt;- function(some_numbahs){
+    the_evens &lt;- some_numbahs[some_numbahs %% 2 == 0]
+    return(the_evens)
+}
+
+getPrimes(answers)
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -913,48 +931,22 @@ rand_nums &lt;- rnorm(n = 100, mean = 4.5)
   <article data-timings="">
     <p><footer>
   <hr>
-  <script>FooterBubbles(4,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
-</footer></p>
-
-<h2>Lexical Scoping</h2>
-
-<p>text tbd</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="content_slide" id="slide-35" style="background:;">
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  <script>FooterBubbles(5,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
-</footer></p>
-
-<h2>Lexical Scoping (pt 2)</h2>
-
-<p>text tbd</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="content_slide" id="slide-36" style="background:;">
-  <article data-timings="">
-    <p><footer>
-  <hr>
   <script>FooterBubbles(7,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>User-Defined Functions</h2>
 
-<p>text tbd</p>
+<p>As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you&#39;ll be able to do some really powerful stuff. We&#39;ll spend more time on functions in the following weeks, but here&#39;s a sneak peak of what is possible:</p>
+
+<p><br></p>
+
+<p>Head over to the <a href="jameslamb.github.io/teaching/mu_rprog/docs/code/Week1_Supplement.html">Week 1 Code Supplement</a> to see an example of this.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="section_slide" id="slide-37" style="background:;">
+<slide class="section_slide" id="slide-35" style="background:;">
   <hgroup>
     <h2>Section VI.</h2>
   </hgroup>
@@ -968,7 +960,7 @@ rand_nums &lt;- rnorm(n = 100, mean = 4.5)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-38" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -999,7 +991,7 @@ c(&quot;all&quot;, &quot;of&quot;, &quot;the&quot;, &quot;lights&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-39" style="background:;">
+<slide class="content_slide" id="slide-37" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1034,7 +1026,7 @@ c(x, y)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-38" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1085,7 +1077,7 @@ str(myList)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-41" style="background:;">
+<slide class="content_slide" id="slide-39" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1116,7 +1108,7 @@ grades &lt;- lapply(studentList, mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-42" style="background:;">
+<slide class="content_slide" id="slide-40" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1144,7 +1136,7 @@ str(myDF)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-43" style="background:;">
+<slide class="content_slide" id="slide-41" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1172,7 +1164,7 @@ unique(mtcars$cyl)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-44" style="background:;">
+<slide class="content_slide" id="slide-42" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1196,7 +1188,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="section_slide" id="slide-45" style="background:;">
+<slide class="section_slide" id="slide-43" style="background:;">
   <hgroup>
     <h2>Section VII.</h2>
   </hgroup>
@@ -1210,7 +1202,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-46" style="background:;">
+<slide class="content_slide" id="slide-44" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1236,7 +1228,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-47" style="background:;">
+<slide class="content_slide" id="slide-45" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1265,7 +1257,7 @@ echo &quot;This repo holds my notes and scripts from R Programming class&quot; &
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-48" style="background:;">
+<slide class="content_slide" id="slide-46" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1286,7 +1278,7 @@ echo &quot;This repo holds my notes and scripts from R Programming class&quot; &
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-49" style="background:;">
+<slide class="content_slide" id="slide-47" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1317,7 +1309,7 @@ echo &quot;This repo holds my notes and scripts from R Programming class&quot; &
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-50" style="background:;">
+<slide class="content_slide" id="slide-48" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1332,7 +1324,7 @@ echo &quot;This repo holds my notes and scripts from R Programming class&quot; &
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-51" style="background:;">
+<slide class="content_slide" id="slide-49" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1358,7 +1350,7 @@ enterprise accounts are available if you need more advanced features
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-52" style="background:;">
+<slide class="content_slide" id="slide-50" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1389,7 +1381,7 @@ enterprise accounts are available if you need more advanced features
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-53" style="background:;">
+<slide class="content_slide" id="slide-51" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1428,7 +1420,7 @@ git push origin master
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="section_slide" id="slide-54" style="background:;">
+<slide class="section_slide" id="slide-52" style="background:;">
   <hgroup>
     <h2>Section VIII.</h2>
   </hgroup>
@@ -1442,22 +1434,26 @@ git push origin master
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-55" style="background:;">
+<slide class="content_slide" id="slide-53" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
   VIII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
-<h2>Learnign More on Your Own</h2>
+<h2>Learning More on Your Own</h2>
 
 <p>We covered a lot of stuff this week, and will have to be selective about which things we delve deeper into in the following weeks. For the brave and curious, I&#39;ve included a few online free resources for learning more about the technologies we discussed.</p>
 
-<p><strong>Bash</strong>: <a href="https://www.codecademy.com/learn/learn-the-command-line">Codecademy</a> | <a href="https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/">Learn Bash</a>
-<strong>Git</strong>: <a href="http://gitimmersion.com/">Git Immersion</a> | <a href="https://www.codecademy.com/learn/learn-git">Codecademy</a> | <a href="https://www.codeschool.com/courses/try-git">Try Git</a> | <a href="https://git-scm.com/documentation">Git Documentation</a>
-<strong>R</strong>: <a href="https://www.datacamp.com/">DataCamp</a> | <a href="http://swirlstats.com/">swirl</a> | <a href="https://www.coursera.org/specializations/jhu-data-science">JHU Data Science</a>
-<strong>RStudio</strong>: <a href="https://blog.rstudio.org/">RStudio blog</a>
-<strong>Sublime Text</strong>: <a href="https://www.sublimetext.com/docs/3/">Sublime Text 3 docs</a> | <a href="https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/">Package Control</a></p>
+<p><strong>Bash</strong>: <a href="https://www.codecademy.com/learn/learn-the-command-line">Codecademy</a> | <a href="https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/">Learn Bash</a></p>
+
+<p><strong>Git</strong>: <a href="http://gitimmersion.com/">Git Immersion</a> | <a href="https://www.codecademy.com/learn/learn-git">Codecademy</a> | <a href="https://www.codeschool.com/courses/try-git">Try Git</a> | <a href="https://git-scm.com/documentation">Git Documentation</a></p>
+
+<p><strong>R</strong>: <a href="https://www.datacamp.com/">DataCamp</a> | <a href="http://swirlstats.com/">swirl</a> | <a href="https://www.coursera.org/specializations/jhu-data-science">JHU Data Science</a></p>
+
+<p><strong>RStudio</strong>: <a href="https://blog.rstudio.org/">RStudio blog</a></p>
+
+<p><strong>Sublime Text</strong>: <a href="https://www.sublimetext.com/docs/3/">Sublime Text 3 docs</a> | <a href="https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/">Package Control</a></p>
 
 <div style='float:left;width:48%;' class='centered'>
   
@@ -1679,7 +1675,7 @@ git push origin master
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='NA'>
+        data-slide=35 title='Section VI.'>
          35
       </a>
     </li>
@@ -1691,7 +1687,7 @@ git push origin master
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Section VI.'>
+        data-slide=37 title='NA'>
          37
       </a>
     </li>
@@ -1727,7 +1723,7 @@ git push origin master
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='NA'>
+        data-slide=43 title='Section VII.'>
          43
       </a>
     </li>
@@ -1739,7 +1735,7 @@ git push origin master
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='Section VII.'>
+        data-slide=45 title='NA'>
          45
       </a>
     </li>
@@ -1781,7 +1777,7 @@ git push origin master
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=52 title='NA'>
+        data-slide=52 title='Section VIII.'>
          52
       </a>
     </li>
@@ -1789,18 +1785,6 @@ git push origin master
       <a href="#" target="_self" rel='tooltip' 
         data-slide=53 title='NA'>
          53
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=54 title='Section VIII.'>
-         54
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=55 title='NA'>
-         55
       </a>
     </li>
   </ul>
