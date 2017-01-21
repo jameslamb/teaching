@@ -50,24 +50,24 @@ I'm pumped for this.
     <li> Authoring Scripts in RStudio       <span style="float:right"> 11 </span></li>
     <li> Installing Sublime Text            <span style="float:right"> 12 </span></li>
     <li> Authoring Scripts in a Text Editor <span style="float:right"> 13 </span></li>
-    <li> R from the Command Line            <span style="float:right"> 14 </span></li>
+    <li> Executing R Code                   <span style="float:right"> 14-15 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> III. Introduction to R </b>
 <ol class = "toc" type="none">
-    <li> R is an interpreted language      <span style="float:right"> 16 </span></li>
-    <li> R is dynamically typed language   <span style="float:right"> 17 </span></li>
-    <li> R has a few of its own file types <span style="float:right"> 18 </span></li>
+    <li> R is an interpreted language      <span style="float:right"> 17 </span></li>
+    <li> R is dynamically typed language   <span style="float:right"> 18 </span></li>
+    <li> R has a few of its own file types <span style="float:right"> 19 </span></li>
 </ol>
 
 <b class="toc_header"> IV. Programming Fundamentals </b>
 <ol class = "toc" type="none">
-    <li> Variables and Namespaces    <span style="float:right"> 20    </span></li>
-    <li> Introduction to Types       <span style="float:right"> 21    </span></li>
-    <li> Dollarstore Calculator Math <span style="float:right"> 22-24 </span></li>
-    <li> Controlling Program Flow    <span style="float:right"> 25-26 </span></li>
+    <li> Variables and Namespaces    <span style="float:right"> 21    </span></li>
+    <li> Introduction to Types       <span style="float:right"> 22    </span></li>
+    <li> Dollarstore Calculator Math <span style="float:right"> 23-25 </span></li>
+    <li> Controlling Program Flow    <span style="float:right"> 26-28 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -83,29 +83,29 @@ I'm pumped for this.
 
 <b class="toc_header"> V. Functions in R </b>
 <ol class="toc" type="none">
-    <li> Intro to Functional Programming <span style="float:right"> 28 </span></li>
-    <li> Required and Default Arguments  <span style="float:right"> 29 </span></li>
-    <li> Lexical Scoping                 <span style="float:right"> 30 </span></li>
-    <li> Lexical Scoping (pt. 2)         <span style="float:right"> 31 </span></li>
-    <li> Handling Errors                 <span style="float:right"> 32 </span></li>
-    <li> User-Defined Functions          <span style="float:right"> 33 </span></li>
+    <li> Intro to Functional Programming <span style="float:right"> 29 </span></li>
+    <li> Required and Default Arguments  <span style="float:right"> 30 </span></li>
+    <li> Lexical Scoping                 <span style="float:right"> 31 </span></li>
+    <li> Lexical Scoping (pt. 2)         <span style="float:right"> 32 </span></li>
+    <li> Handling Errors                 <span style="float:right"> 33 </span></li>
+    <li> User-Defined Functions          <span style="float:right"> 34 </span></li>
 </ol>
 
 <b class="toc_header"> VI. Common R Data Structures </b>
 <ol class = "toc" type="none">
-    <li> Vectors          <span style="float:right"> 35-36 </span></li>
-    <li> Lists            <span style="float:right"> 37-38 </span></li>
-    <li> Data Frames      <span style="float:right"> 39-41 </span></li>
+    <li> Vectors          <span style="float:right"> 36-37 </span></li>
+    <li> Lists            <span style="float:right"> 38-39 </span></li>
+    <li> Data Frames      <span style="float:right"> 40-42 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> VII. Introduction to Version Control </b>
 <ol class = "toc" type="none">
-    <li> What is Git?                <span style="float:right"> 43-44 </span></li>
-    <li> Setting Up Your Repo        <span style="float:right"> 45-46 </span></li>
-    <li> Local vs. Remote Repos      <span style="float:right"> 47-48 </span></li>
-    <li> Getting Started with GitHub <span style="float:right"> 49-50 </span></li>
+    <li> What is Git?                <span style="float:right"> 44-45 </span></li>
+    <li> Setting Up Your Repo        <span style="float:right"> 46-47 </span></li>
+    <li> Local vs. Remote Repos      <span style="float:right"> 48-49 </span></li>
+    <li> Getting Started with GitHub <span style="float:right"> 50-51 </span></li>
 </ol>
 
 --- .section_slide
@@ -119,7 +119,7 @@ I'm pumped for this.
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,7)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,3)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Personal Introduction</h2>
@@ -140,7 +140,7 @@ I'm pumped for this.
 
 <footer>
   <hr>
-  <span>&#x25cf; &#x25cf; &#x25cf;&nbsp;I. Introduction</span><span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,3)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Economics in the Age of Big Data</h2>
@@ -157,6 +157,25 @@ I'm pumped for this.
 </br></br></br></br>
 >- Other Commentary: [Einav (2013)](http://www.stanford.edu/~leinav/pubs/IPE2014.pdf) | [Varian (2013)](http://people.ischool.berkeley.edu/~hal/Papers/2013/BeyondBigDataPaperFINAL.pdf) | [Varian (2014)](http://people.ischool.berkeley.edu/~hal/Papers/2013/ml.pdf) | [Cagle (2014)](http://blogs.avalonconsult.com/blog/generic/ontology-for-fun-and-profit/)
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(3,3)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Course Objectives</h2>
+
+In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code. 
+
+The main objectives for the course are as follows:
+
+* Set up a data science software stack on your machine
+* Learn how to author and manage a statistical code base
+* Learn the basics of manipulating data using R
+* Learn how to incorporate external packages to make your scripts more powerful
+* Practice solving problems in R and presenting solutions in a code review format
+
 --- .section_slide
 
 <h2>Section II.</h2>
@@ -168,56 +187,141 @@ I'm pumped for this.
 
 <footer>
   <hr>
-  <script>FooterBubbles(1,5)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(1,6)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Installing R + RStudio</h2>
 
-text tbd
+Programming in R begins with installing R! To install R:
+
+* Go to https://cran.r-project.org/
+* Choose the appropriate download for your operating system (you'll see links like "Download R for Mac OS")
+* Open the file and follow the prompts on the screen
+
+R comes with a command-line client and a default GUI, but most users prefer to use other IDEs (*"integrated development environment"*). The most popular IDE for R, and the one we'll use in this class, is RStudio:
+
+* Go to https://www.rstudio.com/products/rstudio/download/
+* Choose the appropriate download under "Installers for Supported Platforms"
+* Open the file and follow the prompts on the screen
 
 --- .content_slide 
 
 <footer>
   <hr>
-  <script>FooterBubbles(2,5)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(2,6)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Authoring Scripts in RStudio</h2>
 
-text tbd
+Sequences of R code are typically saved in scripts with the file extension ".R". To open a blank script in RStudio and start editing, you can either go to "File --> New File --> R script" or choose "R Script" from the paper image in RStudio:
 
---- .content_slide 
+<center><img src="./assets/img/week1_rstudio_rscript.png"></center>
+
+
+--- .content_slide &twocol
 
 <footer>
   <hr>
-  <script>FooterBubbles(3,5)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(3,6)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Installing Sublime Text</h2>
 
-text tbd
+The world of data science is a world of text files...of many types. For working with other types of text files (e.g. config files, queries, JSON data, READMEs, and more), you'll want to install a full-featured text editor. One possibility is [Sublime Text 3](https://www.sublimetext.com/3), but you are welcome to use whatever works for you.
 
---- .content_slide 
+"Full-featured" text editors do far more than provide a simple window for entering basic text. 
+
+*** =left
+
+**Example features**
+
+* [syntax highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting)
+* [syntax validation](https://www.google.com/search?q=syntax+validation)
+* [pretty printing](https://en.wikipedia.org/wiki/Prettyprint)
+* [code execution](https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/)
+* [tab completion](https://en.wikipedia.org/wiki/Command-line_completion)
+
+*** =right
+
+<br>
+<img src="./assets/img/week1_syntax_highlighting.png">
+
+--- .content_slide &twocol
 
 <footer>
   <hr>
-  <script>FooterBubbles(4,5)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(4,6)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Authoring Scripts in a Text Editor</h2>
 
-text tbd
+When you author a script in RStudio, the file you create will be stored with the file extension ".R" by default. Out in the wild (i.e. editing in text editors), you are responsible for saving files with the appropriate file extension so the software that uses them can interpret them correctly. Trust me, there are [a lot of them](https://en.wikipedia.org/wiki/List_of_file_formats)
 
---- .content_slide 
+A few common ones you'll want to know for this course:
+
+*** =left
+
+**Scripts and Docs**
+
+- General text files (.md, .txt)
+- R scripts (.R, .r)
+- SQL queries (.sql)
+- Git-specific files (.gitignore, .gitkeep, .gitprofile)
+- Slides and reports (.css, .html, .pdf, .rmd)
+
+*** =right
+
+**Data**
+
+- API response data (.csv, .json, .xml)
+- R data formats (.rda, .rds, .RData)
+- MS Excel (.xls, .xlsx, .xlsm)
+- Zip archives (.zip, .tar, .gz, .bzip2)
+
+--- .content_slide  &twocol
 
 <footer>
   <hr>
-  <script>FooterBubbles(5,5)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(5,6)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>R from the Command Line</h2>
+<h2>Executing R Code: RStudio</h2>
 
-text tbd
+R is an [interpreted language](https://en.wikipedia.org/wiki/Interpreted_language) (more on this later). TL;DR, you need to send your code to some software that knows what to do with it ("R"). RStudio makes this super easy to do. You can excute your code interactively (one line at a time) in the R console or run your .R scripts using the "run" button.
+
+*** =left
+
+**Using Scripts**
+
+<img src="./assets/img/week1_rstudio_runscript.png">
+
+*** =right
+
+**The Console**
+
+<img src="./assets/img/week1_r_console.png">
+
+--- .content_slide  &twocol
+
+<footer>
+  <hr>
+  <script>FooterBubbles(6,6)</script>II. Setting Up Your Environment<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Executing R Code: The Command Line</h2>
+
+When R is just one of the tools in your stack, it's often quicker to execute your code from a terminal rather than going into a dedicated application for each type of file.
+
+**The R REPL**
+
+- R comes with a REPL ([read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) which allows you to quickly turn a terminal command line into an R console. 
+- To activate: `R` from the command line
+- To close: `quit()` or `q()`
+
+**Rscript**
+
+- If your commands are stored in a ".R" script, you can execute that script from the command line with the `Rscript` command. 
+- This command will run all the lines in the file in the order they've been written and potentially output some messages to the terminal.
 
 --- .section_slide
 
@@ -257,7 +361,11 @@ text tbd
 
 <h2>R has its own File Types</h2>
 
-text tbd
+|Extension    |Description                                                        |
+|:-----------:|:-----------------------------------------------------------------:|
+|.r, .R       | Text format for scripts.                                          |
+|.rda, .RData | R data format. One or many R objects                              |
+|.rds         | R data format. Single R object. Can be loaded into a named object |
 
 --- .section_slide
 
@@ -270,7 +378,7 @@ text tbd
 
 <footer>
   <hr>
-  <script>FooterBubbles(1,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(1,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Variables and Namespaces</h2>
@@ -281,7 +389,7 @@ text tbd
 
 <footer>
   <hr>
-  <script>FooterBubbles(2,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(2,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Introduction to Types</h2>
@@ -292,67 +400,199 @@ text tbd
 
 <footer>
   <hr>
-  <script>FooterBubbles(3,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(3,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Dollarstore Calculator Math (pt 1)</h2>
 
-text tbd
+```{r simpleMath1, eval = TRUE, echo = TRUE}
+# Addition with "+"
+4 + 5
+
+# Subtraction with "-"
+100 - 99
+```
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(4,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(4,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Dollarstore Calculator Math (pt 2)</h2>
 
-text tbd
+```{r simpleMath2, eval = TRUE, echo = TRUE}
+# Multiplication with "*"
+4 * 5
+
+# Division with "/"
+15 / 3
+
+# Exponentiation with "^"
+2^3
+```
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(5,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(5,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Dollarstore Calculator Math (pt 3)</h2>
 
-text tbd
+```{r simpleMath3, eval = TRUE, echo = TRUE}
+# Order of Operations
+4 * 5 + 5 / 5
+
+# Control with parentheses
+4 * (5 + 5) / 5
+```
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(6,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(6,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: If-Else</h2>
 
-text tbd
+Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
+
+```{r ifElse1, eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE}
+library(lubridate)
+library(gaussfacts)
+
+# Set some variable
+DAY <- as.character(wday(now(), label = TRUE, abbr = FALSE))
+print(DAY)
+
+# If it's Monday, print 2 Gauss facts. Otherwise, print 1
+if (DAY == "MONDAY"){
+    gaussfact()
+    gaussfact()
+} else {
+    gaussfact()
+}
+```
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(7,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(7,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Controlling Program Flow: If-Else</h2>
+
+What if you want to express more than two possible outcomes? For this, we could use R's `else if` construct to nest conditions. Note that conditional blocks can have any number of "else if" statements, but only one "else" block.
+
+```{r ifElse2, eval = FALSE, echo = TRUE}
+# Try to think through what this will do before you run it yourself:
+if (4 > 5){
+    print("3")
+} else if (6 <= (5/10)) {
+    print("1")
+} else if (4 + 4 + 4 == 12.0001) {
+    print("4")
+} else {
+    print("2")
+}
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(8,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: For Loops</h2>
 
-text tbd
+One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a `for` loop.
+
+```{r forLoop, eval = TRUE, echo = TRUE}
+# Create a vector
+x <- c(1,4,6)
+
+# NOT RUN: print the square of each element
+# print(1^2)
+# print(4^2)
+# print(6^2)
+
+# BETTER: Loop over the vector and print the square of each element
+for (some_number in x){
+    print(some_number^2)
+}
+```
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(8,8)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(9,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>Controlling Program Flow: While Loops</h2>
+<h2>Controlling Program Flow: While Loops (pt 1)</h2>
 
-text tbd
+For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R "look through an alphabetized list of movies and tell me if you find Apocalypse Now". A `for` loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a `while` loop.
+
+Here is the `for` loop implementation:
+
+```{r whileLoop1, eval = TRUE, echo = TRUE}
+movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
+MOVIE_TO_SEARCH_FOR <- "apocalypse now"
+
+# Naive for loop implementation
+i <- 1
+for (movie in movie_list) {
+    if (movie == MOVIE_TO_SEARCH_FOR) {
+        print(paste0(i, ": found it!"))
+    } else {
+        print(paste0(i, ": not found"))
+    }
+    i <- i + 1
+}
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(10,10)</script>IV. Programming Fundamentals<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Controlling Program Flow: While Loops (pt 2)</h2>
+
+And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants.
+
+```{r whileLoop2, eval = TRUE, echo = TRUE}
+movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
+MOVIE_TO_SEARCH_FOR <- "apocalypse now"
+
+# Faster while loop implementation
+KEEP_SEARCHING = TRUE
+i = 1
+while (KEEP_SEARCHING){
+    
+    # Check this element
+    if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
+        print(paste0(i, ": found it!"))
+        KEEP_SEARCHING = FALSE
+    } else {
+        print(paste0(i, ": not found"))
+    }
+    
+    # If we've reached the end, break out. Otherwise, increment the counter
+    if (i == length(movie_list)){
+        print("Done searching. This movie isn't in the list")
+    } else {
+        i <- i + 1
+    }
+}
+```
 
 --- .section_slide
 
@@ -370,7 +610,7 @@ text tbd
 
 <h2>Intro to Functional Programming</h2>
 
-text tbd
+R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions. 
 
 --- .content_slide
 

@@ -1,1 +1,6 @@
 *.Rhistory
+*.xlsx
+*.docx
+*.pptx
+*.rds
+*.rda
