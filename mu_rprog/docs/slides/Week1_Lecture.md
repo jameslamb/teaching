@@ -87,7 +87,6 @@ I'm pumped for this.
     <li> Required and Default Arguments  <span style="float:right"> 30 </span></li>
     <li> Lexical Scoping                 <span style="float:right"> 31 </span></li>
     <li> Lexical Scoping (pt. 2)         <span style="float:right"> 32 </span></li>
-    <li> Handling Errors                 <span style="float:right"> 33 </span></li>
     <li> User-Defined Functions          <span style="float:right"> 34 </span></li>
 </ol>
 
@@ -168,6 +167,7 @@ I'm pumped for this.
 
 In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code. 
 
+<br>
 The main objectives for the course are as follows:
 
 * Set up a data science software stack on your machine
@@ -339,7 +339,11 @@ When R is just one of the tools in your stack, it's often quicker to execute you
 
 <h2>R is an Interpreted Language</h2>
 
-text tbd
+Interpreted languages are those which break commands down into building blocks called "subroutines" that have already been compiled in machine code (soruce: [Wikipedia](https://en.wikipedia.org/wiki/Interpreted_language)). Much of the R source code (including these subroutines) is actually written in C.
+
+To ensure that that process of breaking down ("interpreting") code goes smoothly, R needs to use a few keywords to identify crucial operations. Like other scripting languages, it has a set of "reserved words" which you cannot use as object names.
+<br>
+<center><img src="./assets/img/week1_reserved_words.png"></center>
 
 --- .content_slide
 
@@ -350,7 +354,14 @@ text tbd
 
 <h2>R is a Dynamically Typed Language</h2>
 
-text tbd
+- Some languages like Java required you to declare the **types** of objects you create
+    - for example: string, numeric, integer, or boolean
+    - pros: strong typing makes software faster and more reliable (broadly speaking)
+    - cons: code is very verbose, difficult to prototype in and debug
+    
+- R is "dynamically typed"
+    - this means that you can create objects without explicitly telling R "this is an integer"
+    - in addition, you're free to re-assign variable names to different types at any time in scripts
 
 --- .content_slide
 
@@ -366,6 +377,19 @@ text tbd
 |.r, .R       | Text format for scripts.                                          |
 |.rda, .RData | R data format. One or many R objects                              |
 |.rds         | R data format. Single R object. Can be loaded into a named object |
+<br>
+
+
+```r
+# .r and .R scripts can be run inside R with source()
+source("my_script.R")
+
+# .rda and .RData files can be loaded into an R session with load()
+load("all_of_the_data.rda")
+
+# .rds files can be read directy into an R object
+someData <- readRDS("my_data.rds")
+```
 
 --- .section_slide
 
@@ -383,7 +407,18 @@ text tbd
 
 <h2>Variables and Namespaces</h2>
 
-text tbd
+When you execute a statement like `x <- 5` in R, you are creating an **object** in memory which holds the numeric **value** 5 and is referenced by the **variable name** "x".
+
+If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R's `search` command to examine the ordered list of namespaces that R will search in for variables.
+
+
+```r
+# Check the search path of namespaces
+search()
+
+# use ls() to list the objects in one of those namespaces
+ls("package:stats")
+```
 
 --- .content_slide
 
@@ -394,7 +429,12 @@ text tbd
 
 <h2>Introduction to Types</h2>
 
-text tbd
+Languages like Java and C are more verbose than R partially because they require programmers to explicitly declare *types* for data values. We will not go into the intricacy of typing in this course, but you should be familiar with the following types (this knowledge will serve you well across all languages):
+
+- *integer*: non-complex whole numbers. created with an L like - `anInteger <- 1L`
+- *numeric*: all real numbers. Default type for numbers in R - `someNums <- c(1.005, 2)`
+- *logical*: TRUE or FALSE. - `someLogicals <- c(TRUE, FALSE, FALSE)`
+- *character*: strings of arbitrary characters. Sometimes referred to informally as "text data". - `stringVar <- "noone knows what it means. It's provocative."`
 
 --- .content_slide
 
@@ -502,31 +542,13 @@ Soon after you start writing code (in any language), you'll inevitably find your
 
 
 ```r
-library(lubridate)
-library(gaussfacts)
-
-# Set some variable
-DAY <- as.character(wday(now(), label = TRUE, abbr = FALSE))
-print(DAY)
-```
-
-```
-## [1] "Sunday"
-```
-
-```r
-# If it's Monday, print 2 Gauss facts. Otherwise, print 1
-if (DAY == "MONDAY"){
-    gaussfact()
-    gaussfact()
-} else {
-    gaussfact()
+x <- 4
+if (x > 5){
+    print("x is above the threshold")
 }
 ```
 
-```
-## Gauss knows a polynomial-time algorithm for 3-SAT.
-```
+See the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/docs/slides/Week1_Supplement.html) for more examples.
 
 --- .content_slide
 
@@ -569,21 +591,15 @@ One of the most powerful characteristics of general purpose programming language
 # Create a vector
 x <- c(1,4,6)
 
-# NOT RUN: print the square of each element
-# print(1^2)
-# print(4^2)
-# print(6^2)
+# Print the square of each element one at a time
+print(1^2)
+print(4^2)
+print(6^2)
 
 # BETTER: Loop over the vector and print the square of each element
 for (some_number in x){
     print(some_number^2)
 }
-```
-
-```
-## [1] 1
-## [1] 16
-## [1] 36
 ```
 
 --- .content_slide
@@ -597,32 +613,7 @@ for (some_number in x){
 
 For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R "look through an alphabetized list of movies and tell me if you find Apocalypse Now". A `for` loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a `while` loop.
 
-Here is the `for` loop implementation:
-
-
-```r
-movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
-MOVIE_TO_SEARCH_FOR <- "apocalypse now"
-
-# Naive for loop implementation
-i <- 1
-for (movie in movie_list) {
-    if (movie == MOVIE_TO_SEARCH_FOR) {
-        print(paste0(i, ": found it!"))
-    } else {
-        print(paste0(i, ": not found"))
-    }
-    i <- i + 1
-}
-```
-
-```
-## [1] "1: not found"
-## [1] "2: found it!"
-## [1] "3: not found"
-## [1] "4: not found"
-## [1] "5: not found"
-```
+Consult the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/docs/slides/Week1_Supplement.html) for the `for` loop implementation to solve this problem.
 
 --- .content_slide
 
@@ -633,39 +624,7 @@ for (movie in movie_list) {
 
 <h2>Controlling Program Flow: While Loops (pt 2)</h2>
 
-And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants.
-
-
-```r
-movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
-MOVIE_TO_SEARCH_FOR <- "apocalypse now"
-
-# Faster while loop implementation
-KEEP_SEARCHING = TRUE
-i = 1
-while (KEEP_SEARCHING){
-    
-    # Check this element
-    if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
-        print(paste0(i, ": found it!"))
-        KEEP_SEARCHING = FALSE
-    } else {
-        print(paste0(i, ": not found"))
-    }
-    
-    # If we've reached the end, break out. Otherwise, increment the counter
-    if (i == length(movie_list)){
-        print("Done searching. This movie isn't in the list")
-    } else {
-        i <- i + 1
-    }
-}
-```
-
-```
-## [1] "1: not found"
-## [1] "2: found it!"
-```
+The `while` loop implementation can be found in the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/docs/slides/Week1_Supplement.html). Notice that it stops checking once it finds what it wants, making it potentially more efficient than the `for` implementation.
 
 --- .section_slide
 
@@ -678,29 +637,64 @@ while (KEEP_SEARCHING){
 
 <footer>
   <hr>
-  <script>FooterBubbles(1,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(1,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Intro to Functional Programming</h2>
 
-text tbd
+R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions. 
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(2,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(2,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>Required and Default Arguments</h2>
+<h2>Required Arguments</h2>
 
-text tbd
+- R functions take 0 or more arguments...basically named variables that the function uses to do it's work
+- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt` will return the square root of each element
+- In this case, we'd say `x` is a *required argument* of `sqrt`
+
+
+```r
+# Take the square root of a vector of numbers
+sqrt(x = c(1,4,9,16,25))
+
+# Note that calling this function without the argument will throw an error!
+sqrt()
+### Error in sqrt(): 0 arguments passed to `sqrt` which requires 1
+```
 
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(3,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(3,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Default Argument Values</h2>
+
+- For more complicated functions, passing values to each argument can get burdensome
+- To handle this, R allows function authors to specify *default arguments*. These are values that certain arguments will take automatically unless you decide to overwrite them
+- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`. 
+
+
+```r
+# 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
+rand_nums <- rnorm(n = 100)
+
+# 100 random draws from a normal distribution w/ mean 4.5 and standard deviation 1
+rand_nums <- rnorm(n = 100, mean = 4.5)
+```
+
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(4,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Lexical Scoping</h2>
@@ -711,7 +705,7 @@ text tbd
 
 <footer>
   <hr>
-  <script>FooterBubbles(4,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(5,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Lexical Scoping (pt 2)</h2>
@@ -722,18 +716,7 @@ text tbd
 
 <footer>
   <hr>
-  <script>FooterBubbles(5,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
-</footer>
-
-<h2>Handling Errors</h2>
-
-text tbd
-
---- .content_slide
-
-<footer>
-  <hr>
-  <script>FooterBubbles(6,6)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(7,7)</script>V. Functions in R<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>User-Defined Functions</h2>
@@ -756,6 +739,24 @@ text tbd
 
 <h2>Vectors (pt 1)</h2>
 
+- Because R was designed for use with statistics, most of its operations are [vectorized](http://www.cs.cornell.edu/courses/cs1112/2016sp/Exams/exam2/vectorizedCode.pdf)
+- You can create vectors a few ways:
+
+
+```r
+# Ordered sequence of integers
+1:5
+
+# Counting by 2s
+seq(from = 0, to = 14, by = 2)
+
+# Replicate the same values
+rep(TRUE, 6)
+
+# Concatenate multiple values with the "c" operator
+c("all", "of", "the", "lights")
+```
+
 --- .content_slide
 
 <footer>
@@ -764,6 +765,28 @@ text tbd
 </footer>
 
 <h2>Vectors (pt 2)</h2>
+
+- Vectors are at the heart of many R operations. Try a few more practice exercises:
+
+
+```r
+# Watch out! Mixing types wil lead to silent coercion
+c(1, TRUE, "hellos")
+
+# Some functions, when applied over a vector, return a single value
+is.numeric(rnorm(100))
+
+# Others will return a vector of results
+is.na(c(1, 5, 10, NA, 8))
+
+# Vectors can be named
+batting_avg <- c(youkilis = 0.300, ortiz = 0.355, nixon = 0.285)
+
+# You can combine two vectors with c()
+x <- c("a", "b", "c")
+y <- c("1", "2", "3")
+c(x, y)
+```
 
 --- .content_slide
 
@@ -774,6 +797,26 @@ text tbd
 
 <h2>Lists (pt 1)</h2>
 
+Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle casses where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
+
+|Capabilities                        |Vectors |Lists   |
+|:----------------------------------:|:------:|:------:|
+|Optional use of named elements      |&#x2714;|&#x2714;|
+|Support math operations like mean() |&#x2714;|        |
+|Hold multiple types                 |        |&#x2714;|
+|Hold multiple objects               |        |&#x2714;|
+
+
+
+```r
+# Create a list with list()
+myList <- list(a = 1, b = rep(TRUE, 10), x = c("shakezoola", "mic", "rulah"))
+
+# Examine it with str()
+str(myList)
+```
+
+
 --- .content_slide
 
 <footer>
@@ -781,7 +824,26 @@ text tbd
   <script>FooterBubbles(4,7)</script>VI. Common R Data Structures<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>Vectors (pt 2)</h2>
+<h2>Lists (pt 2)</h2>
+
+We saw earlier how you can use `for` loops to walk over a vector and do something with each element. You can certainly do the same thing with a list, but it can be a bit tedious.
+
+```r
+# Create a list
+studentList <- list(kanye = c(80, 90, 100), talib = c(95, 85, 99), common = c(100, 100, 99))
+
+# Get average grades with a for loop
+grades <- vector(mode = "list", length = 3)
+for (i in 1:length(studentList)){
+    grades[[i]] <- mean(studentList[[i]])
+}
+```
+Luckily, R provides a built-in function called `lapply` to handle this more expressively. We'll cover R's [apply family of functions](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU) later in the course. Here's a sneak peek:
+
+```r
+# Better way with lapply
+grades <- lapply(studentList, mean)
+```
 
 --- .content_slide
 
@@ -792,6 +854,23 @@ text tbd
 
 <h2>Data Frames (pt 1)</h2>
 
+Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.
+
+Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type. 
+
+
+```r
+# Create a dataframe!
+myDF <- data.frame(time_period  = c(1, 2, 3, 4, 5),
+                   temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20),
+                   station      = c("A", "B", "A", "A", "B"),
+                   is_gov_owned = c(TRUE, FALSE, TRUE, TRUE, FALSE)
+                   )
+
+# Check out the structure of this thing
+str(myDF)
+```
+
 --- .content_slide
 
 <footer>
@@ -800,6 +879,23 @@ text tbd
 </footer>
 
 <h2>Data Frames (pt 2)</h2>
+
+R comes with some sample data sets you can experiment with. Let's load the `mtcars` data.frame and test out some new commands!
+
+
+```r
+# Load the mtcars dataframe
+data("mtcars")
+
+# Check out its structure
+str(mtcars)
+
+# View the top 10 rows
+head(mtcars, n = 10) # could use "tail" for the bottom 10
+
+# Find all the unique values of "cyl" (the number of engine cylinders)
+unique(mtcars$cyl)
+```
 
 --- .content_slide
 
@@ -810,6 +906,19 @@ text tbd
 
 <h2>Data Frames (pt 3)</h2>
 
+We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I'd like to introduce you to one more looping function: `apply`.
+
+`apply` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply`.
+
+
+```r
+# Get the mean of each column
+apply(mtcars, MARGIN = 2, FUN = mean)
+
+# Get the mean of each row (nonsensical, just illustrating
+apply(mtcars, MARGIN = 1, FUN = mean)
+```
+
 --- .section_slide
 
 <h2>Section VII.</h2>
@@ -817,7 +926,7 @@ text tbd
 </br></br></br>
 <h2>Introduction to Version Control</h2>
 
---- .content_slide
+--- .content_slide &twocol
 
 <footer>
   <hr>
@@ -825,6 +934,18 @@ text tbd
 </footer>
 
 <h2>What is Git?</h2>
+
+*** =left
+
+- Git is a version-control software created by [Linus Torvald](https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds)(who also invented Linux)
+- Git is used to manage versions of source code files without having to carry around files with names like "my_code_v1_v2_FINAL.py"
+
+*** =right
+
+<img src="./assets/img/week1_git_xkcd.png">
+
+image credit: [xkcd](https://xkcd.com/1597/)
+
 
 --- .content_slide
 
@@ -835,6 +956,21 @@ text tbd
 
 <h2>Setting Up Your Repo (pt 1)</h2>
 
+A Git repository ("repo") is a collection of files that are tracked by Git. At a high level, setting up a repository involves the following steps:
+
+1. Create some files
+2. Initialize a git repository in the directory where you store the files
+3. Tell Git to track some of the files
+
+From the command line prompt (Git Bash for Windows users), run the following to create a sample directory and initialize a Git repository in it.
+
+```
+mkdir -p ~/repos/mu_rprog_files
+cd ~/repos/mu_rprog_files
+git init
+echo "This repo holds my notes and scripts from R Programming class" > README.md
+```
+
 --- .content_slide
 
 <footer>
@@ -843,6 +979,14 @@ text tbd
 </footer>
 
 <h2>Setting Up Your Repo (pt 2)</h2>
+
+Now we have a simple repository set up. Let's check out what's happening in it!
+
+You can run `git status` to check the current status of your repo and `git ls-files` to list all the files being tracked in the repository.
+
+<center><img src="./assets/img/week1_git_status.png"></center>
+
+Even though we do have one file, `README.md`, in this directory, we haven't told Git to track it yet! This is why `git status` lists it as an untracked file and `git ls-files` returns nothing.
 
 --- .content_slide
 
@@ -853,23 +997,26 @@ text tbd
 
 <h2>Setting Up Your Repo (pt 3)</h2>
 
+Let's add that file to the repository! Git tracks *changes* to projects (rather than keeping entire copies of files), so we need to do the following to change the repo:
+
+1. Make some changes (add/delete/edit files)
+2. use `git add <file_name>` to *stage* your changes
+    - translation: "tell Git we want to make this change, but don't make it permanent yet"
+3. use `git commit -m "some text describing changes"` to *commit* your changes
+    - translation: "make the changes permanent and create a checkpoint at this repo state"
+
+See example terminal session on the next slide.
+
 --- .content_slide
 
 <footer>
   <hr>
-  <script>FooterBubbles(5,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(4,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>Local vs. Remote Repos (pt 1)</h2>
+<h2>Setting Up Your Repo (pt 4)</h2>
 
---- .content_slide
-
-<footer>
-  <hr>
-  <script>FooterBubbles(6,9)</script>VII. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
-</footer>
-
-<h2>Local vs. Remote Repos (pt 2)</h2>
+<center><img src="./assets/img/week1_git_commit.png"></center>
 
 --- .content_slide
 
@@ -880,6 +1027,15 @@ text tbd
 
 <h2>Getting Started with GitHub (pt 1)</h2>
 
+- **Creating An Account**
+    - head to https://github.com/ and create your account!
+    - the free tier accounts are very good and will likely be more than you ever need, but note that premium and
+    enterprise accounts are available if you need more advanced features
+<br>
+<center><img src="./assets/img/week1_github_account.png"></center>
+- Check out [Apollo's source code is now on GitHub](https://www.engadget.com/2016/07/10/apollo-11-source-code-on-github/)
+
+
 --- .content_slide
 
 <footer>
@@ -889,6 +1045,17 @@ text tbd
 
 <h2>Getting Started with GitHub (pt 2)</h2>
 
+- You can use GitHub (GH) as a hub to store [remote repositories](https://help.github.com/articles/about-remote-repositories/)
+    - Primary purpose: allow others to contribute to and use your codebase
+    - Secondary purpose: back up files in the cloud so you can access them from anywhere
+- steps to create your first remote repository:
+    1. Log in to GH and navigate to the "Repositories" tab and click "new"
+    2. Choose a repository name (let's call ours "mu_rprog_files")
+    3. Choose a privacy level ("Public" is fine for most cases) and click "Create Repository"
+<br>
+<center><img src="./assets/img/week1_create_gh_repo.png"></center>
+
+
 --- .content_slide
 
 <footer>
@@ -897,4 +1064,52 @@ text tbd
 </footer>
 
 <h2>Getting Started with GitHub (pt 3)</h2>
+
+- **Clone your remote repo**
+    1. on your local machine, open up a command line session and use `cd` to switch to the directory where you want to store the repo
+    2. grab the URL of the repo you want and use `git clone` to pull a copy.
+    3. Change directories into the newly-created repo and run `git remote -v` to check that you have a remote set up
+    
+**In-Class Exercise**
+
+
+```bash
+cd ~/repos
+git clone https://github.com/ramnathv/slidify
+cd slidify
+git remote -v
+
+# Add a remote for our mu_rprog repo!
+cd ~/repos/mu_rprog_files
+git remote add origin https://github.com/YOUR_USERNAME/mu_rprog_files
+git push origin master
+```
+
+```
+## E
+```
+
+--- .section_slide
+
+<h2>Section VIII.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Additional Resources</h2>
+
+--- .content_slide &twocol
+
+<footer>
+  <hr>
+  VIII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Learnign More on Your Own</h2>
+
+We covered a lot of stuff this week, and will have to be selective about which things we delve deeper into in the following weeks. For the brave and curious, I've included a few online free resources for learning more about the technologies we discussed.
+
+**Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/)
+**Git**: [Git Immersion](http://gitimmersion.com/) | [Codecademy](https://www.codecademy.com/learn/learn-git) | [Try Git](https://www.codeschool.com/courses/try-git) | [Git Documentation](https://git-scm.com/documentation)
+**R**: [DataCamp](https://www.datacamp.com/) | [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
+**RStudio**: [RStudio blog](https://blog.rstudio.org/)
+**Sublime Text**: [Sublime Text 3 docs](https://www.sublimetext.com/docs/3/) | [Package Control](https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/)
 
