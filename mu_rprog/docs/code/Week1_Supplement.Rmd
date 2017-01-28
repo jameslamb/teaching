@@ -225,7 +225,7 @@ spec2 <- as.formula(mpg ~ hp + wt)
 myModels <- fitModels(spec_list = list(spec1, spec2), training_data = mtcars)
 
 # Display
-stargazer::stargazer(myModels)
+stargazer::stargazer(myModels, type = "text")
 ```
 
 <h2>Vectors</h2>

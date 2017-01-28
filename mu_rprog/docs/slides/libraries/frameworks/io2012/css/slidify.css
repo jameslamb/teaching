@@ -370,18 +370,8 @@ pre code {
   width: 100%;
 }
 
-.title-slide {
-  background-image:url("./../../../../assets/img/beaker.jpg");
-  background-size: cover;
-}
-
 .title-slide hgroup > h1{
  font-family: 'Oswald', 'Helvetica', sanserif; 
-}
-
-.title-slide hgroup > h1, 
-.title-slide hgroup > h2 {
-  color: /*#FF9900;*/ /*#00C990*/ #62FFD2;
 }
 
 

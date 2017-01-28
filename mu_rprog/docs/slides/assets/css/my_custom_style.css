@@ -52,3 +52,9 @@ slide.section_slide h2 {
 /*code.r {
 	font-size: 8pt;
 }*/
+
+/*=== Title slide fonts ===*/
+.title-slide hgroup > h1, 
+.title-slide hgroup > h2 {
+  color: /*#FF9900;*/ /*#00C990*/ #ffa500;
+}

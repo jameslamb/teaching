@@ -13,7 +13,16 @@ lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libr
 knit        : slidify::knit2slides
 ---
 
+<!--Read in JavaScript function that prints footer bubbles-->
 <script src="assets/js/footer_bubbles.js"></script>
+
+<!--Define background image for title slide-->
+<style>
+.title-slide {
+  background-image:url("assets/img/beaker.jpg");
+  background-size: cover;
+}
+</style>
 
 <footer>
   <hr></hr>

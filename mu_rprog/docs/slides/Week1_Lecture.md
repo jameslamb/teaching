@@ -15,6 +15,13 @@ knit        : slidify::knit2slides
 
 <script src="assets/js/footer_bubbles.js"></script>
 
+<style>
+.title-slide {
+  background-image:url("assets/img/beaker.jpg");
+  background-size: cover;
+}
+</style>
+
 <footer>
   <hr></hr>
   <span style="float:right">ECON 6931 - R Programming</span>
