@@ -13,3 +13,7 @@ Slides:
 [Week3](https://jameslamb.github.io/teaching/mu_rprog/docs/slides/Week3_Lecture.html#1) |
 [Week4](https://jameslamb.github.io/teaching/mu_rprog/docs/slides/Week4_Lecture.html#1) |
 [Week5](https://jameslamb.github.io/teaching/mu_rprog/docs/slides/Week5_Lecture.html#1)
+
+Assignments:
+
+[Programming Assignment 1](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/programming_assignment1.R) | [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/docs/assignments/programming_assignment2.html)
