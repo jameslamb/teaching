@@ -1,0 +1,147 @@
+---
+title : Final Project
+output:
+  html_document:
+    toc: true
+    theme: spacelab
+---
+
+<h2>Final Project Introduction</h2>
+
+The learning objectives for this course can be summarized by the terms "independence, ingenuity, and implementation". This final project, which is worth 45\% of your final grade, is your opportunity to test the progress you've made along each of these dimensions. Once you've completed it, you'll be able to say that you have experience in the following:
+
+- Designing an end-to-end analysis pipeline in R
+- Managing a multi-file code base
+- Cleaning messy real-world data
+- Using data visualization to communicate results
+
+Your task for the final project is construct a small analysis of a real-world dataset relevant to economics, finance, or business. The main deliverable will be one or more R scripts (you are more than welcome to have, for example, a `get_data.R` and a separate `analyze_data.R`) which accomplish all the following tasks:
+
+1. **Read in data from the web or from a local file**
+    - If you download one or more files yourself and have your code read them from your local machine, you must include a comment or printed message in your script that tells users exactly how to download the dataset themselves
+2. **Preprocess those data so they are ready for analysis**
+    - Put the data into a data.frame, data.table, or matrix
+    - Ensure that all column types are correct
+    - Check for missing values and do something to handle them
+    - Any other preprocessing or transformations your project requires
+3. **Conduct a statistical analysis with the data**. Examples include:
+    - Estimating one or more regressions to examine relationships in the data
+    - Using summary statistics like grouped means to compare different subsets of data
+    - Using hypothesis tests like the t-test and chi-squared test to make assertions about similarities and differences between variables
+    - Training a classifier that can be used to make predictions on new, incoming data
+    - Anything else that interests you
+4. **Create at Least Two Visualizations to Communicate Results** Examples:
+    - Histograms/densities to compare probability distributions
+    - Line plots to compare progression of variables over time
+    - Tables of regression results (formatted with `stargazer`, perhaps) showing comparisons across models
+
+While it is certainly possible to complete the tasks listed above with the base functionality of R, you will likely find that using external libraries will make your code more powerful and expressive. The ability to use external packages is another key learning outcome for the course. For the remainder of this assignment, I'll refer to **the package list**, [this package list I've hosted on GitHub](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/final_project_packages.md). In this assignment, you must use **at least one** external package from each of the three sections in **the package list**: "Data Retrieval and Munging", "Math and Statistics", and "Visualization, Presentation, and Reporting". You are, of course, welcome to use any other packages you deem appropriate *in addition to this minimum requirement*.
+
+See the following sections for submission details on each of the four parts of this assignment
+
+---
+
+<h2>Part 1: Project Proposal</h2>
+
+<h3>Description</h3>
+
+The first deliverable for this project is a 1-2 page written report detailing your plans for the final project. This is not meant to lock you in to a particular data set, set of packages, or approach...all those details can change between this report and your final project submission in Week 5. It is just meant to get your thinking about the project and ensure that you're on the right track.
+
+This report should answer the following items:
+
+- What data set do you plan to use? Where can others find it? What variables does it contain?
+- What is the question you're trying to answer?
+    - e.g. *"I am using data on Japanese 10-year bond yields and inflation to predict BOJ monetary policy dovishness / hawkishness."*
+- What "Data Retrieval and Munging" package do you plan to use? What does that package do?
+- What "Math and Statistics" package do you plan to use? What does that package do?
+- What "Visualization, Presentation, and Reporting" package do you plan to use? What does that package do?
+
+<h3>Submission</h3>
+
+This component of the project is **due prior to our Week 4 session (Feb 11)**. 
+
+Please submit your report (as a Word doc, PDF, or HTML doc) to the "Final Project Proposal" dropbox on D2L.
+
+---
+
+<h2>Part 2: R Script(s)</h2>
+
+<h3>Description</h3>
+
+This script is the main deliverable for the class...it is worth 20\% of your final grade. This is the part of the assignment where you get to show off what you've learned! Your goal is to create one or more R scripts that meet the requirements listed in the project description above.
+
+<center><img src="assets/img/programming_not_sure.jpg"></center>
+
+<h3>Submission</h3>
+
+This component of the project is **due prior to our Week 5 session (Feb 18)**. 
+
+Please submit your code to the "Final Project (script + report)" dropbox on D2L. If you use multiple scripts (totally acceptable!), please include an additional script called "build.R" which species the order to run the scripts in.
+
+Your script will be scored out of 100 points, using the following rubric:
+
+|Grade Item                                                                          |Total Possible Points     |
+|:-----------------------------------------------------------------------------------|:------------------------:|
+|**All-or-Nothing Grade Items**                                                      |                          |
+|&nbsp;&nbsp;1. All code runs without error                                          |25                        |
+|&nbsp;&nbsp;2. Uses at least one Data Retrieval and Munging package                 |5                         |
+|&nbsp;&nbsp;3. Uses at least one Math and Statistics package                        |5                         |
+|&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |5                         |
+|**Code Quality Items**                                                              |                          |
+|&nbsp;&nbsp;1. Code commenting                                                      |10                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(5 points) Clearly commented*                              |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(3 points) Minimal comments, code is hard to understand*   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0 points) No comments*                                    |                          |
+|&nbsp;&nbsp;2. Code Organization                                                    |15                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15 points) Well-organized, intuitive flow*             |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-11 points)  Difficult to understand without comments*   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8 points)   Takes significant effort to understand*     |                          |
+|&nbsp;&nbsp;3. Use of External Functions                                            |15                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(11-15 points) Appropriate use of :: library()*            |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(6-10 points)  Some but not all calls use :: or library()* |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-5 points)  Unclear use of external functions*           |                          |
+|&nbsp;&nbsp;4. Problem Solving                                                      |20                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(15-20 points) Excellent problem decomposition, R solution*|                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-14 points) Good solution, meets minimum requirements*   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-7 points) Solution appears rushed, sloppy*              |                          |
+
+---
+
+<h2>Part 3: Code Review</h2>
+
+<h3>Description</h3>
+
+In professional data science teams, it is common for team members to present their work in internal "code reviews", small meetings where a data scientist shares brief background on the problem he/she sought to solve and then invites criticism of his/her code.
+
+This can be a nerve-wracking experience in the context of a new job (trust me), so I'd like to give you the opportunity to practice sharing code with others in the safe setting of this introductory course. In the code review component of this project, you will do a 5-10 minutes in-class presentation of your final project.
+
+<h3>Submission</h3>
+
+Code reviews will be done in-class **during our Week 5 session (Feb 18)**. You do not need to present slides or turn in anything on D2L. 
+
+Please set up a Google doc called "FIRSTNAME LASTNAME <> MU RPROG Code Review" and give the rest of the class edit rights. While you present, everyone in the class will have this doc up on their machines and use it to give you comments and questions. The benefit of this practice, in professional settings, is that days after your code review you'll have a written record of your audience's feedback.
+
+Be prepared to show your code + report in front of the class. Your code review should consist of the following:
+
+- Introduce the problem you investigated
+- Explain the data set (variables, source)
+- Show your code on-screen and explain the choices you made.
+    - e.g. *"I decided to use the stringr package to clean up the text I scraped from Yelp"*
+- Share anything you learned through this project which we did not explicitly cover in class
+
+<center><img src = "assets/img/lumbergh_code_review.jpg"></center>
+
+---
+
+<h2>Part 4: Written Report</h2>
+
+<h3>Description</h3>
+
+The final deliverable for this project is a written report with your findings. This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client. Your report should focus on the problem (not the specifics of the code). Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz). 
+
+<h3>Submission</h3>
+
+This component of the project is **due prior to our Week 5 session (Feb 18)**. Please upload your report to the "Final Project (script + report)" dropbox on D2L. 
+
+---
+

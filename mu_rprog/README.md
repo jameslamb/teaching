@@ -16,4 +16,4 @@ Slides:
 
 Assignments:
 
-[Programming Assignment 1](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/programming_assignment1.R) | [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/docs/assignments/programming_assignment2.html)
+[Programming Assignment 1](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/programming_assignment1.R) | [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/docs/assignments/programming_assignment2.html) | [Final Project](https://jameslamb.github.io/teaching/mu_rprog/docs/assignments/final_project.html)
