@@ -1,0 +1,117 @@
+---
+title : Programming Assignment 2
+output:
+  html_document:
+    toc: true
+    theme: spacelab
+---
+
+<h2>Assignment Introduction</h2>
+
+In the final project, you'll be asked to use some external packages to create an R processing pipeline that gets data, cleans it, analyzes it, and present results. In this assignment, we're going to work with some of those packages to get familiar with them.
+
+For the remainder of this assignment, I'll refer to **the package list**. Please see [the list on GitHub](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/final_project_packages.md).
+
+<h2>Part 1: Reading Package Docs</h2>
+
+<h3>Description</h3>
+
+As we learned in the first week of class, you can access R function documentation using syntax like `?function`. This documentation typically contains a description of the function's purpose, a list of parameters, and the function signature. In addition, many package authors include examples, small blocks of code using the package's functionality that you can copy, paste, and run directly.
+
+In this part of the assignment, I'd like you to practice reading and running these examples. Please copy one example of each of the following functions from its documentation. I encourage you to try running these yourself, but you do not need to include the output in your submission.
+
+- `ymd_hms` from the `lubridate` package
+- `str_extract` from the `stringr` package
+- `map` from the `purrr` package
+- `map_dbl` from the `purrr` package
+- Two functions from the "Data Retrieval and Munging" section of **the package list**
+    - NOTE: must be from two different packages
+- Two functions from the "Math and Statistics" section of **the package list**
+- Two functions from the "Visualization, Presentation, and Reporting" section of **the package list**
+    - NOTE: must be from two different packages
+    
+<h3>Submission</h3>
+
+Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt1.R*. This file should contain 10 sections, one for each of the functions above. Please copy one example per function into your script, and use the format given in the example below:
+
+```{r echo = TRUE, eval = FALSE}
+#==============================================================================#
+# package: data.table
+# function: setnames
+
+# Example:
+DT = data.table(a=1:2,b=3:4,c=5:6) # compare to data.table
+try(tracemem(DT))                  # by reference, no deep or shallow copies
+setnames(DT,"b","B")               # by name, no match() needed (warning if "b" is missing)
+#==============================================================================#
+#==============================================================================#
+# package: stats
+# function: cor
+
+# Example:
+cor(1:10, 2:11) # == 1
+#==============================================================================#
+```
+
+<h2>Part 2: Getting and Cleaning Data</h2>
+
+<h3>Description</h3>
+
+As you wade further into the world of data science, you'll hear this said often: [most of a data scientist's time is spent getting and cleaning data](http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html). Let's practice that crucial activity.
+
+In the second half of this assignment, we'll be working with data from [Quandl](https://www.quandl.com/). Quandl offers a single interface into a wide variety of datasets. You can find populations of small island nations, a history of Japanese stock prices, European nonfat dry milk inventories, and much more!
+
+Using the resources I've provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change), join them into a single data.frame, and plot them against each other on a line plot using R's base plotting system.
+
+- Brief R + Quandl tutorial: [Quandl R docs](https://www.quandl.com/tools/r)
+- Quandl pages for the data:  [U.S. inflation](https://www.quandl.com/data/RATEINF/INFLATION_USA-Inflation-YOY-USA) | [Japanese inflation](https://www.quandl.com/data/RATEINF/INFLATION_JPN-Inflation-YOY-Japan)
+- Tutorial on creating line plots in R's base plotting system: http://www.harding.edu/fmccown/r/
+
+<h3>Submission</h3>
+
+Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt2.R*. In the example script below, I've filled in the pieces needed to pull the U.S. data and plot it. Your task is to fill out the rest of this script so that Japan is added to the same plot.
+
+You need to complete all of the following steps, indicated by the phrase `### FILL THIS IN ###` in the example script below:
+
+- Add the command to pull the [Japanese inflation data](https://www.quandl.com/data/RATEINF/INFLATION_JPN-Inflation-YOY-Japan)
+- Rename the columns of the Japanese data so that the inflation series is called "JPN_INF_YOY"
+- Add the Japanese data to the `merge()` command to create a single dataset for plotting
+    - please look at the documentation for `?merge`
+- set the plot type to "line"
+- set the plot title to "Quandl Inflation Data""
+- set the plot y-axis label to "CPI Inflation (%yoy)"
+- set the plot x-axis label to "time"
+- add the Japanese data to the plot with `lines(type = "l")`
+    - use the `col` argument within `lines()` to set the color of this line to "red"
+
+```{r quandlData, eval = FALSE, echo = TRUE, message = FALSE, warning=FALSE}
+# Load dependencies
+library(Quandl)
+
+# Get Data
+usaDF <- Quandl::Quandl(code = "RATEINF/INFLATION_USA")
+jpnDF <- ### FILL THIS IN ###
+
+# rename columns
+names(usaDF) <- c("Date", "USA_INF_YOY")
+names(jpnDF) <- ### FILL THIS IN ###
+    
+# Combine the two data.frames with merge()
+mergedDF <- merge(x = usaDF, by = "Date", y = ### FILL THIS IN ###)
+                      
+# Plot the two series
+plot(x = mergedDF$Date, 
+     y = mergedDF$USA_INF_YOY,
+     type = ### FILL THIS IN ###,
+     main = ### FILL THIS IN ###,
+     xlab = ### FILL THIS IN ###,
+     ylab = ### FILL THIS IN ###)
+         
+lines(x = ### FILL THIS IN ###, type = "l", col = ### FILL THIS IN ###)
+```
+
+<h2>I Believe In You</h2>
+
+<center><img src = "assets/img/good_luck.jpg"></center>
+
+<br><br><br>

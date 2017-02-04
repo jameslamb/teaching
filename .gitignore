@@ -4,3 +4,4 @@
 *.pptx
 *.rds
 *.rdamu_rprog/docs/slides/Week*.md
+*.DS_Store
