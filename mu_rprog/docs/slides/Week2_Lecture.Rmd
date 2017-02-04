@@ -831,7 +831,7 @@ In the context of statistical programming, text files that are "unstructured" ar
 
 Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)(basically just pattern-matching on strings) to extract relevant features like word counts. For example:
 
-See the Shakespeare exampe in the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/docs/code/Week2_Supplement.html) for some hands-on experience with this approach.
+See the Shakespeare example in the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/docs/code/Week2_Supplement.html) for some hands-on experience with this approach.
 
 --- .section_slide
 

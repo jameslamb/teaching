@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ECON 6931 - R Programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="ECON 6931 - R Programming">
+  <meta name="author" content="James Lamb">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/my_custom_style.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>ECON 6931 - R Programming</h1>
+    <h2>Week 3</h2>
+    <p>James Lamb<br/>Data Scientist | Uptake</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!--Read in JavaScript function that prints footer bubbles-->
+
+<script src="assets/js/footer_bubbles.js"></script>
+
+<!--Define background image for title slide-->
+
+<style>
+.title-slide {
+  background-image:url("assets/img/week3_statler_waldorf.jpeg");
+  background-size: cover;
+}
+</style>
+
+<p><footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Welcome back!</h2>
+
+<p><center><img src="assets/img/week3_programming.png" height=350px width = 650px></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="toc_slide" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Contents</h2>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><b class="toc_header"> I. Programming Assignment 1 Review</b></p>
+
+<ol class="toc" type="none">
+    <li> In-class Walkthrough <span style="float:right"> 5 </span></li>
+</ol>
+
+<p><b class="toc_header"> II. Intro Topic Grab Bag </b></p>
+
+<ol class="toc" type="none">
+    <li> Logical Operators <span style="float:right"> 6-8 </span></li>
+    <li> Factors <span style="float:right"> 9-11 </span></li>
+    <li> File Paths <span style="float:right"> 12-13 </span></li>
+    <li> R + Excel <span style="float:right"> 14-16 </span></li>
+</ol>
+
+<p><b class="toc_header"> III. Working With Strings </b></p>
+
+<ol class="toc" type="none">
+    <li> Common Preprocessing Steps  <span style="float:right"> 17 </span></li>
+    <li> Intro to Regular Expressions <span style="float:right"> 20-22 </span></li>
+    <li> Tokenization <span style="float:right"> 18 </span></li>
+</ol>
+
+</div>
+<div style='float:right;width:48%;'>
+  <ol class="toc" type="none">
+    <li> Identifying Keywords <span style="float:right"> 19 </span></li>
+</ol>
+
+<p><b class="toc_header"> IV. Dealing with Missing Data </b></p>
+
+<ol class = "toc" type="none">
+    <li> Specialness of NAs<span style="float:right"> 23 </span></li>
+    <li> You Should Care About NAs<span style="float:right"> 24  </span></li>
+    <li> Strategy 1: Total Eradication<span style="float:right"> 25  </span></li>
+    <li> Strategy 2: Handle on Subsets<span style="float:right"> 26-27  </span></li>
+    <li> Strategy 3: Imputation<span style="float:right"> 28 </span></li>
+</ol>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="toc_slide" id="slide-3" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr></hr>
+  <span style="float:right"> ECON 6931 - R Programming </span>
+</footer></p>
+
+<h2>Contents</h2>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><b class="toc_header"> V. Visualizing Data </b></p>
+
+<ol class = "toc" type="none">
+    <li> Base Plotting System<span style="float:right"> 16-21</span></li>
+    <li> Graphics Devices<span style="float:right"> 15    </span></li>
+    <li> ggplot2<span style="float:right"> 22-27</span></li>
+    <li> rCharts<span style="float:right"> 28-30</span></li>
+    <li> rbokeh<span style="float:right"> 31-32</span></li>
+</ol>
+
+<p><b class="toc_header"> VI. Final Project Discussion </b></p>
+
+<ol class = "toc" type="none">
+    <li> Project Proposal Guidelines <span style="float:right"> 29-30 </span></li>
+    <li> Final Project Outline <span style="float:right"> 29-30 </span></li>
+</ol>
+
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Section I.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Programming Assignment 1 Review</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-5" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>I. Programming Assignment 1 Review<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Assignment 1 Discussion</h2>
+
+<p>IMHO, <a href="https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/programming_assignment1.R">this assignment</a> was the single hardest thing you&#39;ll be asked to do in this class.</p>
+
+<p><center><img src="assets/img/week3_aliens.jpg" height=200px width = 500px></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Section II.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Intro Topic Grab Bag</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-7" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Logical Operators</h2>
+
+<p>Often in your code, you&#39;ll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.</p>
+
+<pre><code class="r"># &quot;and&quot; logic is expressed with &quot;&amp;&quot;
+TRUE &amp; TRUE   # TRUE
+TRUE &amp; FALSE  # FALSE
+FALSE &amp; FALSE # FALSE
+-5 &lt; 5 &amp; 3 &gt; 2 # TRUE
+
+# &quot;or&quot; logic is expressed with &quot;|&quot;
+TRUE | TRUE    # TRUE
+TRUE | FALSE   # TRUE
+FALSE | FALSE  # FALSE
+3 &lt; 8 | 8 &gt; 19 # TRUE
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-8" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Logical Operators (continued)</h2>
+
+<p>The most common operators used to generate logicals are <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, and <code>!=</code></p>
+
+<pre><code class="r"># &quot;equality&quot; logic is specified with &quot;==&quot;
+3 == 3   # TRUE
+4 == 4.1 # FALSE
+
+# &quot;not&quot; logic is specified with !. In a special case, != signifies &quot;not equal&quot;
+!TRUE            # FALSE
+!FALSE           # TRUE
+! (TRUE | FALSE) # FALSE
+4 != 5           # TRUE
+
+# &quot;greater than&quot; and &quot;less than&quot; logic are specified in the way you might expect
+5 &lt; 5  # FALSE
+6 &lt;= 6 # TRUE
+4 &gt; 2  # TRUE
+3 &gt;= 3 # TRUE
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-9" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Logical Operators</h2>
+
+<p>As we learned in week two, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
+
+<pre><code class="r"># Load some data
+data(&quot;mtcars&quot;)
+
+# Create a logical index. Note that we get a VECTOR of logicals back
+bigCarIndex &lt;- mtcars$wt &gt; 4
+
+# Taking the SUM of a logical vector tells you the number of TRUEs.
+# Taking the MEAN of a logical vector tells you the proportion of TRUEs
+sum(bigCarIndex)
+mean(bigCarIndex)
+
+# You can use this for subsetting
+mtcars[bigCarIndex,]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-10" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Factors</h2>
+
+<p>Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called &quot;region&quot; with values like &quot;Africa&quot;, &quot;European Union&quot;, and &quot;South America&quot;. How can you use this variable in a model or for generating region-by-region summary stats? This is where R&#39;s <strong>factor type</strong> comes in.</p>
+
+<pre><code class="r"># Sample Data
+wbDF &lt;- data.frame(country = c(&quot;Egypt&quot;, &quot;Cyprus&quot;, &quot;Nicaragua&quot;, &quot;Colombia&quot;, &quot;Germany&quot;),
+                   region  = c(&quot;Africa&quot;, &quot;European Union&quot;, &quot;South America&quot;,
+                               &quot;South America&quot;, &quot;European Union&quot;),
+                   lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9))
+
+# Check classes...see that &quot;region&quot; is a &quot;Factor&quot; by default!
+str(wbDF)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-11" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Factors</h2>
+
+<p>What does it mean for <code>region</code> to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep aroudn a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
+
+<pre><code class="r"># Check it out! R has assigned integer values to the &quot;region&quot; variable
+as.integer(wbDF$region)
+
+# But you can also access the character values if you want
+as.character(wbDF$region)
+
+# For more, see:
+str(wbDF$region)
+levels(wbDF$regions)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-12" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>File Paths</h2>
+
+<p>Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer&#39;s file system. These paths can either be <em>relative</em> (expressed as steps above/below your current location) or <em>absolute</em> (full addresses). </p>
+
+<p>All relative paths in R are relative to your <strong>working directory</strong>, a single location that you can set and reset any time in your session.</p>
+
+<pre><code class="r"># Check and then change the current working directory
+getwd()
+setwd(&quot;~/repos/my-cool-project&quot;)
+
+# Reference a file with a full path
+myDF &lt;- read.csv(file = &quot;~/repos/my-cool-project/data/some_data.csv&quot;)
+
+# Reference a file with a relative path
+myDF &lt;- read.csv(file = &quot;./data/some_data.csv&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-13" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>File Paths</h2>
+
+<p>R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!</p>
+
+<pre><code class="r"># List all the files in some directory and put the list in a vector
+theFiles &lt;- list.files(path = &quot;~/repos/some_folder/docs/&quot;)
+
+# Create a directory if it doesn&#39;t exist
+if (!dir.exists(&quot;~/repos/some_folder/docs/slides&quot;)) {
+    dir.create(&quot;~/repos/some_folder/docs/slides&quot;)
+}
+
+# Check if a file exists
+myFileExists &lt;- file.exists(&quot;~/repos/some_folder/docs/report.xlsx&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-14" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>R + Excel</h2>
+
+<p>In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You&#39;ll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we&#39;ll focus on <a href="https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf">openxlsx</a>.</p>
+
+<p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
+
+<pre><code class="r"># Read an Excel file into a data.frame
+library(openxlsx)
+newDF &lt;- openxlsx::read.xlsx(xlsxFile = &quot;~/repos/my_project/data/stockData.xlsx&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-15" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>R + Excel</h2>
+
+<p>You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It&#39;s tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.</p>
+
+<pre><code class="r"># load mtcars
+data(&quot;mtcars&quot;)
+
+# create a workbook object in R
+testWB &lt;- openxlsx::createWorkbook()
+
+# Add sheets and data
+openxlsx::addWorksheet(testWB, sheetName = &quot;car_data&quot;)
+openxlsx::writeData(testWB, sheet = &quot;car_data&quot;, x = mtcars)
+
+# Write out the file
+openxlsx::saveWorkbook(wb = testWB, file = &quot;~/testing.xlsx&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Section III.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Working With Strings</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-17" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Common Preprocessing Steps</h2>
+
+<p>In this section, we&#39;re going to revisit the <a href="https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt">Shakespeare corpus</a> we looked at in Week 2 and implement a basic &quot;keyword extraction&quot; pipeline. Let&#39;s start by loading it and doing some common string preprocessing on it.</p>
+
+<pre><code class="r"># Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
+shakespeareFile &lt;- &quot;https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt&quot;
+bsText &lt;- readLines(con = shakespeareFile, n = 10000)[5001:10000]
+
+# 1 - Convert everything to lowercase
+bsText &lt;- tolower(bsText)
+
+# 2 - Trim leading and trailing whitespace (e.g. change &quot;   a&quot; to &quot;a&quot;)
+bsText &lt;- trimws(bsText)
+
+# 3 - Remove empty lines
+bsText &lt;- bsText[sapply(bsText, nchar)&gt;0]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-18" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Intro to Regular Expressions</h2>
+
+<p>After applying these basic steps, we&#39;re going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">regular expressions</a>.</p>
+
+<p>Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let&#39;s work through some examples to demonstrate the properties.</p>
+
+<pre><code class="r"># 4 - Remove punctuation
+bsText &lt;- gsub(pattern = &quot;;|,|!|?|\\.|\\:|&lt;|&gt;|\\]|\\[&quot;, replacement = &quot;&quot;, bsText)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-19" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Intro to Regular Expressions</h2>
+
+<p>You can run <code>sample(bsText, 10)</code> and see that our data are looking cleaner...but we still have work to do! Next, let&#39;s use regular expressions (commonly just called &quot;regex&quot;) to handle some other issues.</p>
+
+<pre><code class="r"># 5 - split some common contractions into two words
+bsText &lt;- gsub(&quot;he(&#39;s)&quot;, &quot;he is&quot;, bsText)
+bsText &lt;- gsub(&quot;&#39;ll&quot;, &quot; will&quot;, bsText)
+
+# 6 - Change any numbers to __number__
+bsText &lt;- gsub(&quot;[:digit:]*&quot;, &quot;__number__&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-20" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Tokenization</h2>
+
+<p>The next task we need to acomplish is <strong>tokenizing</strong> our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.</p>
+
+<pre><code class="r"># 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
+library(stringr)
+library(data.table)
+allWords &lt;- lapply(bsText, FUN = function(thisLine){
+                            return(data.frame(words = str_split(thisLine, &quot; &quot;)[[1]]))
+                                        }
+                )
+
+# 8 - Put into a data.table and print that just to make sure it worked
+wordDT &lt;- data.table::rbindlist(allWords)
+wordDT
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-21" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Counting Words in Text</h2>
+    
+
+<p>Now that our data are a bit cleaner, it&#39;s time to try finding key terms! Broadly speaking, &quot;key terms&quot; in a body of text are those that more common in the text than they are in the language as a whole (e.g. &quot;the&quot; will never be a key word). We aren&#39;t looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we&#39;ll just drop the top 20 words and call the next 20 &quot;key&quot;.</p>
+
+<p>The <code>data.table</code> package makes this operation easy to carry out.</p>
+
+<pre><code class="r"># 9 - Get Word counts and sort by those counts
+wordCountDT &lt;- wordDT[, .N, by = words]
+data.table::setnames(wordCountDT, old = &quot;N&quot;, new = &quot;word_count&quot;)
+data.table::setorder(wordCountDT, -word_count)
+wordCountDT
+
+key_words &lt;- wordCountDT[21:40]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>Section IV.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Dealing with Missing Data</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-23" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Specialness of NAs</h2>
+
+<p><code>NA</code> is a special object in R, used to capture the idea of &quot;a value whose value is unknown&quot;. Confusing, right? We&#39;re going to go through a few examples to get you feeling comfortable with missing values. They&#39;re an inevitability in real-world data.</p>
+
+<p><strong>PRO TIP</strong>: See <code>?NA</code> for R&#39;s documentation on the nuances of <code>NA</code></p>
+
+<pre><code class="r"># Create a vector w/ missing data
+some_nums &lt;- c(1,2,NA, 6, NA, 8)
+print(some_nums)
+</code></pre>
+
+<pre><code>## [1]  1  2 NA  6 NA  8
+</code></pre>
+
+<pre><code class="r"># Use is.na() to get a vector of TRUE/FALSE for the question &quot;is this element NA?&quot;
+is.na(some_nums)
+</code></pre>
+
+<pre><code>## [1] FALSE FALSE  TRUE FALSE  TRUE FALSE
+</code></pre>
+
+<pre><code class="r"># Confirm that even w/ NAs, R still knows this is a numeric vector
+class(some_nums)
+</code></pre>
+
+<pre><code>## [1] &quot;numeric&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-24" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>You Should Care About NAs</h2>
+
+<p>It&#39;s common for introductory programmers to think of missing values as problems to address, but that isn&#39;t always the case! <code>NA</code> can actually hold valuable information. For example, imagine that you get a dump of data from Salesforce or some other CRM system with information like customer_name, date_of_first_contact, and date_of_second_contact.</p>
+
+<p><br></p>
+
+<p>Depending on how the system was set up, <code>date_of_second_contact1</code> may have dates only for customers who have been contacted at least twice, and be <code>NA</code> everywhere else. This is valuable information! If you want to build a model of 1-contact conversion, you could use the presence/absence of <code>NA</code> to help you identify the 1-contact customers that belong in your model.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-25" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Strategy 1: Total Eradication</h2>
+
+<p>The first approach you may take to dealing with <code>NA</code> values is to simply drop them from your data. If you don&#39;t think these missing data have any business value and your dataset is big enough that you can afford to drop some rows / columns, this is the right move for you.</p>
+
+<pre><code class="r"># Removing NAs for vectors
+top5 &lt;- c(&quot;Wale&quot;, &quot;Chance&quot;, NA, &quot;Lupe Fiasco&quot;, &quot;Shad&quot;, &quot;Kanye&quot;, NA)
+print(top5)
+top5cleaned &lt;- top5[!is.na(top5)]
+print(top5cleaned)
+
+# Removing rows with ANY NAs for data.frames
+myDF &lt;- data.frame(x = c(1, 2, NA, 4), y = c(NA, TRUE, FALSE, TRUE),
+                   z = c(&quot;hey&quot;, &quot;there&quot;, NA, &quot;friends&quot;))
+cleanDF &lt;- myDF[complete.cases(myDF), ]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-26" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Strategy 2: Handle on Subsets</h2>
+
+<p>You may find the &quot;remove all the NAs everywhere&quot; strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases</code> to remove rows.</p>
+
+<pre><code class="r"># Create a dataframe where some variable have more NAs than others
+testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
+                     var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE),
+                     var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE))
+
+# Find columns that are more than 70% missing values
+.percent_na &lt;- function(a_vector){return(sum(is.na(a_vector)/length(a_vector)))}
+colsToDrop &lt;- apply(testDF, MARGIN = 2, .percent_na) &gt; 0.9
+cleanDF &lt;- testDF[, !colsToDrop]
+
+# Remove rows w/ remaining NAs
+cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-27" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Strategy 3: Imputation</h2>
+
+<p>A final strategy, particularly useful in modeling contexts, is to use some <a href="https://www.analyticsvidhya.com/blog/2016/03/tutorial-powerful-packages-imputing-missing-values/">imputation strategy</a> to replace <code>NA</code> values with reasonable alternatives. One common approach (and my favorite), the <code>roughfix</code> method. It works like this:</p>
+
+<ul>
+<li>For numeric columns, replace NAs with the column median</li>
+<li>For categorical columns, replace NAs with the most common value</li>
+</ul>
+
+<pre><code class="r"># Create a dataframe where some variable have more NAs than others
+testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 500, replace = TRUE),
+                     var2 = sample(c(rnorm(70), rep(NA, 30)), 500, replace = TRUE),
+                     var3 = sample(c(rnorm(85), rep(NA, 15)), 500, replace = TRUE))
+
+# Clean up w/ roughfix
+library(randomForest)
+cleanDF &lt;- randomForest::na.roughfix(testDF)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-28" style="background:;">
+  <hgroup>
+    <h2>Section V.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Visualizing Data</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-29" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Intro to the Base Plotting System</h2>
+
+<p>R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as &quot;the base plotting system&quot;, and we&#39;re going to walk through a few examples of it this week.</p>
+
+<p><br></p>
+
+<p>The essential idea of the base plotting system is to build up plots in layers. You first create a simple 1-variable line plot, for example, then &quot;add on&quot; a legend, more variables, other plot types, etc. We&#39;ll try a few examples using the sample data created below.</p>
+
+<pre><code class="r"># Load up the famous iris dataset
+data(&quot;iris&quot;)
+iris
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-30" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Creating a Line Plot</h2>
+
+<p>Let&#39;s start with a simple line plot to answer the question <em>are sepal length and sepal width related?</em></p>
+
+<pre><code class="r"># Create a simple line plot
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = &quot;p&quot;)
+
+# Try again, but with labels!
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = &quot;My Second R plot!&quot;, 
+     xlab = &quot;sepal length&quot;, ylab = &quot;sepal width&quot;, type = &quot;p&quot;)
+
+# Try it AGAIN, this time coloring by species and a legend
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = &quot;My Third R plot!&quot;, 
+     xlab = &quot;sepal length&quot;, ylab = &quot;sepal width&quot;, type = &quot;p&quot;, col = iris$Species,
+     bg = iris$Species, pch = 21)
+legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-31" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Histograms and Densities</h2>
+
+<p>The base plotting system can be a great tool for quick exploratory analysis of data, such as examination of the distribution of variables in your data.</p>
+
+<pre><code class="r"># Minimal Histogram
+hist(iris$Petal.Length)
+
+# Better histogram
+hist(iris$Petal.Length, main = &quot;Distribution of petal length&quot;,
+     xlab = &quot;petal length&quot;, breaks = 25)
+
+# Empirical density
+plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&quot;, col = &quot;blue&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-32" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Multi-variable line charts</h2>
+
+<p>You can add more than one variable to these plots! Let&#39;s compare the densities of Sepal length by species</p>
+
+<pre><code class="r"># Overlay densities of Petal length by species
+plot(density(iris[iris$Species == &quot;setosa&quot;, &quot;Petal.Length&quot;]), 
+     main = &quot;Empirical density of petal length&quot;, col = &quot;blue&quot;,
+     xlim = c(0, 7), ylim = c(0, 2.5))
+lines(density(iris[iris$Species == &quot;versicolor&quot;, &quot;Petal.Length&quot;]), col = &quot;red&quot;)
+lines(density(iris[iris$Species == &quot;virginica&quot;, &quot;Petal.Length&quot;]), col = &quot;black&quot;)
+
+# Add a legend
+legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;red&quot;, &quot;black&quot;), pch = 1)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-33" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Creating a Grid of plots</h2>
+
+<p>You can control the plotting options to make a grid of plots. The code below creates a 2x2 grid with a density for Sepal Width and scatter plots of the other three variables against sepal width.</p>
+
+<pre><code class="r"># Set global options
+par(mfrow = c(2,2))
+
+# Dump in some plots
+plot(density(iris$Sepal.Width), main = &quot;Empirical density of petal length&quot;, col = &quot;red&quot;)
+plot(x = iris$Sepal.Width, y = iris$Sepal.Length, col = iris$Species, bg = iris$Species, pch = 21)
+plot(x = iris$Sepal.Width, y = iris$Petal.Length, col = iris$Species, bg = iris$Species, pch = 21)
+plot(x = iris$Sepal.Width, y = iris$Petal.Width, col = iris$Species, bg = iris$Species, pch = 21)
+
+# reset options
+par(mfrow = c(1,1))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-34" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Other Plotting Systems in R</h2>
+
+<p>We don&#39;t have time in this short class to go into great depth on data visualization, but I want you to know that there are a bunch of cool visualization libraries a short <code>install.packages()</code> away!</p>
+
+<ul>
+<li><a href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot2</a>: One of the most popular packages in the R world. Based on the &quot;grammar of graphics&quot; approach to building plots</li>
+<li><a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a>: Send your data to the google charts API to make fancy interactive visualizations</li>
+<li><a href="https://hafen.github.io/rbokeh/#preview">rbokeh</a>: docs | examples | r-bloggers</li>
+<li><a href="https://github.com/ramnathv/rCharts">rCharts</a>: docs | examples | r-bloggers</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-35" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>A Note On Graphics Devices</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-36" style="background:;">
+  <hgroup>
+    <h2>Section VI.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Final Project Discussion</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-37" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>VI. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Your Final Project Proposal is Due in Week 4</h2>
+
+<p><strong>Choosing External Packages</strong></p>
+
+<ul>
+<li>You need to choose one data munging package, one statistics package, and one visualization package from <a href="https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/final_project_packages.md">this list</a></li>
+<li>Don&#39;t stress! You can do all of the following:
+
+<ul>
+<li>Change which packages you actually use in the final project</li>
+<li>Use a package that isn&#39;t on the list (as long as you clear it with me)</li>
+<li>Use more than just 3 external packages</li>
+</ul></li>
+</ul>
+
+<p><strong>What Your Proposal Should Cover</strong></p>
+
+<ul>
+<li>What data set do you plan to use? Where can others find it? What variables does it contain?</li>
+<li>What is the question you&#39;re trying to answer?</li>
+<li>What packages do you plan to use?</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-38" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>VI. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Your Final Project is Due in Week 5</h2>
+
+<ul>
+<li>let&#39;s go through the <a href="https://jameslamb.github.io/teaching/mu_rprog/docs/assignments/final_project.html">Final Project description</a></li>
+</ul>
+
+<p><center><img src="assets/img/final_project_ski.jpg" height=350px width = 650px></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-39" style="background:;">
+  <hgroup>
+    <h2>Section VII.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Additional Resources</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-40" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>VII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Additional Resourcese</h2>
+
+<p><strong>Paths:</strong> <a href="http://www.geeksengine.com/article/absolute-relative-path.html">Relative vs absolute</a> | <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html">listing files in a directory in R</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='NA'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='NA'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Section I.'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Section II.'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='NA'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='NA'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='NA'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='NA'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='NA'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='NA'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='NA'>
+         13
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='NA'>
+         14
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='NA'>
+         15
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Section III.'>
+         16
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='NA'>
+         17
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='NA'>
+         18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='NA'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='NA'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='NA'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='Section IV.'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='NA'>
+         23
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='NA'>
+         24
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='NA'>
+         25
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='NA'>
+         26
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='NA'>
+         27
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='Section V.'>
+         28
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='NA'>
+         29
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='NA'>
+         30
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='NA'>
+         31
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='NA'>
+         32
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='NA'>
+         33
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=34 title='NA'>
+         34
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=35 title='NA'>
+         35
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=36 title='Section VI.'>
+         36
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=37 title='NA'>
+         37
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=38 title='NA'>
+         38
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=39 title='Section VII.'>
+         39
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=40 title='NA'>
+         40
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="./assets/js/footer_bubbles.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
