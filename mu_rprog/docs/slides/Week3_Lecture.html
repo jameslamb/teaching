@@ -708,7 +708,7 @@ testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
                      var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE),
                      var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE))
 
-# Find columns that are more than 70% missing values
+# Find columns that are more than 90% missing values
 .percent_na &lt;- function(a_vector){return(sum(is.na(a_vector)/length(a_vector)))}
 colsToDrop &lt;- apply(testDF, MARGIN = 2, .percent_na) &gt; 0.9
 cleanDF &lt;- testDF[, !colsToDrop]
@@ -782,7 +782,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
 
 <pre><code class="r"># Load up the famous iris dataset
 data(&quot;iris&quot;)
-iris
+head(iris, n = 10)
 </code></pre>
 
   </article>
@@ -912,8 +912,8 @@ par(mfrow = c(1,1))
 <ul>
 <li><a href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot2</a>: One of the most popular packages in the R world. Based on the &quot;grammar of graphics&quot; approach to building plots</li>
 <li><a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a>: Send your data to the google charts API to make fancy interactive visualizations</li>
-<li><a href="https://hafen.github.io/rbokeh/#preview">rbokeh</a>: docs | examples | r-bloggers</li>
-<li><a href="https://github.com/ramnathv/rCharts">rCharts</a>: docs | examples | r-bloggers</li>
+<li><a href="https://hafen.github.io/rbokeh/#preview">rbokeh</a>: high-level library for creating interactive charts that can be embedded directly in HTML</li>
+<li><a href="https://github.com/ramnathv/rCharts">rCharts</a>: library built on JavaScript D3 for creating interactive plots</li>
 </ul>
 
   </article>
@@ -928,6 +928,23 @@ par(mfrow = c(1,1))
 </footer></p>
 
 <h2>A Note On Graphics Devices</h2>
+
+<p>When R (or any other program!) creates plots, it needs to know where to put them! When you call <code>plot()</code> or other commands from within and RStudio session, the default is to just display the resulting figure in the &quot;Plots&quot; pane. However, you can use other <strong>graphics devices</strong> (places to put visual output) to tell R to put your figures elsewhere.</p>
+
+<pre><code class="r"># Create 10 plots in a loop
+outDir &lt;- &quot;~/sandbox&quot;
+for (i in 1:10){
+    # Open a connection to a .png file
+    filePath &lt;- paste0(outDir, &quot;/plot_&quot;, i, &quot;.png&quot;)
+    png(filePath)
+
+    # Write out a plot to that file
+    plot(x = rnorm(100), y = rnorm(100))
+
+    # Close the connection to that file
+    dev.off()
+}
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -1022,6 +1039,8 @@ par(mfrow = c(1,1))
 </footer></p>
 
 <h2>Additional Resourcese</h2>
+
+<p><strong>Plotting in R</strong>: <a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/Devices.html">graphics devices</a></p>
 
 <p><strong>Paths:</strong> <a href="http://www.geeksengine.com/article/absolute-relative-path.html">Relative vs absolute</a> | <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html">listing files in a directory in R</a></p>
 

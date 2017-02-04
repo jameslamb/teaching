@@ -621,7 +621,7 @@ The essential idea of the base plotting system is to build up plots in layers. Y
 ```{r getPlotData, echo = TRUE, eval = FALSE}
 # Load up the famous iris dataset
 data("iris")
-iris
+head(iris, n = 10)
 ```
 
 --- .content_slide
@@ -747,6 +747,25 @@ We don't have time in this short class to go into great depth on data visualizat
 
 <h2>A Note On Graphics Devices</h2>
 
+When R (or any other program!) creates plots, it needs to know where to put them! When you call `plot()` or other commands from within and RStudio session, the default is to just display the resulting figure in the "Plots" pane. However, you can use other **graphics devices** (places to put visual output) to tell R to put your figures elsewhere.
+
+```{r path2png, eval = FALSE, echo = TRUE}
+# Create 10 plots in a loop
+outDir <- "~/sandbox"
+for (i in 1:10){
+    # Open a connection to a .png file
+    filePath <- paste0(outDir, "/plot_", i, ".png")
+    png(filePath)
+    
+    # Write out a plot to that file
+    plot(x = rnorm(100), y = rnorm(100))
+    
+    # Close the connection to that file
+    dev.off()
+}
+
+```
+
 --- .section_slide
 
 <h2>Section VI.</h2>
@@ -804,6 +823,8 @@ We don't have time in this short class to go into great depth on data visualizat
 </footer>
 
 <h2>Additional Resourcese</h2>
+
+**Plotting in R**: [graphics devices](https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/Devices.html)
 
 **Paths:** [Relative vs absolute](http://www.geeksengine.com/article/absolute-relative-path.html) | [listing files in a directory in R](https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html)
 

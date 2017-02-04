@@ -1,19 +1,153 @@
 ---
-title : ECON 6931 - R Programming (Code Supplement)
-output:
-  html_document:
-    toc: true
-    theme: spacelab
----
+title       : ECON 6931 - R Programming
+subtitle    : Week 3
+author      : James Lamb
+job         : Data Scientist | Uptake
+logo        : 
+framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap]            # {mathjax, quiz}
+mode        : selfcontained # {selfcontained, standalone, draft}
+lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
+knit        : slidify::knit2slides
+--- 
 
-<h1>Week 3 Programming Supplement</h1>
+<!--Read in JavaScript function that prints footer bubbles-->
+<script src="assets/js/footer_bubbles.js"></script>
 
+<!--Define background image for title slide-->
+<style>
+.title-slide {
+  background-image:url("assets/img/week3_statler_waldorf.jpeg");
+  background-size: cover;
+}
+</style>
+
+<footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Welcome back!</h2>
+
+<center><img src="assets/img/week3_programming.png" height=350px width = 650px></center>
+
+
+--- .toc_slide &twocol
+
+<footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> I. Programming Assignment 1 Review</b>
+<ol class="toc" type="none">
+    <li> In-class Walkthrough <span style="float:right"> 5 </span></li>
+</ol>
+
+<b class="toc_header"> II. Intro Topic Grab Bag </b>
+<ol class="toc" type="none">
+    <li> Logical Operators <span style="float:right"> 6-8 </span></li>
+    <li> Factors <span style="float:right"> 9-11 </span></li>
+    <li> File Paths <span style="float:right"> 12-13 </span></li>
+    <li> R + Excel <span style="float:right"> 14-16 </span></li>
+</ol>
+
+<b class="toc_header"> III. Working With Strings </b>
+<ol class="toc" type="none">
+    <li> Common Preprocessing Steps  <span style="float:right"> 17 </span></li>
+    <li> Intro to Regular Expressions <span style="float:right"> 20-22 </span></li>
+    <li> Tokenization <span style="float:right"> 18 </span></li>
+</ol>
+
+*** =right
+
+<ol class="toc" type="none">
+    <li> Identifying Keywords <span style="float:right"> 19 </span></li>
+</ol>
+
+<b class="toc_header"> IV. Dealing with Missing Data </b>
+<ol class = "toc" type="none">
+    <li> Specialness of NAs<span style="float:right"> 23 </span></li>
+    <li> You Should Care About NAs<span style="float:right"> 24  </span></li>
+    <li> Strategy 1: Total Eradication<span style="float:right"> 25  </span></li>
+    <li> Strategy 2: Handle on Subsets<span style="float:right"> 26-27  </span></li>
+    <li> Strategy 3: Imputation<span style="float:right"> 28 </span></li>
+</ol>
+
+--- .toc_slide &twocol
+
+<footer>
+  <hr></hr>
+  <span style="float:right"> ECON 6931 - R Programming </span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> V. Visualizing Data </b>
+<ol class = "toc" type="none">
+    <li> Base Plotting System<span style="float:right"> 16-21</span></li>
+    <li> Graphics Devices<span style="float:right"> 15    </span></li>
+    <li> ggplot2<span style="float:right"> 22-27</span></li>
+    <li> rCharts<span style="float:right"> 28-30</span></li>
+    <li> rbokeh<span style="float:right"> 31-32</span></li>
+</ol>
+
+<b class="toc_header"> VI. Final Project Discussion </b>
+<ol class = "toc" type="none">
+    <li> Project Proposal Guidelines <span style="float:right"> 29-30 </span></li>
+    <li> Final Project Outline <span style="float:right"> 29-30 </span></li>
+</ol>
+
+*** =right
+
+--- .section_slide
+
+<h2>Section I.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Programming Assignment 1 Review</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>I. Programming Assignment 1 Review<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Assignment 1 Discussion</h2>
+
+IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
+
+<center><img src="assets/img/week3_aliens.jpg" height=200px width = 500px></center>
+
+--- .section_slide
+
+<h2>Section II.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Intro Topic Grab Bag</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
 
 <h2>Logical Operators</h2>
 
 Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.
 
-```{r logicalCond1, echo = TRUE, eval = TRUE}
+
+```r
 # "and" logic is expressed with "&"
 TRUE & TRUE   # TRUE
 TRUE & FALSE  # FALSE
@@ -27,9 +161,19 @@ FALSE | FALSE  # FALSE
 3 < 8 | 8 > 19 # TRUE
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Logical Operators (continued)</h2>
+
 The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 
-```{r logicalCond2, echo = TRUE, eval = TRUE}
+
+```r
 # "equality" logic is specified with "=="
 3 == 3   # TRUE
 4 == 4.1 # FALSE
@@ -47,9 +191,19 @@ The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 3 >= 3 # TRUE
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Logical Operators</h2>
+
 As we learned in week two, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
 
-```{r logicalCond3, eval = TRUE, echo = TRUE}
+
+```r
 # Load some data
 data("mtcars")
 
@@ -65,11 +219,19 @@ mean(bigCarIndex)
 mtcars[bigCarIndex,]
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>Factors</h2>
 
 Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America". How can you use this variable in a model or for generating region-by-region summary stats? This is where R's **factor type** comes in.
 
-```{r factorVar1, eval = TRUE, echo = TRUE}
+
+```r
 # Sample Data
 wbDF <- data.frame(country = c("Egypt", "Cyprus", "Nicaragua", "Colombia", "Germany"),
                    region  = c("Africa", "European Union", "South America",
@@ -80,9 +242,19 @@ wbDF <- data.frame(country = c("Egypt", "Cyprus", "Nicaragua", "Colombia", "Germ
 str(wbDF)
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Factors</h2>
+
 What does it mean for `region` to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep aroudn a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
 
-```{r factorVar2, eval = TRUE, echo = TRUE}
+
+```r
 # Check it out! R has assigned integer values to the "region" variable
 as.integer(wbDF$region)
 
@@ -94,27 +266,45 @@ str(wbDF$region)
 levels(wbDF$regions)
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>File Paths</h2>
 
 Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses). 
 
 All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
 
-```{r setwdExample, eval = TRUE, echo = TRUE}
+
+```r
 # Check and then change the current working directory
 getwd()
-setwd("~/repos/sandbox")
+setwd("~/repos/my-cool-project")
 
 # Reference a file with a full path
-myDF <- read.csv(file = "~/repos/sandbox/data/some_data.csv")
+myDF <- read.csv(file = "~/repos/my-cool-project/data/some_data.csv")
 
 # Reference a file with a relative path
 myDF <- read.csv(file = "./data/some_data.csv")
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>File Paths</h2>
+
 R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!
 
-```{r moarFilez, eval = TRUE, echo = TRUE}
+
+```r
 # List all the files in some directory and put the list in a vector
 theFiles <- list.files(path = "~/repos/some_folder/docs/")
 
@@ -127,21 +317,39 @@ if (!dir.exists("~/repos/some_folder/docs/slides")) {
 myFileExists <- file.exists("~/repos/some_folder/docs/report.xlsx")
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>R + Excel</h2>
 
 In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You'll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we'll focus on [openxlsx](https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf).
 
 NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or 2) exploring other packages like [xlsx](https://cran.r-project.org/web/packages/xlsx/xlsx.pdf) or [readxl](https://cran.r-project.org/web/packages/readxl/readxl.pdf).
 
-```{r readingExcel, eval = TRUE, echo = TRUE}
+
+```r
 # Read an Excel file into a data.frame
 library(openxlsx)
-newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/sandbox/data/stockData.xlsx")
+newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/my_project/data/stockData.xlsx")
 ```
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>R + Excel</h2>
 
 You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
 
-```{r writingExcel, eval = TRUE, echo = TRUE}
+
+```r
 # load mtcars
 data("mtcars")
 
@@ -153,16 +361,29 @@ openxlsx::addWorksheet(testWB, sheetName = "car_data")
 openxlsx::writeData(testWB, sheet = "car_data", x = mtcars)
 
 # Write out the file
-openxlsx::saveWorkbook(wb = testWB, file = "~/sandbox/data/testing.xlsx")
+openxlsx::saveWorkbook(wb = testWB, file = "~/testing.xlsx")
 ```
 
-<h2>Text Processing Exercise</h2>
+--- .section_slide
 
-<h3>Common Preprocessing Steps</h3>
+<h2>Section III.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Working With Strings</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Common Preprocessing Steps</h2>
 
 In this section, we're going to revisit the [Shakespeare corpus](https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt) we looked at in Week 2 and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
 
-```{r startTextAnalysis, echo = TRUE, eval = TRUE}
+
+```r
 # Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
 shakespeareFile <- "https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt"
 bsText <- readLines(con = shakespeareFile, n = 10000)[5001:10000]
@@ -177,35 +398,59 @@ bsText <- trimws(bsText)
 bsText <- bsText[sapply(bsText, nchar)>0]
 ```
 
-<h3>Intro to Regular Expressions</h3>
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Intro to Regular Expressions</h2>
 
 After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
 
 Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let's work through some examples to demonstrate the properties.
 
-```{r regex1, eval = TRUE, echo = TRUE}
+
+```r
 # 4 - Remove punctuation
 bsText <- gsub(pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\[", replacement = "", bsText)
 ```
 
-<h3>Intro to Regular Expressions</h3>
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Intro to Regular Expressions</h2>
 
 You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
 
-```{r moreRegex, echo = TRUE, eval = TRUE}
+
+```r
 # 5 - split some common contractions into two words
 bsText <- gsub("he('s)", "he is", bsText)
 bsText <- gsub("'ll", " will", bsText)
 
 # 6 - Change any numbers to __number__
-bsText <- gsub("[:digit:]", "__number__", bsText)
+bsText <- gsub("[:digit:]*", "__number__")
 ```
 
-<h3>Tokenization</h3>
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Tokenization</h2>
 
 The next task we need to acomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
 
-```{r tokenization, eval = TRUE, echo = TRUE}
+
+```r
 # 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
 library(stringr)
 library(data.table)
@@ -219,13 +464,21 @@ wordDT <- data.table::rbindlist(allWords)
 wordDT
 ```
 
-<h3>Counting Words in Text</h3>
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Counting Words in Text</h2>
     
 Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
 
 The `data.table` package makes this operation easy to carry out.
 
-```{r countTheWords, eval = TRUE, echo = TRUE}
+
+```r
 # 9 - Get Word counts and sort by those counts
 wordCountDT <- wordDT[, .N, by = words]
 data.table::setnames(wordCountDT, old = "N", new = "word_count")
@@ -235,29 +488,84 @@ wordCountDT
 key_words <- wordCountDT[21:40]
 ```
 
+--- .section_slide
+
+<h2>Section IV.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Dealing with Missing Data</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>Specialness of NAs</h2>
 
 `NA` is a special object in R, used to capture the idea of "a value whose value is unknown". Confusing, right? We're going to go through a few examples to get you feeling comfortable with missing values. They're an inevitability in real-world data.
 
 **PRO TIP**: See `?NA` for R's documentation on the nuances of `NA`
 
-```{r introToNAs, eval = TRUE, echo = TRUE}
+
+```r
 # Create a vector w/ missing data
 some_nums <- c(1,2,NA, 6, NA, 8)
 print(some_nums)
+```
 
+```
+## [1]  1  2 NA  6 NA  8
+```
+
+```r
 # Use is.na() to get a vector of TRUE/FALSE for the question "is this element NA?"
 is.na(some_nums)
+```
 
+```
+## [1] FALSE FALSE  TRUE FALSE  TRUE FALSE
+```
+
+```r
 # Confirm that even w/ NAs, R still knows this is a numeric vector
 class(some_nums)
 ```
+
+```
+## [1] "numeric"
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>You Should Care About NAs</h2>
+
+It's common for introductory programmers to think of missing values as problems to address, but that isn't always the case! `NA` can actually hold valuable information. For example, imagine that you get a dump of data from Salesforce or some other CRM system with information like customer_name, date_of_first_contact, and date_of_second_contact.
+
+<br>
+
+Depending on how the system was set up, `date_of_second_contact1` may have dates only for customers who have been contacted at least twice, and be `NA` everywhere else. This is valuable information! If you want to build a model of 1-contact conversion, you could use the presence/absence of `NA` to help you identify the 1-contact customers that belong in your model.
+
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
 
 <h2>Strategy 1: Total Eradication</h2>
 
 The first approach you may take to dealing with `NA` values is to simply drop them from your data. If you don't think these missing data have any business value and your dataset is big enough that you can afford to drop some rows / columns, this is the right move for you.
 
-```{r removeNAs, echo = TRUE, eval = TRUE}
+
+```r
 # Removing NAs for vectors
 top5 <- c("Wale", "Chance", NA, "Lupe Fiasco", "Shad", "Kanye", NA)
 print(top5)
@@ -270,11 +578,19 @@ myDF <- data.frame(x = c(1, 2, NA, 4), y = c(NA, TRUE, FALSE, TRUE),
 cleanDF <- myDF[complete.cases(myDF), ]
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>Strategy 2: Handle on Subsets</h2>
 
 You may find the "remove all the NAs everywhere" strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases` to remove rows.
 
-```{r subsetNAwisely, echo = TRUE, eval = TRUE}
+
+```r
 # Create a dataframe where some variable have more NAs than others
 testDF <- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
                      var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE),
@@ -289,13 +605,21 @@ cleanDF <- testDF[, !colsToDrop]
 cleanDF <- cleanDF[complete.cases(cleanDF),]
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>Strategy 3: Imputation</h2>
 
 A final strategy, particularly useful in modeling contexts, is to use some [imputation strategy](https://www.analyticsvidhya.com/blog/2016/03/tutorial-powerful-packages-imputing-missing-values/) to replace `NA` values with reasonable alternatives. One common approach (and my favorite), the `roughfix` method. It works like this:
 - For numeric columns, replace NAs with the column median
 - For categorical columns, replace NAs with the most common value
 
-```{r imputation, eval = TRUE, echo = TRUE}
+
+```r
 # Create a dataframe where some variable have more NAs than others
 testDF <- data.frame(var1 = sample(c(rnorm(99), NA), 500, replace = TRUE),
                      var2 = sample(c(rnorm(70), rep(NA, 30)), 500, replace = TRUE),
@@ -306,21 +630,48 @@ library(randomForest)
 cleanDF <- randomForest::na.roughfix(testDF)
 ```
 
+--- .section_slide
+
+<h2>Section V.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Visualizing Data</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>Intro to the Base Plotting System</h2>
 
 R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as "the base plotting system", and we're going to walk through a few examples of it this week.
 
+<br>
+
 The essential idea of the base plotting system is to build up plots in layers. You first create a simple 1-variable line plot, for example, then "add on" a legend, more variables, other plot types, etc. We'll try a few examples using the sample data created below.
 
-```{r getPlotData, echo = TRUE, eval = TRUE}
+
+```r
 # Load up the famous iris dataset
 data("iris")
 head(iris, n = 10)
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Creating a Line Plot</h2>
+
 Let's start with a simple line plot to answer the question *are sepal length and sepal width related?*
 
-```{r baseLinePlot, eval = TRUE, echo = TRUE}
+
+```r
 # Create a simple line plot
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = "p")
 
@@ -335,9 +686,19 @@ plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Third R plot!",
 legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1)
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Histograms and Densities</h2>
+
 The base plotting system can be a great tool for quick exploratory analysis of data, such as examination of the distribution of variables in your data.
 
-```{r histAndDensity, echo = TRUE, eval = TRUE}
+
+```r
 # Minimal Histogram
 hist(iris$Petal.Length)
 
@@ -349,10 +710,19 @@ hist(iris$Petal.Length, main = "Distribution of petal length",
 plot(density(iris$Petal.Length), main = "Empirical density of petal length", col = "blue")
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Multi-variable line charts</h2>
+
 You can add more than one variable to these plots! Let's compare the densities of Sepal length by species
 
-```{r compareDensities, echo = TRUE, eval = TRUE}
 
+```r
 # Overlay densities of Petal length by species
 plot(density(iris[iris$Species == "setosa", "Petal.Length"]), 
      main = "Empirical density of petal length", col = "blue",
@@ -364,9 +734,19 @@ lines(density(iris[iris$Species == "virginica", "Petal.Length"]), col = "black")
 legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), pch = 1)
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Creating a Grid of plots</h2>
+
 You can control the plotting options to make a grid of plots. The code below creates a 2x2 grid with a density for Sepal Width and scatter plots of the other three variables against sepal width.
 
-```{r gridOfPlots, echo = TRUE, eval = TRUE}
+
+```r
 # Set global options
 par(mfrow = c(2,2))
 
@@ -380,11 +760,35 @@ plot(x = iris$Sepal.Width, y = iris$Petal.Width, col = iris$Species, bg = iris$S
 par(mfrow = c(1,1))
 ```
 
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Other Plotting Systems in R</h2>
+
+We don't have time in this short class to go into great depth on data visualization, but I want you to know that there are a bunch of cool visualization libraries a short `install.packages()` away!
+
+- [ggplot2](http://www.r-graph-gallery.com/portfolio/ggplot2-package/): One of the most popular packages in the R world. Based on the "grammar of graphics" approach to building plots
+- [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html): Send your data to the google charts API to make fancy interactive visualizations
+- [rbokeh](https://hafen.github.io/rbokeh/#preview): high-level library for creating interactive charts that can be embedded directly in HTML
+- [rCharts](https://github.com/ramnathv/rCharts): library built on JavaScript D3 for creating interactive plots
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
 <h2>A Note On Graphics Devices</h2>
 
 When R (or any other program!) creates plots, it needs to know where to put them! When you call `plot()` or other commands from within and RStudio session, the default is to just display the resulting figure in the "Plots" pane. However, you can use other **graphics devices** (places to put visual output) to tell R to put your figures elsewhere.
 
-```{r path2png, eval = TRUE, echo = TRUE}
+
+```r
 # Create 10 plots in a loop
 outDir <- "~/sandbox"
 for (i in 1:10){
@@ -398,5 +802,67 @@ for (i in 1:10){
     # Close the connection to that file
     dev.off()
 }
-
 ```
+
+--- .section_slide
+
+<h2>Section VI.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Final Project Discussion</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>VI. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Your Final Project Proposal is Due in Week 4</h2>
+
+**Choosing External Packages**
+
+- You need to choose one data munging package, one statistics package, and one visualization package from [this list](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/final_project_packages.md)
+- Don't stress! You can do all of the following:
+    - Change which packages you actually use in the final project
+    - Use a package that isn't on the list (as long as you clear it with me)
+    - Use more than just 3 external packages
+
+**What Your Proposal Should Cover**
+- What data set do you plan to use? Where can others find it? What variables does it contain?
+- What is the question you're trying to answer?
+- What packages do you plan to use?
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>VI. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Your Final Project is Due in Week 5</h2>
+
+- let's go through the [Final Project description](https://jameslamb.github.io/teaching/mu_rprog/docs/assignments/final_project.html)
+
+<center><img src="assets/img/final_project_ski.jpg" height=350px width = 650px></center>
+
+--- .section_slide
+
+<h2>Section VII.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Additional Resources</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(1,1)</script>VII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Additional Resourcese</h2>
+
+**Plotting in R**: [graphics devices](https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/Devices.html)
+
+**Paths:** [Relative vs absolute](http://www.geeksengine.com/article/absolute-relative-path.html) | [listing files in a directory in R](https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html)
+
