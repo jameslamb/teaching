@@ -19,6 +19,7 @@ Your task for the final project is construct a small analysis of a real-world da
 
 1. **Read in data from the web or from a local file**
     - If you download one or more files yourself and have your code read them from your local machine, you must include a comment or printed message in your script that tells users exactly how to download the dataset themselves
+    - Please see this [list of example data sources](https://github.com/jameslamb/teaching/blob/master/mu_rprog/docs/assignments/some_data_sources.md) for some ideas to get you started
 2. **Preprocess those data so they are ready for analysis**
     - Put the data into a data.frame, data.table, or matrix
     - Ensure that all column types are correct

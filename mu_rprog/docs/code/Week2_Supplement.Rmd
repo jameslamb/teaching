@@ -6,6 +6,10 @@ output:
     theme: spacelab
 ---
 
+```{r setOpts}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 <h1>Week 2 Programming Supplement</h1>
 
 This document contains code that were too long to display in the week's slides. Unlike code in [the slides](jameslamb.github.io/teaching/mu_rprog/docs/slides/Week2_Lecture.html), all examples below are executed so you can see the values.
@@ -17,7 +21,7 @@ You should use these programming supplements to follow along and try executing t
 R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is 
 `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
-```{r lapplyExample, eval = TRUE}
+```{r lapplyExample}
 # Get some data
 data("ChickWeight")
 weights <- ChickWeight$weight
@@ -39,7 +43,7 @@ str(check_vec, max.level = 1)
 
 On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply` ("simplified apply") comes in. `sapply` works the same way that `lapply` does but returns a vector. Try it for yourself:
 
-```{r sapplyExample, eval = FALSE}
+```{r sapplyExample}
 # Get some data
 data("ChickWeight")
 weights <- ChickWeight$weight
@@ -58,7 +62,7 @@ check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply` function comes in! Check it out
 
-```{r applyExample, eval = FALSE}
+```{r applyExample}
 # Get some data
 data("ChickWeight")
 
@@ -73,7 +77,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blagh){range(as.numeric(blah))})
 
 **Subsetting** is the act of retrieving a portion of an object, usually based on some logical condition (e.g. "all elements greater than 5"). In R, this is done with the `[` operator.
 
-```{subset_vecs}
+```{r subset_vecs}
 # Create a vector to work with
 myVec <- c(var1 = 10, var2 = 15, var3 = 20, av4 = 6)
 
@@ -91,7 +95,7 @@ myVec["var3"]
 
 Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use `[` with a list, you are guaranteed to get back another list. If you use `[[`, you will get back an object in its natural form (whatever it would look like if it wasn't in the list). You can also use `$` to access named elements.
 
-```{r subsettingLists, warning = FALSE, message = FALSE}
+```{r subsettingLists}
 # Set up a sample list object
 someList <- list(country = "DEU",
                  region  = "EU",
@@ -126,7 +130,7 @@ someList[["econ_stats"]][["DAXmonthly"]]
 
 Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:
 
-```{r subsetDF, eval = FALSE}
+```{r subsetDF}
 # Create a data frame
 someDF <- data.frame(conference  = c("Big East", "Big Ten", "Big East", "ACC", "SEC"),
                      school_name = c("Villanova", "Minnesota", "Marquette", "Duke", "LSU"),
@@ -184,7 +188,7 @@ names(playerDF)[grepl("^p", names(playerDF))]
 
 You can you user-defined functions to wrap arbitrarily complicated logic into concise statements. As mentioned in week 1, a good rule of thumb is to say "any time your find yourself copying and pasting the same code more than twice, write a function".
 
-```{r udfExample, eval = FALSE}
+```{r udfExample}
 # Given a number between 0 and 1, multiply by a random number
 # between 0 and 1, then return an action based on quantile
 weirdFunction <- function(num){
@@ -205,7 +209,7 @@ As you've seen in previous examples, the R special word `return` tells a functio
 
 Unlike in some other programming languages, R allows you to use multiple `return` values inside the body of a function. The first time that the code inside the function reaches a `return` value, it will pass that value back out of the function and immediately stop executing the function.
 
-```{r returnExample, eval = FALSE}
+```{r returnExample}
 # simple function + print debugging
 simpFunction <- function(n){
     print("first print")
@@ -228,7 +232,7 @@ Not all functions have to return something! Sometimes you may want to create a f
 
 These are called "null functions" and they're common in scripting languages like R. By default, these functions return the R special value `NULL`.
 
-```{r nullFunc, eval = FALSE}
+```{r nullFunc}
 printSentence <- function(theSentence){
     words <- strsplit(x = theSentence, split = " ")
     for (word in words){
@@ -247,7 +251,7 @@ Remember when we talked about namespaces and how R searches for objects? It's ti
 
 R uses a search technique called [lexical scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping)
 
-```{r searchingForVariables, eval = FALSE}
+```{r searchingForVariables}
 # Define an object + function in the global environment
 x <- 4
 someFunc <- function(x){
@@ -308,7 +312,7 @@ https://data.oregon.gov/api/views/t6bs-tkn4/rows.json?accessType=DOWNLOAD
 
 We can download the data and parse it into an R list object using the `rjson` package:
 
-```{r jsonData, eval = TRUE}
+```{r jsonData}
 # Load package
 library(rjson)
 
@@ -358,7 +362,7 @@ As you've probably already learned, writing code involves a never-ending process
 
 The simplest way to debug an issue in your code is to use **print debugging**. This approach involves forming expectations about the state of the objects in your environment at each point in your code, then printing those states at each point to find where things broke.
 
-```{r}
+```{r printDebugging}
 # This function is supposed to sum all the numbers in a vector that are greater than 10
 # but it's breaking with a weird error. Let's use print debugging to dig into it
 sumBigNums <- function(aVector){

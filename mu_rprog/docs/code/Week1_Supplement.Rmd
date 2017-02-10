@@ -6,6 +6,10 @@ output:
     theme: spacelab
 ---
 
+```{r setOpts}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 <h1>Week 1 Programming Supplement</h1>
 
 This document contains code that were too long to display in the week's slides. Unlike code in the slides, all examples below are executed so you can see the values.
@@ -18,7 +22,7 @@ When you execute a statement like `x <- 5` in R, you are creating an **object** 
 
 If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R's `search` command to examine the ordered list of namespaces that R will search in for variables.
 
-```{r namespaces, eval = TRUE}
+```{r namespaces}
 # Check the search path of namespaces
 search()
 
@@ -28,7 +32,7 @@ ls("package:stats")
 
 <h2>Dollarstore Calculator Math</h2>
 
-```{r simpleMath1, eval = TRUE, echo = TRUE}
+```{r simpleMath1}
 # Addition with "+"
 4 + 5
 
@@ -55,7 +59,7 @@ ls("package:stats")
 
 Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
 
-```{r ifElse1, eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE}
+```{r ifElse1}
 library(lubridate)
 library(gaussfacts)
 
@@ -74,7 +78,7 @@ if (DAY == "MONDAY"){
 
 What if you want to express more than two possible outcomes? For this, we could use R's `else if` construct to nest conditions. Note that conditional blocks can have any number of "else if" statements, but only one "else" block.
 
-```{r ifElse2, eval = TRUE, echo = TRUE}
+```{r ifElse2}
 # Try to think through what this will do before you run it yourself:
 if (4 > 5){
     print("3")
@@ -91,7 +95,7 @@ if (4 > 5){
 
 One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a `for` loop.
 
-```{r forLoop, eval = TRUE, echo = TRUE}
+```{r forLoop}
 # Create a vector
 x <- c(1,4,6)
 
@@ -112,7 +116,7 @@ For loops are suitable for many applications, but they can be too restrictive in
 
 Here is the `for` loop implementation:
 
-```{r whileLoop1, eval = TRUE, echo = TRUE}
+```{r whileLoop1}
 movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
 MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
@@ -130,7 +134,7 @@ for (movie in movie_list) {
 
 And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants.
 
-```{r whileLoop2, eval = TRUE, echo = TRUE}
+```{r whileLoop2}
 movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
 MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
@@ -163,7 +167,7 @@ R is a [functional programming language](http://adv-r.had.co.nz/Functions.html).
 > "If you find yourself copying and pasting the same code more than twice, it's time to write a function."
 > - Hadley Wickham
 
-```{r functionExample, eval = FALSE}
+```{r functionExample}
 # Function to return only the even numbers from a vector
 answers <- c(1, 3, 4, 8, 13, 24)
 
@@ -181,7 +185,7 @@ getPrimes(answers)
 - Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt` will return the square root of each element
 - In this case, we'd say `x` is a *required argument* of `sqrt`
 
-```{r requiredArgs, eval = TRUE, echo = TRUE, error = TRUE}
+```{r requiredArgs error = TRUE}
 # Take the square root of a vector of numbers
 sqrt(x = c(1,4,9,16,25))
 
@@ -207,7 +211,7 @@ rand_nums <- rnorm(n = 100, mean = 4.5)
 
 As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you'll be able to do some really powerful stuff. We'll spend more time on functions in the following weeks, but here's a sneak peak of what is possible:
 
-```{r udfs, eval = FALSE}
+```{r udfs}
 # Wrap your modeling pipeline in a function so you can do model comparisons
 load("mtcars")
 
@@ -233,7 +237,7 @@ stargazer::stargazer(myModels, type = "text")
 - Because R was designed for use with statistics, most of its operations are [vectorized](http://www.cs.cornell.edu/courses/cs1112/2016sp/Exams/exam2/vectorizedCode.pdf)
 - You can create vectors a few ways:
 
-```{r vectors_pt1, eval = TRUE}
+```{r vectors_pt1}
 # Ordered sequence of integers
 1:5
 
@@ -276,7 +280,7 @@ Vectors are the first multi-item data structure all R programmers learn. Soon, t
 |Hold multiple objects               |        |&#x2714;|
 
 
-```{r lists_pt1, eval = TRUE}
+```{r lists_pt1}
 # Create a list with list()
 myList <- list(a = 1, b = rep(TRUE, 10), x = c("shakezoola", "mic", "rulah"))
 
@@ -342,7 +346,7 @@ We will be working with data frames throughout this class, given their importanc
 
 `apply` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply`.
 
-```{r apply_on_a_DF, eval = TRUE}
+```{r apply_on_a_DF}
 # Get the mean of each column
 apply(mtcars, MARGIN = 2, FUN = mean)
 

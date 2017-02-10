@@ -1,0 +1,479 @@
+---
+title : ECON 6931 - R Programming (Code Supplement)
+output:
+  html_document:
+    toc: true
+    theme: spacelab
+---
+
+<h1>Week 4 Programming Supplement</h1>
+
+```{r setOpts, echo = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+<h2>I. Statistical Analysis in R</h2>
+
+<h3>R Was Made for Statistics!</h3>
+
+In this section, we're going to walk through all the steps of basic statistical analysis: getting data, exploring it, creating feature, building models, evaluating models, and comparing those models' performance.
+
+<center><img src="../slides/assets/img/statistics.jpg"></center>
+
+<h3>Getting and Splitting the Data</h3>
+
+We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html) dataset. This cross-sectional dataset contains measures of fertility and some economic indicators collected in Switzerland in 1888. Our first task will be to load the data and immediately hold out a piece of it as [testing data](http://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test). The idea here is that when we evaluate the performance of our models later on, it will be better to do it on data that the models haven't seen. This will give a more honest picture of how well they might perform on new data.
+
+In this exercise, we're going to evaluate the following question: **Can we prodict fertility based on regional socioeconomic characteristics?**
+
+```{r getData}
+# Load in some data
+data("swiss")
+
+# Research: What do the variables mean?
+?swiss
+
+# Test vs. Training Data: Let's hold out 40 random records right now for testing
+testIndx    <- sample(1:nrow(swiss), size = 10, replace = FALSE)
+swissTestDF <- swiss[testIndx,]
+swiss       <- swiss[-testIndx,]
+```
+
+<h3>Examine Your Training Data<h3>
+
+Once you've split your data into training and test, you shouold start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on dataframe columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
+
+```{r eda}
+# Look at the structure
+str(swiss)
+
+# Tables of summary stats
+summary(swiss)
+
+# Correlation matrix
+round(cor(swiss),2)
+```
+
+<h3>Hypothesis Testing</h3>
+
+Though orthodox hypothesis tests have been [maligned in the scientific press recently](http://fivethirtyeight.com/features/statisticians-found-one-thing-they-can-agree-on-its-time-to-stop-misusing-p-values/), they are still enormously valuable tools for discovering differences in datasets and evaluates relationships between variables.
+
+One approach to looking for statistically interesting features (right-hand-side variables) involves binning those variables into "above median" and "below median", and using a paired t-test to see whether or not the variable is statistically related to the target.
+
+```{r hypothesisTests}
+# t-tests
+
+# 1. Is fertility very different in provinces with above-median % of men in Agriculture
+swiss$majority_agg <- swiss$Agriculture > median(swiss$Agriculture)
+t.test(Fertility ~ majority_agg, data = swiss)
+
+# 2. Let's create this feature for every variable (we'll re-use it)
+
+    #=== a. Drop that majority_agg feature
+    swiss$majority_agg <- NULL
+    
+    #=== b. Create the binary columns
+    x_var_names <- names(swiss)[names(swiss) != "Fertility"]
+    for (var_name in x_var_names){
+        
+        bin_var_name <- paste0(var_name, "_above_median")
+        swiss[, bin_var_name] <- swiss[, var_name] > median(swiss[, var_name])
+        
+        # Remember to give the test set these new features!
+        swissTestDF[, bin_var_name] <- swissTestDF[, var_name] > median(swiss[, var_name])
+    }
+```
+
+We can use `lapply` to apply the same test to every variable in our data frame.
+
+```{r tTestFunc}
+# 3. Could just loop over every non-Fertility column and do this test!
+bin_var_names <- grep("_above_median", names(swiss), value = TRUE)
+t_tests <- lapply(bin_var_names, function(bin_var){
+    t_test     <- t.test(Fertility ~ get(bin_var), data = swiss)
+    p_val      <- t_test$p.value 
+    return(data.frame(signal = bin_var,
+                      p_val = round(t_test$p.value,2),
+                      t_stat = round(t_test$statistic, 2)
+          ))
+})
+tDT <- data.table::rbindlist(t_tests)
+tDT
+```
+
+<h3>Simple OLS Model</h3>
+
+Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regress, estimated using the `lm` command.
+
+```{r simpleOLS}
+# 4. Simple regression: Fertility = f(Agriculture)
+mod1 <- lm(Fertility ~ Agriculture, data = swiss)
+    
+    # model summary
+    summary(mod1)
+    
+    # QQ plot (are the residuals normal?)
+    plot(mod1, which = 2)
+```
+
+Once you have the fitted model, you can pass it and some new data to `predict` to generate predictions. I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
+
+```{r predOLS}
+# Check how well our model does on the held-out data
+preds      <- predict(mod1, newdata = swissTestDF)
+errors     <- swissTestDF$Fertility - preds
+
+MAE   <- mean(abs(errors))
+MSE   <- mean(errors^2)
+MAPE  <- 100*mean(abs(errors)/swissTestDF$Fertility)
+
+# Actuals vs. Preds plot
+plot(x = swissTestDF$Fertility, y = preds,
+     xlab = "Actual Fertility", ylab = "Predicted Fertility",
+     main = "Predictions from a simple OLS model",
+     ylim = c(0, 100), xlim = c(0, 100))
+lines(x = 0:100, y = 0:100, col = "red")
+```
+
+<h3>Wrap Parts of Your Pipeline in Functions</h3>
+
+The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a funciton so it's easy to call downstream.
+
+```{r evalFunction}
+# 5. Before moving on...lets wrap that pipeline in a function
+EvaluateModel <- function(model, testDF, modelName){
+    # Check how well our model does on the held-out data
+    preds      <- predict(model, newdata = testDF)
+    errors     <- testDF$Fertility - preds
+    
+    MAE   <- mean(abs(errors))
+    MSE   <- mean(errors^2)
+    MAPE  <- 100*mean(abs(errors)/testDF$Fertility)
+    
+    # Actuals vs. Preds plot
+    plot(x = testDF$Fertility, y = preds,
+         xlab = "Actual Fertility", ylab = "Predicted Fertility",
+         main = paste0(modelName, ": predictions"),
+         ylim = c(0, 100), xlim = c(0, 100))
+    
+    # Add a 45-degree line
+    lines(x = 0:100, y = 0:100, col = "red")
+    
+    # add error metrics
+    text(x = rep(5,3), y = c(72,80,88), labels = c("MAE: ", "MSE: ", "MAPE: "))
+    text(x = rep(15,3), y = c(72,80,88), labels = round(c(MAE, MSE, MAPE),2))
+    
+    # Give back the preds in case user wants to do something customized
+    return(list(pred = preds, MAE = MAE, MSE = MSE, MAPE = MAPE))
+}
+```
+
+<h3>OLS with Multiple RHS Variables</h3>
+
+To add more variables to a model in R, you have to use formula notation.
+
+```{r olsMoreVars}
+# Fit
+mod2 <- lm(Fertility ~ Education + Infant.Mortality + Examination_above_median,
+           data = swiss) 
+
+# Predict + Evaluate
+regPreds2 <- EvaluateModel(mod2, testDF = swissTestDF, modelName = "Expanded OLS")
+```
+  
+<h3>Regression Trees</h3>
+
+Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data. 
+
+Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
+
+The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
+  
+```{r decisionTrees}
+# Fit
+treeMod <- rpart::rpart(Fertility ~ ., data = swiss)
+
+# Plot the tree
+rattle::fancyRpartPlot(treeMod, main = "Single Decision Tree")
+
+# Evaluate
+dtPreds <- EvaluateModel(treeMod, swissTestDF, "Decision Tree")
+```
+
+<h3>Random Forests</h3>
+
+For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation detaisl are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
+
+I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
+
+```{r randomForest}
+# Fit
+rfMod <- randomForest::randomForest(Fertility ~ .
+                                    , data = swiss
+                                    , ntree = 50
+                                    , do.trace = TRUE)
+
+# Evaluate
+rfPreds <- EvaluateModel(rfMod, swissTestDF, "Random Forest (ntree=100)")
+```
+
+<h3>Accuracy Comparison</h3>
+
+In a real project, at some point you will find yourself saying "ok, I have all these models. What should I actually use to generate predictions?". This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
+
+Let's see how the models we trained in this exercise performed:
+
+```{r modelEval}
+# Build a table showing performance of each model type on the holdout
+compDF <- data.frame(modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)"),
+                     MAE       = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE),
+                     MSE       = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE),
+                     MAPE       = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
+                     )
+compDF
+```
+
+<h2>II. Combining and Transforming Data Frames</h2>
+
+<h3>Columnwise combination with cbind</h3>
+
+In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R's `cbind` command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.
+
+**cbind = "column-wise bind"**
+
+```{r cbindExample}
+# Consider the following examples:
+dealerDF1 <- data.frame(dealer_id = c(1:20),
+                        avg_price = runif(20, min = 15, max = 75),
+                        avg_margin = runif(20, min = -0.1, max = 0.45))
+
+dealerDF2 <- data.frame(dealer_id = c(1:20),
+                        industry = sample(c("Mining", "Healthcare", "Robot Stuff"),
+                                          size = 20, replace = TRUE)
+                        )
+
+# How can we combine the commercial info with dealer characteristics?
+# One approach (if you know the rows represent the same customers) is to use
+# cbind()
+fullDF <- cbind(dealerDF1, dealerDF2)
+```
+
+<h3>Column Matching with merge</h3>
+
+`cbind` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge` command.
+
+```{r mergeExample}
+# If you can't trust that things are identically ordered, use merge()
+dealerDF1 <- data.frame(dealer_id = c(20:1),
+                        avg_price = runif(20, min = 15, max = 75),
+                        avg_margin = runif(20, min = -0.1, max = 0.45))
+
+dealerDF2 <- data.frame(dealer_id = c(1:20),
+                        industry = sample(c("Mining", "Healthcare", "Robot Stuff"),
+                                          size = 20, replace = TRUE)
+                        )
+fullDF2 <- merge(dealerDF1, dealerDF2, by = "dealer_id")
+```
+
+<h3>Rowwise combination with rbind</h3>
+
+So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind` function.
+
+**rbind = "row-wise bind"**
+
+```{r rbindExample}
+# What if you have the same data for different observations?
+sample1 <- data.frame(startTime = seq.Date(from = as.Date("2016-01-01"), to = as.Date("2016-06-30"), length.out = 180),
+                      value = rnorm(180, 5, 2.5),
+                      sampleId = rep("sample1", 180))
+                      
+
+sample2 <- data.frame(startTime = seq.Date(from = as.Date("2016-07-01"), to = as.Date("2017-03-31"), length.out = 210),
+                      value = rnorm(210, 5, 2.5),
+                      sampleId = rep("sample2", 210))
+
+fullDF <- rbind(sample1, sample2)
+
+# Compare
+dim(sample1)
+dim(sample2)
+dim(fullDF)
+```
+
+<h3>Rowwise Combination of Many Tables with rbindlist</h3>
+
+`rbind` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist` from the `data.table` package. 
+
+```{r rbindlistExample}
+# Define some data frames
+sample1 <- data.frame(startTime = seq.Date(from = as.Date("2016-01-01"), to = as.Date("2016-06-30"), length.out = 180),
+                      value = rnorm(180, 5, 2.5))
+
+
+sample2 <- data.frame(startTime = seq.Date(from = as.Date("2016-07-01"), to = as.Date("2017-03-31"), length.out = 210),
+                      value = rnorm(210, 5, 2.5))
+
+sample3 <- data.frame(startTime = seq.Date(from = as.Date("2017-04-01"), to = as.Date("2017-04-30"), length.out = 30),
+                      value = rnorm(30, 5, 2.5))
+
+sample4 <- data.frame(startTime = seq.Date(from = as.Date("2017-05-01"), to = as.Date("2017-12-31"), length.out = 240),
+                      value = rnorm(240, 5, 2.5))
+
+# Load up data.table and rbind all the tables together into one
+library(data.table)
+fullDF <- data.table::rbindlist(list(sample1, sample2, sample3, sample4))
+head(fullDF)
+
+# What if we had one more table with a column none of the others have?
+sample5 <- data.frame(startTime = seq.Date(from = as.Date("2013-05-01"), to = as.Date("2013-12-31"), length.out = 240),
+                      value = rnorm(240, 5, 2.5),
+                      temperature = runif(240, min = -20, max = 95))
+fullDF2 <- data.table::rbindlist(list(sample1, sample2, sample3, sample4, sample5), fill = TRUE)
+head(fullDF2)
+```
+    
+<h2>III. Software Principles</h2>
+
+<h3>Getting Your Project Off the Ground</h3>
+
+Ok so you have a business question, you've chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...
+
+<center><img src="../slides/assets/img/spongebob.gif"></center>
+<br>
+Don't fear! In this section, we're going to walk through the process of building a non-trivial script from scratch.
+
+<h3>Step 1: Build a Comment Skeleton</h3>
+
+Resist the urge to just start writing code. Investing a few minutes upfront in thinking through the structure of your code will pay off in a big way as the project evolves and grows more complicated. Trust me.
+
+First, just write down the main things you want to do. In this exercise, we're going to write some R code that can generate n-page "books" or random sentences in English.
+        
+```{r fromScratch}
+#=== Write an R script that writes a book! ===#
+    
+# Function to create random sentences
+    
+# Function to create a "page" with n sentences
+    
+# Function to create a "book" with m pages
+    
+# Call the book function and create a 5-page book
+```
+
+<h3>Step 2: Define Functions</h3>
+
+Next, fill in the high-level outline with slightly more specifics. Try to strategize about the functions you'll need to implement and the individual steps that will have to happen inside each of those functions. This will probably change once you start writing code, but in my experience it's always easier to have a plan and change it.
+        
+```{r level2}
+# Function to create random sentences
+createSentence <- function(){
+    
+    # Define a list of nouns
+    
+    # Define a list of adjectives
+    
+    # Define a list of adverbs
+    
+    # Define a list of verbs
+    
+    # Define a list of articles
+    
+    # Define a list of prepositions
+    
+    # Choose randomly from each, construct a sentence of the form 
+    # article-adjective-noun-adverb-verb-preposition
+    
+    # Return the sentence
+    
+} 
+
+# Function to create a "page" with n sentences
+createPage <- function(n){
+    
+    # Call the function to create pages n times
+    
+    # Paste the n results together into one string, separated by a period and a space.
+    
+    # Return that one string
+}
+
+# Function to create a "book" with m pages
+createBook <- function(n_pages, sentences_per_page){
+    
+    # Call the function to create pages n_pages times
+    
+    # Return a list with 1 page per element
+}
+
+# Call the book function and create a 5-page book
+
+```
+
+<h3>Step 3: Fill in Your Code!</h3>
+
+You'll spend the most time on this and you will have to go through it many times before you're feeling comfortable with the code. I've given one implementation below. The point here is not to show you how to create a book-writing app, but rather to demonstrate that this somewhat complicated task was made easier by breaking it into smaller, more manageable pieces.
+
+```{r level3}
+# Function to create random sentences
+createSentence <- function(){
+    
+    # Define a list of nouns
+    nouns <- c("parrot", "giant squid", "whale", "captain", "first mate")
+    
+    # Define a list of adjectives
+    adjectives <- c("hearty", "brave", "grimy", "tough", "swarthy")
+    
+    # Define a list of adverbs
+    adverbs <- c("quickly", "carefully")
+    
+    # Define a list of verbs
+    verbs <- c("scurried", "trunled", "rolled", "walked")
+    
+    # Define a list of articles
+    articles <- c("a", "the")
+    
+    # Define a list of prepositions
+    prepositions <- c("away", "below")
+    
+    # Construct a sentence of the form article-adjective-noun-adverb-verb.
+    sentence <- paste(sample(articles, 1),
+                      sample(adjectives, 1),
+                      sample(nouns, 1),
+                      sample(adverbs, 1),
+                      sample(verbs, 1),
+                      sample(prepositions, 1))
+    
+    # Return the sentence
+    return(sentence)
+} 
+
+# Function to create a "page" with n sentences
+createPage <- function(n){
+    
+    # Call the function to create pages n times
+    some_sentences <- sapply(1:n, FUN = function(x){createSentence()})
+    
+    # Paste the n results together into one string, separated by a period and a space.
+    a_page <- paste(some_sentences, collapse = ". ")
+    
+    # Return that one string
+    return(a_page)
+}
+
+# Function to create a "book" with m pages
+createBook <- function(n_pages, sentences_per_page){
+    
+    # Call the function to create pages n_pages times
+    a_book <- lapply(1:n_pages, function(x){createPage(n = sentences_per_page)})
+    
+    # Return a list with 1 page per element
+    return(a_book)
+}
+
+# Call the book function and create a 5-page book
+aPirateTale <- createBook(n_pages = 5, sentences_per_page = 10)
+print(aPirateTale)
+```
+    
+    
+    
