@@ -24,7 +24,7 @@ In this section, we're going to walk through all the steps of basic statistical 
 
 We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html) dataset. This cross-sectional dataset contains measures of fertility and some economic indicators collected in Switzerland in 1888. Our first task will be to load the data and immediately hold out a piece of it as [testing data](http://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test). The idea here is that when we evaluate the performance of our models later on, it will be better to do it on data that the models haven't seen. This will give a more honest picture of how well they might perform on new data.
 
-In this exercise, we're going to evaluate the following question: **Can we prodict fertility based on regional socioeconomic characteristics?**
+In this exercise, we're going to evaluate the following question: **Can we predict fertility based on regional socioeconomic characteristics?**
 
 ```{r getData}
 # Load in some data
@@ -103,7 +103,7 @@ tDT
 
 <h3>Simple OLS Model</h3>
 
-Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regress, estimated using the `lm` command.
+Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regression, estimated using the `lm` command.
 
 ```{r simpleOLS}
 # 4. Simple regression: Fertility = f(Agriculture)
@@ -137,7 +137,7 @@ lines(x = 0:100, y = 0:100, col = "red")
 
 <h3>Wrap Parts of Your Pipeline in Functions</h3>
 
-The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a funciton so it's easy to call downstream.
+The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a function so it's easy to call downstream.
 
 ```{r evalFunction}
 # 5. Before moving on...lets wrap that pipeline in a function
@@ -427,7 +427,7 @@ createSentence <- function(){
     adverbs <- c("quickly", "carefully")
     
     # Define a list of verbs
-    verbs <- c("scurried", "trunled", "rolled", "walked")
+    verbs <- c("scurried", "trundled", "rolled", "walked")
     
     # Define a list of articles
     articles <- c("a", "the")
@@ -474,6 +474,53 @@ createBook <- function(n_pages, sentences_per_page){
 aPirateTale <- createBook(n_pages = 5, sentences_per_page = 10)
 print(aPirateTale)
 ```
-    
+
+<h2>IV. R Programming Best Practices</h2>
+
+<h3>Scripting: Style Notes</h3>
+
+Use this slide as a general reference of coding best practices.
+
+- Declare all the dependencies you need in a bunch of `library()` calls at the top of your script(s)
+- Set global variables (like file paths) in all-caps near the top of your script(s)
+- Use comments like `#===== Section 1 - Do Stuff =====#` to separate major sections of the code
+- Namespace any calls to external functions with `::` (e.g. `lubridate::ymd_hms`)
+
+For other practices to keep your code clean and readable, check out [Hadley Wickham's style guide for R](http://adv-r.had.co.nz/Style.html).
+
+My script below shows an example of a typical layout for professional-quality R code.
+
+**~/repos/some_project/make_plot.R**
+
+```{r someScript}
+#===== 1. Setup =====#
+
+# Load dependencies
+library(data.table)
+library(quantmod)
+library(rbokeh)
+library(purrr)
+
+# Set global params
+FRED_SERIES <- "CPIAUCSL" # UNRATE
+TITLE       <- "U.S. CPI" # "U.S. unemployment""
+VAR_UNITS   <- "Index (1982-1984 = 100)" # "% of labor force"
+
+#===== 2. Get Data =====#
+
+# Get data from FRED
+quantmod::getSymbols(Symbols = FRED_SERIES, src = 'FRED')
+
+# Put it in a data.table
+dataDT <- data.table::data.table(get(FRED_SERIES), keep.rownames = TRUE)
+
+#===== 3. Plot it! =====#
+
+# Plot it!
+rbokeh::figure(data = dataDT, title = TITLE,
+               ylab = VAR_UNITS, xlab = "date",
+               width = 800) %>%
+        rbokeh::ly_lines(x = dataDT[,index], y = dataDT[,get(FRED_SERIES)], color = "blue")
+```
     
     

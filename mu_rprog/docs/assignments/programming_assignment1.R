@@ -71,6 +71,6 @@ findMin <- function(numVec){
 }
 
 findMin(rep(10:20))                 # should return 10
-findMin(c(-5, 10, 100))             # should return -5
+findMin(c(-5, 10, 100, -8))         # should return -8
 findMin(c(1:10, 20:50, 0.999, 6))   # should return 0.999
 

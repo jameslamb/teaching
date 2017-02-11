@@ -6,7 +6,7 @@ output:
     theme: spacelab
 ---
 
-```{r setOpts}
+```{r setOpts, echo = FALSE}
 knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
@@ -16,7 +16,9 @@ This document contains code that were too long to display in the week's slides. 
 
 You should use these programming supplements to follow along and try executing the example code yourself.
 
-<h2>Looping with lapply</h2>
+<h2>I. Review and Catchup</h2>
+
+<h3>Looping with lapply</h3>
 
 R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is 
 `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
@@ -34,12 +36,14 @@ meanCheck <- function(val, ref_mean){
     return("equal to the mean")
 }
 check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the_mean)})
+```
 
+```{r checkItOut, eval = FALSE, echo = TRUE}
 # Check it out
 str(check_vec, max.level = 1)
 ```
 
-<h2>Looping with sapply</h2>
+<h3>Looping with sapply</h3>
 
 On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply` ("simplified apply") comes in. `sapply` works the same way that `lapply` does but returns a vector. Try it for yourself:
 
@@ -58,7 +62,7 @@ meanCheck <- function(val, ref_mean){
 check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the_mean)})
 ```
 
-<h2>Looping with apply</h2>
+<h3>Looping with apply</h3>
 
 When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply` function comes in! Check it out
 
@@ -67,13 +71,15 @@ When analyzing real-world datasets, you may want to use the same looping convent
 data("ChickWeight")
 
 # Calculate column-wise range
-apply(ChickWeight, MARGIN = 2, FUN = function(x){range(as.numeric(x))})
+cwRanges <- apply(ChickWeight, MARGIN = 2, FUN = function(x){range(as.numeric(x))})
 
 # Calculate row-wise range
-apply(ChickWeight, MARGIN = 1, FUN = function(blagh){range(as.numeric(blah))})
+rwRanges <- apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
 ```
 
-<h2>Subsetting Vectors</h2>
+<h2>II. Subsetting</h2>
+
+<h3>Subsetting Vectors</h3>
 
 **Subsetting** is the act of retrieving a portion of an object, usually based on some logical condition (e.g. "all elements greater than 5"). In R, this is done with the `[` operator.
 
@@ -91,7 +97,7 @@ myVec[2:4]
 myVec["var3"]
 ```
 
-<h2>Subsetting Lists</h2>
+<h3>Subsetting Lists</h3>
 
 Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use `[` with a list, you are guaranteed to get back another list. If you use `[[`, you will get back an object in its natural form (whatever it would look like if it wasn't in the list). You can also use `$` to access named elements.
 
@@ -126,7 +132,7 @@ class(daxPrices)
 someList[["econ_stats"]][["DAXmonthly"]]
 ```
 
-<h2>Subsetting Dataframes</h2>
+<h3>Subsetting Dataframes</h3>
 
 Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:
 
@@ -148,7 +154,7 @@ someDF[, c("conference", "wins")]
 someDF[1:3, c("wins", "ppg")]
 ```
 
-<h2>Using Logical Vectors</h2>
+<h3>Using Logical Vectors</h3>
 
 So far, we've seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the obejct you're working with.
 
@@ -184,179 +190,9 @@ playerDF[grepl("G$", playerDF$position) | playerDF$fg_percent > 0.5,]
 names(playerDF)[grepl("^p", names(playerDF))]
 ```
 
-<h2>UDF Example</h2>
+<h2>III. Debugging Strategies</h2>
 
-You can you user-defined functions to wrap arbitrarily complicated logic into concise statements. As mentioned in week 1, a good rule of thumb is to say "any time your find yourself copying and pasting the same code more than twice, write a function".
-
-```{r udfExample}
-# Given a number between 0 and 1, multiply by a random number
-# between 0 and 1, then return an action based on quantile
-weirdFunction <- function(num){
-    rand_num    <- runif(n = 1, min = 0, max = 1)
-    action_val  <- num*rand_num
-    if (action_val <= 0.25){return("left")}
-    if (action_val <= 0.5){return("right")}
-    if (action_val <= 0.75){return("up")}
-    return("down")
-}
-action_sequence <- sapply(runif(n = 100, min = 0, max = 1), weirdFunction)
-action_sequence[1:20]
-```
-
-<h2>Functions That Return Stuff</h2>
-
-As you've seen in previous examples, the R special word `return` tells a function to "give back" some value. When you execute an expression like `x <- someFunction()`, that function's return value (an R object) is stored a variable called "x".
-
-Unlike in some other programming languages, R allows you to use multiple `return` values inside the body of a function. The first time that the code inside the function reaches a `return` value, it will pass that value back out of the function and immediately stop executing the function.
-
-```{r returnExample}
-# simple function + print debugging
-simpFunction <- function(n){
-    print("first print")
-    if (n > 5){return(TRUE)}
-    
-    print("second print")
-    if (n < 5){return(FALSE)}
-    
-    print("third print")
-    return("TRALSE")
-}
-
-simpFunction(100)
-simpFunction(5)
-```
-
-<h2>Functions That Return Nothing</h2>
-
-Not all functions have to return something! Sometimes you may want to create a function that just has some side effect like creating a plot, writing to a file, or print to the console.
-
-These are called "null functions" and they're common in scripting languages like R. By default, these functions return the R special value `NULL`.
-
-```{r nullFunc}
-printSentence <- function(theSentence){
-    words <- strsplit(x = theSentence, split = " ")
-    for (word in words){
-        print(word)
-    }
-}
-
-# Assigning to an object is irrelevant...this function doesn't return anything
-x <- printSentence("Hip means to know, it's a form of intelligence")
-x
-```
-
-<h2>Brief Review of Scoping</h2>
-
-Remember when we talked about namespaces and how R searches for objects? It's time to extend that logic to functions...which is where things get a bit weird and hard to understand.
-
-R uses a search technique called [lexical scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping)
-
-```{r searchingForVariables}
-# Define an object + function in the global environment
-x <- 4
-someFunc <- function(x){
-    return(x^2)
-}
-
-# If you call someFunc without an argument, it will go up one environment and look
-# for "X" in the global environment
-someFunc(x)
-
-# If you pass in a new value, it will use that instead. Note that the value of
-# x in the global environment remains unchanged. 
-someFunc(x = 6)
-x
-```
-
-<h2>Sourcing Helper Functions</h2>
-
-In the examples so far, I've been defining functions and using them in the same breath. As your projects grow in complexity, you will find this really tedious and hard to keep track of.
-
-An alternative that many intermediate R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
-
-Let's create two scripts.
-
-**script 1: helperfuns.R**
-
-```{r helperFun}
-# Define some arbitrary custom function
-myFunction <- function(n){
-    if (n <= 5){
-        return(n^2)
-    } else {
-        return(n^3)
-    }
-}
-```
-
-**script 2: run_script.R**
-
-```{r runScript}
-# uncomment the line below to source in the helper functions file
-#source("helperfuns.R")
-
-# Apply that function over some data
-le_stuff <- sapply(c(1:20), myFunction)
-
-# Plot the result
-plot(x = 1:20, y = le_stuff)
-```
-
-<h2>Semi-Structured: JSON Files</h2>
-
-JSON ([JavaScript Object Notation](http://www.json.org/)) is a light-weight format for representing arbitrary data objects in text files. It is used by many applications and most programming languages have functionality to handle and parse it.
-
-Let's try an example with data from the state of Oregon. The following link returns data on boating access sites in the state of Oregon. Try pasting it into your browser.
-
-https://data.oregon.gov/api/views/t6bs-tkn4/rows.json?accessType=DOWNLOAD
-
-We can download the data and parse it into an R list object using the `rjson` package:
-
-```{r jsonData}
-# Load package
-library(rjson)
-
-# Go get some data
-result <- rjson::fromJSON(file = "https://data.oregon.gov/api/views/t6bs-tkn4/rows.json")
-
-# Check it out. Pass the max.level argument to the list to tell R how deep into it you want to go
-str(result, max.level = 1)
-
-# Check out the "meta$view element"
-str(result[["meta"]][["view"]], max.level = 1)
-```
-
-<h2>Unstructured: Text files</h2>
-
-In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.
-
-Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)(basically just pattern-matching on strings) to extract relevant features like word counts. For example:
-
-```{r unstructuredText}
-# Parameters
-shakespeare_text <- "https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt"
-
-# Read all the text into a vector (one line per element)
-text_vec <- readLines(con = shakespeare_text)
-
-# Examine a few random lines:
-sample(text_vec, 5)
-
-# Coerce everything to lower-case
-text_vec <- tolower(text_vec)
-
-# Grab just the lines with the word "thou" or "twas""
-thou_art_my_vector <- text_vec[grepl(pattern = "thou|twas", text_vec)]
-
-# Print the count of lines w/ those words
-lines_with_fancy_words <- length(thou_art_my_vector)
-thing_to_print <- paste0("of the ", length(text_vec), 
-                         " lines of text in the complete works of William Shakespeare, only ",
-                         lines_with_fancy_words, " used thou or twas.")
-print(thing_to_print)
-```
-
-<h2>Print Debugging</h2>
+<h3>Print Debugging</h3>
 
 As you've probably already learned, writing code involves a never-ending process of trying this, fixing errors, trying other things, fixing new errors, etc. The process of identifying and fixing errors/bugs is called **debugging**.
 
@@ -401,4 +237,198 @@ sumBigNums <- function(aVector){
 # 10 to the count even though it isn't greater than 10! We need to change
 # the code to say "num > 10", not ">="
 sumBigNums(some_vector)
+```
+
+<h2>IV. Installing and Using External Packages</h2>
+
+<h3>Loading Installed Packages</h3>
+
+```{r makePlots, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
+# Load dependencies
+library(data.table); library(quantmod); library(rbokeh); library(purrr);
+
+# Get data and plot it
+quantmod::getSymbols('CPIAUCSL', src = 'FRED')
+cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
+
+# Plot it!
+rbokeh::figure(data = cpiDT, title = "U.S. CPI", 
+               ylab = "Index (1982-1984 = 100)", xlab = "date") %>%
+        ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
+```
+
+<h2>V. User-defined Functions</h2>
+
+<h3>UDF Example</h3>
+
+You can you user-defined functions to wrap arbitrarily complicated logic into concise statements. As mentioned in week 1, a good rule of thumb is to say "any time your find yourself copying and pasting the same code more than twice, write a function".
+
+```{r udfExample}
+# Given a number between 0 and 1, multiply by a random number
+# between 0 and 1, then return an action based on quantile
+weirdFunction <- function(num){
+    rand_num    <- runif(n = 1, min = 0, max = 1)
+    action_val  <- num*rand_num
+    if (action_val <= 0.25){return("left")}
+    if (action_val <= 0.5){return("right")}
+    if (action_val <= 0.75){return("up")}
+    return("down")
+}
+action_sequence <- sapply(runif(n = 100, min = 0, max = 1), weirdFunction)
+action_sequence[1:20]
+```
+
+<h3>Functions That Return Stuff</h3>
+
+As you've seen in previous examples, the R special word `return` tells a function to "give back" some value. When you execute an expression like `x <- someFunction()`, that function's return value (an R object) is stored a variable called "x".
+
+Unlike in some other programming languages, R allows you to use multiple `return` values inside the body of a function. The first time that the code inside the function reaches a `return` value, it will pass that value back out of the function and immediately stop executing the function.
+
+```{r returnExample}
+# simple function + print debugging
+simpFunction <- function(n){
+    print("first print")
+    if (n > 5){return(TRUE)}
+    
+    print("second print")
+    if (n < 5){return(FALSE)}
+    
+    print("third print")
+    return("TRALSE")
+}
+
+simpFunction(100)
+simpFunction(5)
+```
+
+<h3>Functions That Return Nothing</h3>
+
+Not all functions have to return something! Sometimes you may want to create a function that just has some side effect like creating a plot, writing to a file, or print to the console.
+
+These are called "null functions" and they're common in scripting languages like R. By default, these functions return the R special value `NULL`.
+
+```{r nullFunc}
+printSentence <- function(theSentence){
+    words <- strsplit(x = theSentence, split = " ")
+    for (word in words){
+        print(word)
+    }
+}
+
+# Assigning to an object is irrelevant...this function doesn't return anything
+x <- printSentence("Hip means to know, it's a form of intelligence")
+x
+```
+
+<h3>Brief Review of Scoping</h3>
+
+Remember when we talked about namespaces and how R searches for objects? It's time to extend that logic to functions...which is where things get a bit weird and hard to understand.
+
+R uses a search technique called [lexical scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping)
+
+```{r searchingForVariables}
+# Define an object + function in the global environment
+x <- 4
+someFunc <- function(x){
+    return(x^2)
+}
+
+# If you call someFunc without an argument, it will go up one environment and look
+# for "X" in the global environment
+someFunc(x)
+
+# If you pass in a new value, it will use that instead. Note that the value of
+# x in the global environment remains unchanged. 
+someFunc(x = 6)
+x
+```
+
+<h3>Sourcing Helper Functions</h3>
+
+In the examples so far, I've been defining functions and using them in the same breath. As your projects grow in complexity, you will find this really tedious and hard to keep track of.
+
+An alternative that many intermediate R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
+
+Let's create two scripts.
+
+**script 1: helperfuns.R**
+
+```{r helperFun}
+# Define some arbitrary custom function
+myFunction <- function(n){
+    if (n <= 5){
+        return(n^2)
+    } else {
+        return(n^3)
+    }
+}
+```
+
+**script 2: run_script.R**
+
+```{r runScript}
+# uncomment the line below to source in the helper functions file
+#source("helperfuns.R")
+
+# Apply that function over some data
+le_stuff <- sapply(c(1:20), myFunction)
+
+# Plot the result
+plot(x = 1:20, y = le_stuff)
+```
+
+<h2>VI. Working with Files</h2>
+
+<h3>Semi-Structured: JSON Files</h3>
+
+JSON ([JavaScript Object Notation](http://www.json.org/)) is a light-weight format for representing arbitrary data objects in text files. It is used by many applications and most programming languages have functionality to handle and parse it.
+
+Let's try an example with data from the state of Oregon. The following link returns data on boating access sites in the state of Oregon. Try pasting it into your browser.
+
+https://data.oregon.gov/api/views/t6bs-tkn4/rows.json?accessType=DOWNLOAD
+
+We can download the data and parse it into an R list object using the `rjson` package:
+
+```{r jsonData}
+# Load package
+library(rjson)
+
+# Go get some data
+result <- rjson::fromJSON(file = "https://data.oregon.gov/api/views/t6bs-tkn4/rows.json")
+
+# Check it out. Pass the max.level argument to the list to tell R how deep into it you want to go
+str(result, max.level = 1)
+
+# Check out the "meta$view element"
+str(result[["meta"]][["view"]], max.level = 1)
+```
+
+<h3>Unstructured: Text files</h3>
+
+In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.
+
+Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)(basically just pattern-matching on strings) to extract relevant features like word counts. For example:
+
+```{r unstructuredText}
+# Parameters
+shakespeare_text <- "https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt"
+
+# Read all the text into a vector (one line per element)
+text_vec <- readLines(con = shakespeare_text)
+
+# Examine a few random lines:
+sample(text_vec, 5)
+
+# Coerce everything to lower-case
+text_vec <- tolower(text_vec)
+
+# Grab just the lines with the word "thou" or "twas""
+thou_art_my_vector <- text_vec[grepl(pattern = "thou|twas", text_vec)]
+
+# Print the count of lines w/ those words
+lines_with_fancy_words <- length(thou_art_my_vector)
+thing_to_print <- paste0("of the ", length(text_vec), 
+                         " lines of text in the complete works of William Shakespeare, only ",
+                         lines_with_fancy_words, " used thou or twas.")
+print(thing_to_print)
 ```

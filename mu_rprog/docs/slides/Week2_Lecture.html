@@ -116,13 +116,13 @@
 <p><b class="toc_header"> IV. Using External Packages </b></p>
 
 <ol class="toc" type="none">
-    <li> Loading Installed Packages     <span style="float:right"> 6-7 </span></li>
-    <li> Namespacing Calls              <span style="float:right"> 8 </span></li>
-    <li> Installing from CRAN           <span style="float:right"> 9 </span></li>
-    <li> Installing from GitHub         <span style="float:right"> 10 </span></li>
-    <li> Installing Local Code          <span style="float:right"> 11 </span></li>
-    <li> library() vs. require()        <span style="float:right"> 12 </span></li>
-    <li> Using Local Code with source() <span style="float:right"> 13 </span></li>
+    <li> Loading Installed Packages     <span style="float:right"> 25-26 </span></li>
+    <li> Namespacing Calls              <span style="float:right"> 27 </span></li>
+    <li> Installing from CRAN           <span style="float:right"> 28 </span></li>
+    <li> Installing from GitHub         <span style="float:right"> 29 </span></li>
+    <li> Installing Local Code          <span style="float:right"> 30 </span></li>
+    <li> library() vs. require()        <span style="float:right"> 31 </span></li>
+    <li> Using Local Code with source() <span style="float:right"> 32 </span></li>
 </ol>
 
 </div>
@@ -143,20 +143,19 @@
   <p><b class="toc_header"> VI. User-defined Functions </b></p>
 
 <ol class = "toc" type="none">
-    <li> UDF Examples                  <span style="float:right"> 31 </span></li>
-    <li> Functions That Return Stuff   <span style="float:right"> 32 </span></li>
-    <li> Functions That Return Nothing <span style="float:right"> 33 </span></li>
-    <li> Brief Review of Scoping       <span style="float:right"> 34 </span></li>
-    <li> Sourcing Helper Functions     <span style="float:right"> 35 </span></li>
+    <li> UDF Example                   <span style="float:right"> 34 </span></li>
+    <li> Functions That Return Stuff   <span style="float:right"> 35 </span></li>
+    <li> Functions That Return Nothing <span style="float:right"> 36 </span></li>
+    <li> Brief Review of Scoping       <span style="float:right"> 37 </span></li>
+    <li> Sourcing Helper Functions     <span style="float:right"> 38 </span></li>
 </ol>
 
 <p><b class="toc_header"> VII. Working with Files </b></p>
 
 <ol class = "toc" type="none">
-    <li> Disk vs. RAM                <span style="float:right"> 22 </span></li>
-    <li> Structured: Delimited files <span style="float:right"> 23 </span></li>
-    <li> Semi-structured: JSON files <span style="float:right"> 24 </span></li>
-    <li> Unstructured: Text files    <span style="float:right"> 25 </span></li> 
+    <li> Structured: Delimited files <span style="float:right"> 40-41 </span></li>
+    <li> Semi-structured: JSON files <span style="float:right"> 42 </span></li>
+    <li> Unstructured: Text files    <span style="float:right"> 43 </span></li>
 </ol>
 
 </div>
@@ -594,7 +593,7 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
 <p>In week 1, we discussed R functions, packages, and namespaces. As you advance in R, you will find that the functions provided by packages like <code>base</code>, <code>stats</code>, and <code>utils</code> are not sufficient. For example, you may want to use <code>rbokeh</code> to make interactive plots.</p>
 
 <pre><code class="r"># Load dependencies
-library(data.table); library(quantmod); library(rbokeh)
+library(data.table); library(quantmod); library(rbokeh); library(purrr);
 
 # Get data and plot it
 quantmod::getSymbols(&#39;CPIAUCSL&#39;, src = &#39;FRED&#39;)
@@ -1025,9 +1024,9 @@ dataDF &lt;- read.delim(file = dataPath,
 
 <p>In the context of statistical programming, text files that are &quot;unstructured&quot; are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.</p>
 
-<p>Working with these types of files typically involves reading them into R line-by line and then using something called <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">regular expression</a>(basically just pattern-matching on strings) to extract relevant features like word counts. For example:</p>
+<p>Working with these types of files typically involves reading them into R line-by line and then using something called <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">regular expression</a> (basically just pattern-matching on strings) to extract relevant features like word counts. For example:</p>
 
-<p>See the Shakespeare exampe in the <a href="https://jameslamb.github.io/teaching/mu_rprog/docs/code/Week2_Supplement.html">Week 2 Supplement</a> for some hands-on experience with this approach.</p>
+<p>See the Shakespeare example in the <a href="https://jameslamb.github.io/teaching/mu_rprog/docs/code/Week2_Supplement.html">Week 2 Supplement</a> for some hands-on experience with this approach.</p>
 
   </article>
   <!-- Presenter Notes -->
