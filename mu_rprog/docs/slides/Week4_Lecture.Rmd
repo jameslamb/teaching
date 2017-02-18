@@ -399,7 +399,7 @@ fullDF <- data.table::rbindlist(list(sample1, sample2, sample3))
 
 Ok so you have a business question, you've chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...
 
-<center><img src="../slides/assets/img/spongebob.gif"></center>
+<center><img src="assets/img/spongebob.gif"></center>
 
 <br>
 In this section, we'll to walk through the process of building a non-trivial script from scratch.
