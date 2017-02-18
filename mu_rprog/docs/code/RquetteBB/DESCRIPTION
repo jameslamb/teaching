@@ -1,0 +1,17 @@
+Package: RquetteBB
+Title: Marquette BB in R
+Version: 0.1
+Authors@R: person("James", "Lamb", email = "jaylamb20@gmail.com", role = c("aut", "cre"))
+Description: This package will be used to pull, analyze, and visualize Marquette Basketball data.
+Depends: R (>= 3.3.2)
+Imports:
+	data.table,
+	purrr,
+	stringr,
+	XML
+Suggests:
+	testthat
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
