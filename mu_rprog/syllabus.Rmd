@@ -183,8 +183,8 @@ Quizzes will be delivered online via D2L (see the "Quizzes" section of the cours
 |Quiz                       |Opens                       |Due                           |
 |:-------------------------:|:--------------------------:|:----------------------------:|
 |Pre-class survey           | Immediately                | Prior to class on January 20 |
-|Quiz 1                     | After class on January 21  | Prior to class on January 27 |
-|Quiz 2                     | After class on January 28  | Prior to class on February 3 |
+|Quiz 1                     | After class on January 20  | Prior to class on January 27 |
+|Quiz 2                     | After class on January 27  | Prior to class on February 3 |
 
 
 \subsection{B. Programming Assignments (30\%)}

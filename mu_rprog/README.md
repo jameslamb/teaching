@@ -8,35 +8,21 @@
 
 ## Slides:
 
-[Week1](https://jameslamb.github.io/teaching/mu_rprog/,
-slides/Week1_Lecture.html#1) | 
-[Week2](https://jameslamb.github.io/teaching/mu_rprog/,
-slides/Week2_Lecture.html#1) |
-[Week3](https://jameslamb.github.io/teaching/mu_rprog/,
-slides/Week3_Lecture.html#1) |
-[Week4](https://jameslamb.github.io/teaching/mu_rprog/,
-slides/Week4_Lecture.html#1) |
-[Week5](https://jameslamb.github.io/teaching/mu_rprog/,
-slides/Week5_Lecture.html#1)
+[Week1](https://jameslamb.github.io/teaching/mu_rprog/slides/Week1_Lecture.html#1) | 
+[Week2](https://jameslamb.github.io/teaching/mu_rprog/slides/Week2_Lecture.html#1) |
+[Week3](https://jameslamb.github.io/teaching/mu_rprog/slides/Week3_Lecture.html#1) |
+[Week4](https://jameslamb.github.io/teaching/mu_rprog/slides/Week4_Lecture.html#1) |
+[Week5](https://jameslamb.github.io/teaching/mu_rprog/slides/Week5_Lecture.html#1)
 
 ## Code:
 
-[Week1 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,
-code/Week1_Supplement.html) | [Week2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,
-code/Week2_Supplement.html) | [Week3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,
-code/Week3_Supplement.html) | [Week4 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,
-code/Week4_Supplement.html) | [Week5 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,
-code/Week5_Supplement.html)
+[Week1 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,code/Week1_Supplement.html) | [Week2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) | [Week3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) | [Week4 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html) | [Week5 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week5_Supplement.html)
 
-[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/,
-code/RquetteBB)
+[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB)
 
 ## Assignments:
 
-[Programming Assignment 1](https://github.com/jameslamb/teaching/blob/master/mu_rprog/,
-assignments/programming_assignment1.R) | [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/,
-assignments/programming_assignment2.html) | [Final Project](https://jameslamb.github.io/teaching/mu_rprog/,
-assignments/final_project.html)
+[Programming Assignment 1](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/programming_assignment1.R) | [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/assignments/programming_assignment2.html) | [Final Project](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html)
 
 ## Installing R Dependencies
 
