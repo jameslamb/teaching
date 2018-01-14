@@ -19,7 +19,7 @@ knit        : slidify::knit2slides
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/Week5_kermit.png");
+  background-image:url("assets/img/week5_kermit.png");
   background-size: cover;
 }
 </style>
