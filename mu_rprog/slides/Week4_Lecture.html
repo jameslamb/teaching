@@ -35,7 +35,7 @@
   <hgroup class="auto-fadein">
     <h1>ECON 6931 - R Programming</h1>
     <h2>Week 4</h2>
-    <p>James Lamb<br/>Data Scientist | Uptake</p>
+    <p>James Lamb<br/>Senior Data Scientist | Uptake</p>
   </hgroup>
   <article></article>  
 </slide>
@@ -295,7 +295,7 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
 
 <pre><code class="r"># Fit
 mod2 &lt;- lm(Fertility ~ Education + Infant.Mortality + Examination_above_median,
-           data = swiss) 
+           data = swiss)
 
 # Predict + Evaluate
 regPreds2 &lt;- EvaluateModel(mod2, testDF = swissTestDF, modelName = &quot;Expanded OLS&quot;)
@@ -314,7 +314,7 @@ regPreds2 &lt;- EvaluateModel(mod2, testDF = swissTestDF, modelName = &quot;Expa
 
 <h2>Regression Trees</h2>
 
-<p>Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to &quot;learn&quot; when trained on data. </p>
+<p>Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to &quot;learn&quot; when trained on data.</p>
 
 <p>Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find &quot;local&quot; models of subsets of the data which, together, provide a better fit than the single &quot;global&quot; OLS model we&#39;re used to fitting.</p>
 
@@ -460,13 +460,8 @@ fullDF2 &lt;- merge(dealerDF1, dealerDF2, by = &quot;dealer_id&quot;)
 <pre><code class="r">sample1 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-01-01&quot;),
                                            to = as.Date(&quot;2016-06-30&quot;), length.out = 180),
                       value = rnorm(180, 5, 2.5), sampleId = rep(&quot;sample1&quot;, 180))
-</code></pre>
 
-<pre><code>## Warning in strptime(xx, f &lt;- &quot;%Y-%m-%d&quot;, tz = &quot;GMT&quot;): unknown timezone
-## &#39;default/America/Chicago&#39;
-</code></pre>
-
-<pre><code class="r">sample2 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-07-01&quot;), 
+sample2 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-07-01&quot;),
                                            to = as.Date(&quot;2017-03-31&quot;), length.out = 210),
                       value = rnorm(210, 5, 2.5), sampleId = rep(&quot;sample2&quot;, 210))
 
@@ -486,7 +481,7 @@ fullDF &lt;- rbind(sample1, sample2)
 
 <h2>Rowwise Combination of Many Tables with rbindlist</h2>
 
-<p><code>rbind</code> works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout <code>rbindlist</code> from the <code>data.table</code> package. </p>
+<p><code>rbind</code> works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout <code>rbindlist</code> from the <code>data.table</code> package.</p>
 
 <pre><code class="r">sample1 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-01-01&quot;),
                                            to = as.Date(&quot;2016-06-30&quot;), length.out = 180),

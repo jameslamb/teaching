@@ -2,11 +2,11 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 1
 author      : James Lamb
-job         : Data Scientist | Uptake
+job         : Senior Data Scientist | Uptake
 logo        : 
 framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
+hitheme     : tomorrow
 widgets     : [bootstrap]            # {mathjax, quiz}
 mode        : selfcontained # {selfcontained, standalone, draft}
 lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
@@ -161,7 +161,7 @@ I'm pumped for this.
     > "Economic models bring a simplifying conceptual framework to to help make sense of large data sets"
     
 >- A major challenge:
-    > "...developing appropriate data management and programming capabilities, as well as designing creative 
+    > "...developing appropriate data management and programming capabilities, as well as designing creative
     > and scalable approaches to summarize, describe, and analyze...data sets"
 
 </br></br></br></br>
@@ -176,7 +176,7 @@ I'm pumped for this.
 
 <h2>Course Objectives</h2>
 
-In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code. 
+In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code.
 
 <br>
 The main objectives for the course are as follows:
@@ -215,7 +215,7 @@ R comes with a command-line client and a default GUI, but most users prefer to u
 * Choose the appropriate download under "Installers for Supported Platforms"
 * Open the file and follow the prompts on the screen
 
---- .content_slide 
+--- .content_slide
 
 <footer>
   <hr>
@@ -240,7 +240,7 @@ Sequences of R code are typically saved in scripts with the file extension ".R".
 
 The world of data science is a world of text files...of many types. For working with other types of text files (e.g. config files, queries, JSON data, READMEs, and more), you'll want to install a full-featured text editor. One possibility is [Sublime Text 3](https://www.sublimetext.com/3), but you are welcome to use whatever works for you.
 
-"Full-featured" text editors do far more than provide a simple window for entering basic text. 
+"Full-featured" text editors do far more than provide a simple window for entering basic text.
 
 *** =left
 
@@ -325,13 +325,13 @@ When R is just one of the tools in your stack, it's often quicker to execute you
 
 **The R REPL**
 
-- R comes with a REPL ([read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) which allows you to quickly turn a terminal command line into an R console. 
+- R comes with a REPL ([read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) which allows you to quickly turn a terminal command line into an R console.
 - To activate: `R` from the command line
 - To close: `quit()` or `q()`
 
 **Rscript**
 
-- If your commands are stored in a ".R" script, you can execute that script from the command line with the `Rscript` command. 
+- If your commands are stored in a ".R" script, you can execute that script from the command line with the `Rscript` command.
 - This command will run all the lines in the file in the order they've been written and potentially output some messages to the terminal.
 
 --- .section_slide
@@ -369,7 +369,7 @@ To ensure that that process of breaking down ("interpreting") code goes smoothly
     - for example: string, numeric, integer, or boolean
     - pros: strong typing makes software faster and more reliable (broadly speaking)
     - cons: code is very verbose, difficult to prototype in and debug
-    
+
 - R is "dynamically typed"
     - this means that you can create objects without explicitly telling R "this is an integer"
     - in addition, you're free to re-assign variable names to different types at any time in scripts
@@ -609,7 +609,7 @@ The `while` loop implementation can be found in the [Week 1 Code Supplement](jam
 
 <h2>Intro to Functional Programming</h2>
 
-R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions. 
+R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
 
 > "If you find yourself copying and pasting the same code more than twice, it's time to write a function." - Hadley Wickham
 
@@ -659,7 +659,7 @@ sqrt()
 
 - For more complicated functions, passing values to each argument can get burdensome
 - To handle this, R allows function authors to specify *default arguments*. These are values that certain arguments will take automatically unless you decide to overwrite them
-- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`. 
+- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`.
 
 ```{r normalDraw}
 # 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
@@ -812,7 +812,7 @@ grades <- lapply(studentList, mean)
 
 Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.
 
-Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type. 
+Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type.
 
 ```{r dataFrame, eval = FALSE}
 # Create a dataframe!
@@ -1022,7 +1022,7 @@ See example terminal session on the next slide.
     1. on your local machine, open up a command line session and use `cd` to switch to the directory where you want to store the repo
     2. grab the URL of the repo you want and use `git clone` to pull a copy.
     3. Change directories into the newly-created repo and run `git remote -v` to check that you have a remote set up
-    
+
 **In-Class Exercise**
 
 ```{r engine='bash', eval=F}
@@ -1064,4 +1064,3 @@ We covered a lot of stuff this week, and will have to be selective about which t
 **RStudio**: [RStudio blog](https://blog.rstudio.org/)
 
 **Sublime Text**: [Sublime Text 3 docs](https://www.sublimetext.com/docs/3/) | [Package Control](https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/)
-

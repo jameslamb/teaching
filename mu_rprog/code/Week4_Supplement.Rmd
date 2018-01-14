@@ -29,10 +29,14 @@ In this exercise, we're going to evaluate the following question: **Can we predi
 ```{r getData}
 # Load in some data
 data("swiss")
+```
 
+```{r docs, eval = FALSE, echo = TRUE}
 # Research: What do the variables mean?
 ?swiss
+```
 
+```{r traintest, eval = TRUE, echo = TRUE}
 # Test vs. Training Data: Let's hold out 40 random records right now for testing
 testIndx    <- sample(1:nrow(swiss), size = 10, replace = FALSE)
 swissTestDF <- swiss[testIndx,]
@@ -193,11 +197,15 @@ The details of tree-based learning are outside the scope of this class, but I en
 # Fit
 treeMod <- rpart::rpart(Fertility ~ ., data = swiss)
 
-# Plot the tree
-rattle::fancyRpartPlot(treeMod, main = "Single Decision Tree")
-
 # Evaluate
 dtPreds <- EvaluateModel(treeMod, swissTestDF, "Decision Tree")
+```
+
+You can walk through the tree with this awesome package called `rattle`. This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
+
+```{r plotTheTree, eval = FALSE, echo = TRUE}
+# Plot the tree
+rattle::fancyRpartPlot(treeMod, main = "Single Decision Tree")
 ```
 
 <h3>Random Forests</h3>

@@ -2,11 +2,11 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 4
 author      : James Lamb
-job         : Data Scientist | Uptake
+job         : Senior Data Scientist | Uptake
 logo        : 
 framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
+hitheme     : tomorrow
 widgets     : [bootstrap]            # {mathjax, quiz}
 mode        : selfcontained # {selfcontained, standalone, draft}
 lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
@@ -209,7 +209,7 @@ To add more variables to a model in R, you have to use formula notation. I've sp
 ```{r olsMoreVars, eval = FALSE}
 # Fit
 mod2 <- lm(Fertility ~ Education + Infant.Mortality + Examination_above_median,
-           data = swiss) 
+           data = swiss)
 
 # Predict + Evaluate
 regPreds2 <- EvaluateModel(mod2, testDF = swissTestDF, modelName = "Expanded OLS")
@@ -224,7 +224,7 @@ regPreds2 <- EvaluateModel(mod2, testDF = swissTestDF, modelName = "Expanded OLS
 
 <h2>Regression Trees</h2>
 
-Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data. 
+Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data.
 
 Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
 
@@ -348,8 +348,8 @@ So far we've talked about merging columns from different tables. But what if you
 sample1 <- data.frame(startTime = seq.Date(from = as.Date("2016-01-01"),
                                            to = as.Date("2016-06-30"), length.out = 180),
                       value = rnorm(180, 5, 2.5), sampleId = rep("sample1", 180))
-                      
-sample2 <- data.frame(startTime = seq.Date(from = as.Date("2016-07-01"), 
+
+sample2 <- data.frame(startTime = seq.Date(from = as.Date("2016-07-01"),
                                            to = as.Date("2017-03-31"), length.out = 210),
                       value = rnorm(210, 5, 2.5), sampleId = rep("sample2", 210))
 
@@ -365,7 +365,7 @@ fullDF <- rbind(sample1, sample2)
 
 <h2>Rowwise Combination of Many Tables with rbindlist</h2>
 
-`rbind` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist` from the `data.table` package. 
+`rbind` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist` from the `data.table` package.
 
 ```{r rbindlistExample, eval = FALSE}
 sample1 <- data.frame(startTime = seq.Date(from = as.Date("2016-01-01"),
@@ -416,16 +416,16 @@ In this section, we'll to walk through the process of building a non-trivial scr
 Resist the urge to just start writing code. Investing a few minutes upfront in thinking through the structure of your code will pay off in a big way as the project evolves and grows more complicated. Trust me.
 
 First, just write down the main things you want to do. In this exercise, we're going to write some R code that can generate n-page "books" or random sentences in English.
-        
+
 ```{r fromScratch}
 #=== Write an R script that writes a book! ===#
-    
+
 # Function to create random sentences
-    
+
 # Function to create a "page" with n sentences
-    
+
 # Function to create a "book" with m pages
-    
+
 # Call the book function and create a 5-page book
 ```
 
@@ -515,5 +515,3 @@ For other practices to keep your code clean and readable, check out [Hadley Wick
 <br>
 
 <center><img src="assets/img/chuck_norris.jpg" height=700px width=400px></center>
-
-

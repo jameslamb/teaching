@@ -104,7 +104,7 @@ Whenever you find yourself reading data into R or writing data out of it, you wi
 
 All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
 
-```{r setwdExample}
+```{r setwdExample, eval = FALSE, echo = TRUE}
 # Check and then change the current working directory
 getwd()
 setwd("~/repos/sandbox")
@@ -118,7 +118,7 @@ myDF <- read.csv(file = "./data/some_data.csv")
 
 R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!
 
-```{r moarFilez}
+```{r moarFilez, eval = FALSE, echo = TRUE}
 # List all the files in some directory and put the list in a vector
 theFiles <- list.files(path = "~/repos/some_folder/docs/")
 
@@ -137,7 +137,7 @@ In the Economics / Business world (and many other areas!), Microsoft Excel is pr
 
 NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or 2) exploring other packages like [xlsx](https://cran.r-project.org/web/packages/xlsx/xlsx.pdf) or [readxl](https://cran.r-project.org/web/packages/readxl/readxl.pdf).
 
-```{r readingExcel}
+```{r readingExcel, eval = FALSE, echo = TRUE}
 # Read an Excel file into a data.frame
 library(openxlsx)
 newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/sandbox/data/stockData.xlsx")
@@ -145,7 +145,7 @@ newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/sandbox/data/stockData.xlsx")
 
 You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
 
-```{r writingExcel}
+```{r writingExcel, eval = FALSE, echo = TRUE}
 # load mtcars
 data("mtcars")
 
@@ -220,7 +220,7 @@ allWords <- lapply(bsText, FUN = function(thisLine){
 
 # 8 - Put into a data.table and print that just to make sure it worked
 wordDT <- data.table::rbindlist(allWords)
-wordDT
+print(wordDT[1:10], row.names = FALSE)
 ```
 
 <h3>Counting Words in Text</h3>
@@ -234,7 +234,7 @@ The `data.table` package makes this operation easy to carry out.
 wordCountDT <- wordDT[, .N, by = words]
 data.table::setnames(wordCountDT, old = "N", new = "word_count")
 data.table::setorder(wordCountDT, -word_count)
-wordCountDT
+print(wordCountDT[1:10], row.names = FALSE)
 
 key_words <- wordCountDT[21:40]
 ```
@@ -388,9 +388,9 @@ par(mfrow = c(1,1))
 
 When R (or any other program!) creates plots, it needs to know where to put them! When you call `plot()` or other commands from within and RStudio session, the default is to just display the resulting figure in the "Plots" pane. However, you can use other **graphics devices** (places to put visual output) to tell R to put your figures elsewhere.
 
-```{r path2png}
+```{r path2png, eval = FALSE, echo = TRUE}
 # Create 10 plots in a loop
-outDir <- "~/sandbox"
+outDir <- getwd()
 for (i in 1:10){
     # Open a connection to a .png file
     filePath <- paste0(outDir, "/plot_", i, ".png")
@@ -402,5 +402,4 @@ for (i in 1:10){
     # Close the connection to that file
     dev.off()
 }
-
 ```

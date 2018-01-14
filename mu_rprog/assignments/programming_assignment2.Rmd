@@ -29,7 +29,7 @@ In this part of the assignment, I'd like you to practice reading and running the
 - Two functions from the "Math and Statistics" section of **the package list**
 - Two functions from the "Visualization, Presentation, and Reporting" section of **the package list**
     - NOTE: must be from two different packages
-    
+
 <h3>Submission</h3>
 
 Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt1.R*. This file should contain 10 sections, one for each of the functions above. Please copy one example per function into your script, and use the format given in the example below:
@@ -95,18 +95,18 @@ jpnDF <- ### FILL THIS IN ###
 # rename columns
 names(usaDF) <- c("Date", "USA_INF_YOY")
 names(jpnDF) <- ### FILL THIS IN ###
-    
+
 # Combine the two data.frames with merge()
 mergedDF <- merge(x = usaDF, by = "Date", y = ### FILL THIS IN ###)
-                      
+
 # Plot the two series
-plot(x = mergedDF$Date, 
+plot(x = mergedDF$Date,
      y = mergedDF$USA_INF_YOY,
      type = ### FILL THIS IN ###,
      main = ### FILL THIS IN ###,
      xlab = ### FILL THIS IN ###,
      ylab = ### FILL THIS IN ###)
-         
+
 lines(x = ### FILL THIS IN ###, type = "l", col = ### FILL THIS IN ###)
 ```
 

@@ -2,13 +2,13 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 5
 author      : James Lamb
-job         : Data Scientist | Uptake
+job         : Senior Data Scientist | Uptake
 logo        : 
-framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : [bootstrap]            # {mathjax, quiz}
-mode        : selfcontained # {selfcontained, standalone, draft}
+framework   : io2012
+highlighter : highlight.js
+hitheme     : tomorrow
+widgets     : [bootstrap]
+mode        : selfcontained
 lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
 knit        : slidify::knit2slides
 ---
@@ -120,7 +120,3 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 <br>
 
 <center><img src="assets/img/week5_ama.jpg" width = 500px height=750px></center>
-
-
-
-

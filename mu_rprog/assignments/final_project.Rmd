@@ -59,7 +59,7 @@ This report should answer the following items:
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 4 session (Feb 11)**. 
+This component of the project is **due prior to our Week 4 session (Feb 10)**.
 
 Please submit your report (as a Word doc, PDF, or HTML doc) to the "Final Project Proposal" dropbox on D2L.
 
@@ -75,7 +75,7 @@ This script is the main deliverable for the class...it is worth 20\% of your fin
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 5 session (Feb 18)**. 
+This component of the project is **due prior to our Week 5 session (Feb 17)**.
 
 Please submit your code to the "Final Project (script + report)" dropbox on D2L. If you use multiple scripts (totally acceptable!), please include an additional script called "build.R" which species the order to run the scripts in.
 
@@ -118,7 +118,7 @@ This can be a nerve-wracking experience in the context of a new job (trust me), 
 
 <h3>Submission</h3>
 
-Code reviews will be done in-class **during our Week 5 session (Feb 18)**. You do not need to present slides or turn in anything on D2L. 
+Code reviews will be done in-class **during our Week 5 session (Feb 17)**. You do not need to present slides or turn in anything on D2L.
 
 Please set up a Google doc called "FIRSTNAME LASTNAME <> MU RPROG Code Review" and give the rest of the class edit rights. While you present, everyone in the class will have this doc up on their machines and use it to give you comments and questions. The benefit of this practice, in professional settings, is that days after your code review you'll have a written record of your audience's feedback.
 
@@ -138,11 +138,10 @@ Be prepared to show your code + report in front of the class. Your code review s
 
 <h3>Description</h3>
 
-The final deliverable for this project is a written report with your findings. This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client. Your report should focus on the problem (not the specifics of the code). Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz). 
+The final deliverable for this project is a written report with your findings. This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client. Your report should focus on the problem (not the specifics of the code). Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 5 session (Feb 18)**. Please upload your report to the "Final Project (script + report)" dropbox on D2L. 
+This component of the project is **due prior to our Week 5 session (Feb 17)**. Please upload your report to the "Final Project (script + report)" dropbox on D2L.
 
 ---
-

@@ -35,7 +35,7 @@
   <hgroup class="auto-fadein">
     <h1>ECON 6931 - R Programming</h1>
     <h2></h2>
-    <p>James Lamb<br/>Data Scientist | Uptake</p>
+    <p>James Lamb<br/>Senior Data Scientist | Uptake</p>
   </hgroup>
   <article></article>  
 </slide>
@@ -206,8 +206,7 @@
 
 <h2>Looping with lapply</h2>
 
-<p>R&#39;s <code>*apply</code> family of functions are a bit difficult to understand at first, but soon you&#39;ll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is 
-<code>lapply</code> (&quot;list apply&quot;), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let&#39;s try it out:</p>
+<p>R&#39;s <code>*apply</code> family of functions are a bit difficult to understand at first, but soon you&#39;ll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is <code>lapply</code> (&quot;list apply&quot;), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let&#39;s try it out:</p>
 
 <pre><code class="r"># Get some data
 data(&quot;ChickWeight&quot;)
@@ -448,13 +447,13 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
 
 <p>But really...Google is your best friend. It will be particularly useful in the cases where your code is returning an error or warning. Simple pasting that output into google (in quotes to get an exact match) will typically get you to an answer within 5 minutes.</p>
 
-<p>Let&#39;s try an example. </p>
+<p>Let&#39;s try an example.</p>
 
 <p><br></p>
 
-<p>Imagine that you got this error: </p>
+<p>Imagine that you got this error:</p>
 
-<p><code>Error in sum(c(1, 2, &quot;5&quot;)) : invalid &#39;type&#39; (character) of argument</code>. </p>
+<p><code>Error in sum(c(1, 2, &quot;5&quot;)) : invalid &#39;type&#39; (character) of argument</code>.</p>
 
 <p>Try to figure out what went wrong. HINT: it often helps to type the function name outside quotes. E.g. <code>function &quot;this is some error text&quot;</code></p>
 
@@ -511,7 +510,7 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
 
 <h2>Built-in Docs with "?"</h2>
 
-<p>As we&#39;ve covered before, R packages have a built-in documentation system. All packages submitted to CRAN must supply some basic documentation for each function they contain. If a function is behaving strangely, it&#39;s often useful to look at the documentation under <code>?function_name</code>. </p>
+<p>As we&#39;ve covered before, R packages have a built-in documentation system. All packages submitted to CRAN must supply some basic documentation for each function they contain. If a function is behaving strangely, it&#39;s often useful to look at the documentation under <code>?function_name</code>.</p>
 
 <p>For example, you may be surprised to learn that <code>sum(c(1,2,NA,3))</code> evaluates to <code>NA</code>. You might have thought it would be 6. If we call <code>?sum</code> in R, you&#39;ll see the answer...the default behavior of this function is to leave <code>NA</code> values in when calculating the sum, but there is an option argument <code>na.rm</code> that allows you to remove them if you wish.</p>
 
@@ -559,7 +558,7 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
 <li>Errors thrown by programs are not magical...they had to be written into the source code by a developer</li>
 </ul>
 
-<p>For example, let&#39;s search for the error: <code>ggplot2 doesn&#39;t know how to deal with data of clss integer</code> in the ggplot2 source code. Please visit: </p>
+<p>For example, let&#39;s search for the error: <code>ggplot2 doesn&#39;t know how to deal with data of clss integer</code> in the ggplot2 source code. Please visit:</p>
 
 <p><a href="https://github.com/tidyverse/ggplot2">https://github.com/tidyverse/ggplot2</a></p>
 
@@ -600,7 +599,7 @@ quantmod::getSymbols(&#39;CPIAUCSL&#39;, src = &#39;FRED&#39;)
 cpiDT &lt;- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
 
 # Plot it!
-rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;, 
+rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;,
                ylab = &quot;Index (1982-1984 = 100)&quot;, xlab = &quot;date&quot;) %&gt;%
         ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = &quot;blue&quot;)
 </code></pre>
@@ -618,7 +617,8 @@ rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;,
 
 <h2>External package example</h2>
 
-<p><img src="assets/fig/actuallyMakePlot-1.png" alt="plot of chunk actuallyMakePlot"></p>
+<pre><code>## Error in loadNamespace(name): there is no package called &#39;webshot&#39;
+</code></pre>
 
   </article>
   <!-- Presenter Notes -->

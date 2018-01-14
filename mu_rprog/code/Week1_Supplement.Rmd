@@ -185,7 +185,7 @@ getPrimes(answers)
 - Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt` will return the square root of each element
 - In this case, we'd say `x` is a *required argument* of `sqrt`
 
-```{r requiredArgs error = TRUE}
+```{r requiredArgs, error = TRUE}
 # Take the square root of a vector of numbers
 sqrt(x = c(1,4,9,16,25))
 
@@ -213,7 +213,7 @@ As you saw in the last example, R gives you the ability to define your own funct
 
 ```{r udfs}
 # Wrap your modeling pipeline in a function so you can do model comparisons
-load("mtcars")
+data(mtcars)
 
 # Create custom fitModel function
 fitModels <- function(spec_list, training_data){

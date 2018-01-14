@@ -35,7 +35,7 @@
   <hgroup class="auto-fadein">
     <h1>ECON 6931 - R Programming</h1>
     <h2>Week 1</h2>
-    <p>James Lamb<br/>Data Scientist | Uptake</p>
+    <p>James Lamb<br/>Senior Data Scientist | Uptake</p>
   </hgroup>
   <article></article>  
 </slide>
@@ -237,7 +237,7 @@
 <li><p>A major challenge:</p>
 
 <blockquote>
-<p>&quot;...developing appropriate data management and programming capabilities, as well as designing creative 
+<p>&quot;...developing appropriate data management and programming capabilities, as well as designing creative
 and scalable approaches to summarize, describe, and analyze...data sets&quot;</p>
 </blockquote></li>
 </ul>
@@ -261,7 +261,7 @@ and scalable approaches to summarize, describe, and analyze...data sets&quot;</p
 
 <h2>Course Objectives</h2>
 
-<p>In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code. </p>
+<p>In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code.</p>
 
 <p><br>
 The main objectives for the course are as follows:</p>
@@ -349,7 +349,7 @@ The main objectives for the course are as follows:</p>
 
 <p>The world of data science is a world of text files...of many types. For working with other types of text files (e.g. config files, queries, JSON data, READMEs, and more), you&#39;ll want to install a full-featured text editor. One possibility is <a href="https://www.sublimetext.com/3">Sublime Text 3</a>, but you are welcome to use whatever works for you.</p>
 
-<p>&quot;Full-featured&quot; text editors do far more than provide a simple window for entering basic text. </p>
+<p>&quot;Full-featured&quot; text editors do far more than provide a simple window for entering basic text.</p>
 
 <div style='float:left;width:48%;' class='centered'>
   <p><strong>Example features</strong></p>
@@ -453,7 +453,7 @@ The main objectives for the course are as follows:</p>
 <p><strong>The R REPL</strong></p>
 
 <ul>
-<li>R comes with a REPL (<a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">read-eval-print loop</a>) which allows you to quickly turn a terminal command line into an R console. </li>
+<li>R comes with a REPL (<a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">read-eval-print loop</a>) which allows you to quickly turn a terminal command line into an R console.</li>
 <li>To activate: <code>R</code> from the command line</li>
 <li>To close: <code>quit()</code> or <code>q()</code></li>
 </ul>
@@ -461,7 +461,7 @@ The main objectives for the course are as follows:</p>
 <p><strong>Rscript</strong></p>
 
 <ul>
-<li>If your commands are stored in a &quot;.R&quot; script, you can execute that script from the command line with the <code>Rscript</code> command. </li>
+<li>If your commands are stored in a &quot;.R&quot; script, you can execute that script from the command line with the <code>Rscript</code> command.</li>
 <li>This command will run all the lines in the file in the order they&#39;ve been written and potentially output some messages to the terminal.</li>
 </ul>
 
@@ -864,7 +864,7 @@ for (some_number in x){
 
 <h2>Intro to Functional Programming</h2>
 
-<p>R is a <a href="http://adv-r.had.co.nz/Functions.html">functional programming language</a>. To write powerful, concise code, you&#39;ll need to master the use and creation of functions. </p>
+<p>R is a <a href="http://adv-r.had.co.nz/Functions.html">functional programming language</a>. To write powerful, concise code, you&#39;ll need to master the use and creation of functions.</p>
 
 <blockquote>
 <p>&quot;If you find yourself copying and pasting the same code more than twice, it&#39;s time to write a function.&quot; - Hadley Wickham</p>
@@ -924,7 +924,7 @@ sqrt()
 <ul>
 <li>For more complicated functions, passing values to each argument can get burdensome</li>
 <li>To handle this, R allows function authors to specify <em>default arguments</em>. These are values that certain arguments will take automatically unless you decide to overwrite them</li>
-<li>Example: look at <code>?rnorm</code>. You&#39;ll see that this function&#39;s signature reads <code>rnorm(n, mean = 0, sd = 1)</code>. </li>
+<li>Example: look at <code>?rnorm</code>. You&#39;ll see that this function&#39;s signature reads <code>rnorm(n, mean = 0, sd = 1)</code>.</li>
 </ul>
 
 <pre><code class="r"># 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
@@ -1130,7 +1130,7 @@ grades &lt;- lapply(studentList, mean)
 
 <p>Vectors and lists are crucial data structures in R, but you may find that they&#39;re difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.</p>
 
-<p>Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type. </p>
+<p>Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type.</p>
 
 <pre><code class="r"># Create a dataframe!
 myDF &lt;- data.frame(time_period  = c(1, 2, 3, 4, 5),

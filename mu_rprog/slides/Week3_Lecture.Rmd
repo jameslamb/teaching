@@ -2,16 +2,16 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 3
 author      : James Lamb
-job         : Data Scientist | Uptake
+job         : Senior Data Scientist | Uptake
 logo        : 
-framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : [bootstrap]            # {mathjax, quiz}
-mode        : selfcontained # {selfcontained, standalone, draft}
+framework   : io2012
+highlighter : highlight.js
+hitheme     : tomorrow
+widgets     : [bootstrap]
+mode        : selfcontained
 lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
 knit        : slidify::knit2slides
---- 
+---
 
 <!--Read in JavaScript function that prints footer bubbles-->
 <script src="assets/js/footer_bubbles.js"></script>
@@ -268,7 +268,7 @@ levels(wbDF$regions)
 
 <h2>File Paths</h2>
 
-Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses). 
+Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses).
 
 All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
 
@@ -457,7 +457,7 @@ wordDT
 </footer>
 
 <h2>Counting Words in Text</h2>
-    
+
 Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
 
 The `data.table` package makes this operation easy to carry out.
@@ -638,11 +638,11 @@ Let's start with a simple line plot to answer the question *are sepal length and
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = "p")
 
 # Try again, but with labels!
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Second R plot!", 
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Second R plot!",
      xlab = "sepal length", ylab = "sepal width", type = "p")
 
 # Try it AGAIN, this time coloring by species and a legend
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Third R plot!", 
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Third R plot!",
      xlab = "sepal length", ylab = "sepal width", type = "p", col = iris$Species,
      bg = iris$Species, pch = 21)
 legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1)
@@ -685,7 +685,7 @@ You can add more than one variable to these plots! Let's compare the densities o
 ```{r compareDensities, echo = TRUE, eval = FALSE}
 
 # Overlay densities of Petal length by species
-plot(density(iris[iris$Species == "setosa", "Petal.Length"]), 
+plot(density(iris[iris$Species == "setosa", "Petal.Length"]),
      main = "Empirical density of petal length", col = "blue",
      xlim = c(0, 7), ylim = c(0, 2.5))
 lines(density(iris[iris$Species == "versicolor", "Petal.Length"]), col = "red")
@@ -754,10 +754,10 @@ for (i in 1:10){
     # Open a connection to a .png file
     filePath <- paste0(outDir, "/plot_", i, ".png")
     png(filePath)
-    
+
     # Write out a plot to that file
     plot(x = rnorm(100), y = rnorm(100))
-    
+
     # Close the connection to that file
     dev.off()
 }
@@ -825,4 +825,3 @@ for (i in 1:10){
 **Plotting in R**: [graphics devices](https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/Devices.html)
 
 **Paths:** [Relative vs absolute](http://www.geeksengine.com/article/absolute-relative-path.html) | [listing files in a directory in R](https://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html)
-

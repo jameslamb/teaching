@@ -3,7 +3,7 @@ title: "ECON 6931 - R Programming"
 author: "James Lamb"
 highlighter: highlight.js
 hitheme: tomorrow
-job: Data Scientist | Uptake
+job: Senior Data Scientist | Uptake
 knit: slidify::knit2slides
 lib_cdn: https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries
 logo: null
@@ -144,8 +144,7 @@ If you're arriving at this slide and are disappointed not to find quiz answers, 
 
 <h2>Looping with lapply</h2>
 
-R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is 
-`lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
+R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
 ```{r lapplyExample, eval = FALSE}
 # Get some data
@@ -341,13 +340,13 @@ The second most popular debugging strategy:
 
 But really...Google is your best friend. It will be particularly useful in the cases where your code is returning an error or warning. Simple pasting that output into google (in quotes to get an exact match) will typically get you to an answer within 5 minutes.
 
-Let's try an example. 
+Let's try an example.
 
 <br>
 
-Imagine that you got this error: 
+Imagine that you got this error:
 
-`Error in sum(c(1, 2, "5")) : invalid 'type' (character) of argument`. 
+`Error in sum(c(1, 2, "5")) : invalid 'type' (character) of argument`.
 
 Try to figure out what went wrong. HINT: it often helps to type the function name outside quotes. E.g. `function "this is some error text"`
 
@@ -392,7 +391,7 @@ For more on building an MWE, see: [the Stack Overflow guidelines on MWE construc
 
 <h2>Built-in Docs with "?"</h2>
 
-As we've covered before, R packages have a built-in documentation system. All packages submitted to CRAN must supply some basic documentation for each function they contain. If a function is behaving strangely, it's often useful to look at the documentation under `?function_name`. 
+As we've covered before, R packages have a built-in documentation system. All packages submitted to CRAN must supply some basic documentation for each function they contain. If a function is behaving strangely, it's often useful to look at the documentation under `?function_name`.
 
 For example, you may be surprised to learn that `sum(c(1,2,NA,3))` evaluates to `NA`. You might have thought it would be 6. If we call `?sum` in R, you'll see the answer...the default behavior of this function is to leave `NA` values in when calculating the sum, but there is an option argument `na.rm` that allows you to remove them if you wish.
 
@@ -428,7 +427,7 @@ If you try all the strategies we just discussed and STILL don't know why your co
 - R is open-source, which means that all R source code can be found online (typically on GitHub) and visually inspected
 - Errors thrown by programs are not magical...they had to be written into the source code by a developer
 
-For example, let's search for the error: `ggplot2 doesn't know how to deal with data of clss integer` in the ggplot2 source code. Please visit: 
+For example, let's search for the error: `ggplot2 doesn't know how to deal with data of clss integer` in the ggplot2 source code. Please visit:
 
 https://github.com/tidyverse/ggplot2
 
@@ -459,7 +458,7 @@ quantmod::getSymbols('CPIAUCSL', src = 'FRED')
 cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
 
 # Plot it!
-rbokeh::figure(data = cpiDT, title = "U.S. CPI", 
+rbokeh::figure(data = cpiDT, title = "U.S. CPI",
                ylab = "Index (1982-1984 = 100)", xlab = "date") %>%
         ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
 ```
@@ -487,7 +486,7 @@ response <- quantmod::getSymbols('CPIAUCSL', src = 'FRED', verbose = FALSE)
 cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
 
 # Plot it!
-rbokeh::figure(data = cpiDT, title = "U.S. CPI", ylab = "Index (1982-1984 = 100)", 
+rbokeh::figure(data = cpiDT, title = "U.S. CPI", ylab = "Index (1982-1984 = 100)",
                xlab = "date", width = 850, height = 450) %>%
         ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
 ```
@@ -575,7 +574,7 @@ find.package("dml")
 
 On professional data science teams, you may find yourself passing around R packages on an internal file system.
     - see, for example: ["Using R packages and education to scale Data Science at Airbnb"](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d#.c3qbgjtdr)
-    
+
 To install R packages sitting on your file system, you can use `install_local()` from the `devtools` package.
 
 <center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/week2_min_r_package.png"></a></center>
