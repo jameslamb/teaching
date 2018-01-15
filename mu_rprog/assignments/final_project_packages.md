@@ -25,6 +25,7 @@
 - glmnet
 - lmtest
 - MASS
+- Metrics
 - randomForest
 - zoo
 

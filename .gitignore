@@ -3,8 +3,8 @@
 *.docx
 *.pptx
 *.rds
-*.rdam
-mu_rprog/slides/Week*.md
+*.rda
+mu_rprog/slides/*.md
 mu_rprog/slides/.cache
 *.DS_Store
 *.pdf

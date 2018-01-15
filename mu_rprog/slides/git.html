@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ECON 6931 - R Programming</title>
+  <meta charset="utf-8">
+  <meta name="description" content="ECON 6931 - R Programming">
+  <meta name="author" content="James Lamb">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/my_custom_style.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>ECON 6931 - R Programming</h1>
+    <h2>Git Basics</h2>
+    <p>James Lamb<br/>Senior Data Scientist | Uptake</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <!--Read in JavaScript function that prints footer bubbles-->
+
+<script src="assets/js/footer_bubbles.js"></script>
+
+<!--Define background image for title slide-->
+
+<style>
+.title-slide {
+  background-image:url("assets/img/gonzo_horn.jpg");
+  background-size: cover;
+}
+</style>
+
+<p><footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Let's Learn about Git!</h2>
+
+<p><br></p>
+
+<p><center><img src="./assets/img/arial_git.jpg"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="toc_slide" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Contents</h2>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><b class="toc_header"> I. Introduction to Version Control </b></p>
+
+<ol class = "toc" type="none">
+    <li> What is Git?                <span style="float:right"> 1 </span></li>
+    <li> Setting Up Your Repo        <span style="float:right"> 2-5 </span></li>
+    <li> Getting Started with GitHub <span style="float:right"> 6-8 </span></li>
+</ol>
+
+<p><b class="toc_header"> II. Additional Resources </b></p>
+
+<ol class = "toc" type="none">
+    <li> Learning More on Your Own<span style="float:right"> 10 </span></li>
+</ol>
+
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Section I.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Introduction to Version Control</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-4" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(1,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>What is Git?</h2>
+
+<div style='float:left;width:48%;' class='centered'>
+  <ul>
+<li>Git is a version-control software created by <a href="https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds">Linus Torvald</a> (who also invented Linux)</li>
+<li>Git is used to manage versions of source code files without having to carry around files with names like <code>&quot;my_code_v1_v2_FINAL.py&quot;</code></li>
+</ul>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/week1_git_xkcd.png"></p>
+
+<p>image credit: <a href="https://xkcd.com/1597/">xkcd</a></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-5" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(2,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Setting Up Your Repo (pt 1)</h2>
+
+<p>A Git repository (&quot;repo&quot;) is a collection of files that are tracked by Git. At a high level, setting up a repository involves the following steps:</p>
+
+<ol>
+<li>Create some files</li>
+<li>Initialize a git repository in the directory where you store the files</li>
+<li>Tell Git to track some of the files</li>
+</ol>
+
+<p>From the command line prompt (Git Bash for Windows users), run the following to create a sample directory and initialize a Git repository in it.</p>
+
+<pre><code>mkdir -p ~/repos/mu_rprog_files
+cd ~/repos/mu_rprog_files
+git init
+echo &quot;This repo holds my notes and scripts from R Programming class&quot; &gt; README.md
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-6" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(3,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Setting Up Your Repo (pt 2)</h2>
+
+<p>Now we have a simple repository set up. Let&#39;s check out what&#39;s happening in it!</p>
+
+<p>You can run <code>git status</code> to check the current status of your repo and <code>git ls-files</code> to list all the files being tracked in the repository.</p>
+
+<p><center><img src="./assets/img/week1_git_status.png"></center></p>
+
+<p>Even though we do have one file, <code>README.md</code>, in this directory, we haven&#39;t told Git to track it yet! This is why <code>git status</code> lists it as an untracked file and <code>git ls-files</code> returns nothing.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-7" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(4,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Setting Up Your Repo (pt 3)</h2>
+
+<p>Let&#39;s add that file to the repository! Git tracks <em>changes</em> to projects (rather than keeping entire copies of files), so we need to do the following to change the repo:</p>
+
+<ol>
+<li>Make some changes (add/delete/edit files)</li>
+<li>use <code>git add &lt;file_name&gt;</code> to <em>stage</em> your changes
+
+<ul>
+<li>translation: &quot;tell Git we want to make this change, but don&#39;t make it permanent yet&quot;</li>
+</ul></li>
+<li>use <code>git commit -m &quot;some text describing changes&quot;</code> to <em>commit</em> your changes
+
+<ul>
+<li>translation: &quot;make the changes permanent and create a checkpoint at this repo state&quot;</li>
+</ul></li>
+</ol>
+
+<p>See example terminal session on the next slide.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-8" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(5,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Setting Up Your Repo (pt 4)</h2>
+
+<p><center><img src="./assets/img/week1_git_commit.png"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-9" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(6,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Getting Started with GitHub (pt 1)</h2>
+
+<ul>
+<li><strong>Creating An Account</strong>
+
+<ul>
+<li>head to <a href="https://github.com/">https://github.com/</a> and create your account!</li>
+<li>the free tier accounts are very good and will likely be more than you ever need, but note that premium and
+enterprise accounts are available if you need more advanced features
+<br>
+<center><img src="./assets/img/week1_github_account.png"></center></li>
+</ul></li>
+<li>Check out <a href="https://www.engadget.com/2016/07/10/apollo-11-source-code-on-github/">Apollo&#39;s source code is now on GitHub</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-10" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(7,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Getting Started with GitHub (pt 2)</h2>
+
+<ul>
+<li>You can use GitHub (GH) as a hub to store <a href="https://help.github.com/articles/about-remote-repositories/">remote repositories</a>
+
+<ul>
+<li>Primary purpose: allow others to contribute to and use your codebase</li>
+<li>Secondary purpose: back up files in the cloud so you can access them from anywhere</li>
+</ul></li>
+<li>steps to create your first remote repository:
+
+<ol>
+<li>Log in to GH and navigate to the &quot;Repositories&quot; tab and click &quot;new&quot;</li>
+<li>Choose a repository name (let&#39;s call ours &quot;mu_rprog_files&quot;)</li>
+<li>Choose a privacy level (&quot;Public&quot; is fine for most cases) and click &quot;Create Repository&quot;
+<br>
+<center><img src="./assets/img/week1_create_gh_repo.png"></center></li>
+</ol></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-11" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  <script>FooterBubbles(8,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Getting Started with GitHub (pt 3)</h2>
+
+<ul>
+<li><strong>Clone your remote repo</strong>
+
+<ol>
+<li>on your local machine, open up a command line session and use <code>cd</code> to switch to the directory where you want to store the repo</li>
+<li>grab the URL of the repo you want and use <code>git clone</code> to pull a copy.</li>
+<li>Change directories into the newly-created repo and run <code>git remote -v</code> to check that you have a remote set up</li>
+</ol></li>
+</ul>
+
+<p><strong>In-Class Exercise</strong></p>
+
+<pre><code class="bash">cd ~/repos
+git clone https://github.com/ramnathv/slidify
+cd slidify
+git remote -v
+
+# Add a remote for our mu_rprog repo!
+cd ~/repos/mu_rprog_files
+git remote add origin https://github.com/YOUR_USERNAME/mu_rprog_files
+git push origin master
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="section_slide" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>Section II.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Additional Resources</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="content_slide" id="slide-13" style="background:;">
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  II. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+</footer></p>
+
+<h2>Learning More on Your Own</h2>
+
+<p>For the brave and curious, I&#39;ve included a few online free resources for learning more about the technologies we discussed in this presentation.</p>
+
+<p><strong>Bash</strong>: <a href="https://www.codecademy.com/learn/learn-the-command-line">Codecademy</a> | <a href="https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/">Learn Bash</a></p>
+
+<p><strong>Git</strong>: <a href="http://gitimmersion.com/">Git Immersion</a> | <a href="https://www.codecademy.com/learn/learn-git">Codecademy</a> | <a href="https://www.codeschool.com/courses/try-git">Try Git</a> | <a href="https://git-scm.com/documentation">Git Documentation</a></p>
+
+<p><strong>Sublime Text</strong>: <a href="https://www.sublimetext.com/docs/3/">Sublime Text 3 docs</a> | <a href="https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/">Package Control</a></p>
+
+<div style='float:left;width:48%;' class='centered'>
+  
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='NA'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Section I.'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='NA'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='NA'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='NA'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='NA'>
+         8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='NA'>
+         9
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='NA'>
+         10
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='NA'>
+         11
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Section II.'>
+         12
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='NA'>
+         13
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script src="./assets/js/footer_bubbles.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

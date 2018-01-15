@@ -348,7 +348,7 @@ Imagine that you got this error:
 
 `Error in sum(c(1, 2, "5")) : invalid 'type' (character) of argument`.
 
-Try to figure out what went wrong. HINT: it often helps to type the function name outside quotes. E.g. `function "this is some error text"`
+Try to figure out what went wrong. HINT: it often helps to type the function name outside quotes. e.g. `function "this is some error text"`
 
 --- .content_slide
 
@@ -427,7 +427,7 @@ If you try all the strategies we just discussed and STILL don't know why your co
 - R is open-source, which means that all R source code can be found online (typically on GitHub) and visually inspected
 - Errors thrown by programs are not magical...they had to be written into the source code by a developer
 
-For example, let's search for the error: `ggplot2 doesn't know how to deal with data of clss integer` in the ggplot2 source code. Please visit:
+For example, let's search for the error: `ggplot2 doesn't know how to deal with data of class integer` in the ggplot2 source code. Please visit:
 
 https://github.com/tidyverse/ggplot2
 
@@ -685,7 +685,7 @@ action_sequence[1:20]
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Functions That Return Stuff</h2>
@@ -733,7 +733,7 @@ x
 
 Remember when we talked about namespaces and how R searches for objects? It's time to extend that logic to functions...which is where things get a bit weird and hard to understand.
 
-R uses a search technique called **lexical scoping**(https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping)
+R uses a search technique called [lexical scoping](http://bit.ly/2DlfkDi)
 
 Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an example.
 

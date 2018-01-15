@@ -1,0 +1,249 @@
+---
+title       : ECON 6931 - R Programming
+subtitle    : Git Basics
+author      : James Lamb
+job         : Senior Data Scientist | Uptake
+logo        : 
+framework   : io2012
+highlighter : highlight.js
+hitheme     : tomorrow
+widgets     : [bootstrap]
+mode        : selfcontained
+lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
+knit        : slidify::knit2slides
+---
+
+<!--Read in JavaScript function that prints footer bubbles-->
+<script src="assets/js/footer_bubbles.js"></script>
+
+<!--Define background image for title slide-->
+<style>
+.title-slide {
+  background-image:url("assets/img/gonzo_horn.jpg");
+  background-size: cover;
+}
+</style>
+
+<footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Let's Learn about Git!</h2>
+<br>
+
+<center><img src="./assets/img/arial_git.jpg"></center>
+
+--- .toc_slide &twocol
+
+<footer>
+  <hr></hr>
+  <span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> I. Introduction to Version Control </b>
+<ol class = "toc" type="none">
+    <li> What is Git?                <span style="float:right"> 1 </span></li>
+    <li> Setting Up Your Repo        <span style="float:right"> 2-5 </span></li>
+    <li> Getting Started with GitHub <span style="float:right"> 6-8 </span></li>
+</ol>
+<b class="toc_header"> II. Additional Resources </b>
+<ol class = "toc" type="none">
+    <li> Learning More on Your Own<span style="float:right"> 10 </span></li>
+</ol>
+
+*** =right
+ 
+
+--- .section_slide
+
+<h2>Section I.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Introduction to Version Control</h2>
+
+--- .content_slide &twocol
+
+<footer>
+  <hr>
+  <script>FooterBubbles(1,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>What is Git?</h2>
+
+*** =left
+
+- Git is a version-control software created by [Linus Torvald](https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds) (who also invented Linux)
+- Git is used to manage versions of source code files without having to carry around files with names like `"my_code_v1_v2_FINAL.py"`
+
+*** =right
+
+<img src="./assets/img/week1_git_xkcd.png">
+
+image credit: [xkcd](https://xkcd.com/1597/)
+
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(2,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 1)</h2>
+
+A Git repository ("repo") is a collection of files that are tracked by Git. At a high level, setting up a repository involves the following steps:
+
+1. Create some files
+2. Initialize a git repository in the directory where you store the files
+3. Tell Git to track some of the files
+
+From the command line prompt (Git Bash for Windows users), run the following to create a sample directory and initialize a Git repository in it.
+
+```
+mkdir -p ~/repos/mu_rprog_files
+cd ~/repos/mu_rprog_files
+git init
+echo "This repo holds my notes and scripts from R Programming class" > README.md
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(3,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 2)</h2>
+
+Now we have a simple repository set up. Let's check out what's happening in it!
+
+You can run `git status` to check the current status of your repo and `git ls-files` to list all the files being tracked in the repository.
+
+<center><img src="./assets/img/week1_git_status.png"></center>
+
+Even though we do have one file, `README.md`, in this directory, we haven't told Git to track it yet! This is why `git status` lists it as an untracked file and `git ls-files` returns nothing.
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(4,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 3)</h2>
+
+Let's add that file to the repository! Git tracks *changes* to projects (rather than keeping entire copies of files), so we need to do the following to change the repo:
+
+1. Make some changes (add/delete/edit files)
+2. use `git add <file_name>` to *stage* your changes
+    - translation: "tell Git we want to make this change, but don't make it permanent yet"
+3. use `git commit -m "some text describing changes"` to *commit* your changes
+    - translation: "make the changes permanent and create a checkpoint at this repo state"
+
+See example terminal session on the next slide.
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(5,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Setting Up Your Repo (pt 4)</h2>
+
+<center><img src="./assets/img/week1_git_commit.png"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(6,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Getting Started with GitHub (pt 1)</h2>
+
+- **Creating An Account**
+    - head to https://github.com/ and create your account!
+    - the free tier accounts are very good and will likely be more than you ever need, but note that premium and
+    enterprise accounts are available if you need more advanced features
+<br>
+<center><img src="./assets/img/week1_github_account.png"></center>
+- Check out [Apollo's source code is now on GitHub](https://www.engadget.com/2016/07/10/apollo-11-source-code-on-github/)
+
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(7,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Getting Started with GitHub (pt 2)</h2>
+
+- You can use GitHub (GH) as a hub to store [remote repositories](https://help.github.com/articles/about-remote-repositories/)
+    - Primary purpose: allow others to contribute to and use your codebase
+    - Secondary purpose: back up files in the cloud so you can access them from anywhere
+- steps to create your first remote repository:
+    1. Log in to GH and navigate to the "Repositories" tab and click "new"
+    2. Choose a repository name (let's call ours "mu_rprog_files")
+    3. Choose a privacy level ("Public" is fine for most cases) and click "Create Repository"
+<br>
+<center><img src="./assets/img/week1_create_gh_repo.png"></center>
+
+
+--- .content_slide
+
+<footer>
+  <hr>
+  <script>FooterBubbles(8,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Getting Started with GitHub (pt 3)</h2>
+
+- **Clone your remote repo**
+    1. on your local machine, open up a command line session and use `cd` to switch to the directory where you want to store the repo
+    2. grab the URL of the repo you want and use `git clone` to pull a copy.
+    3. Change directories into the newly-created repo and run `git remote -v` to check that you have a remote set up
+
+**In-Class Exercise**
+
+```{r engine='bash', eval=F}
+cd ~/repos
+git clone https://github.com/ramnathv/slidify
+cd slidify
+git remote -v
+
+# Add a remote for our mu_rprog repo!
+cd ~/repos/mu_rprog_files
+git remote add origin https://github.com/YOUR_USERNAME/mu_rprog_files
+git push origin master
+```
+
+--- .section_slide
+
+<h2>Section II.</h2>
+<hr></hr>
+</br></br></br>
+<h2>Additional Resources</h2>
+
+--- .content_slide &twocol
+
+<footer>
+  <hr>
+  II. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+</footer>
+
+<h2>Learning More on Your Own</h2>
+
+For the brave and curious, I've included a few online free resources for learning more about the technologies we discussed in this presentation.
+
+**Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/)
+
+**Git**: [Git Immersion](http://gitimmersion.com/) | [Codecademy](https://www.codecademy.com/learn/learn-git) | [Try Git](https://www.codeschool.com/courses/try-git) | [Git Documentation](https://git-scm.com/documentation)
+
+**Sublime Text**: [Sublime Text 3 docs](https://www.sublimetext.com/docs/3/) | [Package Control](https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/)

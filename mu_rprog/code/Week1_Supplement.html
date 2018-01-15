@@ -323,7 +323,7 @@ library(gaussfacts)
 # Set some variable
 DAY &lt;- as.character(wday(now(), label = TRUE, abbr = FALSE))
 print(DAY)</code></pre>
-<pre><code>## [1] &quot;Sunday&quot;</code></pre>
+<pre><code>## [1] &quot;Monday&quot;</code></pre>
 <pre class="r"><code># If it's Monday, print 2 Gauss facts. Otherwise, print 1
 if (DAY == &quot;MONDAY&quot;){
     gaussfact()
@@ -331,7 +331,8 @@ if (DAY == &quot;MONDAY&quot;){
 } else {
     gaussfact()
 }</code></pre>
-<pre><code>## Gauss used induction with the real numbers. And it worked</code></pre>
+<pre><code>## When Gauss wants to solve a problem in R^4, he visualizes R^n and 
+## then makes n=4.</code></pre>
 <p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
 <pre class="r"><code># Try to think through what this will do before you run it yourself:
 if (4 &gt; 5){
