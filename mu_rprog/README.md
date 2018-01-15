@@ -12,7 +12,8 @@
 [Week2](https://jameslamb.github.io/teaching/mu_rprog/slides/Week2_Lecture.html#1) |
 [Week3](https://jameslamb.github.io/teaching/mu_rprog/slides/Week3_Lecture.html#1) |
 [Week4](https://jameslamb.github.io/teaching/mu_rprog/slides/Week4_Lecture.html#1) |
-[Week5](https://jameslamb.github.io/teaching/mu_rprog/slides/Week5_Lecture.html#1)
+[Week5](https://jameslamb.github.io/teaching/mu_rprog/slides/Week5_Lecture.html#1) |
+[Git basics](https://jameslamb.github.io/teaching/mu_rprog/slides/git.html#1)
 
 ## Code:
 
