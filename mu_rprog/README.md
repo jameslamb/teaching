@@ -4,7 +4,7 @@
 
 **Org:** Marquette University
 
-**Dates:** Spring 2017
+**Dates:** Spring 2018
 
 ## Slides:
 
