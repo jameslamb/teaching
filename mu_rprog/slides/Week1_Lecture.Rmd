@@ -108,7 +108,7 @@ I'm pumped for this.
 
 <b class="toc_header"> VII. Additional Resources </b>
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right">54</span></li>
+    <li> Learning More on Your Own<span style="float:right"> 45 </span></li>
 </ol>
 
 --- .section_slide
@@ -344,7 +344,7 @@ When R is just one of the tools in your stack, it's often quicker to execute you
 
 <h2>R is an Interpreted Language</h2>
 
-Interpreted languages are those which break commands down into building blocks called "subroutines" that have already been compiled in machine code (soruce: [Wikipedia](https://en.wikipedia.org/wiki/Interpreted_language)). Much of the R source code (including these subroutines) is actually written in C.
+Interpreted languages are those which break commands down into building blocks called "subroutines" that have already been compiled in machine code (source: [Wikipedia](https://en.wikipedia.org/wiki/Interpreted_language)). Much of the R source code (including these subroutines) is actually written in C.
 
 To ensure that that process of breaking down ("interpreting") code goes smoothly, R needs to use a few keywords to identify crucial operations. Like other scripting languages, it has a set of "reserved words" which you cannot use as object names.
 <br><br><br>

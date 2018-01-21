@@ -17,7 +17,7 @@
 
 ## Code:
 
-[Week1 Supplement](https://jameslamb.github.io/teaching/mu_rprog/,code/Week1_Supplement.html) | [Week2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) | [Week3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) | [Week4 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html) | [Week5 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week5_Supplement.html)
+[Week1 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html) | [Week2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) | [Week3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) | [Week4 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html) | [Week5 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week5_Supplement.html)
 
 [RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB)
 

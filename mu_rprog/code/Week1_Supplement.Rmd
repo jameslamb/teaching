@@ -60,11 +60,10 @@ ls("package:stats")
 Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
 
 ```{r ifElse1}
-library(lubridate)
 library(gaussfacts)
 
 # Set some variable
-DAY <- as.character(wday(now(), label = TRUE, abbr = FALSE))
+DAY <- "SATURDAY"
 print(DAY)
 
 # If it's Monday, print 2 Gauss facts. Otherwise, print 1
@@ -169,14 +168,14 @@ R is a [functional programming language](http://adv-r.had.co.nz/Functions.html).
 
 ```{r functionExample}
 # Function to return only the even numbers from a vector
-answers <- c(1, 3, 4, 8, 13, 24)
+nums <- c(1, 3, 4, 8, 13, 24)
 
-getPrimes <- function(some_numbahs){
+getEvens <- function(some_numbahs){
     the_evens <- some_numbahs[some_numbahs %% 2 == 0]
-    return(the_evens)
+    return(the_even)
 }
 
-getPrimes(answers)
+getEvens(nums)
 ```
 
 <h2>Required Arguments</h2>

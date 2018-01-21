@@ -71,7 +71,6 @@ I'll devote some time in the first class to ensuring everyone is set up and reso
 - Try to [install RStudio v1.0](https://www.rstudio.com/products/rstudio/download/) or higher on your personal laptop
 - Try to [install R v3.4.3](https://cloud.r-project.org/) or higher on your personal laptop
 - Try to [install Sublime Text 3](http://www.sublimetext.com/3)
-- Set up a free account on [GitHub](https://github.com/)
 
 I hope you'll be able to install these components using the information at those links and some moderate Googling. If you run into any issues, please email me and I'll help you out.
 
@@ -93,7 +92,6 @@ Due before class: Pre-course survey
     \item Basic math operations in R
     \item Controlling program flow: if-then, for, and while
     \item Introduction to data frames
-    \item Introduction to version control: Git and GitHub
 \end{itemize}
 
 \underline{Week 2: January 27, 2018}
