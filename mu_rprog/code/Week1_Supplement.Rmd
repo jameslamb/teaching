@@ -172,7 +172,7 @@ nums <- c(1, 3, 4, 8, 13, 24)
 
 getEvens <- function(some_numbahs){
     the_evens <- some_numbahs[some_numbahs %% 2 == 0]
-    return(the_even)
+    return(the_evens)
 }
 
 getEvens(nums)

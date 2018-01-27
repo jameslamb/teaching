@@ -116,13 +116,13 @@
 <p><b class="toc_header"> IV. Using External Packages </b></p>
 
 <ol class="toc" type="none">
-    <li> Loading Installed Packages     <span style="float:right"> 25-26 </span></li>
-    <li> Namespacing Calls              <span style="float:right"> 27 </span></li>
-    <li> Installing from CRAN           <span style="float:right"> 28 </span></li>
-    <li> Installing from GitHub         <span style="float:right"> 29 </span></li>
-    <li> Installing Local Code          <span style="float:right"> 30 </span></li>
-    <li> library() vs. require()        <span style="float:right"> 31 </span></li>
-    <li> Using Local Code with source() <span style="float:right"> 32 </span></li>
+    <li> Loading Installed Packages     <span style="float:right"> 25 </span></li>
+    <li> Namespacing Calls              <span style="float:right"> 26 </span></li>
+    <li> Installing from CRAN           <span style="float:right"> 27 </span></li>
+    <li> Installing from GitHub         <span style="float:right"> 28 </span></li>
+    <li> Installing Local Code          <span style="float:right"> 29 </span></li>
+    <li> library() vs. require()        <span style="float:right"> 30 </span></li>
+    <li> Using Local Code with source() <span style="float:right"> 31 </span></li>
 </ol>
 
 </div>
@@ -143,19 +143,19 @@
   <p><b class="toc_header"> VI. User-defined Functions </b></p>
 
 <ol class = "toc" type="none">
-    <li> UDF Example                   <span style="float:right"> 34 </span></li>
-    <li> Functions That Return Stuff   <span style="float:right"> 35 </span></li>
-    <li> Functions That Return Nothing <span style="float:right"> 36 </span></li>
-    <li> Brief Review of Scoping       <span style="float:right"> 37 </span></li>
-    <li> Sourcing Helper Functions     <span style="float:right"> 38 </span></li>
+    <li> UDF Example                   <span style="float:right"> 33 </span></li>
+    <li> Functions That Return Stuff   <span style="float:right"> 34 </span></li>
+    <li> Functions That Return Nothing <span style="float:right"> 35 </span></li>
+    <li> Brief Review of Scoping       <span style="float:right"> 36 </span></li>
+    <li> Sourcing Helper Functions     <span style="float:right"> 37 </span></li>
 </ol>
 
 <p><b class="toc_header"> VII. Working with Files </b></p>
 
 <ol class = "toc" type="none">
-    <li> Structured: Delimited files <span style="float:right"> 40-41 </span></li>
-    <li> Semi-structured: JSON files <span style="float:right"> 42 </span></li>
-    <li> Unstructured: Text files    <span style="float:right"> 43 </span></li>
+    <li> Structured: Delimited files <span style="float:right"> 39-40 </span></li>
+    <li> Semi-structured: JSON files <span style="float:right"> 41 </span></li>
+    <li> Unstructured: Text files    <span style="float:right"> 42 </span></li>
 </ol>
 
 </div>
@@ -584,7 +584,7 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(1,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>Loading Installed Packages</h2>
@@ -612,23 +612,7 @@ rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;,
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(2,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
-</footer></p>
-
-<h2>External package example</h2>
-
-<pre><code>## Error in loadNamespace(name): there is no package called &#39;webshot&#39;
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="content_slide" id="slide-26" style="background:;">
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    <script>FooterBubbles(3,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>Namespacing Calls</h2>
@@ -651,11 +635,11 @@ The following object is masked from &#39;package:base&#39;:
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-26" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(4,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>Installing from CRAN</h2>
@@ -679,11 +663,11 @@ utils::update.packages()
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-28" style="background:;">
+<slide class="content_slide" id="slide-27" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(5,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>Installing from GitHub</h2>
@@ -704,11 +688,11 @@ find.package(&quot;dml&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-29" style="background:;">
+<slide class="content_slide" id="slide-28" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(6,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>Installing Local Code</h2>
@@ -727,11 +711,11 @@ find.package(&quot;dml&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-30" style="background:;">
+<slide class="content_slide" id="slide-29" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(7,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>library() vs. require()</h2>
@@ -758,11 +742,11 @@ my_funct &lt;- function(n){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-31" style="background:;">
+<slide class="content_slide" id="slide-30" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(8,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
 <h2>Using Local Code with source()</h2>
@@ -800,7 +784,7 @@ createRandomData &lt;- function(n, dist){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="section_slide" id="slide-32" style="background:;">
+<slide class="section_slide" id="slide-31" style="background:;">
   <hgroup>
     <h2>Section V.</h2>
   </hgroup>
@@ -814,7 +798,7 @@ createRandomData &lt;- function(n, dist){
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-33" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -843,7 +827,7 @@ action_sequence[1:20]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-34" style="background:;">
+<slide class="content_slide" id="slide-33" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -862,7 +846,7 @@ action_sequence[1:20]
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-35" style="background:;">
+<slide class="content_slide" id="slide-34" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -891,7 +875,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-35" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -910,7 +894,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-37" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -929,7 +913,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="section_slide" id="slide-38" style="background:;">
+<slide class="section_slide" id="slide-37" style="background:;">
   <hgroup>
     <h2>Section VI.</h2>
   </hgroup>
@@ -943,7 +927,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-39" style="background:;">
+<slide class="content_slide" id="slide-38" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -966,7 +950,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-39" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -990,7 +974,7 @@ dataDF &lt;- read.delim(file = dataPath,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-41" style="background:;">
+<slide class="content_slide" id="slide-40" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1013,7 +997,7 @@ dataDF &lt;- read.delim(file = dataPath,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-42" style="background:;">
+<slide class="content_slide" id="slide-41" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1032,7 +1016,7 @@ dataDF &lt;- read.delim(file = dataPath,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="section_slide" id="slide-43" style="background:;">
+<slide class="section_slide" id="slide-42" style="background:;">
   <hgroup>
     <h2>Section VIII.</h2>
   </hgroup>
@@ -1046,7 +1030,7 @@ dataDF &lt;- read.delim(file = dataPath,
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="content_slide" id="slide-44" style="background:;">
+<slide class="content_slide" id="slide-43" style="background:;">
   <article data-timings="">
     <p><footer>
   <hr>
@@ -1261,13 +1245,13 @@ dataDF &lt;- read.delim(file = dataPath,
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='NA'>
+        data-slide=31 title='Section V.'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='Section V.'>
+        data-slide=32 title='NA'>
          32
       </a>
     </li>
@@ -1297,13 +1281,13 @@ dataDF &lt;- read.delim(file = dataPath,
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='NA'>
+        data-slide=37 title='Section VI.'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Section VI.'>
+        data-slide=38 title='NA'>
          38
       </a>
     </li>
@@ -1327,20 +1311,14 @@ dataDF &lt;- read.delim(file = dataPath,
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='NA'>
+        data-slide=42 title='Section VIII.'>
          42
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Section VIII.'>
+        data-slide=43 title='NA'>
          43
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='NA'>
-         44
       </a>
     </li>
   </ul>

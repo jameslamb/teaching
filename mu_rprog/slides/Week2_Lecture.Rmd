@@ -77,13 +77,13 @@ widgets: bootstrap
 
 <b class="toc_header"> IV. Using External Packages </b>
 <ol class="toc" type="none">
-    <li> Loading Installed Packages     <span style="float:right"> 25-26 </span></li>
-    <li> Namespacing Calls              <span style="float:right"> 27 </span></li>
-    <li> Installing from CRAN           <span style="float:right"> 28 </span></li>
-    <li> Installing from GitHub         <span style="float:right"> 29 </span></li>
-    <li> Installing Local Code          <span style="float:right"> 30 </span></li>
-    <li> library() vs. require()        <span style="float:right"> 31 </span></li>
-    <li> Using Local Code with source() <span style="float:right"> 32 </span></li>
+    <li> Loading Installed Packages     <span style="float:right"> 25 </span></li>
+    <li> Namespacing Calls              <span style="float:right"> 26 </span></li>
+    <li> Installing from CRAN           <span style="float:right"> 27 </span></li>
+    <li> Installing from GitHub         <span style="float:right"> 28 </span></li>
+    <li> Installing Local Code          <span style="float:right"> 29 </span></li>
+    <li> library() vs. require()        <span style="float:right"> 30 </span></li>
+    <li> Using Local Code with source() <span style="float:right"> 31 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -99,18 +99,18 @@ widgets: bootstrap
 
 <b class="toc_header"> VI. User-defined Functions </b>
 <ol class = "toc" type="none">
-    <li> UDF Example                   <span style="float:right"> 34 </span></li>
-    <li> Functions That Return Stuff   <span style="float:right"> 35 </span></li>
-    <li> Functions That Return Nothing <span style="float:right"> 36 </span></li>
-    <li> Brief Review of Scoping       <span style="float:right"> 37 </span></li>
-    <li> Sourcing Helper Functions     <span style="float:right"> 38 </span></li>
+    <li> UDF Example                   <span style="float:right"> 33 </span></li>
+    <li> Functions That Return Stuff   <span style="float:right"> 34 </span></li>
+    <li> Functions That Return Nothing <span style="float:right"> 35 </span></li>
+    <li> Brief Review of Scoping       <span style="float:right"> 36 </span></li>
+    <li> Sourcing Helper Functions     <span style="float:right"> 37 </span></li>
 </ol>
 
 <b class="toc_header"> VII. Working with Files </b>
 <ol class = "toc" type="none">
-    <li> Structured: Delimited files <span style="float:right"> 40-41 </span></li>
-    <li> Semi-structured: JSON files <span style="float:right"> 42 </span></li>
-    <li> Unstructured: Text files    <span style="float:right"> 43 </span></li>
+    <li> Structured: Delimited files <span style="float:right"> 39-40 </span></li>
+    <li> Semi-structured: JSON files <span style="float:right"> 41 </span></li>
+    <li> Unstructured: Text files    <span style="float:right"> 42 </span></li>
 </ol>
 
 *** =right
@@ -442,7 +442,7 @@ https://github.com/tidyverse/ggplot2
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Loading Installed Packages</h2>
@@ -467,35 +467,7 @@ rbokeh::figure(data = cpiDT, title = "U.S. CPI",
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
-</footer>
-
-<h2>External package example</h2>
-
-```{r actuallyMakePlot, echo = FALSE, eval = TRUE, message = FALSE, warning = FALSE}
-# Load up some data
-data("nottem")
-
-# Load dependencies
-library(data.table)
-library(quantmod)
-library(rbokeh)
-
-# Get data and plot it
-response <- quantmod::getSymbols('CPIAUCSL', src = 'FRED', verbose = FALSE)
-cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
-
-# Plot it!
-rbokeh::figure(data = cpiDT, title = "U.S. CPI", ylab = "Index (1982-1984 = 100)",
-               xlab = "date", width = 850, height = 450) %>%
-        ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(3,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Namespacing Calls</h2>
@@ -520,7 +492,7 @@ The following object is masked from 'package:base':
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Installing from CRAN</h2>
@@ -545,7 +517,7 @@ utils::update.packages()
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Installing from GitHub</h2>
@@ -567,7 +539,7 @@ find.package("dml")
 
 <footer>
   <hr>
-    <script>FooterBubbles(6,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Installing Local Code</h2>
@@ -587,7 +559,7 @@ devtools::install_local(path = "~/path/to/package")
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>library() vs. require()</h2>
@@ -612,7 +584,7 @@ my_funct <- function(n){
 
 <footer>
   <hr>
-    <script>FooterBubbles(8,8)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
 <h2>Using Local Code with source()</h2>

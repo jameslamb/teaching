@@ -317,13 +317,12 @@ Dollarstore Calculator Math
 Controlling Program Flow: If-Else
 </h2>
 <p>Soon after you start writing code (in any language), you’ll inevitably find yourself saying “I only want to do this thing if certain conditions are met”. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)">if-else syntax</a></p>
-<pre class="r"><code>library(lubridate)
-library(gaussfacts)
+<pre class="r"><code>library(gaussfacts)
 
 # Set some variable
-DAY &lt;- as.character(wday(now(), label = TRUE, abbr = FALSE))
+DAY &lt;- &quot;SATURDAY&quot;
 print(DAY)</code></pre>
-<pre><code>## [1] &quot;Monday&quot;</code></pre>
+<pre><code>## [1] &quot;SATURDAY&quot;</code></pre>
 <pre class="r"><code># If it's Monday, print 2 Gauss facts. Otherwise, print 1
 if (DAY == &quot;MONDAY&quot;){
     gaussfact()
@@ -331,8 +330,7 @@ if (DAY == &quot;MONDAY&quot;){
 } else {
     gaussfact()
 }</code></pre>
-<pre><code>## When Gauss wants to solve a problem in R^4, he visualizes R^n and 
-## then makes n=4.</code></pre>
+<pre><code>## Every cardinal is easily accesible for Gauss.</code></pre>
 <p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
 <pre class="r"><code># Try to think through what this will do before you run it yourself:
 if (4 &gt; 5){
@@ -423,14 +421,14 @@ Intro to Functional Programming
 <p>“If you find yourself copying and pasting the same code more than twice, it’s time to write a function.” - Hadley Wickham</p>
 </blockquote>
 <pre class="r"><code># Function to return only the even numbers from a vector
-answers &lt;- c(1, 3, 4, 8, 13, 24)
+nums &lt;- c(1, 3, 4, 8, 13, 24)
 
-getPrimes &lt;- function(some_numbahs){
+getEvens &lt;- function(some_numbahs){
     the_evens &lt;- some_numbahs[some_numbahs %% 2 == 0]
     return(the_evens)
 }
 
-getPrimes(answers)</code></pre>
+getEvens(nums)</code></pre>
 <pre><code>## [1]  4  8 24</code></pre>
 <h2>
 Required Arguments
