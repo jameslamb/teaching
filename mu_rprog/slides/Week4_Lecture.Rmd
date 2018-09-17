@@ -50,7 +50,7 @@ knit        : slidify::knit2slides
     <li> Exploring the Data <span style="float:right">                       6-8 </span></li>
     <li> Simple OLS Model <span style="float:right">                           9 </span></li>
     <li> Functionalizing Your Pipeline <span style="float:right">             10 </span></li>
-    <li> OLS With Mutiple RHS Variables <span style="float:right">            11 </span></li>
+    <li> OLS With Multiple RHS Variables <span style="float:right">            11 </span></li>
     <li> Tree-Based Methods <span style="float:right">                     12-13 </span></li>
     <li> CModel Evaluation                      <span style="float:right">    14 </span></li>
 </ol>
@@ -123,7 +123,7 @@ Please follow along with the code in the [Week 4 Programming Supplement](https:/
 
 <h2>Examine Your Training Data</h2>
 
-Once you've split your data into training and test, you shouold start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on dataframe columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
+Once you've split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on dataframe columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
 
 ```{r eda}
 # Look at the structure
@@ -187,7 +187,7 @@ Once you have the fitted model, you can pass it and some new data to `predict` t
 
 The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a function so it's easy to call downstream.
 
-Wrapping your analytics pipeline in a functio nhas a few other benefits:
+Wrapping your analytics pipeline in a function has a few other benefits:
 - Easy to test many different configurations
 - Easy to change the code if needed
 - Code is expressive, understandable
@@ -239,7 +239,7 @@ The details of tree-based learning are outside the scope of this class, but I en
 
 <h2>Random Forests</h2>
 
-For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation detaisl are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
+For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation details are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
 
 I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
 

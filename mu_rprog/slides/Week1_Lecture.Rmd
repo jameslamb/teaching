@@ -292,7 +292,7 @@ A few common ones you'll want to know for this course:
 
 <h2>Executing R Code: RStudio</h2>
 
-R is an [interpreted language](https://en.wikipedia.org/wiki/Interpreted_language) (more on this later). TL;DR, you need to send your code to some software that knows what to do with it ("R"). RStudio makes this super easy to do. You can excute your code interactively (one line at a time) in the R console or run your .R scripts using the "run" button.
+R is an [interpreted language](https://en.wikipedia.org/wiki/Interpreted_language) (more on this later). TL;DR, you need to send your code to some software that knows what to do with it ("R"). RStudio makes this super easy to do. You can execute your code interactively (one line at a time) in the R console or run your .R scripts using the "run" button.
 
 *** =left
 
@@ -391,7 +391,7 @@ source("my_script.R")
 # .rda and .RData files can be loaded into an R session with load()
 load("all_of_the_data.rda")
 
-# .rds files can be read directy into an R object
+# .rds files can be read directly into an R object
 someData <- readRDS("my_data.rds")
 ```
 
@@ -413,7 +413,7 @@ someData <- readRDS("my_data.rds")
 
 When you execute a statement like `x <- 5` in R, you are creating an **object** in memory which holds the numeric **value** 5 and is referenced by the **variable name** "x".
 
-If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R's `search` command to examine the ordered list of namespaces that R will search in for variables.
+If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thought of as collections of labels pointing to places in memory. You can use R's `search` command to examine the ordered list of namespaces that R will search in for variables.
 
 ```{r namespaces, eval = FALSE}
 # Check the search path of namespaces
@@ -723,7 +723,7 @@ c("all", "of", "the", "lights")
 - Vectors are at the heart of many R operations. Try a few more practice exercises:
 
 ```{r vectors_pt2, eval = FALSE}
-# Watch out! Mixing types wil lead to silent coercion
+# Watch out! Mixing types will lead to silent coercion
 c(1, TRUE, "hellos")
 
 # Some functions, when applied over a vector, return a single value
@@ -750,7 +750,7 @@ c(x, y)
 
 <h2>Lists (pt 1)</h2>
 
-Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle casses where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
+Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle cases where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
 
 |Capabilities                        |Vectors |Lists   |
 |:----------------------------------:|:------:|:------:|

@@ -288,7 +288,7 @@ someDF[1:3, c("wins", "ppg")]
 
 <h2>Using Logical Vectors</h2>
 
-So far, we've seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the obejct you're working with.
+So far, we've seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the object you're working with.
 
 Using these methods (especially numeric indices like saying *give me columns 2-4*) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.
 
@@ -740,7 +740,7 @@ Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rpr
 
 <h2>Structured: Delimited Files</h2>
 
-Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character ("delimiter"). Common types include comma separated values (CSV), tab-separated values, and space-delimeted. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimeter is and use it to split data into columns.
+Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character ("delimiter"). Common types include comma separated values (CSV), tab-separated values, and space-delimited. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimiter is and use it to split data into columns.
 
 Let's look at an example: 
 
