@@ -36,7 +36,7 @@ I will be on campus at least an hour before class on the days we meet, and will 
 
 All course resources (including this syllabus!) can be found at https://github.com/jameslamb/teaching/tree/master/mu_rprog.
 
-**Required Texbooks:**
+**Required Textbooks:**
 
 None :)
 
@@ -48,7 +48,7 @@ The use of personal hardware is required because one of my objectives for this c
 
 **Required Software:**
 
-We will be working with the [R programming language](https://www.r-project.org/). For script editing and exploratory analysis, we'll use [RStudio](https://www.rstudio.com/), a very popular integrated development environment (IDE) for R. For working with other text files, such as READMEs and JSON data downlaoded from the web, you can use any text editor. I personally prefer [Sublime Text](http://www.sublimetext.com/3).
+We will be working with the [R programming language](https://www.r-project.org/). For script editing and exploratory analysis, we'll use [RStudio](https://www.rstudio.com/), a very popular integrated development environment (IDE) for R. For working with other text files, such as READMEs and JSON data downloaded from the web, you can use any text editor. I personally prefer [Sublime Text](http://www.sublimetext.com/3).
 
 Instructions for setting up all of these components can be found in the section below. Download and installation instructions are given in this syllabus, but we will also spend some time on the first day of class ensuring that everyone is set up.
 
@@ -205,7 +205,7 @@ Unlike the quizzes and programming assignments, the final project will be relati
 The project comprises four parts:
 
 \begin{enumerate}
-    \item \emph{Final project proposoal}: A 1-2 page briefing on your planned project
+    \item \emph{Final project proposal}: A 1-2 page briefing on your planned project
     \item \emph{Final project script}: The R script/scripts supporting your project
     \item \emph{Final project report}: A 2-4 page report detailing the outcome of your analysis
     \item \emph{Final project code review}: You will give a 3-5 minute review of your project and code on the final day of class.
@@ -277,7 +277,7 @@ Academic dishonesty applies equally to electronic media and print and involves t
         \item Using unauthorized materials during an examination.
         \item Allowing others to do the research and writing of an assigned paper (including use of the services of a commercial term-paper company).
     \end{itemize}
-    \item \textbf{Dishonest Condut}
+    \item \textbf{Dishonest Conduct}
     \begin{itemize}
         \item Stealing or attempting to steal an examination or answer key from the instructor.
         \item Changing or attempting to change academic records without proper sanction.

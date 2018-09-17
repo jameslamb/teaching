@@ -8,3 +8,4 @@ mu_rprog/slides/*.md
 mu_rprog/slides/.cache
 *.DS_Store
 *.pdf
+*.bak
