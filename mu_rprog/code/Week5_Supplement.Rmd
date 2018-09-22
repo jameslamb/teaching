@@ -105,7 +105,11 @@ Open up `R/my_functions.R`. Let's add a function called `NamesToAbbreviations`. 
 NamesToAbbreviations <- function(nameVec){
     
     # Split on whitespace
-    splitNames <- stringr::str_split(nameVec, pattern = " ", simplify = FALSE)
+    splitNames <- stringr::str_split(
+        nameVec
+        , pattern = " "
+        , simplify = FALSE
+    )
     
     # Grab the first letter of each name and combines
     abbrevs <- purrr::map_chr(splitNames, function(splitName){
@@ -205,13 +209,11 @@ Open `tests/testthat/test-my_functions.R` and add the following code.
 context("Testing RquetteBB functions")
 
 #===== 1. NamesToAbbreviations
-test_that("NamesToAbbreviations should return the expected output for simple vectors",
-          {
-              someNames <- c("Joe Buck", "Chris Berman", "Michelle Tafoya")
-              expect_identical(NamesToAbbreviations(someNames), c("JB", "CB", "MT"))
-              expect_true(class(NamesToAbbreviations(someNames)) == "numeric")
-          }
-         )
+test_that("NamesToAbbreviations should return the expected output for simple vectors", {
+    someNames <- c("Joe Buck", "Chris Berman", "Michelle Tafoya")
+    expect_identical(NamesToAbbreviations(someNames), c("JB", "CB", "MT"))
+    expect_true(class(NamesToAbbreviations(someNames)) == "numeric")
+})
 ```
 
 Save this file, the run `devtools::test()` from the console. You should get something like this:
@@ -252,7 +254,10 @@ Next, let's add another function. This function, which we'll call `GetData`, sho
 GetData <- function(season){
     
     # Build URL
-    queryURL <- paste0("http://www.espn.com/mens-college-basketball/team/stats/_/id/269/year/", season)
+    queryURL <- paste0(
+        "http://www.espn.com/mens-college-basketball/team/stats/_/id/269/year/"
+        , season
+    )
     
     # Grab tables from ESPN
     result <- XML::readHTMLTable(queryURL)
@@ -270,7 +275,10 @@ GetData <- function(season){
     
     # Coerce all the columns but Player to numeric
     numCols <- setdiff(names(statDT), "Player")
-    statDT <- cbind(statDT[, "Player"], statDT[, lapply(.SD, as.numeric), .SDcols = numCols])
+    statDT <- cbind(
+        statDT[, "Player"]
+        , statDT[, lapply(.SD, as.numeric), .SDcols = numCols]
+    )
     
     # Return the table
     return(statDT)
@@ -319,24 +327,20 @@ context("Testing RquetteBB functions")
 #===== 1. NamesToAbbreviations
 
 # End-to-end test
-test_that("NamesToAbbreviations should return the expected output for simple vectors",
-          {
-              someNames <- c("Joe Buck", "Chris Berman", "Michelle Tafoya")
-              expect_identical(NamesToAbbreviations(someNames), c("JB", "CB", "MT"))
-              expect_true(class(NamesToAbbreviations(someNames)) == "character")
-          }
-         )
+test_that("NamesToAbbreviations should return the expected output for simple vectors", {
+    someNames <- c("Joe Buck", "Chris Berman", "Michelle Tafoya")
+    expect_identical(NamesToAbbreviations(someNames), c("JB", "CB", "MT"))
+    expect_true(class(NamesToAbbreviations(someNames)) == "character")
+})
 
 #===== 2. NamesToAbbreviations
 
 # End-to-end test
-test_that("GetData should return a data.table",
-          {
-              statDT <- GetData(season = "2017")
-              expect_true("data.table" %in% class(statDT))
-              expect_true("Player" %in% names(statDT))
-          }
-         )
+test_that("GetData should return a data.table", {
+    statDT <- GetData(season = "2017")
+    expect_true("data.table" %in% class(statDT))
+    expect_true("Player" %in% names(statDT))
+})
 ```
 
 <h3>Add One More Function to Plot Data</h3>
@@ -367,10 +371,15 @@ CompareOnStats <- function(statDT
 ){
     
     # Create a scatterplot
-    plot(x = statDT[, get(x_stat)], y = statDT[, get(y_stat)],
-         xlab = x_stat, ylab = y_stat,
-         type = "p", col = "white",
-         main = paste0(x_stat, " vs. ", y_stat, " (", season, ")"))
+    plot(
+        x = statDT[, get(x_stat)]
+        , y = statDT[, get(y_stat)]
+        , xlab = x_stat
+        , ylab = y_stat
+        , type = "p"
+        , col = "white"
+        , main = paste0(x_stat, " vs. ", y_stat, " (", season, ")")
+    )
          
     # Grab abbreviations from player names if asked
     if (useInitials){
@@ -380,11 +389,13 @@ CompareOnStats <- function(statDT
     }
     
     # Add those abbreviations to the plot
-    text(x = statDT[, get(x_stat)]
-      , y = statDT[, get(y_stat)]
-      , labels = namesToPlot)
+    text(
+        x = statDT[, get(x_stat)]
+        , y = statDT[, get(y_stat)]
+        , labels = namesToPlot
+    )
     
-    return(NULL)
+    return(invisible(NULL))
 }
 ```
 
