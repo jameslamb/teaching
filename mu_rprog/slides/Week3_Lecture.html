@@ -326,7 +326,7 @@ str(wbDF)
 
 <h2>Factors</h2>
 
-<p>What does it mean for <code>region</code> to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep aroudn a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
+<p>What does it mean for <code>region</code> to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
 
 <pre><code class="r"># Check it out! R has assigned integer values to the &quot;region&quot; variable
 as.integer(wbDF$region)
@@ -545,7 +545,7 @@ bsText &lt;- gsub(&quot;[:digit:]*&quot;, &quot;__number__&quot;)
 
 <h2>Tokenization</h2>
 
-<p>The next task we need to acomplish is <strong>tokenizing</strong> our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.</p>
+<p>The next task we need to accomplish is <strong>tokenizing</strong> our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.</p>
 
 <pre><code class="r"># 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
 library(stringr)
@@ -698,7 +698,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
 
 <h2>Strategy 2: Handle on Subsets</h2>
 
-<p>You may find the &quot;remove all the NAs everywhere&quot; strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases</code> to remove rows.</p>
+<p>You may find the &quot;remove all the NAs everywhere&quot; strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases</code> to remove rows.</p>
 
 <pre><code class="r"># Create a dataframe where some variable have more NAs than others
 testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
@@ -1035,7 +1035,7 @@ for (i in 1:10){
     <script>FooterBubbles(1,1)</script>VII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
 </footer></p>
 
-<h2>Additional Resourcese</h2>
+<h2>Additional Resources</h2>
 
 <p><strong>Plotting in R</strong>: <a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/Devices.html">graphics devices</a></p>
 

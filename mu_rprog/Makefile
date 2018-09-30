@@ -37,8 +37,5 @@ syllabus:
 	Rscript -e "rmarkdown::render('syllabus.Rmd')"
 
 # Recipe to remake the entire course
-course:
-	make assignments && \
-	make code_samples && \
-	make slides && \
-	make syllabus
+course: install assignments code_samples slides syllabus
+	echo "made course"

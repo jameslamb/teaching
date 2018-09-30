@@ -414,7 +414,7 @@ The main objectives for the course are as follows:</p>
 
 <h2>Executing R Code: RStudio</h2>
 
-<p>R is an <a href="https://en.wikipedia.org/wiki/Interpreted_language">interpreted language</a> (more on this later). TL;DR, you need to send your code to some software that knows what to do with it (&quot;R&quot;). RStudio makes this super easy to do. You can excute your code interactively (one line at a time) in the R console or run your .R scripts using the &quot;run&quot; button.</p>
+<p>R is an <a href="https://en.wikipedia.org/wiki/Interpreted_language">interpreted language</a> (more on this later). TL;DR, you need to send your code to some software that knows what to do with it (&quot;R&quot;). RStudio makes this super easy to do. You can execute your code interactively (one line at a time) in the R console or run your .R scripts using the &quot;run&quot; button.</p>
 
 <div style='float:left;width:48%;' class='centered'>
   <p><strong>Using Scripts</strong></p>
@@ -567,7 +567,7 @@ source(&quot;my_script.R&quot;)
 # .rda and .RData files can be loaded into an R session with load()
 load(&quot;all_of_the_data.rda&quot;)
 
-# .rds files can be read directy into an R object
+# .rds files can be read directly into an R object
 someData &lt;- readRDS(&quot;my_data.rds&quot;)
 </code></pre>
 
@@ -600,7 +600,7 @@ someData &lt;- readRDS(&quot;my_data.rds&quot;)
 
 <p>When you execute a statement like <code>x &lt;- 5</code> in R, you are creating an <strong>object</strong> in memory which holds the numeric <strong>value</strong> 5 and is referenced by the <strong>variable name</strong> &quot;x&quot;.</p>
 
-<p>If you later ask R to do something like <code>y &lt;- x + 2</code>, it will search sequentially through a series of <strong>namespaces</strong> until it finds a variable called &quot;x&quot;. Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R&#39;s <code>search</code> command to examine the ordered list of namespaces that R will search in for variables.</p>
+<p>If you later ask R to do something like <code>y &lt;- x + 2</code>, it will search sequentially through a series of <strong>namespaces</strong> until it finds a variable called &quot;x&quot;. Namespaces can be thought of as collections of labels pointing to places in memory. You can use R&#39;s <code>search</code> command to examine the ordered list of namespaces that R will search in for variables.</p>
 
 <pre><code class="r"># Check the search path of namespaces
 search()
@@ -1008,7 +1008,7 @@ c(&quot;all&quot;, &quot;of&quot;, &quot;the&quot;, &quot;lights&quot;)
 <li>Vectors are at the heart of many R operations. Try a few more practice exercises:</li>
 </ul>
 
-<pre><code class="r"># Watch out! Mixing types wil lead to silent coercion
+<pre><code class="r"># Watch out! Mixing types will lead to silent coercion
 c(1, TRUE, &quot;hellos&quot;)
 
 # Some functions, when applied over a vector, return a single value
@@ -1039,7 +1039,7 @@ c(x, y)
 
 <h2>Lists (pt 1)</h2>
 
-<p>Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle casses where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a <code>list</code>.</p>
+<p>Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle cases where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a <code>list</code>.</p>
 
 <table><thead>
 <tr>

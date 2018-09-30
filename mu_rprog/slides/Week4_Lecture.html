@@ -87,7 +87,7 @@
     <li> Exploring the Data <span style="float:right">                       6-8 </span></li>
     <li> Simple OLS Model <span style="float:right">                           9 </span></li>
     <li> Functionalizing Your Pipeline <span style="float:right">             10 </span></li>
-    <li> OLS With Mutiple RHS Variables <span style="float:right">            11 </span></li>
+    <li> OLS With Multiple RHS Variables <span style="float:right">            11 </span></li>
     <li> Tree-Based Methods <span style="float:right">                     12-13 </span></li>
     <li> CModel Evaluation                      <span style="float:right">    14 </span></li>
 </ol>
@@ -183,7 +183,7 @@ Please follow along with the code in the <a href="https://jameslamb.github.io/te
 
 <h2>Examine Your Training Data</h2>
 
-<p>Once you&#39;ve split your data into training and test, you shouold start poking it a bit to see if you find anything interesting. You can use <code>str()</code> to view the contents of your data objects, <code>summary()</code> to view some basic summary statistics on dataframe columns, and <code>cor()</code> to get a correlation matrix between all pairs of numeric variables.</p>
+<p>Once you&#39;ve split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use <code>str()</code> to view the contents of your data objects, <code>summary()</code> to view some basic summary statistics on dataframe columns, and <code>cor()</code> to get a correlation matrix between all pairs of numeric variables.</p>
 
 <pre><code class="r"># Look at the structure
 str(swiss)
@@ -267,7 +267,7 @@ mod1 &lt;- lm(Fertility ~ Agriculture, data = swiss)
 
 <p>The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a function so it&#39;s easy to call downstream.</p>
 
-<p>Wrapping your analytics pipeline in a functio nhas a few other benefits:</p>
+<p>Wrapping your analytics pipeline in a function has a few other benefits:</p>
 
 <ul>
 <li>Easy to test many different configurations</li>
@@ -333,7 +333,7 @@ regPreds2 &lt;- EvaluateModel(mod2, testDF = swissTestDF, modelName = &quot;Expa
 
 <h2>Random Forests</h2>
 
-<p>For larger datasets than the one we&#39;re working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a &quot;forest&quot; of decision trees. The implementation detaisl are again outside the scope of this course: see <a href="https://www.stat.berkeley.edu/%7Ebreiman/RandomForests/cc_home.htm">Leo Breiman&#39;s excellent site</a> if you&#39;re curious in learning more about this algorithm.</p>
+<p>For larger datasets than the one we&#39;re working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a &quot;forest&quot; of decision trees. The implementation details are again outside the scope of this course: see <a href="https://www.stat.berkeley.edu/%7Ebreiman/RandomForests/cc_home.htm">Leo Breiman&#39;s excellent site</a> if you&#39;re curious in learning more about this algorithm.</p>
 
 <p>I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.</p>
 

@@ -90,6 +90,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -137,7 +140,7 @@ Variables and Namespaces
 search()</code></pre>
 <pre><code>## [1] &quot;.GlobalEnv&quot;        &quot;package:stats&quot;     &quot;package:graphics&quot; 
 ## [4] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
-## [7] &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
+## [7] &quot;package:methods&quot;   &quot;Autoloads&quot;         &quot;package:base&quot;</code></pre>
 <pre class="r"><code># use ls() to list the objects in one of those namespaces
 ls(&quot;package:stats&quot;)</code></pre>
 <pre><code>##   [1] &quot;acf&quot;                  &quot;acf2AR&quot;               &quot;add.scope&quot;           
@@ -330,7 +333,8 @@ if (DAY == &quot;MONDAY&quot;){
 } else {
     gaussfact()
 }</code></pre>
-<pre><code>## Every cardinal is easily accesible for Gauss.</code></pre>
+<pre><code>## There is a 1:1 correspondence between the number of theorems Gauss 
+## has proved and the real numbers.</code></pre>
 <p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
 <pre class="r"><code># Try to think through what this will do before you run it yourself:
 if (4 &gt; 5){
