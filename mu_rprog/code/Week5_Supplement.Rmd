@@ -337,7 +337,7 @@ test_that("NamesToAbbreviations should return the expected output for simple vec
 
 # End-to-end test
 test_that("GetData should return a data.table", {
-    statDT <- GetData(season = "2017")
+    statDT <- GetData(season = "2018")
     expect_true("data.table" %in% class(statDT))
     expect_true("Player" %in% names(statDT))
 })
@@ -409,13 +409,13 @@ library(RquetteBB)
 
 # Pull data for 2007-08 and 2016-17
 stats2003 <- GetData(season = "2003")
-stats2017 <- GetData(season = "2017")
+stats2017 <- GetData(season = "2018")
 
 # Plot the 2002-2003 data
 CompareOnStats(statDT = stats2003, "PPG", "RPG", season = "2002-03", useInitials = FALSE)
 
-# Plot the 2016-2017 data
-CompareOnStats(statDT = stats2017, "PPG", "RPG", season = "2016-17", useInitials = FALSE)
+# Plot the 2017-2018 data
+CompareOnStats(statDT = stats2017, "PPG", "RPG", season = "2017-18", useInitials = FALSE)
 
 # Reset graphical settings
 par(mfrow = c(1,1))

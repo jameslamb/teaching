@@ -94,12 +94,13 @@ We can use `lapply` to apply the same test to every variable in our data frame.
 # 3. Could just loop over every non-Fertility column and do this test!
 bin_var_names <- grep("_above_median", names(swiss), value = TRUE)
 t_tests <- lapply(bin_var_names, function(bin_var){
-    t_test     <- t.test(Fertility ~ get(bin_var), data = swiss)
-    p_val      <- t_test$p.value 
-    return(data.frame(signal = bin_var,
-                      p_val = round(t_test$p.value,2),
-                      t_stat = round(t_test$statistic, 2)
-          ))
+    t_test <- t.test(Fertility ~ get(bin_var), data = swiss)
+    p_val  <- t_test$p.value 
+    return(data.frame(
+        signal = bin_var
+        , p_val = round(t_test$p.value, 2)
+        , t_stat = round(t_test$statistic, 2)
+    ))
 })
 tDT <- data.table::rbindlist(t_tests)
 tDT
@@ -112,20 +113,20 @@ Ok now that we've done some basic preprocessing and exploration, it's time to st
 ```{r simpleOLS}
 # 4. Simple regression: Fertility = f(Agriculture)
 mod1 <- lm(Fertility ~ Agriculture, data = swiss)
-    
-    # model summary
-    summary(mod1)
-    
-    # QQ plot (are the residuals normal?)
-    plot(mod1, which = 2)
+
+# model summary
+summary(mod1)
+
+# QQ plot (are the residuals normal?)
+plot(mod1, which = 2)
 ```
 
 Once you have the fitted model, you can pass it and some new data to `predict` to generate predictions. I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
 
 ```{r predOLS}
 # Check how well our model does on the held-out data
-preds      <- predict(mod1, newdata = swissTestDF)
-errors     <- swissTestDF$Fertility - preds
+preds <- predict(mod1, newdata = swissTestDF)
+errors <- swissTestDF$Fertility - preds
 
 MAE   <- mean(abs(errors))
 MSE   <- mean(errors^2)
@@ -147,12 +148,12 @@ The error metric calculations and plotting we just did seem general enough to ap
 # 5. Before moving on...lets wrap that pipeline in a function
 EvaluateModel <- function(model, testDF, modelName){
     # Check how well our model does on the held-out data
-    preds      <- predict(model, newdata = testDF)
-    errors     <- testDF$Fertility - preds
+    preds <- predict(model, newdata = testDF)
+    errors <- testDF$Fertility - preds
     
     MAE   <- mean(abs(errors))
     MSE   <- mean(errors^2)
-    MAPE  <- 100*mean(abs(errors)/testDF$Fertility)
+    MAPE  <- 100 * mean(abs(errors) / testDF$Fertility)
     
     # Actuals vs. Preds plot
     plot(x = testDF$Fertility, y = preds,
@@ -178,8 +179,10 @@ To add more variables to a model in R, you have to use formula notation.
 
 ```{r olsMoreVars}
 # Fit
-mod2 <- lm(Fertility ~ Education + Infant.Mortality + Examination_above_median,
-           data = swiss) 
+mod2 <- lm(
+    Fertility ~ Education + Infant.Mortality + Examination_above_median
+    , data = swiss
+)
 
 # Predict + Evaluate
 regPreds2 <- EvaluateModel(mod2, testDF = swissTestDF, modelName = "Expanded OLS")
@@ -216,10 +219,12 @@ I only mention the random forest here to demonstrate how easy it is to fit and p
 
 ```{r randomForest}
 # Fit
-rfMod <- randomForest::randomForest(Fertility ~ .
-                                    , data = swiss
-                                    , ntree = 50
-                                    , do.trace = TRUE)
+rfMod <- randomForest::randomForest(
+    Fertility ~ .
+    , data = swiss
+    , ntree = 50
+    , do.trace = TRUE
+)
 
 # Evaluate
 rfPreds <- EvaluateModel(rfMod, swissTestDF, "Random Forest (ntree=100)")
@@ -233,11 +238,12 @@ Let's see how the models we trained in this exercise performed:
 
 ```{r modelEval}
 # Build a table showing performance of each model type on the holdout
-compDF <- data.frame(modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)"),
-                     MAE       = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE),
-                     MSE       = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE),
-                     MAPE       = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
-                     )
+compDF <- data.frame(
+    modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)")
+    , MAE       = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE)
+    , MSE       = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE)
+    , MAPE       = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
+)
 compDF
 ```
 
@@ -251,14 +257,20 @@ In situations where you have multiple data frames with the same rows but differe
 
 ```{r cbindExample}
 # Consider the following examples:
-dealerDF1 <- data.frame(dealer_id = c(1:20),
-                        avg_price = runif(20, min = 15, max = 75),
-                        avg_margin = runif(20, min = -0.1, max = 0.45))
+dealerDF1 <- data.frame(
+    dealer_id = c(1:20)
+    , avg_price = runif(20, min = 15, max = 75)
+    , avg_margin = runif(20, min = -0.1, max = 0.45)
+)
 
-dealerDF2 <- data.frame(dealer_id = c(1:20),
-                        industry = sample(c("Mining", "Healthcare", "Robot Stuff"),
-                                          size = 20, replace = TRUE)
-                        )
+dealerDF2 <- data.frame(
+    dealer_id = c(1:20)
+    , industry = sample(
+        c("Mining", "Healthcare", "Robot Stuff")
+        , size = 20
+        , replace = TRUE
+    )
+)
 
 # How can we combine the commercial info with dealer characteristics?
 # One approach (if you know the rows represent the same customers) is to use
@@ -272,14 +284,21 @@ fullDF <- cbind(dealerDF1, dealerDF2)
 
 ```{r mergeExample}
 # If you can't trust that things are identically ordered, use merge()
-dealerDF1 <- data.frame(dealer_id = c(20:1),
-                        avg_price = runif(20, min = 15, max = 75),
-                        avg_margin = runif(20, min = -0.1, max = 0.45))
+dealerDF1 <- data.frame(
+    dealer_id = c(20:1)
+    , avg_price = runif(20, min = 15, max = 75)
+    , avg_margin = runif(20, min = -0.1, max = 0.45)
+)
 
-dealerDF2 <- data.frame(dealer_id = c(1:20),
-                        industry = sample(c("Mining", "Healthcare", "Robot Stuff"),
-                                          size = 20, replace = TRUE)
-                        )
+dealerDF2 <- data.frame(
+    dealer_id = c(1:20)
+    , industry = sample(
+        c("Mining", "Healthcare", "Robot Stuff")
+        , size = 20
+        , replace = TRUE
+    )
+)
+
 fullDF2 <- merge(dealerDF1, dealerDF2, by = "dealer_id")
 ```
 
@@ -291,14 +310,26 @@ So far we've talked about merging columns from different tables. But what if you
 
 ```{r rbindExample}
 # What if you have the same data for different observations?
-sample1 <- data.frame(startTime = seq.Date(from = as.Date("2016-01-01"), to = as.Date("2016-06-30"), length.out = 180),
-                      value = rnorm(180, 5, 2.5),
-                      sampleId = rep("sample1", 180))
+sample1 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2016-01-01")
+        , to = as.Date("2016-06-30")
+        , length.out = 180
+    )
+    , value = rnorm(180, 5, 2.5)
+    , sampleId = rep("sample1", 180)
+)
                       
 
-sample2 <- data.frame(startTime = seq.Date(from = as.Date("2016-07-01"), to = as.Date("2017-03-31"), length.out = 210),
-                      value = rnorm(210, 5, 2.5),
-                      sampleId = rep("sample2", 210))
+sample2 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2016-07-01")
+        , to = as.Date("2017-03-31")
+        , length.out = 210
+    )
+    , value = rnorm(210, 5, 2.5)
+    , sampleId = rep("sample2", 210)
+)
 
 fullDF <- rbind(sample1, sample2)
 
@@ -314,18 +345,42 @@ dim(fullDF)
 
 ```{r rbindlistExample}
 # Define some data frames
-sample1 <- data.frame(startTime = seq.Date(from = as.Date("2016-01-01"), to = as.Date("2016-06-30"), length.out = 180),
-                      value = rnorm(180, 5, 2.5))
+sample1 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2016-01-01")
+        , to = as.Date("2016-06-30")
+        , length.out = 180
+    )
+    , value = rnorm(180, 5, 2.5)
+)
 
 
-sample2 <- data.frame(startTime = seq.Date(from = as.Date("2016-07-01"), to = as.Date("2017-03-31"), length.out = 210),
-                      value = rnorm(210, 5, 2.5))
+sample2 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2016-07-01")
+        , to = as.Date("2017-03-31")
+        , length.out = 210
+    )
+    , value = rnorm(210, 5, 2.5)
+)
 
-sample3 <- data.frame(startTime = seq.Date(from = as.Date("2017-04-01"), to = as.Date("2017-04-30"), length.out = 30),
-                      value = rnorm(30, 5, 2.5))
+sample3 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2017-04-01")
+        , to = as.Date("2017-04-30")
+        , length.out = 30
+    )
+    , value = rnorm(30, 5, 2.5)
+)
 
-sample4 <- data.frame(startTime = seq.Date(from = as.Date("2017-05-01"), to = as.Date("2017-12-31"), length.out = 240),
-                      value = rnorm(240, 5, 2.5))
+sample4 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2017-05-01")
+        , to = as.Date("2017-12-31")
+        , length.out = 240
+    )
+    , value = rnorm(240, 5, 2.5)
+)
 
 # Load up data.table and rbind all the tables together into one
 library(data.table)
@@ -333,9 +388,15 @@ fullDF <- data.table::rbindlist(list(sample1, sample2, sample3, sample4))
 head(fullDF)
 
 # What if we had one more table with a column none of the others have?
-sample5 <- data.frame(startTime = seq.Date(from = as.Date("2013-05-01"), to = as.Date("2013-12-31"), length.out = 240),
-                      value = rnorm(240, 5, 2.5),
-                      temperature = runif(240, min = -20, max = 95))
+sample5 <- data.frame(
+    startTime = seq.Date(
+        from = as.Date("2013-05-01")
+        , to = as.Date("2013-12-31")
+        , length.out = 240
+    )
+    , value = rnorm(240, 5, 2.5)
+    , temperature = runif(240, min = -20, max = 95)
+)
 fullDF2 <- data.table::rbindlist(list(sample1, sample2, sample3, sample4, sample5), fill = TRUE)
 head(fullDF2)
 ```
@@ -525,10 +586,11 @@ dataDT <- data.table::data.table(get(FRED_SERIES), keep.rownames = TRUE)
 #===== 3. Plot it! =====#
 
 # Plot it!
-rbokeh::figure(data = dataDT, title = TITLE,
-               ylab = VAR_UNITS, xlab = "date",
-               width = 800) %>%
-        rbokeh::ly_lines(x = dataDT[,index], y = dataDT[,get(FRED_SERIES)], color = "blue")
+rbokeh::figure(
+    data = dataDT
+    , title = TITLE
+    , ylab = VAR_UNITS
+    , xlab = "date"
+    , width = 800
+) %>% rbokeh::ly_lines(x = dataDT[,index], y = dataDT[,get(FRED_SERIES)], color = "blue")
 ```
-    
-    

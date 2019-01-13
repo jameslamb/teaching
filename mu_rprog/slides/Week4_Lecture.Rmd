@@ -4,11 +4,11 @@ subtitle    : Week 4
 author      : James Lamb
 job         : Staff Data Scientist | Uptake
 logo        : 
-framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
+framework   : io2012
+highlighter : highlight.js
 hitheme     : tomorrow
-widgets     : [bootstrap]            # {mathjax, quiz}
-mode        : selfcontained # {selfcontained, standalone, draft}
+widgets     : [bootstrap]
+mode        : selfcontained
 lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries"
 knit        : slidify::knit2slides
 ---
@@ -500,8 +500,6 @@ Use this slide as a general reference of coding best practices.
 - Namespace any calls to external functions with `::` (e.g. `lubridate::ymd_hms`)
 
 A sample script following these prescriptions is provided in the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
-
-For other practices to keep your code clean and readable, check out [Hadley Wickham's style guide for R](http://adv-r.had.co.nz/Style.html).
 
 --- .content_slide
 

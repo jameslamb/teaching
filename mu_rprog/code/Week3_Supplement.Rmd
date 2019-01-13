@@ -75,10 +75,11 @@ Imagine that you want to build a model of the relationship between resource weal
 
 ```{r factorVar1}
 # Sample Data
-wbDF <- data.frame(country = c("Egypt", "Cyprus", "Nicaragua", "Colombia", "Germany"),
-                   region  = c("Africa", "European Union", "South America",
-                               "South America", "European Union"),
-                   lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9))
+wbDF <- data.frame(
+    country = c("Egypt", "Cyprus", "Nicaragua", "Colombia", "Germany")
+    , region  = c("Africa", "European Union", "South America", "South America", "European Union")
+    , lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9)
+)
 
 # Check classes...see that "region" is a "Factor" by default!
 str(wbDF)
@@ -213,10 +214,12 @@ The next task we need to acomplish is **tokenizing** our text, i.e. splitting li
 # 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
 library(stringr)
 library(data.table)
-allWords <- lapply(bsText, FUN = function(thisLine){
-                            return(data.frame(words = str_split(thisLine, " ")[[1]]))
-                                        }
-                )
+allWords <- lapply(
+    X = bsText
+    , FUN = function(thisLine){
+        return(data.frame(words = str_split(thisLine, " ")[[1]]))
+    }
+)
 
 # 8 - Put into a data.table and print that just to make sure it worked
 wordDT <- data.table::rbindlist(allWords)
@@ -269,8 +272,11 @@ top5cleaned <- top5[!is.na(top5)]
 print(top5cleaned)
 
 # Removing rows with ANY NAs for data.frames
-myDF <- data.frame(x = c(1, 2, NA, 4), y = c(NA, TRUE, FALSE, TRUE),
-                   z = c("hey", "there", NA, "friends"))
+myDF <- data.frame(
+    x = c(1, 2, NA, 4)
+    , y = c(NA, TRUE, FALSE, TRUE)
+    , z = c("hey", "there", NA, "friends")
+)
 cleanDF <- myDF[complete.cases(myDF), ]
 ```
 
@@ -280,12 +286,16 @@ You may find the "remove all the NAs everywhere" strategy a bit too aggreesive f
 
 ```{r subsetNAwisely}
 # Create a dataframe where some variable have more NAs than others
-testDF <- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
-                     var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE),
-                     var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE))
+testDF <- data.frame(
+    var1 = sample(c(rnorm(99), NA), 200, replace = TRUE)
+    , var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE)
+    , var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE)
+)
 
 # Find columns that are more than 90% missing values
-.percent_na <- function(a_vector){return(sum(is.na(a_vector)/length(a_vector)))}
+.percent_na <- function(a_vector){
+    return(sum(is.na(a_vector)/length(a_vector)))
+}
 colsToDrop <- apply(testDF, MARGIN = 2, .percent_na) > 0.9
 cleanDF <- testDF[, !colsToDrop]
 

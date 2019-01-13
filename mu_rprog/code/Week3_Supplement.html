@@ -200,10 +200,11 @@ Factors
 </h2>
 <p>Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called “region” with values like “Africa”, “European Union”, and “South America”. How can you use this variable in a model or for generating region-by-region summary stats? This is where R’s <strong>factor type</strong> comes in.</p>
 <pre class="r"><code># Sample Data
-wbDF &lt;- data.frame(country = c(&quot;Egypt&quot;, &quot;Cyprus&quot;, &quot;Nicaragua&quot;, &quot;Colombia&quot;, &quot;Germany&quot;),
-                   region  = c(&quot;Africa&quot;, &quot;European Union&quot;, &quot;South America&quot;,
-                               &quot;South America&quot;, &quot;European Union&quot;),
-                   lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9))
+wbDF &lt;- data.frame(
+    country = c(&quot;Egypt&quot;, &quot;Cyprus&quot;, &quot;Nicaragua&quot;, &quot;Colombia&quot;, &quot;Germany&quot;)
+    , region  = c(&quot;Africa&quot;, &quot;European Union&quot;, &quot;South America&quot;, &quot;South America&quot;, &quot;European Union&quot;)
+    , lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9)
+)
 
 # Check classes...see that &quot;region&quot; is a &quot;Factor&quot; by default!
 str(wbDF)</code></pre>
@@ -313,10 +314,12 @@ Tokenization
 <pre class="r"><code># 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
 library(stringr)
 library(data.table)
-allWords &lt;- lapply(bsText, FUN = function(thisLine){
-                            return(data.frame(words = str_split(thisLine, &quot; &quot;)[[1]]))
-                                        }
-                )
+allWords &lt;- lapply(
+    X = bsText
+    , FUN = function(thisLine){
+        return(data.frame(words = str_split(thisLine, &quot; &quot;)[[1]]))
+    }
+)
 
 # 8 - Put into a data.table and print that just to make sure it worked
 wordDT &lt;- data.table::rbindlist(allWords)
@@ -382,20 +385,27 @@ print(top5)</code></pre>
 print(top5cleaned)</code></pre>
 <pre><code>## [1] &quot;Wale&quot;        &quot;Chance&quot;      &quot;Lupe Fiasco&quot; &quot;Shad&quot;        &quot;Kanye&quot;</code></pre>
 <pre class="r"><code># Removing rows with ANY NAs for data.frames
-myDF &lt;- data.frame(x = c(1, 2, NA, 4), y = c(NA, TRUE, FALSE, TRUE),
-                   z = c(&quot;hey&quot;, &quot;there&quot;, NA, &quot;friends&quot;))
+myDF &lt;- data.frame(
+    x = c(1, 2, NA, 4)
+    , y = c(NA, TRUE, FALSE, TRUE)
+    , z = c(&quot;hey&quot;, &quot;there&quot;, NA, &quot;friends&quot;)
+)
 cleanDF &lt;- myDF[complete.cases(myDF), ]</code></pre>
 <h2>
 Strategy 2: Handle on Subsets
 </h2>
 <p>You may find the “remove all the NAs everywhere” strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases</code> to remove rows.</p>
 <pre class="r"><code># Create a dataframe where some variable have more NAs than others
-testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
-                     var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE),
-                     var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE))
+testDF &lt;- data.frame(
+    var1 = sample(c(rnorm(99), NA), 200, replace = TRUE)
+    , var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE)
+    , var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE)
+)
 
 # Find columns that are more than 90% missing values
-.percent_na &lt;- function(a_vector){return(sum(is.na(a_vector)/length(a_vector)))}
+.percent_na &lt;- function(a_vector){
+    return(sum(is.na(a_vector)/length(a_vector)))
+}
 colsToDrop &lt;- apply(testDF, MARGIN = 2, .percent_na) &gt; 0.9
 cleanDF &lt;- testDF[, !colsToDrop]
 

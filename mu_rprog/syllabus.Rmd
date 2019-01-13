@@ -6,11 +6,11 @@ urlcolor: blue
 
 \textbf{ECON 6931} \hspace{30mm}
 \textbf{Introduction to R Programming} \hspace{30mm}
-\textbf{Spring 2018}
+\textbf{Spring 2019}
 
 \hrulefill
 
-\textbf{Instructor:} James Lamb - james.lamb@marquette.edu | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb)
+\textbf{Instructor:} James Lamb - jaylamb20@gmail.com | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb)
 
 \hrulefill
 
