@@ -52,7 +52,7 @@ knit        : slidify::knit2slides
     <li> Functionalizing Your Pipeline <span style="float:right">             10 </span></li>
     <li> OLS With Multiple RHS Variables <span style="float:right">            11 </span></li>
     <li> Tree-Based Methods <span style="float:right">                     12-13 </span></li>
-    <li> CModel Evaluation                      <span style="float:right">    14 </span></li>
+    <li> Model Evaluation                      <span style="float:right">    14 </span></li>
 </ol>
 
 <b class="toc_header"> II. Combining and Transforming Data Frames</b>
