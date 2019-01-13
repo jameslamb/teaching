@@ -2,7 +2,7 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 4
 author      : James Lamb
-job         : Senior Data Scientist | Uptake
+job         : Staff Data Scientist | Uptake
 logo        : 
 framework   : io2012  # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
