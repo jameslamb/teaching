@@ -129,7 +129,7 @@ I'm pumped for this.
 
 >- <b>My Marquette Experience:</b>
     - B.S., Economics & Marketing (2013)
-    - M.S.A.E., Marketing Research Specialization (2014)
+    - M.S.A.E. (2014)
     
 >- <b>Since Marquette:</b>
     - Data Scientist @ [Uptake](https://uptake.com/) in Chicago, IL 2016-Present
@@ -147,7 +147,7 @@ I'm pumped for this.
     <script>FooterBubbles(2,3)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>Economics in the Age of Big Data</h2>
+<h2>More Productive Economists = Better Economics</h2>
 
 **From [Einav & Levin (2014)](http://www.sciencemag.org/content/346/6210/1243089.full.pdf?keytype=ref&siteid=sci&ijkey=Jj7wCy7hhth4M):**
 
@@ -612,12 +612,12 @@ R is a [functional programming language](http://adv-r.had.co.nz/Functions.html).
 # Function to return only the even numbers from a vector
 answers <- c(1, 3, 4, 8, 13, 24)
 
-getPrimes <- function(some_numbahs){
+getEvens<- function(some_numbahs){
     the_evens <- some_numbahs[some_numbahs %% 2 == 0]
     return(the_evens)
 }
 
-getPrimes(answers)
+getEvens(answers)
 ```
 
 --- .content_slide
@@ -810,11 +810,12 @@ Data frames are tables of data. Each column of a dataframe can be a different ty
 
 ```{r dataFrame, eval = FALSE}
 # Create a dataframe!
-myDF <- data.frame(time_period  = c(1, 2, 3, 4, 5),
-                   temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20),
-                   station      = c("A", "B", "A", "A", "B"),
-                   is_gov_owned = c(TRUE, FALSE, TRUE, TRUE, FALSE)
-                   )
+myDF <- data.frame(
+    time_period  = c(1, 2, 3, 4, 5)
+    , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
+    , station      = c("A", "B", "A", "A", "B")
+    , is_gov_owned = c(TRUE, FALSE, TRUE, TRUE, FALSE)
+)
 
 # Check out the structure of this thing
 str(myDF)
