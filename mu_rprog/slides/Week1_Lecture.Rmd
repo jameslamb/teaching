@@ -130,7 +130,7 @@ I'm pumped for this.
 >- <b>My Marquette Experience:</b>
     - B.S., Economics & Marketing (2013)
     - M.S.A.E. (2014)
-    
+
 >- <b>Since Marquette:</b>
     - Data Scientist @ [Uptake](https://uptake.com/) in Chicago, IL 2016-Present
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
@@ -153,7 +153,7 @@ I'm pumped for this.
 
 >- Economists increasingly using large data sets (private & administrative)
     > "Economic models bring a simplifying conceptual framework to to help make sense of large data sets"
-    
+
 >- A major challenge:
     > "...developing appropriate data management and programming capabilities, as well as designing creative
     > and scalable approaches to summarize, describe, and analyze...data sets"
