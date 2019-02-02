@@ -78,7 +78,7 @@ I hope you'll be able to install these components using the information at those
 
 The (tentative) outline below describes my goals for each lecture. Assignment due dates and lecture dates are fixed but content may change as the class progresses.
 
-\underline{Week 1: January 19, 2019}
+\underline{Week 1: January 26, 2019}
 
 Due before class: Pre-course survey
 
@@ -94,7 +94,7 @@ Due before class: Pre-course survey
     \item Introduction to data frames
 \end{itemize}
 
-\underline{Week 2: January 26, 2019}
+\underline{Week 2: February 2, 2019}
 
 Due before class: Quiz 1
 
@@ -108,7 +108,7 @@ Due before class: Quiz 1
     \item Debugging Strategies
 \end{itemize}
 
-\underline{Week 3: February 2, 2019}
+\underline{Week 3: February 9, 2019}
 
 Due before class: Quiz 2, Programming Assignment 1
 
@@ -121,7 +121,7 @@ Due before class: Quiz 2, Programming Assignment 1
     \item Final Project Discussion
 \end{itemize}
 
-\underline{Week 4: February 9, 2019}
+\underline{Week 4: February 16, 2019}
 
 Due before class: Programming Assignment 2, Final Project Proposal
 
@@ -132,7 +132,7 @@ Due before class: Programming Assignment 2, Final Project Proposal
     \item Discussion of Project Proposals
 \end{itemize}
 
-\underline{Week 5: February 16, 2019}
+\underline{Week 5: February 23, 2019}
 
 Due before class: Final Project script + report
 
@@ -180,9 +180,9 @@ Quizzes will be delivered online via D2L (see the "Quizzes" section of the cours
 
 |Quiz                       |Opens                       |Due                           |
 |:-------------------------:|:--------------------------:|:----------------------------:|
-|Pre-class survey           | Immediately                | Prior to class on January 19 |
-|Quiz 1                     | After class on January 19  | Prior to class on January 26 |
-|Quiz 2                     | After class on January 26  | Prior to class on February 2 |
+|Pre-class survey           | Immediately                | Prior to class on January 26 |
+|Quiz 1                     | After class on January 26  | Prior to class on February 2 |
+|Quiz 2                     | After class on February 2  | Prior to class on February 9 |
 
 
 \subsection{B. Programming Assignments (30\%)}
@@ -193,10 +193,10 @@ Assignment rubrics can be found under the "Programming Assignments" module in th
 
 Your completed assignment must be uploaded to the appropriate folder in the "Dropbox" section on the course D2L page by the due date listed in the table below.
 
-|Assignment                 |Description Available       |Due                           |
-|:-------------------------:|:--------------------------:|:----------------------------:|
-|Programming Assignment 1   | Immediately                | Prior to class on February 2 |
-|Programming Assignment 2   | Immediately                | Prior to class on February 9| 
+|Assignment                 |Description Available       |Due                            |
+|:-------------------------:|:--------------------------:|:-----------------------------:|
+|Programming Assignment 1   | Immediately                | Prior to class on February 9  |
+|Programming Assignment 2   | Immediately                | Prior to class on February 16 | 
 
 \subsection{C. Final Project (45\%)}
 
@@ -215,9 +215,9 @@ Full details of the project and each of its components are available in the "Fin
 
 |Assignment                      |Description Available       |Due                            |
 |:------------------------------:|:--------------------------:|:-----------------------------:|
-|Final Project proposal          | After class on January 19  | Prior to class on February 9 |
-|Final Project (script + report) | After class on January 26  | Prior to class on February 16 |
-|Final Project code review       | After class on January 26  | In class on February 16       |
+|Final Project proposal          | After class on January 26  | Prior to class on February 16 |
+|Final Project (script + report) | After class on February 2  | Prior to class on February 23 |
+|Final Project code review       | After class on February 2  | In class on February 23       |
 
 \subsection{D. Grade Appeal}
 
