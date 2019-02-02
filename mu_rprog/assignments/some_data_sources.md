@@ -2,6 +2,7 @@
 
 The list below is not exhaustive, but should give a good idea of the types of datasets available for free online.
 
+- [Google Dataset search](https://toolbox.google.com/datasetsearch)
 - [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.html)
 - [St. Louis Fed (FRED)](https://www.stlouisfed.org/)
 - [Twitter API](https://dev.twitter.com/docs)

@@ -4,13 +4,13 @@
 \alias{GetData}
 \title{Get Marquette BB Data}
 \usage{
-GetData(season)
+GetData(season = "2018")
 }
 \arguments{
-\item{season}{String indicating which season you want to pull data for. 
+\item{season}{String indicating which season you want to pull data for.
 e.g. set to "2017" for 2016-17 season stats}
 }
 \description{
-This function scrapes ESPN.com and returns some player statistics for
-             Marquette's men's basketball team.
+This function scrapes sports-reference.com and returns some
+             player statistics for Marquette's men's basketball team.
 }

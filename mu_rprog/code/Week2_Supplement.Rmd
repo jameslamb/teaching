@@ -387,14 +387,13 @@ Let's try an example with data from the state of Oregon. The following link retu
 
 https://data.oregon.gov/api/views/t6bs-tkn4/rows.json?accessType=DOWNLOAD
 
-We can download the data and parse it into an R list object using the `rjson` package:
+We can download the data and parse it into an R list object using the `jsonlite` package:
 
 ```{r jsonData}
-# Load package
-library(rjson)
+library(jsonlite)
 
 # Go get some data
-result <- rjson::fromJSON(file = "https://data.oregon.gov/api/views/t6bs-tkn4/rows.json")
+result <- jsonlite::fromJSON("https://data.oregon.gov/api/views/t6bs-tkn4/rows.json")
 
 # Check it out. Pass the max.level argument to the list to tell R how deep into it you want to go
 str(result, max.level = 1)
@@ -427,8 +426,12 @@ thou_art_my_vector <- text_vec[grepl(pattern = "thou|twas", text_vec)]
 
 # Print the count of lines w/ those words
 lines_with_fancy_words <- length(thou_art_my_vector)
-thing_to_print <- paste0("of the ", length(text_vec), 
-                         " lines of text in the complete works of William Shakespeare, only ",
-                         lines_with_fancy_words, " used thou or twas.")
+thing_to_print <- paste0(
+    "of the "
+    , length(text_vec)
+    , " lines of text in the complete works of William Shakespeare, only "
+    , lines_with_fancy_words
+    , " used thou or twas."
+)
 print(thing_to_print)
 ```

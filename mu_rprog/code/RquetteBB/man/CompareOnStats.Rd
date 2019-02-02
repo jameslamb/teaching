@@ -4,7 +4,7 @@
 \alias{CompareOnStats}
 \title{Scatterplot Comparison of Player Stats}
 \usage{
-CompareOnStats(statDT, x_stat = "PPG", y_stat = "RPG", season,
+CompareOnStats(statDT, x_stat = "PTS", y_stat = "TB", season,
   useInitials = TRUE)
 }
 \arguments{

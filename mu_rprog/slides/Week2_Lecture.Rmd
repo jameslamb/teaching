@@ -574,7 +574,7 @@ In this course, I've been using the `library()` command to load package namespac
 ```{r library_v_require, eval = FALSE, echo = TRUE, warning = FALSE, message = FALSE, error = TRUE}
 library(some_package_that_does_not_exist)
 
-my_funct <- function(n){
+my_func <- function(n){
     require(some_package_that_does_not_exist)
     return("JaVale McGee!!!!")
 }
@@ -764,9 +764,11 @@ There are lots of options to read these types of files into R, but for the purpo
 dataPath <- "~/repos/my_project/data/project_data.csv"
 
 # Read the file into a data.frame
-dataDF <- read.delim(file = dataPath,
-                     header = TRUE,
-                     sep = ",")
+dataDF <- read.delim(
+    file = dataPath,
+    header = TRUE,
+    sep = ","
+)
 ```
 
 --- .content_slide
@@ -828,6 +830,3 @@ See the links below to learn more about some of the topics we covered this week
 **External R Packages**: [econometrics packages](https://cran.r-project.org/web/views/Econometrics.html) | [finance packages](https://cran.r-project.org/web/views/Finance.html) | [time series packages](https://cran.r-project.org/web/views/TimeSeries.html)
 
 **Lexical Scoping**: [JHU Coursera](https://www.coursera.org/learn/r-programming/lecture/FkTgn/scoping-rules-r-scoping-rules)
-
-
-
