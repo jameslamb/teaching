@@ -244,34 +244,30 @@ Next, let's add another function. This function, which we'll call `GetData`, sho
 ```{r GetData, eval = FALSE}
 #' @title Get Marquette BB Data
 #' @name GetData
-#' @description This function scrapes ESPN.com and returns some player statistics for
-#'              Marquette's men's basketball team.
+#' @description This function scrapes sports-reference.com and returns some 
+#'              player statistics for Marquette's men's basketball team.
 #' @param season String indicating which season you want to pull data for. 
 #'               e.g. set to "2017" for 2016-17 season stats
 #' @importFrom data.table data.table
-#' @importFrom XML readHTMLTable
+#' @importFrom htmltab htmltab
 #' @export
-GetData <- function(season){
+GetData <- function(season = "2018"){
     
     # Build URL
     queryURL <- paste0(
-        "http://www.espn.com/mens-college-basketball/team/stats/_/id/269/year/"
+        "https://www.sports-reference.com/cbb/schools/marquette/"
         , season
+        , ".html"
     )
     
-    # Grab tables from ESPN
-    result <- XML::readHTMLTable(queryURL)
+    # Grab tables from college basketbal reference
+    result <- htmltab::htmltab(
+        queryURL
+        , which = "//table[@id = 'per_game']"
+    )
     
-    # Clean up the tables
-    stats1 <- data.table::data.table(result[[1]])
-    stats2 <- data.table::data.table(result[[2]])
-    
-    # These tables are kind of gross...they don't do a good job of finding headers. Need to clean these
-    stats1 <- .cleanTable(stats1)
-    stats2 <- .cleanTable(stats2)
-    
-    # Merge the tables
-    statDT <- merge(stats1, stats2, by = "Player")
+    # Convert to data.table
+    statDT <- data.table::as.data.table(result)
     
     # Coerce all the columns but Player to numeric
     numCols <- setdiff(names(statDT), "Player")
@@ -282,32 +278,6 @@ GetData <- function(season){
     
     # Return the table
     return(statDT)
-}
-
-# non-exported helper function for cleaning up the tables
-#' @importFrom data.table setnames
-.cleanTable <- function(resultDT){
-    
-    # Find the row w/ headers
-    resultDT <- resultDT[, lapply(.SD, as.character)]
-    headerRow <- which(resultDT[,1]=="Player")
-    headers   <- as.character(resultDT[(headerRow),])
-    
-    # Subset out the nonsense
-    resultDT <- resultDT[(headerRow + 1):nrow(resultDT)]
-    
-    # Reset names with the header row
-    data.table::setnames(resultDT, names(resultDT), headers)
-    
-    # Drow the "totals" row
-    resultDT <- resultDT[Player != "Totals"]
-    
-    # If we're working on the "per game" DT, change MIN
-    if ("PPG" %in% names(resultDT)){
-        data.table::setnames(resultDT, "MIN", "MINPG")
-    }
-    
-    return(resultDT)
 }
 ```
 
@@ -364,8 +334,8 @@ You're a pro at adding new functions now, so I won't belabor the points about ad
 #' @param useInitials A boolean. If TRUE, player initials will be plotted. If FALSE, full names will be used.
 #' @export
 CompareOnStats <- function(statDT
-                           , x_stat = "PPG"
-                           , y_stat = "RPG"
+                           , x_stat = "PTS"
+                           , y_stat = "TRB"
                            , season
                            , useInitials = TRUE
 ){
@@ -407,18 +377,31 @@ Congratulations on reaching the end of this tutorial. You've now created your fi
 # Load up our package
 library(RquetteBB)
 
-# Pull data for 2007-08 and 2016-17
-stats2003 <- GetData(season = "2003")
-stats2017 <- GetData(season = "2018")
+# Plot 2 on top of each other
+par(mfrow = c(2, 1))
 
 # Plot the 2002-2003 data
-CompareOnStats(statDT = stats2003, "PPG", "RPG", season = "2002-03", useInitials = FALSE)
+statsDT <- GetData(season = "2003")
+CompareOnStats(
+    statDT = statsDT
+    , "PTS"
+    , "TRB"
+    , season = "2002-03"
+    , useInitials = FALSE
+)
 
-# Plot the 2017-2018 data
-CompareOnStats(statDT = stats2017, "PPG", "RPG", season = "2017-18", useInitials = FALSE)
+# Plot the 2018-2019 data
+statsDT <- GetData(season = "2019")
+CompareOnStats(
+    statDT = statsDT
+    , "PTS"
+    , "TRB"
+    , season = "2018-19"
+    , useInitials = FALSE
+)
 
 # Reset graphical settings
-par(mfrow = c(1,1))
+par(mfrow = c(1, 1))
 ```
 
 <h3>Additional Resources</h3>

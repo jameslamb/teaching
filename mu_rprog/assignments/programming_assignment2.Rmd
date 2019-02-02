@@ -40,7 +40,7 @@ Upload a file to the **Programming Assignment 2** dropbox on D2L with a name lik
 # function: setnames
 
 # Example:
-DT = data.table(a=1:2,b=3:4,c=5:6) # compare to data.table
+DT <- data.table(a=1:2,b=3:4,c=5:6) # compare to data.table
 try(tracemem(DT))                  # by reference, no deep or shallow copies
 setnames(DT,"b","B")               # by name, no match() needed (warning if "b" is missing)
 #==============================================================================#
@@ -97,17 +97,27 @@ names(usaDF) <- c("Date", "USA_INF_YOY")
 names(jpnDF) <- ### FILL THIS IN ###
 
 # Combine the two data.frames with merge()
-mergedDF <- merge(x = usaDF, by = "Date", y = ### FILL THIS IN ###)
+mergedDF <- merge(
+    x = usaDF,
+    by = "Date",
+    y = ### FILL THIS IN ###
+)
 
 # Plot the two series
-plot(x = mergedDF$Date,
-     y = mergedDF$USA_INF_YOY,
-     type = ### FILL THIS IN ###,
-     main = ### FILL THIS IN ###,
-     xlab = ### FILL THIS IN ###,
-     ylab = ### FILL THIS IN ###)
+plot(
+    x = mergedDF$Date,
+    y = mergedDF$USA_INF_YOY,
+    type = ### FILL THIS IN ###,
+    main = ### FILL THIS IN ###,
+    xlab = ### FILL THIS IN ###,
+    ylab = ### FILL THIS IN ###
+)
 
-lines(x = ### FILL THIS IN ###, type = "l", col = ### FILL THIS IN ###)
+lines(
+    x = ### FILL THIS IN ###,
+    type = "l",
+    col = ### FILL THIS IN ###
+)
 ```
 
 <h2>I Believe In You</h2>

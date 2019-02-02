@@ -162,7 +162,7 @@ Submission
 # function: setnames
 
 # Example:
-DT = data.table(a=1:2,b=3:4,c=5:6) # compare to data.table
+DT &lt;- data.table(a=1:2,b=3:4,c=5:6) # compare to data.table
 try(tracemem(DT))                  # by reference, no deep or shallow copies
 setnames(DT,&quot;b&quot;,&quot;B&quot;)               # by name, no match() needed (warning if &quot;b&quot; is missing)
 #==============================================================================#
@@ -220,17 +220,27 @@ names(usaDF) &lt;- c(&quot;Date&quot;, &quot;USA_INF_YOY&quot;)
 names(jpnDF) &lt;- ### FILL THIS IN ###
 
 # Combine the two data.frames with merge()
-mergedDF &lt;- merge(x = usaDF, by = &quot;Date&quot;, y = ### FILL THIS IN ###)
+mergedDF &lt;- merge(
+    x = usaDF,
+    by = &quot;Date&quot;,
+    y = ### FILL THIS IN ###
+)
 
 # Plot the two series
-plot(x = mergedDF$Date,
-     y = mergedDF$USA_INF_YOY,
-     type = ### FILL THIS IN ###,
-     main = ### FILL THIS IN ###,
-     xlab = ### FILL THIS IN ###,
-     ylab = ### FILL THIS IN ###)
+plot(
+    x = mergedDF$Date,
+    y = mergedDF$USA_INF_YOY,
+    type = ### FILL THIS IN ###,
+    main = ### FILL THIS IN ###,
+    xlab = ### FILL THIS IN ###,
+    ylab = ### FILL THIS IN ###
+)
 
-lines(x = ### FILL THIS IN ###, type = &quot;l&quot;, col = ### FILL THIS IN ###)</code></pre>
+lines(
+    x = ### FILL THIS IN ###,
+    type = &quot;l&quot;,
+    col = ### FILL THIS IN ###
+)</code></pre>
 <h2>
 I Believe In You
 </h2>

@@ -333,8 +333,7 @@ if (DAY == &quot;MONDAY&quot;){
 } else {
     gaussfact()
 }</code></pre>
-<pre><code>## A real number is constructible with straightedge and compass if 
-## and only if Gauss never felt like freehanding it.</code></pre>
+<pre><code>## Gauss proved an omnipotent God since writing Q.E.D on a mirror.</code></pre>
 <p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
 <pre class="r"><code># Try to think through what this will do before you run it yourself:
 if (4 &gt; 5){
@@ -605,11 +604,12 @@ Data Frames
 <p>Vectors and lists are crucial data structures in R, but you may find that they’re difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.</p>
 <p>Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type.</p>
 <pre class="r"><code># Create a dataframe!
-myDF &lt;- data.frame(time_period  = c(1, 2, 3, 4, 5),
-                   temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20),
-                   station      = c(&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;),
-                   is_gov_owned = c(TRUE, FALSE, TRUE, TRUE, FALSE)
-                   )
+myDF &lt;- data.frame(
+    time_period    = c(1, 2, 3, 4, 5)
+    , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
+    , station      = c(&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;)
+    , is_gov_owned = c(TRUE, FALSE, TRUE, TRUE, FALSE)
+)
 
 # Check out the structure of this thing
 str(myDF)</code></pre>

@@ -3,7 +3,7 @@
 
 # In this assignment, I've provided 5 small bits of code. Each of these is intentionally
 # incorrect. Your job is to correct the code so that it works as intended.
-# 
+#
 # Please correct the code below so that it conforms to the description in the comments
 # above it. You may want to comment out my bad code so that you still have it for reference.
 
@@ -25,7 +25,7 @@ my_name <- "James"
 print("hello,", myname, "    is ", James)
 
 # b. Write a function that takes in an integer n (1-26) and returns a character vector with
-#    the nth element repeated n times. e.g. RepLetter(3) would yield c("c", "c", "c") 
+#    the nth element repeated n times. e.g. RepLetter(3) would yield c("c", "c", "c")
 #    and RepLetter(7) would yield c("g", "g", "g", "g", "g", "g", "g")
 RepLetter(n) <- function(){
     return(rep(letters[7]))
@@ -55,16 +55,16 @@ entropies <- apply(fault_list, inqe::entropy)
 #    NOTE: Just change the function body...you do not need to change the calls
 #    to findMin() at the end
 findMin <- function(numVec){
-    
+
     lowest_val <- -Inf
     i <- 5
     while (i != length(numVec)){
         this_val <- numVec[i]
-        
+
         if (this_val > lowest_val){
             lowest_val <- this_val
         }
-        
+
         i <- i + 1
     }
     return(lowest_val)
@@ -73,4 +73,3 @@ findMin <- function(numVec){
 findMin(rep(10:20))                 # should return 10
 findMin(c(-5, 10, 100, -8))         # should return -8
 findMin(c(1:10, 20:50, 0.999, 6))   # should return 0.999
-
