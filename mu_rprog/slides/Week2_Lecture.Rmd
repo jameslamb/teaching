@@ -206,7 +206,7 @@ data("ChickWeight")
 apply(ChickWeight, MARGIN = 2, FUN = function(x){range(as.numeric(x))})
 
 # Calculate row-wise range
-apply(ChickWeight, MARGIN = 1, FUN = function(blagh){range(as.numeric(blah))})
+apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
 ```
 
 --- .section_slide

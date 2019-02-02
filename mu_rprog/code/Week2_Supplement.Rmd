@@ -20,8 +20,7 @@ You should use these programming supplements to follow along and try executing t
 
 <h3>Looping with lapply</h3>
 
-R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is 
-`lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
+R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
 ```{r lapplyExample}
 # Get some data
