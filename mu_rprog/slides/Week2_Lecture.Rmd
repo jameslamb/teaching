@@ -131,7 +131,7 @@ widgets: bootstrap
 
 <h2>Quiz 1 Review</h2>
 
-I will show the questions from quiz 3 that a lot of students struggled with. Not including them in these slides in case I teach the course again in the future.
+I will show the questions from quiz 1 that a lot of students struggled with. Not including them in these slides in case I teach the course again in the future.
 
 If you're arriving at this slide and are disappointed not to find quiz answers, I'm sorry but I'll at least give you this bit of entertainment. Go check out [A Day in the Life of Americas](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/)
 
@@ -267,10 +267,12 @@ Data frames are the workhorse data structure of statistics in R. The best way to
 
 ```{r subsetDF, eval = FALSE}
 # Create a data frame
-someDF <- data.frame(conference  = c("Big East", "Big Ten", "Big East", "ACC", "SEC"),
-                     school_name = c("Villanova", "Minnesota", "Marquette", "Duke", "LSU"),
-                     wins        = c(18, 14, 19, 24, 12),
-                     ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7))
+someDF <- data.frame(
+    , conference  = c("Big East", "Big Ten", "Big East", "ACC", "SEC")
+    , school_name = c("Villanova", "Minnesota", "Marquette", "Duke", "LSU")
+    , wins        = c(18, 14, 19, 24, 12)
+    , ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7)
+)
 
 # Grab the wins column (NOTE: will give you back a vector)
 someDF[, "wins"]

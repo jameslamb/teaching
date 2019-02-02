@@ -162,12 +162,13 @@ Using these methods (especially numeric indices like saying *give me columns 2-4
 
 ```{r logicalSubsetting}
 # Some dataframe
-playerDF <- data.frame(playerName = c("Rajon Rondo", "Paul Pierce", "Kevin Garnett", "Ray Allen", "Big Baby"),
-                       position   = c("PG", "SF", "PF", "SG", "C"),
-                       apg        = c(14.2, 3.5, 4.6, 5.0, 0.7),
-                       ppg        = c(4.8, 31.0, 24.6, 33.2, 12.3),
-                       fg_percent = c(-.062, 0.48, 0.63, 0.80, 0.51))
-                           
+playerDF <- data.frame(
+    playerName   = c("Rajon Rondo", "Paul Pierce", "Kevin Garnett", "Ray Allen", "Big Baby")
+    , position   = c("PG", "SF", "PF", "SG", "C")
+    , apg        = c(14.2, 3.5, 4.6, 5.0, 0.7)
+    , ppg        = c(4.8, 31.0, 24.6, 33.2, 12.3)
+    , fg_percent = c(-.062, 0.48, 0.63, 0.80, 0.51)
+)
 
 # "Give me a dataframe with all Rondo and KG's stats"
 nameIndex <- playerDF$playerName %in% c("Rajon Rondo", "Kevin Garnett")
@@ -245,16 +246,24 @@ sumBigNums(some_vector)
 
 ```{r makePlots, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 # Load dependencies
-library(data.table); library(quantmod); library(rbokeh); library(purrr);
+library(data.table)
+library(quantmod)
+library(rbokeh)
 
 # Get data and plot it
 quantmod::getSymbols('CPIAUCSL', src = 'FRED')
-cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
+cpiDT <- data.table::data.table(
+    CPIAUCSL
+    , keep.rownames = TRUE
+)
 
 # Plot it!
-rbokeh::figure(data = cpiDT, title = "U.S. CPI", 
-               ylab = "Index (1982-1984 = 100)", xlab = "date") %>%
-        ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
+rbokeh::figure(
+    data = cpiDT
+    , title = "U.S. CPI"
+    , ylab = "Index (1982-1984 = 100)"
+    , xlab = "date"
+) %>% ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
 ```
 
 <h2>V. User-defined Functions</h2>

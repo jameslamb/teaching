@@ -23,7 +23,6 @@ install.packages(
         , "stargazer"
         , "stringr"
         , "testthat"
-        , "webshot"
     )
     , repos = "http://cran.rstudio.com"
     , dependencies = c("Depends", "Imports")

@@ -189,7 +189,7 @@
 
 <h2>Quiz 1 Review</h2>
 
-<p>I will show the questions from quiz 3 that a lot of students struggled with. Not including them in these slides in case I teach the course again in the future.</p>
+<p>I will show the questions from quiz 1 that a lot of students struggled with. Not including them in these slides in case I teach the course again in the future.</p>
 
 <p>If you&#39;re arriving at this slide and are disappointed not to find quiz answers, I&#39;m sorry but I&#39;ll at least give you this bit of entertainment. Go check out <a href="https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/">A Day in the Life of Americas</a></p>
 
@@ -351,10 +351,12 @@ myVec[&quot;var3&quot;]
 <p>Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:</p>
 
 <pre><code class="r"># Create a data frame
-someDF &lt;- data.frame(conference  = c(&quot;Big East&quot;, &quot;Big Ten&quot;, &quot;Big East&quot;, &quot;ACC&quot;, &quot;SEC&quot;),
-                     school_name = c(&quot;Villanova&quot;, &quot;Minnesota&quot;, &quot;Marquette&quot;, &quot;Duke&quot;, &quot;LSU&quot;),
-                     wins        = c(18, 14, 19, 24, 12),
-                     ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7))
+someDF &lt;- data.frame(
+    , conference  = c(&quot;Big East&quot;, &quot;Big Ten&quot;, &quot;Big East&quot;, &quot;ACC&quot;, &quot;SEC&quot;)
+    , school_name = c(&quot;Villanova&quot;, &quot;Minnesota&quot;, &quot;Marquette&quot;, &quot;Duke&quot;, &quot;LSU&quot;)
+    , wins        = c(18, 14, 19, 24, 12)
+    , ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7)
+)
 
 # Grab the wins column (NOTE: will give you back a vector)
 someDF[, &quot;wins&quot;]
