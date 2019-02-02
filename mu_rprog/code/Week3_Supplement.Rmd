@@ -6,7 +6,7 @@ output:
     theme: spacelab
 ---
 
-```{r setOpts}
+```{r setOpts, echo = FALSE}
 knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
