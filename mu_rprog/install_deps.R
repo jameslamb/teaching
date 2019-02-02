@@ -8,6 +8,7 @@ install.packages("devtools", repos = "http://cran.rstudio.com")
 install.packages(
     pkgs = c(
         "gaussfacts"
+        , "htmltab"
         , "ineq"
         , "jsonlite"
         , "lubridate"

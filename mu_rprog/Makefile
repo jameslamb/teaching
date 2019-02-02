@@ -38,4 +38,4 @@ syllabus:
 
 # Recipe to remake the entire course
 course: install assignments code_samples slides syllabus
-	echo "made course"
+	@echo "made course"
