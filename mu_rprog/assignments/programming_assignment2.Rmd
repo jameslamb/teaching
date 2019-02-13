@@ -115,10 +115,15 @@ plot(
 
 lines(
     x = ### FILL THIS IN ###,
+    y = ### FILL THIS IN ###,
     type = "l",
     col = ### FILL THIS IN ###
 )
 ```
+
+If this works correctly, you should see a plot similar to this:
+
+<center><img src = "assets/img/assignment_2.png"></center>
 
 <h2>I Believe In You</h2>
 
