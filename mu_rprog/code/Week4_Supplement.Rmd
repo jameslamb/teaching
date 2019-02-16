@@ -16,7 +16,7 @@ knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE
 
 <h3>R Was Made for Statistics!</h3>
 
-In this section, we're going to walk through all the steps of basic statistical analysis: getting data, exploring it, creating feature, building models, evaluating models, and comparing those models' performance.
+In this section, we're going to walk through all the steps of basic statistical analysis: getting data, exploring it, creating features, building models, evaluating models, and comparing those models' performance.
 
 <center><img src="../slides/assets/img/statistics.jpg"></center>
 
@@ -43,7 +43,7 @@ swissTestDF <- swiss[testIndx,]
 swiss       <- swiss[-testIndx,]
 ```
 
-<h3>Examine Your Training Data<h3>
+<h3>Examine Your Training Data</h3>
 
 Once you've split your data into training and test, you shouold start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on dataframe columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
 
@@ -206,7 +206,7 @@ dtPreds <- EvaluateModel(treeMod, swissTestDF, "Decision Tree")
 
 You can walk through the tree with this awesome package called `rattle`. This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
 
-```{r plotTheTree, eval = FALSE, echo = TRUE}
+```{r plotTheTree, eval = TRUE, echo = TRUE}
 # Plot the tree
 rattle::fancyRpartPlot(treeMod, main = "Single Decision Tree")
 ```
