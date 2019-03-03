@@ -166,10 +166,12 @@ You will receive a letter grade for this course. Grades will be assigned using t
 And letter grades will be assigned using the following scale:
 
 > \textbf{A}  - 92\% or higher \newline
-> \textbf{AB} - 87\% $\leq$ grade < 92\% \newline
-> \textbf{B}  - 82\% $\leq$ grade < 87\% \newline
-> \textbf{BC} - 75\% $\leq$ grade < 82\% \newline
-> \textbf{C}  - 70\% $\leq$ grade < 75\% \newline
+> \textbf{A-} - 87\% $\leq$ grade < 92\% \newline
+> \textbf{B+}  - 85\% $\leq$ grade < 87\% \newline
+> \textbf{B}  - 82\% $\leq$ grade < 85\% \newline
+> \textbf{B-} - 75\% $\leq$ grade < 82\% \newline
+> \textbf{C+}  - 73\% $\leq$ grade < 75\% \newline
+> \textbf{C}  - 70\% $\leq$ grade < 73\% \newline
 > \textbf{F}  - Less than 70\%
 
 \subsection{A. Quizzes (25\%)}
