@@ -3,7 +3,7 @@ title: "ECON 6931 - R Programming"
 author: "James Lamb"
 highlighter: highlight.js
 hitheme: tomorrow
-job: Staff Data Scientist | Uptake
+job: IoT Data Scientist | AWS
 knit: slidify::knit2slides
 lib_cdn: https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries
 logo: null
