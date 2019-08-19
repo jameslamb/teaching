@@ -2,7 +2,7 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 4
 author      : James Lamb
-job         : Staff Data Scientist | Uptake
+job         : IoT Data Scientist | AWS
 logo        : 
 framework   : io2012
 highlighter : highlight.js

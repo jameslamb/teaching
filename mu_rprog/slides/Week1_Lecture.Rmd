@@ -2,7 +2,7 @@
 title       : ECON 6931 - R Programming
 subtitle    : Week 1
 author      : James Lamb
-job         : Staff Data Scientist | Uptake
+job         : IoT Data Scientist | AWS
 logo        : 
 framework   : io2012
 highlighter : highlight.js
@@ -132,7 +132,8 @@ I'm pumped for this.
     - M.S.A.E. (2014)
 
 >- <b>Since Marquette:</b>
-    - Data Scientist @ [Uptake](https://uptake.com/) in Chicago, IL 2016-Present
+    - Data Scientist @ [AWS](https://aws.amazon.com/) in Chicago, IL 2019-present
+    - Data Scientist @ [Uptake](https://uptake.com/) in Chicago, IL 2016-2019
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
     - Co-author and maintainer of [uptasticsearch](https://github.com/UptakeOpenSource/uptasticsearch) and [pkgnet](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
     - Created ["Timeseries with data.table in R"](https://www.datacamp.com/courses/time-series-with-datatable-in-r) DataCamp course
