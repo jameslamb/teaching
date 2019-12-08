@@ -1,4 +1,3 @@
-
 SHELL = bash
 
 .PHONY: install assignments code_samples slides syllabus course
@@ -10,7 +9,6 @@ install:
 	Rscript -e "devtools::install_github('ramnathv/slidifyLibraries', force = FALSE)" && \
 	cd code/RquetteBB && \
 	Rscript -e "devtools::install()"
-
 
 assignments:
 	cd assignments/ && \
