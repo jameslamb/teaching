@@ -90,8 +90,8 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |5                         |
 |**Code Quality Items**                                                              |                          |
 |&nbsp;&nbsp;1. Code commenting                                                      |10                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(5 points) Clearly commented*                              |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(3 points) Minimal comments, code is hard to understand*   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(5-10 points) Clearly commented*                           |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(1-4 points) Minimal comments, code is hard to understand* |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0 points) No comments*                                    |                          |
 |&nbsp;&nbsp;2. Code Organization                                                    |15                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(12-15 points) Well-organized, intuitive flow*             |                          |
@@ -124,11 +124,11 @@ Please set up a Google doc called "FIRSTNAME LASTNAME <> MU RPROG Code Review" a
 
 Be prepared to show your code + report in front of the class. Your code review should consist of the following:
 
-- Introduce the problem you investigated
-- Explain the data set (variables, source)
+- Introduce the problem you investigated.
+- Explain the data set (variables, source).
 - Show your code on-screen and explain the choices you made.
     - e.g. *"I decided to use the stringr package to clean up the text I scraped from Yelp"*
-- Share anything you learned through this project which we did not explicitly cover in class
+- Share anything you learned through this project which we did not explicitly cover in class.
 
 <center><img src = "assets/img/lumbergh_code_review.jpg"></center>
 
