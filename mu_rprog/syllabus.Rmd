@@ -58,7 +58,7 @@ Slides and assignment rubrics will be available both in the "Content" section of
 
 \subsection{C. To-Do Before the First Session}
 
-The course begins on 1/19/2019. Before class on that date, please do the following:
+The course begins on 1/18/2020. Before class on that date, please do the following:
 
 **1. Take the pre-course survey on [d2l](https://d2l.mu.edu/)**
 
@@ -69,7 +69,7 @@ The survey must be completed before the first day of class. This is just to help
 I'll devote some time in the first class to ensuring everyone is set up and resolving any lingering issues, so don't stress if you can't figure these out. I'm including the links here just to give you a chance to get a head start.
 
 - Try to [install RStudio v1.0](https://www.rstudio.com/products/rstudio/download/) or higher on your personal laptop
-- Try to [install R v3.4.3](https://cloud.r-project.org/) or higher on your personal laptop
+- Try to [install R v3.6.1](https://cloud.r-project.org/) or higher on your personal laptop
 - Try to [install Sublime Text 3](http://www.sublimetext.com/3)
 
 I hope you'll be able to install these components using the information at those links and some moderate Googling. If you run into any issues, please email me and I'll help you out.
