@@ -48,7 +48,7 @@ I'm pumped for this.
 
 <b class="toc_header"> I. Introduction to R </b>
 <ol class="toc" type="none">
-    <li> Personal Introduction <span style="float:right"> 6 </span></li>
+    <li> Introduction <span style="float:right"> 6 </span></li>
     <li> Syllabus Review       <span style="float:right"> 7 </span></li>
     <li> Course Objectives     <span style="float:right"> 8 </span></li>
 </ol>
@@ -148,19 +148,9 @@ I'm pumped for this.
     <script>FooterBubbles(2,3)</script>I. Introduction<span style="float:right">ECON 6931 - R Programming</span>
 </footer>
 
-<h2>More Productive Economists = Better Economics</h2>
+<h2>Syllabus review</h2>
 
-**From [Einav & Levin (2014)](http://www.sciencemag.org/content/346/6210/1243089.full.pdf?keytype=ref&siteid=sci&ijkey=Jj7wCy7hhth4M):**
-
->- Economists increasingly using large data sets (private & administrative)
-    > "Economic models bring a simplifying conceptual framework to to help make sense of large data sets"
-
->- A major challenge:
-    > "...developing appropriate data management and programming capabilities, as well as designing creative
-    > and scalable approaches to summarize, describe, and analyze...data sets"
-
-</br></br></br></br>
->- Other Commentary: [Einav (2013)](http://www.stanford.edu/~leinav/pubs/IPE2014.pdf) | [Varian (2013)](http://people.ischool.berkeley.edu/~hal/Papers/2013/BeyondBigDataPaperFINAL.pdf) | [Varian (2014)](http://people.ischool.berkeley.edu/~hal/Papers/2013/ml.pdf) | [Cagle (2014)](http://blogs.avalonconsult.com/blog/generic/ontology-for-fun-and-profit/)
+<center><img src="./assets/img/spongemock-syllabus.png"></center>
 
 --- .content_slide
 

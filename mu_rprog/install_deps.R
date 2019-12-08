@@ -1,4 +1,3 @@
-
 # This script installs packages needed to run the examples
 # in the provided code supplements
 

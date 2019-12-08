@@ -1,11 +1,21 @@
+# R files
 *.Rhistory
+
+# MS Office files
 *.xlsx
 *.docx
 *.pptx
+
+# data
 *.rds
 *.rda
+
+# intermediate knitr files
 mu_rprog/slides/*.md
 mu_rprog/slides/.cache
+mu_rprog/code/*_files/
+
+# other misc files
 *.DS_Store
 *.pdf
 *.bak

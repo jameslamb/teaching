@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -292,7 +293,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -365,18 +365,6 @@ summary {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -451,123 +439,124 @@ ls(&quot;package:stats&quot;)</code></pre>
 ##  [88] &quot;density&quot;              &quot;density.default&quot;      &quot;deriv&quot;               
 ##  [91] &quot;deriv3&quot;               &quot;deviance&quot;             &quot;dexp&quot;                
 ##  [94] &quot;df&quot;                   &quot;df.kernel&quot;            &quot;df.residual&quot;         
-##  [97] &quot;dfbeta&quot;               &quot;dfbetas&quot;              &quot;dffits&quot;              
-## [100] &quot;dgamma&quot;               &quot;dgeom&quot;                &quot;dhyper&quot;              
-## [103] &quot;diffinv&quot;              &quot;dist&quot;                 &quot;dlnorm&quot;              
-## [106] &quot;dlogis&quot;               &quot;dmultinom&quot;            &quot;dnbinom&quot;             
-## [109] &quot;dnorm&quot;                &quot;dpois&quot;                &quot;drop.scope&quot;          
-## [112] &quot;drop.terms&quot;           &quot;drop1&quot;                &quot;dsignrank&quot;           
-## [115] &quot;dt&quot;                   &quot;dummy.coef&quot;           &quot;dummy.coef.lm&quot;       
-## [118] &quot;dunif&quot;                &quot;dweibull&quot;             &quot;dwilcox&quot;             
-## [121] &quot;ecdf&quot;                 &quot;eff.aovlist&quot;          &quot;effects&quot;             
-## [124] &quot;embed&quot;                &quot;end&quot;                  &quot;estVar&quot;              
-## [127] &quot;expand.model.frame&quot;   &quot;extractAIC&quot;           &quot;factanal&quot;            
-## [130] &quot;factor.scope&quot;         &quot;family&quot;               &quot;fft&quot;                 
-## [133] &quot;filter&quot;               &quot;fisher.test&quot;          &quot;fitted&quot;              
-## [136] &quot;fitted.values&quot;        &quot;fivenum&quot;              &quot;fligner.test&quot;        
-## [139] &quot;formula&quot;              &quot;frequency&quot;            &quot;friedman.test&quot;       
-## [142] &quot;ftable&quot;               &quot;Gamma&quot;                &quot;gaussian&quot;            
-## [145] &quot;get_all_vars&quot;         &quot;getCall&quot;              &quot;getInitial&quot;          
-## [148] &quot;glm&quot;                  &quot;glm.control&quot;          &quot;glm.fit&quot;             
-## [151] &quot;hasTsp&quot;               &quot;hat&quot;                  &quot;hatvalues&quot;           
-## [154] &quot;hclust&quot;               &quot;heatmap&quot;              &quot;HoltWinters&quot;         
-## [157] &quot;influence&quot;            &quot;influence.measures&quot;   &quot;integrate&quot;           
-## [160] &quot;interaction.plot&quot;     &quot;inverse.gaussian&quot;     &quot;IQR&quot;                 
-## [163] &quot;is.empty.model&quot;       &quot;is.leaf&quot;              &quot;is.mts&quot;              
-## [166] &quot;is.stepfun&quot;           &quot;is.ts&quot;                &quot;is.tskernel&quot;         
-## [169] &quot;isoreg&quot;               &quot;KalmanForecast&quot;       &quot;KalmanLike&quot;          
-## [172] &quot;KalmanRun&quot;            &quot;KalmanSmooth&quot;         &quot;kernapply&quot;           
-## [175] &quot;kernel&quot;               &quot;kmeans&quot;               &quot;knots&quot;               
-## [178] &quot;kruskal.test&quot;         &quot;ks.test&quot;              &quot;ksmooth&quot;             
-## [181] &quot;lag&quot;                  &quot;lag.plot&quot;             &quot;line&quot;                
-## [184] &quot;lm&quot;                   &quot;lm.fit&quot;               &quot;lm.influence&quot;        
-## [187] &quot;lm.wfit&quot;              &quot;loadings&quot;             &quot;loess&quot;               
-## [190] &quot;loess.control&quot;        &quot;loess.smooth&quot;         &quot;logLik&quot;              
-## [193] &quot;loglin&quot;               &quot;lowess&quot;               &quot;ls.diag&quot;             
-## [196] &quot;ls.print&quot;             &quot;lsfit&quot;                &quot;mad&quot;                 
-## [199] &quot;mahalanobis&quot;          &quot;make.link&quot;            &quot;makeARIMA&quot;           
-## [202] &quot;makepredictcall&quot;      &quot;manova&quot;               &quot;mantelhaen.test&quot;     
-## [205] &quot;mauchly.test&quot;         &quot;mcnemar.test&quot;         &quot;median&quot;              
-## [208] &quot;median.default&quot;       &quot;medpolish&quot;            &quot;model.extract&quot;       
-## [211] &quot;model.frame&quot;          &quot;model.frame.default&quot;  &quot;model.matrix&quot;        
-## [214] &quot;model.matrix.default&quot; &quot;model.matrix.lm&quot;      &quot;model.offset&quot;        
-## [217] &quot;model.response&quot;       &quot;model.tables&quot;         &quot;model.weights&quot;       
-## [220] &quot;monthplot&quot;            &quot;mood.test&quot;            &quot;mvfft&quot;               
-## [223] &quot;na.action&quot;            &quot;na.contiguous&quot;        &quot;na.exclude&quot;          
-## [226] &quot;na.fail&quot;              &quot;na.omit&quot;              &quot;na.pass&quot;             
-## [229] &quot;napredict&quot;            &quot;naprint&quot;              &quot;naresid&quot;             
-## [232] &quot;nextn&quot;                &quot;nlm&quot;                  &quot;nlminb&quot;              
-## [235] &quot;nls&quot;                  &quot;nls.control&quot;          &quot;NLSstAsymptotic&quot;     
-## [238] &quot;NLSstClosestX&quot;        &quot;NLSstLfAsymptote&quot;     &quot;NLSstRtAsymptote&quot;    
-## [241] &quot;nobs&quot;                 &quot;numericDeriv&quot;         &quot;offset&quot;              
-## [244] &quot;oneway.test&quot;          &quot;optim&quot;                &quot;optimHess&quot;           
-## [247] &quot;optimise&quot;             &quot;optimize&quot;             &quot;order.dendrogram&quot;    
-## [250] &quot;p.adjust&quot;             &quot;p.adjust.methods&quot;     &quot;pacf&quot;                
-## [253] &quot;pairwise.prop.test&quot;   &quot;pairwise.t.test&quot;      &quot;pairwise.table&quot;      
-## [256] &quot;pairwise.wilcox.test&quot; &quot;pbeta&quot;                &quot;pbinom&quot;              
-## [259] &quot;pbirthday&quot;            &quot;pcauchy&quot;              &quot;pchisq&quot;              
-## [262] &quot;pexp&quot;                 &quot;pf&quot;                   &quot;pgamma&quot;              
-## [265] &quot;pgeom&quot;                &quot;phyper&quot;               &quot;plclust&quot;             
-## [268] &quot;plnorm&quot;               &quot;plogis&quot;               &quot;plot.ecdf&quot;           
-## [271] &quot;plot.spec.coherency&quot;  &quot;plot.spec.phase&quot;      &quot;plot.stepfun&quot;        
-## [274] &quot;plot.ts&quot;              &quot;pnbinom&quot;              &quot;pnorm&quot;               
-## [277] &quot;poisson&quot;              &quot;poisson.test&quot;         &quot;poly&quot;                
-## [280] &quot;polym&quot;                &quot;power&quot;                &quot;power.anova.test&quot;    
-## [283] &quot;power.prop.test&quot;      &quot;power.t.test&quot;         &quot;PP.test&quot;             
-## [286] &quot;ppoints&quot;              &quot;ppois&quot;                &quot;ppr&quot;                 
-## [289] &quot;prcomp&quot;               &quot;predict&quot;              &quot;predict.glm&quot;         
-## [292] &quot;predict.lm&quot;           &quot;preplot&quot;              &quot;princomp&quot;            
-## [295] &quot;printCoefmat&quot;         &quot;profile&quot;              &quot;proj&quot;                
-## [298] &quot;promax&quot;               &quot;prop.test&quot;            &quot;prop.trend.test&quot;     
-## [301] &quot;psignrank&quot;            &quot;pt&quot;                   &quot;ptukey&quot;              
-## [304] &quot;punif&quot;                &quot;pweibull&quot;             &quot;pwilcox&quot;             
-## [307] &quot;qbeta&quot;                &quot;qbinom&quot;               &quot;qbirthday&quot;           
-## [310] &quot;qcauchy&quot;              &quot;qchisq&quot;               &quot;qexp&quot;                
-## [313] &quot;qf&quot;                   &quot;qgamma&quot;               &quot;qgeom&quot;               
-## [316] &quot;qhyper&quot;               &quot;qlnorm&quot;               &quot;qlogis&quot;              
-## [319] &quot;qnbinom&quot;              &quot;qnorm&quot;                &quot;qpois&quot;               
-## [322] &quot;qqline&quot;               &quot;qqnorm&quot;               &quot;qqplot&quot;              
-## [325] &quot;qsignrank&quot;            &quot;qt&quot;                   &quot;qtukey&quot;              
-## [328] &quot;quade.test&quot;           &quot;quantile&quot;             &quot;quasi&quot;               
-## [331] &quot;quasibinomial&quot;        &quot;quasipoisson&quot;         &quot;qunif&quot;               
-## [334] &quot;qweibull&quot;             &quot;qwilcox&quot;              &quot;r2dtable&quot;            
-## [337] &quot;rbeta&quot;                &quot;rbinom&quot;               &quot;rcauchy&quot;             
-## [340] &quot;rchisq&quot;               &quot;read.ftable&quot;          &quot;rect.hclust&quot;         
-## [343] &quot;reformulate&quot;          &quot;relevel&quot;              &quot;reorder&quot;             
-## [346] &quot;replications&quot;         &quot;reshape&quot;              &quot;resid&quot;               
-## [349] &quot;residuals&quot;            &quot;residuals.glm&quot;        &quot;residuals.lm&quot;        
-## [352] &quot;rexp&quot;                 &quot;rf&quot;                   &quot;rgamma&quot;              
-## [355] &quot;rgeom&quot;                &quot;rhyper&quot;               &quot;rlnorm&quot;              
-## [358] &quot;rlogis&quot;               &quot;rmultinom&quot;            &quot;rnbinom&quot;             
-## [361] &quot;rnorm&quot;                &quot;rpois&quot;                &quot;rsignrank&quot;           
-## [364] &quot;rstandard&quot;            &quot;rstudent&quot;             &quot;rt&quot;                  
-## [367] &quot;runif&quot;                &quot;runmed&quot;               &quot;rweibull&quot;            
-## [370] &quot;rwilcox&quot;              &quot;rWishart&quot;             &quot;scatter.smooth&quot;      
-## [373] &quot;screeplot&quot;            &quot;sd&quot;                   &quot;se.contrast&quot;         
-## [376] &quot;selfStart&quot;            &quot;setNames&quot;             &quot;shapiro.test&quot;        
-## [379] &quot;sigma&quot;                &quot;simulate&quot;             &quot;smooth&quot;              
-## [382] &quot;smooth.spline&quot;        &quot;smoothEnds&quot;           &quot;sortedXyData&quot;        
-## [385] &quot;spec.ar&quot;              &quot;spec.pgram&quot;           &quot;spec.taper&quot;          
-## [388] &quot;spectrum&quot;             &quot;spline&quot;               &quot;splinefun&quot;           
-## [391] &quot;splinefunH&quot;           &quot;SSasymp&quot;              &quot;SSasympOff&quot;          
-## [394] &quot;SSasympOrig&quot;          &quot;SSbiexp&quot;              &quot;SSD&quot;                 
-## [397] &quot;SSfol&quot;                &quot;SSfpl&quot;                &quot;SSgompertz&quot;          
-## [400] &quot;SSlogis&quot;              &quot;SSmicmen&quot;             &quot;SSweibull&quot;           
-## [403] &quot;start&quot;                &quot;stat.anova&quot;           &quot;step&quot;                
-## [406] &quot;stepfun&quot;              &quot;stl&quot;                  &quot;StructTS&quot;            
-## [409] &quot;summary.aov&quot;          &quot;summary.glm&quot;          &quot;summary.lm&quot;          
-## [412] &quot;summary.manova&quot;       &quot;summary.stepfun&quot;      &quot;supsmu&quot;              
-## [415] &quot;symnum&quot;               &quot;t.test&quot;               &quot;termplot&quot;            
-## [418] &quot;terms&quot;                &quot;terms.formula&quot;        &quot;time&quot;                
-## [421] &quot;toeplitz&quot;             &quot;ts&quot;                   &quot;ts.intersect&quot;        
-## [424] &quot;ts.plot&quot;              &quot;ts.union&quot;             &quot;tsdiag&quot;              
-## [427] &quot;tsp&quot;                  &quot;tsp&lt;-&quot;                &quot;tsSmooth&quot;            
-## [430] &quot;TukeyHSD&quot;             &quot;uniroot&quot;              &quot;update&quot;              
-## [433] &quot;update.default&quot;       &quot;update.formula&quot;       &quot;var&quot;                 
-## [436] &quot;var.test&quot;             &quot;variable.names&quot;       &quot;varimax&quot;             
-## [439] &quot;vcov&quot;                 &quot;weighted.mean&quot;        &quot;weighted.residuals&quot;  
-## [442] &quot;weights&quot;              &quot;wilcox.test&quot;          &quot;window&quot;              
-## [445] &quot;window&lt;-&quot;             &quot;write.ftable&quot;         &quot;xtabs&quot;</code></pre>
+##  [97] &quot;DF2formula&quot;           &quot;dfbeta&quot;               &quot;dfbetas&quot;             
+## [100] &quot;dffits&quot;               &quot;dgamma&quot;               &quot;dgeom&quot;               
+## [103] &quot;dhyper&quot;               &quot;diffinv&quot;              &quot;dist&quot;                
+## [106] &quot;dlnorm&quot;               &quot;dlogis&quot;               &quot;dmultinom&quot;           
+## [109] &quot;dnbinom&quot;              &quot;dnorm&quot;                &quot;dpois&quot;               
+## [112] &quot;drop.scope&quot;           &quot;drop.terms&quot;           &quot;drop1&quot;               
+## [115] &quot;dsignrank&quot;            &quot;dt&quot;                   &quot;dummy.coef&quot;          
+## [118] &quot;dummy.coef.lm&quot;        &quot;dunif&quot;                &quot;dweibull&quot;            
+## [121] &quot;dwilcox&quot;              &quot;ecdf&quot;                 &quot;eff.aovlist&quot;         
+## [124] &quot;effects&quot;              &quot;embed&quot;                &quot;end&quot;                 
+## [127] &quot;estVar&quot;               &quot;expand.model.frame&quot;   &quot;extractAIC&quot;          
+## [130] &quot;factanal&quot;             &quot;factor.scope&quot;         &quot;family&quot;              
+## [133] &quot;fft&quot;                  &quot;filter&quot;               &quot;fisher.test&quot;         
+## [136] &quot;fitted&quot;               &quot;fitted.values&quot;        &quot;fivenum&quot;             
+## [139] &quot;fligner.test&quot;         &quot;formula&quot;              &quot;frequency&quot;           
+## [142] &quot;friedman.test&quot;        &quot;ftable&quot;               &quot;Gamma&quot;               
+## [145] &quot;gaussian&quot;             &quot;get_all_vars&quot;         &quot;getCall&quot;             
+## [148] &quot;getInitial&quot;           &quot;glm&quot;                  &quot;glm.control&quot;         
+## [151] &quot;glm.fit&quot;              &quot;hasTsp&quot;               &quot;hat&quot;                 
+## [154] &quot;hatvalues&quot;            &quot;hclust&quot;               &quot;heatmap&quot;             
+## [157] &quot;HoltWinters&quot;          &quot;influence&quot;            &quot;influence.measures&quot;  
+## [160] &quot;integrate&quot;            &quot;interaction.plot&quot;     &quot;inverse.gaussian&quot;    
+## [163] &quot;IQR&quot;                  &quot;is.empty.model&quot;       &quot;is.leaf&quot;             
+## [166] &quot;is.mts&quot;               &quot;is.stepfun&quot;           &quot;is.ts&quot;               
+## [169] &quot;is.tskernel&quot;          &quot;isoreg&quot;               &quot;KalmanForecast&quot;      
+## [172] &quot;KalmanLike&quot;           &quot;KalmanRun&quot;            &quot;KalmanSmooth&quot;        
+## [175] &quot;kernapply&quot;            &quot;kernel&quot;               &quot;kmeans&quot;              
+## [178] &quot;knots&quot;                &quot;kruskal.test&quot;         &quot;ks.test&quot;             
+## [181] &quot;ksmooth&quot;              &quot;lag&quot;                  &quot;lag.plot&quot;            
+## [184] &quot;line&quot;                 &quot;lm&quot;                   &quot;lm.fit&quot;              
+## [187] &quot;lm.influence&quot;         &quot;lm.wfit&quot;              &quot;loadings&quot;            
+## [190] &quot;loess&quot;                &quot;loess.control&quot;        &quot;loess.smooth&quot;        
+## [193] &quot;logLik&quot;               &quot;loglin&quot;               &quot;lowess&quot;              
+## [196] &quot;ls.diag&quot;              &quot;ls.print&quot;             &quot;lsfit&quot;               
+## [199] &quot;mad&quot;                  &quot;mahalanobis&quot;          &quot;make.link&quot;           
+## [202] &quot;makeARIMA&quot;            &quot;makepredictcall&quot;      &quot;manova&quot;              
+## [205] &quot;mantelhaen.test&quot;      &quot;mauchly.test&quot;         &quot;mcnemar.test&quot;        
+## [208] &quot;median&quot;               &quot;median.default&quot;       &quot;medpolish&quot;           
+## [211] &quot;model.extract&quot;        &quot;model.frame&quot;          &quot;model.frame.default&quot; 
+## [214] &quot;model.matrix&quot;         &quot;model.matrix.default&quot; &quot;model.matrix.lm&quot;     
+## [217] &quot;model.offset&quot;         &quot;model.response&quot;       &quot;model.tables&quot;        
+## [220] &quot;model.weights&quot;        &quot;monthplot&quot;            &quot;mood.test&quot;           
+## [223] &quot;mvfft&quot;                &quot;na.action&quot;            &quot;na.contiguous&quot;       
+## [226] &quot;na.exclude&quot;           &quot;na.fail&quot;              &quot;na.omit&quot;             
+## [229] &quot;na.pass&quot;              &quot;napredict&quot;            &quot;naprint&quot;             
+## [232] &quot;naresid&quot;              &quot;nextn&quot;                &quot;nlm&quot;                 
+## [235] &quot;nlminb&quot;               &quot;nls&quot;                  &quot;nls.control&quot;         
+## [238] &quot;NLSstAsymptotic&quot;      &quot;NLSstClosestX&quot;        &quot;NLSstLfAsymptote&quot;    
+## [241] &quot;NLSstRtAsymptote&quot;     &quot;nobs&quot;                 &quot;numericDeriv&quot;        
+## [244] &quot;offset&quot;               &quot;oneway.test&quot;          &quot;optim&quot;               
+## [247] &quot;optimHess&quot;            &quot;optimise&quot;             &quot;optimize&quot;            
+## [250] &quot;order.dendrogram&quot;     &quot;p.adjust&quot;             &quot;p.adjust.methods&quot;    
+## [253] &quot;pacf&quot;                 &quot;pairwise.prop.test&quot;   &quot;pairwise.t.test&quot;     
+## [256] &quot;pairwise.table&quot;       &quot;pairwise.wilcox.test&quot; &quot;pbeta&quot;               
+## [259] &quot;pbinom&quot;               &quot;pbirthday&quot;            &quot;pcauchy&quot;             
+## [262] &quot;pchisq&quot;               &quot;pexp&quot;                 &quot;pf&quot;                  
+## [265] &quot;pgamma&quot;               &quot;pgeom&quot;                &quot;phyper&quot;              
+## [268] &quot;plclust&quot;              &quot;plnorm&quot;               &quot;plogis&quot;              
+## [271] &quot;plot.ecdf&quot;            &quot;plot.spec.coherency&quot;  &quot;plot.spec.phase&quot;     
+## [274] &quot;plot.stepfun&quot;         &quot;plot.ts&quot;              &quot;pnbinom&quot;             
+## [277] &quot;pnorm&quot;                &quot;poisson&quot;              &quot;poisson.test&quot;        
+## [280] &quot;poly&quot;                 &quot;polym&quot;                &quot;power&quot;               
+## [283] &quot;power.anova.test&quot;     &quot;power.prop.test&quot;      &quot;power.t.test&quot;        
+## [286] &quot;PP.test&quot;              &quot;ppoints&quot;              &quot;ppois&quot;               
+## [289] &quot;ppr&quot;                  &quot;prcomp&quot;               &quot;predict&quot;             
+## [292] &quot;predict.glm&quot;          &quot;predict.lm&quot;           &quot;preplot&quot;             
+## [295] &quot;princomp&quot;             &quot;printCoefmat&quot;         &quot;profile&quot;             
+## [298] &quot;proj&quot;                 &quot;promax&quot;               &quot;prop.test&quot;           
+## [301] &quot;prop.trend.test&quot;      &quot;psignrank&quot;            &quot;pt&quot;                  
+## [304] &quot;ptukey&quot;               &quot;punif&quot;                &quot;pweibull&quot;            
+## [307] &quot;pwilcox&quot;              &quot;qbeta&quot;                &quot;qbinom&quot;              
+## [310] &quot;qbirthday&quot;            &quot;qcauchy&quot;              &quot;qchisq&quot;              
+## [313] &quot;qexp&quot;                 &quot;qf&quot;                   &quot;qgamma&quot;              
+## [316] &quot;qgeom&quot;                &quot;qhyper&quot;               &quot;qlnorm&quot;              
+## [319] &quot;qlogis&quot;               &quot;qnbinom&quot;              &quot;qnorm&quot;               
+## [322] &quot;qpois&quot;                &quot;qqline&quot;               &quot;qqnorm&quot;              
+## [325] &quot;qqplot&quot;               &quot;qsignrank&quot;            &quot;qt&quot;                  
+## [328] &quot;qtukey&quot;               &quot;quade.test&quot;           &quot;quantile&quot;            
+## [331] &quot;quasi&quot;                &quot;quasibinomial&quot;        &quot;quasipoisson&quot;        
+## [334] &quot;qunif&quot;                &quot;qweibull&quot;             &quot;qwilcox&quot;             
+## [337] &quot;r2dtable&quot;             &quot;rbeta&quot;                &quot;rbinom&quot;              
+## [340] &quot;rcauchy&quot;              &quot;rchisq&quot;               &quot;read.ftable&quot;         
+## [343] &quot;rect.hclust&quot;          &quot;reformulate&quot;          &quot;relevel&quot;             
+## [346] &quot;reorder&quot;              &quot;replications&quot;         &quot;reshape&quot;             
+## [349] &quot;resid&quot;                &quot;residuals&quot;            &quot;residuals.glm&quot;       
+## [352] &quot;residuals.lm&quot;         &quot;rexp&quot;                 &quot;rf&quot;                  
+## [355] &quot;rgamma&quot;               &quot;rgeom&quot;                &quot;rhyper&quot;              
+## [358] &quot;rlnorm&quot;               &quot;rlogis&quot;               &quot;rmultinom&quot;           
+## [361] &quot;rnbinom&quot;              &quot;rnorm&quot;                &quot;rpois&quot;               
+## [364] &quot;rsignrank&quot;            &quot;rstandard&quot;            &quot;rstudent&quot;            
+## [367] &quot;rt&quot;                   &quot;runif&quot;                &quot;runmed&quot;              
+## [370] &quot;rweibull&quot;             &quot;rwilcox&quot;              &quot;rWishart&quot;            
+## [373] &quot;scatter.smooth&quot;       &quot;screeplot&quot;            &quot;sd&quot;                  
+## [376] &quot;se.contrast&quot;          &quot;selfStart&quot;            &quot;setNames&quot;            
+## [379] &quot;shapiro.test&quot;         &quot;sigma&quot;                &quot;simulate&quot;            
+## [382] &quot;smooth&quot;               &quot;smooth.spline&quot;        &quot;smoothEnds&quot;          
+## [385] &quot;sortedXyData&quot;         &quot;spec.ar&quot;              &quot;spec.pgram&quot;          
+## [388] &quot;spec.taper&quot;           &quot;spectrum&quot;             &quot;spline&quot;              
+## [391] &quot;splinefun&quot;            &quot;splinefunH&quot;           &quot;SSasymp&quot;             
+## [394] &quot;SSasympOff&quot;           &quot;SSasympOrig&quot;          &quot;SSbiexp&quot;             
+## [397] &quot;SSD&quot;                  &quot;SSfol&quot;                &quot;SSfpl&quot;               
+## [400] &quot;SSgompertz&quot;           &quot;SSlogis&quot;              &quot;SSmicmen&quot;            
+## [403] &quot;SSweibull&quot;            &quot;start&quot;                &quot;stat.anova&quot;          
+## [406] &quot;step&quot;                 &quot;stepfun&quot;              &quot;stl&quot;                 
+## [409] &quot;StructTS&quot;             &quot;summary.aov&quot;          &quot;summary.glm&quot;         
+## [412] &quot;summary.lm&quot;           &quot;summary.manova&quot;       &quot;summary.stepfun&quot;     
+## [415] &quot;supsmu&quot;               &quot;symnum&quot;               &quot;t.test&quot;              
+## [418] &quot;termplot&quot;             &quot;terms&quot;                &quot;terms.formula&quot;       
+## [421] &quot;time&quot;                 &quot;toeplitz&quot;             &quot;ts&quot;                  
+## [424] &quot;ts.intersect&quot;         &quot;ts.plot&quot;              &quot;ts.union&quot;            
+## [427] &quot;tsdiag&quot;               &quot;tsp&quot;                  &quot;tsp&lt;-&quot;               
+## [430] &quot;tsSmooth&quot;             &quot;TukeyHSD&quot;             &quot;uniroot&quot;             
+## [433] &quot;update&quot;               &quot;update.default&quot;       &quot;update.formula&quot;      
+## [436] &quot;var&quot;                  &quot;var.test&quot;             &quot;variable.names&quot;      
+## [439] &quot;varimax&quot;              &quot;vcov&quot;                 &quot;weighted.mean&quot;       
+## [442] &quot;weighted.residuals&quot;   &quot;weights&quot;              &quot;wilcox.test&quot;         
+## [445] &quot;window&quot;               &quot;window&lt;-&quot;             &quot;write.ftable&quot;        
+## [448] &quot;xtabs&quot;</code></pre>
 <h2>
 Dollarstore Calculator Math
 </h2>
@@ -609,9 +598,8 @@ if (DAY == &quot;MONDAY&quot;){
 } else {
     gaussfact()
 }</code></pre>
-<pre><code>## Gauss once figured out an expression for every real number as a 
-## fraction, but he got bored writing them down. The ones he didn't 
-## document are now called irrational.</code></pre>
+<pre><code>## Gauss referred to mathematics as the &quot;queen of the sciences.&quot; Guess who 
+## is the king?</code></pre>
 <p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
 <pre class="r"><code># Try to think through what this will do before you run it yourself:
 if (4 &gt; 5){
@@ -934,34 +922,28 @@ unique(mtcars$cyl)</code></pre>
 <p><code>apply</code> allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with <code>apply</code>.</p>
 <pre class="r"><code># Get the mean of each column
 apply(mtcars, MARGIN = 2, FUN = mean)</code></pre>
-<pre><code>##        mpg        cyl       disp         hp       drat         wt 
-##  20.090625   6.187500 230.721875 146.687500   3.596563   3.217250 
-##       qsec         vs         am       gear       carb 
-##  17.848750   0.437500   0.406250   3.687500   2.812500</code></pre>
+<pre><code>##        mpg        cyl       disp         hp       drat         wt       qsec 
+##  20.090625   6.187500 230.721875 146.687500   3.596563   3.217250  17.848750 
+##         vs         am       gear       carb 
+##   0.437500   0.406250   3.687500   2.812500</code></pre>
 <pre class="r"><code># Get the mean of each row (nonsensical, just illustrating
 apply(mtcars, MARGIN = 1, FUN = mean)</code></pre>
-<pre><code>##           Mazda RX4       Mazda RX4 Wag          Datsun 710 
-##            29.90727            29.98136            23.59818 
-##      Hornet 4 Drive   Hornet Sportabout             Valiant 
-##            38.73955            53.66455            35.04909 
-##          Duster 360           Merc 240D            Merc 230 
-##            59.72000            24.63455            27.23364 
-##            Merc 280           Merc 280C          Merc 450SE 
-##            31.86000            31.78727            46.43091 
-##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood 
-##            46.50000            46.35000            66.23273 
-## Lincoln Continental   Chrysler Imperial            Fiat 128 
-##            66.05855            65.97227            19.44091 
-##         Honda Civic      Toyota Corolla       Toyota Corona 
-##            17.74227            18.81409            24.88864 
-##    Dodge Challenger         AMC Javelin          Camaro Z28 
-##            47.24091            46.00773            58.75273 
-##    Pontiac Firebird           Fiat X1-9       Porsche 914-2 
-##            57.37955            18.92864            24.77909 
-##        Lotus Europa      Ford Pantera L        Ferrari Dino 
-##            24.88027            60.97182            34.50818 
-##       Maserati Bora          Volvo 142E 
-##            63.15545            26.26273</code></pre>
+<pre><code>##           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+##            29.90727            29.98136            23.59818            38.73955 
+##   Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+##            53.66455            35.04909            59.72000            24.63455 
+##            Merc 230            Merc 280           Merc 280C          Merc 450SE 
+##            27.23364            31.86000            31.78727            46.43091 
+##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+##            46.50000            46.35000            66.23273            66.05855 
+##   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+##            65.97227            19.44091            17.74227            18.81409 
+##       Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+##            24.88864            47.24091            46.00773            58.75273 
+##    Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+##            57.37955            18.92864            24.77909            24.88027 
+##      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+##            60.97182            34.50818            63.15545            26.26273</code></pre>
 
 
 
@@ -980,6 +962,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
