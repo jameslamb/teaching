@@ -625,11 +625,11 @@ Submission
 <td align="center">10</td>
 </tr>
 <tr class="even">
-<td align="left">    <em>(6-10) introduction is clear and concise</em></td>
+<td align="left">    <em>(5-10) introduction is clear and concise</em></td>
 <td align="center"></td>
 </tr>
 <tr class="odd">
-<td align="left">    <em>(1-5) introduction is confusing rambling</em></td>
+<td align="left">    <em>(1-4) introduction is confusing or rambling</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
@@ -645,11 +645,11 @@ Submission
 <td align="center"></td>
 </tr>
 <tr class="odd">
-<td align="left">    <em>(10-30) literal description with no connection to problem</em></td>
+<td align="left">    <em>(10-29) literal description with no connection to problem</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
-<td align="left">    <em>(0-10) inaccurate or confusing explanation</em></td>
+<td align="left">    <em>(0-9) inaccurate or confusing explanation</em></td>
 <td align="center"></td>
 </tr>
 <tr class="odd">
@@ -661,11 +661,11 @@ Submission
 <td align="center"></td>
 </tr>
 <tr class="odd">
-<td align="left">    <em>(10-30) literal description of the code as-is</em></td>
+<td align="left">    <em>(10-29) literal description of the code as-is</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
-<td align="left">    <em>(0-10) inaccurate or confusing explanation</em></td>
+<td align="left">    <em>(0-9) inaccurate or confusing explanation</em></td>
 <td align="center"></td>
 </tr>
 </tbody>
@@ -674,18 +674,18 @@ Submission
 <ul>
 <li>introducing the problem by just describing what you did
 <ul>
-<li>bad: <em>&quot;I used data from FRED with R</em></li>
+<li>bad: <em>“I used data from FRED with R”</em></li>
 <li>good: <em>“I attempted to understand the links between foreign exchange rate fluctuations and consumer price inflation”</em></li>
 </ul></li>
 <li>using column names instead of real world meaning for a dataset
 <ul>
 <li>bad: <em>“CPIAUCSL_IDX had a coefficient of 6.5 and a p-value of 0.04”</em></li>
-<li>good: <em>&quot;CPI inflation had a positive effect and there is evidence that it’s real</em></li>
+<li>good: <em>“CPI inflation had a positive effect and there is evidence that it’s real”</em></li>
 </ul></li>
 <li>describing the literal code and not the logical meaning
 <ul>
 <li>bad: <em>“here, I took DF2 and merged it with DF3”</em></li>
-<li>good: <em>&quot;here, I combined the data from the U.S. and China into one data frame</em></li>
+<li>good: <em>“here, I combined the data from the U.S. and China into one data frame”</em></li>
 </ul></li>
 </ul>
 <p>You’ll be great!</p>
@@ -699,11 +699,106 @@ Part 4: Written Report
 <h3>
 Description
 </h3>
-<p>The final deliverable for this project is a written report with your findings. This should be a 1-2 page “executive briefing”, the type that you would write if you were doing this analysis for a consulting client. Your report should focus on the problem (not the specifics of the code). Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).</p>
+<p>The final deliverable for this project is a written report with your findings. This should be a 1-2 page “executive briefing”, the type that you would write if you were doing this analysis for a consulting client. Your report should focus on the problem (not the specifics of the code). It should describe the problem, a brief summary of the work that was done, and a description of the result. Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).</p>
 <h3>
 Submission
 </h3>
 <p>This component of the project is <strong>due prior to our Week 5 session</strong>. Please upload your report to the “Final Project (script + report)” dropbox on D2L.</p>
+<p>Your report will be scored out of 100 points, using the following rubric:</p>
+<table>
+<colgroup>
+<col width="80%"></col>
+<col width="19%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Grade Item</th>
+<th align="center">Total Possible Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>All-or-Nothing Grade Items</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">  1. Report does not contain any raw R code</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="left">  2. Report contains data visualizations created by the code</td>
+<td align="center">10</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Other Report Items</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">  1. Problem Explanation</td>
+<td align="center">10</td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(5-10) introduction is clear and concise</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">    <em>(1-4) introduction is confusing rambling</em></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(0) no introduction of the problem</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">  2. Explanation of the dataset</td>
+<td align="center">30</td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(30-40) clear, executive-level explanation</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">    <em>(11-29) literal or overly-technical description with no connection to problem</em></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(0-9) inaccurate or confusing explanation</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">  3. Explanation of the result</td>
+<td align="center">25</td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(20-25) result of the project clearly expressed in business terms</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">    <em>(10-19) overly-technical explanation of the result</em></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(0-10) inaccurate, confusing, or missing explanation of the result</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">  4. Grammar and Formatting</td>
+<td align="center">20</td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(15-20) at most two very minor grammar and spelling issues</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">    <em>(8-14) some grammar and spelling issues</em></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(0-7) many grammar and spelling issues</em></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
 <hr />
 
 
