@@ -1,10 +1,10 @@
 # R Programming
 
-**Course:** ECON 6931 - Introduction to R Programming
+**Course:** ECON 6114 - R Programming (previously ECON 6931)
 
 **Org:** Marquette University
 
-**Dates:** Spring 2017, Spring 2018, Spring 2019
+**Dates:** Spring 2017, Spring 2018, Spring 2019, Spring 2020
 
 ## Slides:
 

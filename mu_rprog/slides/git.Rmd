@@ -1,5 +1,5 @@
 ---
-title       : ECON 6931 - R Programming
+title       : ECON 6114 - R Programming
 subtitle    : Git Basics
 author      : James Lamb
 job         : Senior Data Scientist | Uptake
@@ -26,7 +26,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Let's Learn about Git!</h2>
@@ -38,7 +38,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -70,7 +70,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-  <script>FooterBubbles(1,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(1,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>What is Git?</h2>
@@ -91,7 +91,7 @@ image credit: [xkcd](https://xkcd.com/1597/)
 
 <footer>
   <hr>
-  <script>FooterBubbles(2,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(2,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Setting Up Your Repo (pt 1)</h2>
@@ -115,7 +115,7 @@ echo "This repo holds my notes and scripts from R Programming class" > README.md
 
 <footer>
   <hr>
-  <script>FooterBubbles(3,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(3,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Setting Up Your Repo (pt 2)</h2>
@@ -132,7 +132,7 @@ Even though we do have one file, `README.md`, in this directory, we haven't told
 
 <footer>
   <hr>
-  <script>FooterBubbles(4,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(4,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Setting Up Your Repo (pt 3)</h2>
@@ -151,7 +151,7 @@ See example terminal session on the next slide.
 
 <footer>
   <hr>
-  <script>FooterBubbles(5,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(5,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Setting Up Your Repo (pt 4)</h2>
@@ -162,7 +162,7 @@ See example terminal session on the next slide.
 
 <footer>
   <hr>
-  <script>FooterBubbles(6,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(6,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Getting Started with GitHub (pt 1)</h2>
@@ -180,7 +180,7 @@ See example terminal session on the next slide.
 
 <footer>
   <hr>
-  <script>FooterBubbles(7,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(7,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Getting Started with GitHub (pt 2)</h2>
@@ -200,7 +200,7 @@ See example terminal session on the next slide.
 
 <footer>
   <hr>
-  <script>FooterBubbles(8,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6931 - R Programming</span>
+  <script>FooterBubbles(8,8)</script>I. Introduction to Version Control<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Getting Started with GitHub (pt 3)</h2>
@@ -235,7 +235,7 @@ git push origin master
 
 <footer>
   <hr>
-  II. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+  II. Additional Resources<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Learning More on Your Own</h2>

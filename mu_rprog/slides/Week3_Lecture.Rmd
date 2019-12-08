@@ -1,5 +1,5 @@
 ---
-title       : ECON 6931 - R Programming
+title       : ECON 6114 - R Programming
 subtitle    : Week 3
 author      : James Lamb
 job         : IoT Data Scientist | AWS
@@ -26,7 +26,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Welcome back!</h2>
@@ -38,7 +38,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -84,7 +84,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right"> ECON 6931 - R Programming </span>
+  <span style="float:right"> ECON 6114 - R Programming </span>
 </footer>
 
 <h2>Contents</h2>
@@ -117,7 +117,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>I. Programming Assignment 1 Review<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,1)</script>I. Programming Assignment 1 Review<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Assignment 1 Discussion</h2>
@@ -137,7 +137,7 @@ IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/master/mu_rpr
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Logical Operators</h2>
@@ -162,7 +162,7 @@ FALSE | FALSE  # FALSE
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Logical Operators (continued)</h2>
@@ -191,7 +191,7 @@ The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Logical Operators (continued)</h2>
@@ -218,7 +218,7 @@ mtcars[bigCarIndex,]
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Factors</h2>
@@ -240,7 +240,7 @@ str(wbDF)
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Factors</h2>
@@ -263,7 +263,7 @@ levels(wbDF$regions)
 
 <footer>
   <hr>
-    <script>FooterBubbles(6,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>File Paths</h2>
@@ -288,7 +288,7 @@ myDF <- read.csv(file = "./data/some_data.csv")
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>File Paths</h2>
@@ -312,7 +312,7 @@ myFileExists <- file.exists("~/repos/some_folder/docs/report.xlsx")
 
 <footer>
   <hr>
-    <script>FooterBubbles(8,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(8,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>R + Excel</h2>
@@ -331,7 +331,7 @@ newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/my_project/data/stockData.xlsx"
 
 <footer>
   <hr>
-    <script>FooterBubbles(9, 9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(9, 9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>R + Excel</h2>
@@ -364,7 +364,7 @@ openxlsx::saveWorkbook(wb = testWB, file = "~/testing.xlsx")
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,5)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Common Preprocessing Steps</h2>
@@ -390,7 +390,7 @@ bsText <- bsText[sapply(bsText, nchar)>0]
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,5)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Intro to Regular Expressions</h2>
@@ -408,7 +408,7 @@ bsText <- gsub(pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\[", replacement = "", bsText
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,5)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Intro to Regular Expressions</h2>
@@ -428,7 +428,7 @@ bsText <- gsub("[:digit:]*", "__number__")
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,5)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Tokenization</h2>
@@ -453,7 +453,7 @@ wordDT
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,5)</script>III. Working with Strings<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Counting Words in Text</h2>
@@ -483,7 +483,7 @@ key_words <- wordCountDT[21:40]
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Specialness of NAs</h2>
@@ -508,7 +508,7 @@ class(some_nums)
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>You Should Care About NAs</h2>
@@ -524,7 +524,7 @@ Depending on how the system was set up, `date_of_second_contact1` may have dates
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Strategy 1: Total Eradication</h2>
@@ -548,7 +548,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Strategy 2: Handle on Subsets</h2>
@@ -574,7 +574,7 @@ cleanDF <- cleanDF[complete.cases(cleanDF),]
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Strategy 3: Imputation</h2>
@@ -605,7 +605,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Intro to the Base Plotting System</h2>
@@ -626,7 +626,7 @@ head(iris, n = 10)
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Creating a Line Plot</h2>
@@ -652,7 +652,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Histograms and Densities</h2>
@@ -675,7 +675,7 @@ plot(density(iris$Petal.Length), main = "Empirical density of petal length", col
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Multi-variable line charts</h2>
@@ -699,7 +699,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), 
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Creating a Grid of plots</h2>
@@ -724,7 +724,7 @@ par(mfrow = c(1,1))
 
 <footer>
   <hr>
-    <script>FooterBubbles(6,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Other Plotting Systems in R</h2>
@@ -740,7 +740,7 @@ We don't have time in this short class to go into great depth on data visualizat
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,7)</script>V. Visualizing Data<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>A Note On Graphics Devices</h2>
@@ -775,7 +775,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,2)</script>VI. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,2)</script>VI. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Your Final Project Proposal is Due in Week 4</h2>
@@ -797,7 +797,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,2)</script>VI. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,2)</script>VI. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Your Final Project is Due in Week 5</h2>
@@ -817,7 +817,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>VII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,1)</script>VII. Additional Resources<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Additional Resources</h2>

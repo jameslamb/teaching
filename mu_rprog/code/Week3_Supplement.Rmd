@@ -1,5 +1,5 @@
 ---
-title : ECON 6931 - R Programming (Code Supplement)
+title: ECON 6114 - R Programming (Code Supplement)
 output:
   html_document:
     toc: true
@@ -141,7 +141,9 @@ NOTE: This package requires certain Java components that you may not have on you
 ```{r readingExcel, eval = FALSE, echo = TRUE}
 # Read an Excel file into a data.frame
 library(openxlsx)
-newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/sandbox/data/stockData.xlsx")
+newDF <- openxlsx::read.xlsx(
+  xlsxFile = "~/repos/sandbox/data/stockData.xlsx"
+)
 ```
 
 You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
@@ -282,7 +284,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 <h2>Strategy 2: Handle on Subsets</h2>
 
-You may find the "remove all the NAs everywhere" strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases` to remove rows.
+You may find the "remove all the NAs everywhere" strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
 ```{r subsetNAwisely}
 # Create a dataframe where some variable have more NAs than others
@@ -311,9 +313,11 @@ A final strategy, particularly useful in modeling contexts, is to use some [impu
 
 ```{r imputation}
 # Create a dataframe where some variable have more NAs than others
-testDF <- data.frame(var1 = sample(c(rnorm(99), NA), 500, replace = TRUE),
-                     var2 = sample(c(rnorm(70), rep(NA, 30)), 500, replace = TRUE),
-                     var3 = sample(c(rnorm(85), rep(NA, 15)), 500, replace = TRUE))
+testDF <- data.frame(
+  var1 = sample(c(rnorm(99), NA), 500, replace = TRUE)
+  , var2 = sample(c(rnorm(70), rep(NA, 30)), 500, replace = TRUE)
+  , var3 = sample(c(rnorm(85), rep(NA, 15)), 500, replace = TRUE)
+)
 
 # Clean up w/ roughfix
 library(randomForest)
@@ -332,21 +336,43 @@ data("iris")
 head(iris, n = 10)
 ```
 
-Let's start with a simple line plot to answer the question *are sepal length and sepal width related?*
+Let's start with a simple line plot to answer the question *are sepal length and sepal width related?*.
 
 ```{r baseLinePlot}
 # Create a simple line plot
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = "p")
 
 # Try again, but with labels!
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Second R plot!", 
-     xlab = "sepal length", ylab = "sepal width", type = "p")
+plot(
+  x = iris$Sepal.Length
+  , y = iris$Sepal.Width
+  , main = "My Second R plot!"
+  , xlab = "sepal length"
+  , ylab = "sepal width"
+  , type = "p"
+)
 
 # Try it AGAIN, this time coloring by species and a legend
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Third R plot!", 
-     xlab = "sepal length", ylab = "sepal width", type = "p", col = iris$Species,
-     bg = iris$Species, pch = 21)
-legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1)
+plot(
+  x = iris$Sepal.Length
+  , y = iris$Sepal.Width
+  , main = "My Third R plot!"
+  , xlab = "sepal length"
+  , ylab = "sepal width"
+  , type = "p"
+  , col = iris$Species
+  , bg = iris$Species
+  , pch = 21
+)
+
+# Add a legend
+legend(
+  x = 7
+  , y = 4.3
+  , unique(iris$Species)
+  , col = 1:length(iris$Species)
+  , pch = 1
+)
 ```
 
 The base plotting system can be a great tool for quick exploratory analysis of data, such as examination of the distribution of variables in your data.
@@ -356,11 +382,19 @@ The base plotting system can be a great tool for quick exploratory analysis of d
 hist(iris$Petal.Length)
 
 # Better histogram
-hist(iris$Petal.Length, main = "Distribution of petal length",
-     xlab = "petal length", breaks = 25)
+hist(
+  iris$Petal.Length
+  , main = "Distribution of petal length"
+  , xlab = "petal length"
+  , breaks = 25
+)
 
 # Empirical density
-plot(density(iris$Petal.Length), main = "Empirical density of petal length", col = "blue")
+plot(
+  density(iris$Petal.Length)
+  , main = "Empirical density of petal length"
+  , col = "blue"
+)
 ```
 
 You can add more than one variable to these plots! Let's compare the densities of Sepal length by species
@@ -368,14 +402,24 @@ You can add more than one variable to these plots! Let's compare the densities o
 ```{r compareDensities}
 
 # Overlay densities of Petal length by species
-plot(density(iris[iris$Species == "setosa", "Petal.Length"]), 
-     main = "Empirical density of petal length", col = "blue",
-     xlim = c(0, 7), ylim = c(0, 2.5))
+plot(
+  density(iris[iris$Species == "setosa", "Petal.Length"])
+  , main = "Empirical density of petal length"
+  , col = "blue"
+  , xlim = c(0, 7)
+  , ylim = c(0, 2.5)
+)
 lines(density(iris[iris$Species == "versicolor", "Petal.Length"]), col = "red")
 lines(density(iris[iris$Species == "virginica", "Petal.Length"]), col = "black")
 
 # Add a legend
-legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), pch = 1)
+legend(
+  x = 5.5
+  , y = 2.25
+  , legend = unique(iris$Species)
+  , col = c("blue", "red", "black")
+  , pch = 1
+)
 ```
 
 You can control the plotting options to make a grid of plots. The code below creates a 2x2 grid with a density for Sepal Width and scatter plots of the other three variables against sepal width.

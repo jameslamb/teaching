@@ -1,5 +1,5 @@
 ---
-title       : ECON 6931 - R Programming
+title       : ECON 6114 - R Programming
 subtitle    : Week 4
 author      : James Lamb
 job         : IoT Data Scientist | AWS
@@ -26,7 +26,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>R + Statistics = Besties 5 evah</h2>
@@ -37,7 +37,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -89,7 +89,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>R Was Made for Statistics!</h2>
@@ -102,7 +102,7 @@ In this section, we're going to walk through all the steps of basic statistical 
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Getting and Splitting the Data</h2>
@@ -118,7 +118,7 @@ Please follow along with the code in the [Week 4 Programming Supplement](https:/
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Examine Your Training Data</h2>
@@ -134,7 +134,7 @@ str(swiss)
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Hypothesis Testing</h2>
@@ -156,7 +156,7 @@ For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/te
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Simple OLS Model</h2>
@@ -180,7 +180,7 @@ Once you have the fitted model, you can pass it and some new data to `predict` t
 
 <footer>
   <hr>
-    <script>FooterBubbles(6, 10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6, 10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Wrap Parts of Your Pipeline in Functions</h2>
@@ -199,7 +199,7 @@ For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/te
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>OLS With Multiple RHS Variables</h2>
@@ -219,7 +219,7 @@ regPreds2 <- EvaluateModel(mod2, testDF = swissTestDF, modelName = "Expanded OLS
 
 <footer>
   <hr>
-    <script>FooterBubbles(8,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(8,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Regression Trees</h2>
@@ -234,7 +234,7 @@ The details of tree-based learning are outside the scope of this class, but I en
 
 <footer>
   <hr>
-    <script>FooterBubbles(9,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(9,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Random Forests</h2>
@@ -258,7 +258,7 @@ rfPreds <- EvaluateModel(rfMod, swissTestDF, "Random Forest (ntree=100)")
 
 <footer>
   <hr>
-    <script>FooterBubbles(10,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(10,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Accuracy Comparison</h2>
@@ -288,7 +288,7 @@ compDF
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Columnwise Combination With cbind</h2>
@@ -312,7 +312,7 @@ fullDF <- cbind(dealerDF1, dealerDF2)
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Column Matching with merge</h2>
@@ -335,7 +335,7 @@ fullDF2 <- merge(dealerDF1, dealerDF2, by = "dealer_id")
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Rowwise Combination With rbind</h2>
@@ -360,7 +360,7 @@ fullDF <- rbind(sample1, sample2)
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Rowwise Combination of Many Tables with rbindlist</h2>
@@ -392,7 +392,7 @@ fullDF <- data.table::rbindlist(list(sample1, sample2, sample3))
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Getting Your Project Off the Ground</h2>
@@ -408,7 +408,7 @@ In this section, we'll to walk through the process of building a non-trivial scr
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Step 1: Build a Comment Skeleton</h2>
@@ -433,7 +433,7 @@ First, just write down the main things you want to do. In this exercise, we're g
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Step 2: Define Functions</h2>
@@ -446,7 +446,7 @@ Next, fill in the high-level outline with slightly more specifics. Try to strate
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Step 3: Fill in Your Code!</h2>
@@ -467,7 +467,7 @@ For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/te
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Code Review Tips</h2>
@@ -487,7 +487,7 @@ Try to hit these main points:
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Scripting: Style Notes</h2>
@@ -505,7 +505,7 @@ A sample script following these prescriptions is provided in the [Week 4 Program
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Project Q&A</h2>

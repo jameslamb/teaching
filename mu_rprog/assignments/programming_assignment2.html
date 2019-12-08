@@ -404,15 +404,18 @@ Description
 <p>As we learned in the first week of class, you can access R function documentation using syntax like <code>?function</code>. This documentation typically contains a description of the function’s purpose, a list of parameters, and the function signature. In addition, many package authors include examples, small blocks of code using the package’s functionality that you can copy, paste, and run directly.</p>
 <p>In this part of the assignment, I’d like you to practice reading and running these examples. Please copy one example of each of the following functions from its documentation. I encourage you to try running these yourself, but you do not need to include the output in your submission.</p>
 <ul>
-<li><code>ymd_hms</code> from the <code>lubridate</code> package</li>
-<li><code>str_extract</code> from the <code>stringr</code> package</li>
-<li><code>map</code> from the <code>purrr</code> package</li>
-<li><code>map_dbl</code> from the <code>purrr</code> package</li>
+<li><code>ymd_hms()</code> from the <code>lubridate</code> package</li>
+<li><code>str_extract()</code> from the <code>stringr</code> package</li>
+<li><code>setnames()</code> from the <code>data.table</code> package</li>
+<li><code>map_dbl()</code> from the <code>purrr</code> package</li>
 <li>Two functions from the “Data Retrieval and Munging” section of <strong>the package list</strong>
 <ul>
 <li>NOTE: must be from two different packages</li>
 </ul></li>
-<li>Two functions from the “Math and Statistics” section of <strong>the package list</strong></li>
+<li>Two functions from the “Math and Statistics” section of <strong>the package list</strong>
+<ul>
+<li>NOTE: must be from two different packages</li>
+</ul></li>
 <li>Two functions from the “Visualization, Presentation, and Reporting” section of <strong>the package list</strong>
 <ul>
 <li>NOTE: must be from two different packages</li>
@@ -446,7 +449,7 @@ Description
 </h3>
 <p>As you wade further into the world of data science, you’ll hear this said often: <a href="http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html">most of a data scientist’s time is spent getting and cleaning data</a>. Let’s practice that crucial activity.</p>
 <p>In the second half of this assignment, we’ll be working with data from <a href="https://www.quandl.com/">Quandl</a>. Quandl offers a single interface into a wide variety of datasets. You can find populations of small island nations, a history of Japanese stock prices, European nonfat dry milk inventories, and much more!</p>
-<p>Using the resources I’ve provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change), join them into a single data.frame, and plot them against each other on a line plot using R’s base plotting system.</p>
+<p>Using the resources I’ve provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change). Then you’ll join them into a single data.frame and plot them against each other on a line plot using R’s base plotting system.</p>
 <ul>
 <li>Brief R + Quandl tutorial: <a href="https://www.quandl.com/tools/r">Quandl R docs</a></li>
 <li>Quandl pages for the data: <a href="https://www.quandl.com/data/RATEINF/INFLATION_USA-Inflation-YOY-USA">U.S. inflation</a> | <a href="https://www.quandl.com/data/RATEINF/INFLATION_JPN-Inflation-YOY-Japan">Japanese inflation</a></li>
@@ -464,7 +467,7 @@ Submission
 <ul>
 <li>please look at the documentation for <code>?merge</code></li>
 </ul></li>
-<li>set the plot type to “line”</li>
+<li>set the plot type to line (hint: see <code>?graphics::plot</code>)</li>
 <li>set the plot title to “Quandl Inflation Data”&quot;</li>
 <li>set the plot y-axis label to “CPI Inflation (%yoy)”</li>
 <li>set the plot x-axis label to “time”</li>
@@ -487,8 +490,8 @@ names(jpnDF) &lt;- ### FILL THIS IN ###
 # Combine the two data.frames with merge()
 mergedDF &lt;- merge(
     x = usaDF,
-    by = &quot;Date&quot;,
-    y = ### FILL THIS IN ###
+    y = jpnDF, ### FILL THIS IN ###,
+    by = &quot;Date&quot;
 )
 
 # Plot the two series

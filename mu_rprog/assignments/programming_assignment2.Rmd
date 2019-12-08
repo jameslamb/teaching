@@ -20,13 +20,14 @@ As we learned in the first week of class, you can access R function documentatio
 
 In this part of the assignment, I'd like you to practice reading and running these examples. Please copy one example of each of the following functions from its documentation. I encourage you to try running these yourself, but you do not need to include the output in your submission.
 
-- `ymd_hms` from the `lubridate` package
-- `str_extract` from the `stringr` package
-- `map` from the `purrr` package
-- `map_dbl` from the `purrr` package
+- `ymd_hms()` from the `lubridate` package
+- `str_extract()` from the `stringr` package
+- `setnames()` from the `data.table` package
+- `map_dbl()` from the `purrr` package
 - Two functions from the "Data Retrieval and Munging" section of **the package list**
     - NOTE: must be from two different packages
 - Two functions from the "Math and Statistics" section of **the package list**
+    - NOTE: must be from two different packages
 - Two functions from the "Visualization, Presentation, and Reporting" section of **the package list**
     - NOTE: must be from two different packages
 
@@ -61,7 +62,7 @@ As you wade further into the world of data science, you'll hear this said often:
 
 In the second half of this assignment, we'll be working with data from [Quandl](https://www.quandl.com/). Quandl offers a single interface into a wide variety of datasets. You can find populations of small island nations, a history of Japanese stock prices, European nonfat dry milk inventories, and much more!
 
-Using the resources I've provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change), join them into a single data.frame, and plot them against each other on a line plot using R's base plotting system.
+Using the resources I've provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change). Then you'll join them into a single data.frame and plot them against each other on a line plot using R's base plotting system.
 
 - Brief R + Quandl tutorial: [Quandl R docs](https://www.quandl.com/tools/r)
 - Quandl pages for the data:  [U.S. inflation](https://www.quandl.com/data/RATEINF/INFLATION_USA-Inflation-YOY-USA) | [Japanese inflation](https://www.quandl.com/data/RATEINF/INFLATION_JPN-Inflation-YOY-Japan)
@@ -77,7 +78,7 @@ You need to complete all of the following steps, indicated by the phrase `### FI
 - Rename the columns of the Japanese data so that the inflation series is called "JPN_INF_YOY"
 - Add the Japanese data to the `merge()` command to create a single dataset for plotting
     - please look at the documentation for `?merge`
-- set the plot type to "line"
+- set the plot type to line (hint: see `?graphics::plot`)
 - set the plot title to "Quandl Inflation Data""
 - set the plot y-axis label to "CPI Inflation (%yoy)"
 - set the plot x-axis label to "time"
@@ -99,8 +100,8 @@ names(jpnDF) <- ### FILL THIS IN ###
 # Combine the two data.frames with merge()
 mergedDF <- merge(
     x = usaDF,
-    by = "Date",
-    y = ### FILL THIS IN ###
+    y = jpnDF, ### FILL THIS IN ###,
+    by = "Date"
 )
 
 # Plot the two series

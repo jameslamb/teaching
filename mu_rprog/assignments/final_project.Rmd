@@ -90,21 +90,21 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |5                         |
 |**Code Quality Items**                                                              |                          |
 |&nbsp;&nbsp;1. Code commenting                                                      |10                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(5-10) Clearly commented*                           |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) Minimal comments, code is hard to understand* |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0) No comments*                                    |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(5-10) Clearly commented*                                  |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) Minimal comments, code is hard to understand*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0) No comments*                                           |                          |
 |&nbsp;&nbsp;2. Code Organization                                                    |15                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) Well-organized, intuitive flow*             |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(8-11)  Difficult to understand without comments*   |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8)   Takes significant effort to understand*     |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) Well-organized, intuitive flow*                    |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-11)  Difficult to understand without comments*          |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8)   Takes significant effort to understand*            |                          |
 |&nbsp;&nbsp;3. Use of External Functions                                            |15                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(11-15) Appropriate use of :: library()*            |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(6-10)  Some but not all calls use :: or library()* |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-5)  Unclear use of external functions*           |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(11-15) Appropriate use of :: library()*                   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(6-10)  Some but not all calls use :: or library()*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-5)  Unclear use of external functions*                  |                          |
 |&nbsp;&nbsp;4. Problem Solving                                                      |20                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) Excellent problem decomposition, R solution*|                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*   |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution appears rushed, sloppy*              |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) Excellent problem decomposition, R solution*       |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*          |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution appears rushed, sloppy*                     |                          |
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title    : ECON 6931 - R Programming (Code Supplement)
+title: ECON 6114 - R Programming (Code Supplement)
 output:
   html_document:
     toc: true
@@ -7,7 +7,12 @@ output:
 ---
 
 ```{r setOpts, echo = FALSE}
-knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(
+  eval = TRUE
+  , echo = TRUE
+  , warning = FALSE
+  , message = FALSE
+)
 ```
 
 <h1>Week 1 Programming Supplement</h1>
@@ -20,7 +25,7 @@ You should use these programming supplements to follow along and try executing t
 
 When you execute a statement like `x <- 5` in R, you are creating an **object** in memory which holds the numeric **value** 5 and is referenced by the **variable name** "x".
 
-If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R's `search` command to examine the ordered list of namespaces that R will search in for variables.
+If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R's `search()` command to examine the ordered list of namespaces that R will search in for variables.
 
 ```{r namespaces}
 # Check the search path of namespaces
@@ -181,12 +186,12 @@ getEvens(nums)
 <h2>Required Arguments</h2>
 
 - R functions take 0 or more arguments...basically named variables that the function uses to do it's work
-- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt` will return the square root of each element
-- In this case, we'd say `x` is a *required argument* of `sqrt`
+- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt()` will return the square root of each element
+- In this case, we'd say `x` is a *required argument* of `sqrt()`
 
 ```{r requiredArgs, error = TRUE}
 # Take the square root of a vector of numbers
-sqrt(x = c(1,4,9,16,25))
+sqrt(x = c(1, 4, 9, 16, 25))
 
 # Note that calling this function without the argument will throw an error!
 sqrt()
@@ -211,16 +216,18 @@ rand_nums <- rnorm(n = 100, mean = 4.5)
 As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you'll be able to do some really powerful stuff. We'll spend more time on functions in the following weeks, but here's a sneak peak of what is possible:
 
 ```{r udfs}
-# Wrap your modeling pipeline in a function so you can do model comparisons
-data(mtcars)
+library(stargazer)
 
-# Create custom fitModel function
+# Wrap your modeling pipeline in a function so you can do model comparisons
 fitModels <- function(spec_list, training_data){
     fitted_mods <- lapply(spec_list, function(spec){
         lm(spec, data = training_data)
     })
     return(fitted_mods)
 }
+
+# Load data
+data(mtcars)
 
 # Try three different sets of RHS variables and display a table
 spec1 <- as.formula(mpg ~ hp)
@@ -281,7 +288,11 @@ Vectors are the first multi-item data structure all R programmers learn. Soon, t
 
 ```{r lists_pt1}
 # Create a list with list()
-myList <- list(a = 1, b = rep(TRUE, 10), x = c("shakezoola", "mic", "rulah"))
+myList <- list(
+  a = 1
+  , b = rep(TRUE, 10)
+  , x = c("shakezoola", "mic", "rulah")
+)
 
 # Examine it with str()
 str(myList)
@@ -291,7 +302,11 @@ We saw earlier how you can use `for` loops to walk over a vector and do somethin
 
 ```{r listLoop}
 # Create a list
-studentList <- list(kanye = c(80, 90, 100), talib = c(95, 85, 99), common = c(100, 100, 99))
+studentList <- list(
+  kanye = c(80, 90, 100)
+  , talib = c(95, 85, 99)
+  , common = c(100, 100, 99)
+)
 
 # Get average grades with a for loop
 grades <- vector(mode = "list", length = 3)
@@ -300,7 +315,7 @@ for (i in 1:length(studentList)){
 }
 ```
 
-Luckily, R provides a built-in function called `lapply` to handle this more expressively. We'll cover R's [apply family of functions](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU) later in the course. Here's a sneak peek:
+Luckily, R provides a built-in function called `lapply()` to handle this more expressively. We'll cover R's [apply family of functions](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU) later in the course. Here's a sneak peek:
 
 ```{r listLapply}
 # Better way with lapply
@@ -342,14 +357,14 @@ head(mtcars, n = 10) # could use "tail" for the bottom 10
 unique(mtcars$cyl)
 ```
 
-We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I'd like to introduce you to one more looping function: `apply`.
+We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I'd like to introduce you to one more looping function: `apply()`.
 
-`apply` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply`.
+`apply()` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply()`.
 
 ```{r apply_on_a_DF}
 # Get the mean of each column
 apply(mtcars, MARGIN = 2, FUN = mean)
 
-# Get the mean of each row (nonsensical, just illustrating
+# Get the mean of each row (nonsensical, just illustrating)
 apply(mtcars, MARGIN = 1, FUN = mean)
 ```
