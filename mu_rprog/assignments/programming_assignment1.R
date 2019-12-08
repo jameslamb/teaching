@@ -43,16 +43,18 @@ maxes <- apply(myDF, FUN = min, MARGIN = 1)
 #    The "entropies" vector should contain values roughly like:
 #    c(0.03061904, 0.09126107, 0, 0.09578598)
 library("package:ineq")
-faultList <- list(asset1 = as.factor(c("engine", "engine", "brakes", "engine", "engine")),
-                  asset2 = as.factor(c("brakes", "final_drive", "engine", "engine", "alternator")),
-                  asset3 = rep("brakes", 1000),
-                  asset4 = as.factor(c("final_drive", "final_drive", "torque_converter", "spark_plug", "engine")))
+faultList <- list(
+    asset1 = as.factor(c("engine", "engine", "brakes", "engine", "engine"))
+    , asset2 = as.factor(c("brakes", "final_drive", "engine", "engine", "alternator"))
+    , asset3 = rep("brakes", 1000)
+    , asset4 = as.factor(c("final_drive", "final_drive", "torque_converter", "spark_plug", "engine"))
+)
 entropies <- apply(fault_list, inqe::entropy)
 
 # e. Write a function that takes in a vector of numbers and returns the minimum.
 #    You are NOT allowed to use the built-in min() function. Your implementation
 #    should involve the use of a while loop.
-#    NOTE: Just change the function body...you do not need to change the calls
+#    NOTE: Just change the function body...do not change the calls
 #    to findMin() at the end
 findMin <- function(numVec){
 
@@ -70,6 +72,11 @@ findMin <- function(numVec){
     return(lowest_val)
 }
 
-findMin(rep(10:20))                 # should return 10
-findMin(c(-5, 10, 100, -8))         # should return -8
-findMin(c(1:10, 20:50, 0.999, 6))   # should return 0.999
+# should return 10
+findMin(rep(10:20))
+
+# should return -8
+findMin(c(-5, 10, 100, -8))
+
+# should return 0.999
+findMin(c(1:10, 20:50, 0.999, 6))

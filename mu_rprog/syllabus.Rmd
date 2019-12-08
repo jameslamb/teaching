@@ -4,9 +4,9 @@ linkcolor: blue
 urlcolor: blue
 ---
 
-\textbf{ECON 6931} \hspace{30mm}
-\textbf{Introduction to R Programming} \hspace{30mm}
-\textbf{Spring 2019}
+\textbf{ECON 6114} \hspace{30mm}
+\textbf{R Programming} \hspace{30mm}
+\textbf{Spring 2020}
 
 \hrulefill
 
@@ -44,7 +44,7 @@ None :)
 
 \textcolor{red}{You are required to bring your own laptop to class.} If you do not have a personal laptop, please tell me as soon as possible and we can make other arrangements.
 
-The use of personal hardware is required because one of my objectives for this course is to help each of you set up a data science friendly environment on your own machines. While the course is called "Introduction to R Programming", my hope is that you'll also get some hands-on experience working with an open-source data science stack.
+The use of personal hardware is required because one of my objectives for this course is to help each of you set up a data science friendly environment on your own machines. While the course is called "R Programming", my hope is that you'll also get some hands-on experience working with an open-source data science stack.
 
 **Required Software:**
 
@@ -78,7 +78,7 @@ I hope you'll be able to install these components using the information at those
 
 The (tentative) outline below describes my goals for each lecture. Assignment due dates and lecture dates are fixed but content may change as the class progresses.
 
-\underline{Week 1: January 26, 2019}
+\underline{Week 1: January 18, 2020}
 
 Due before class: Pre-course survey
 
@@ -94,7 +94,7 @@ Due before class: Pre-course survey
     \item Introduction to data frames
 \end{itemize}
 
-\underline{Week 2: February 2, 2019}
+\underline{Week 2: January 25, 2020}
 
 Due before class: Quiz 1
 
@@ -108,7 +108,7 @@ Due before class: Quiz 1
     \item Debugging Strategies
 \end{itemize}
 
-\underline{Week 3: February 9, 2019}
+\underline{Week 3: February 1, 2020}
 
 Due before class: Quiz 2, Programming Assignment 1
 
@@ -121,7 +121,7 @@ Due before class: Quiz 2, Programming Assignment 1
     \item Final Project Discussion
 \end{itemize}
 
-\underline{Week 4: February 16, 2019}
+\underline{Week 4: February 8, 2020}
 
 Due before class: Programming Assignment 2, Final Project Proposal
 
@@ -132,7 +132,7 @@ Due before class: Programming Assignment 2, Final Project Proposal
     \item Discussion of Project Proposals
 \end{itemize}
 
-\underline{Week 5: February 23, 2019}
+\underline{Week 5: February 15, 2020}
 
 Due before class: Final Project script + report
 
@@ -174,17 +174,19 @@ And letter grades will be assigned using the following scale:
 > \textbf{C}  - 70\% $\leq$ grade < 73\% \newline
 > \textbf{F}  - Less than 70\%
 
+The descriptions of all assignments are available immediately.
+
 \subsection{A. Quizzes (25\%)}
 
 There will be two quizzes which will test your mastery of topics covered in class. These quizzes will test your knowledge of terminology and core concepts. In addition, quizzes may require you to interpret pseudo-code or to write a bit of R code yourself to solve questions.
 
 Quizzes will be delivered online via D2L (see the "Quizzes" section of the course site) and you are expected to complete them outside of class. Quizzes have no time limit. You will be allowed two attempts for each quiz and your grade on each quiz will be the better of your two scores.
 
-|Quiz                       |Opens                       |Due                           |
-|:-------------------------:|:--------------------------:|:----------------------------:|
-|Pre-class survey           | Immediately                | Prior to class on January 26 |
-|Quiz 1                     | After class on January 26  | Prior to class on February 2 |
-|Quiz 2                     | After class on February 2  | Prior to class on February 9 |
+|Quiz                       |Opens                             |Due                                 |
+|:-------------------------:|:--------------------------------:|:----------------------------------:|
+|Pre-class survey           | Immediately                      | Prior to Week 1 class (January 18) |
+|Quiz 1                     | After Week 1 class (January 18)  | Prior to Week 2 class (January 25) |
+|Quiz 2                     | After Week 2 class (January 25)  | Prior to Week 3 class (February 1) |
 
 
 \subsection{B. Programming Assignments (30\%)}
@@ -195,10 +197,10 @@ Assignment rubrics can be found under the "Programming Assignments" module in th
 
 Your completed assignment must be uploaded to the appropriate folder in the "Dropbox" section on the course D2L page by the due date listed in the table below.
 
-|Assignment                 |Description Available       |Due                            |
-|:-------------------------:|:--------------------------:|:-----------------------------:|
-|Programming Assignment 1   | Immediately                | Prior to class on February 9  |
-|Programming Assignment 2   | Immediately                | Prior to class on February 16 | 
+|Assignment                 |Due                                 |
+|:-------------------------:|:----------------------------------:|
+|Programming Assignment 1   | Prior to Week 3 class (February 1) |
+|Programming Assignment 2   | Prior to Week 4 class (February 8) |
 
 \subsection{C. Final Project (45\%)}
 
@@ -215,11 +217,11 @@ The project comprises four parts:
 
 Full details of the project and each of its components are available in the "Final Project" module in the "Content" section of the course D2L page.
 
-|Assignment                      |Description Available       |Due                            |
-|:------------------------------:|:--------------------------:|:-----------------------------:|
-|Final Project proposal          | After class on January 26  | Prior to class on February 16 |
-|Final Project (script + report) | After class on February 2  | Prior to class on February 23 |
-|Final Project code review       | After class on February 2  | In class on February 23       |
+|Assignment                      |Due                                  |
+|:------------------------------:|:-----------------------------------:|
+|Final Project proposal          | Prior to Week 4 class (February 8)  |
+|Final Project (script + report) | Prior to Week 5 class (February 15) |
+|Final Project code review       | In class Week 5 (February 15)       |
 
 \subsection{D. Grade Appeal}
 

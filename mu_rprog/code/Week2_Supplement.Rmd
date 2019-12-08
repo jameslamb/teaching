@@ -1,5 +1,5 @@
 ---
-title : ECON 6931 - R Programming (Code Supplement)
+title: ECON 6114 - R Programming (Code Supplement)
 output:
   html_document:
     toc: true
@@ -277,9 +277,15 @@ You can you user-defined functions to wrap arbitrarily complicated logic into co
 weirdFunction <- function(num){
     rand_num    <- runif(n = 1, min = 0, max = 1)
     action_val  <- num*rand_num
-    if (action_val <= 0.25){return("left")}
-    if (action_val <= 0.5){return("right")}
-    if (action_val <= 0.75){return("up")}
+    if (action_val <= 0.25){
+      return("left")
+    }
+    if (action_val <= 0.5){
+      return("right")
+    }
+    if (action_val <= 0.75){
+      return("up")
+    }
     return("down")
 }
 action_sequence <- sapply(runif(n = 100, min = 0, max = 1), weirdFunction)
@@ -296,10 +302,14 @@ Unlike in some other programming languages, R allows you to use multiple `return
 # simple function + print debugging
 simpFunction <- function(n){
     print("first print")
-    if (n > 5){return(TRUE)}
+    if (n > 5){
+      return(TRUE)
+    }
     
     print("second print")
-    if (n < 5){return(FALSE)}
+    if (n < 5){
+      return(FALSE)
+    }
     
     print("third print")
     return("TRALSE")

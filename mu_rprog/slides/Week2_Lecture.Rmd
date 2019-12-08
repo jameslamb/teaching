@@ -1,5 +1,5 @@
 ---
-title: "ECON 6931 - R Programming"
+title: "ECON 6114 - R Programming"
 author: "James Lamb"
 highlighter: highlight.js
 hitheme: tomorrow
@@ -25,7 +25,7 @@ widgets: bootstrap
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Welcome back!</h2>
@@ -36,7 +36,7 @@ widgets: bootstrap
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6931 - R Programming</span>
+  <span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -90,7 +90,7 @@ widgets: bootstrap
 
 <footer>
   <hr></hr>
-  <span style="float:right"> ECON 6931 - R Programming </span>
+  <span style="float:right"> ECON 6114 - R Programming </span>
 </footer>
 
 <h2>Contents</h2>
@@ -126,7 +126,7 @@ widgets: bootstrap
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>I. Review and Catchup<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,4)</script>I. Review and Catchup<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Quiz 1 Review</h2>
@@ -139,7 +139,7 @@ If you're arriving at this slide and are disappointed not to find quiz answers, 
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>I. Review and Catchup<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,4)</script>I. Review and Catchup<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Looping with lapply</h2>
@@ -165,7 +165,7 @@ check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>I. Review and Catchup<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,4)</script>I. Review and Catchup<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Looping with sapply</h2>
@@ -191,7 +191,7 @@ check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,4)</script>I. Review and Catchup<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,4)</script>I. Review and Catchup<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Looping with apply</h2>
@@ -220,7 +220,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>II. Subsetting<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,4)</script>II. Subsetting<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Subsetting Vectors</h2>
@@ -245,7 +245,7 @@ myVec["var3"]
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>II. Subsetting<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,4)</script>II. Subsetting<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Subsetting Lists</h2>
@@ -258,7 +258,7 @@ Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teach
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>II. Subsetting<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,4)</script>II. Subsetting<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Subsetting Dataframes</h2>
@@ -285,7 +285,7 @@ someDF[1:3, c("wins", "ppg")]
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,4)</script>II. Subsetting<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,4)</script>II. Subsetting<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Using Logical Vectors</h2>
@@ -307,7 +307,7 @@ Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teach
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Print Debugging</h2>
@@ -322,7 +322,7 @@ Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teach
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Googling Around</h2>
@@ -335,7 +335,7 @@ The second most popular debugging strategy:
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Googling Around (continued)</h2>
@@ -356,7 +356,7 @@ Try to figure out what went wrong. HINT: it often helps to type the function nam
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Stack Overflow</h2>
@@ -369,7 +369,7 @@ You'll find yourself at http://stackoverflow.com/ REGULARLY.
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Building an MWE</h2>
@@ -388,7 +388,7 @@ For more on building an MWE, see: [the Stack Overflow guidelines on MWE construc
 
 <footer>
   <hr>
-    <script>FooterBubbles(6,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Built-in Docs with "?"</h2>
@@ -403,7 +403,7 @@ Many IDEs (including RStudio) offer automatic [code completion](https://support.
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Package Vignettes</h2>
@@ -419,7 +419,7 @@ Let's take a look at the online documentation for the `stringr` package:
 
 <footer>
   <hr>
-    <script>FooterBubbles(8,8)</script>III. Debugging Strategies<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(8,8)</script>III. Debugging Strategies<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Looking at Source Code</h2>
@@ -444,7 +444,7 @@ https://github.com/tidyverse/ggplot2
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Loading Installed Packages</h2>
@@ -469,7 +469,7 @@ rbokeh::figure(data = cpiDT, title = "U.S. CPI",
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Namespacing Calls</h2>
@@ -494,7 +494,7 @@ The following object is masked from 'package:base':
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Installing from CRAN</h2>
@@ -519,7 +519,7 @@ utils::update.packages()
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Installing from GitHub</h2>
@@ -541,7 +541,7 @@ find.package("dml")
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Installing Local Code</h2>
@@ -561,7 +561,7 @@ devtools::install_local(path = "~/path/to/package")
 
 <footer>
   <hr>
-    <script>FooterBubbles(6,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(6,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>library() vs. require()</h2>
@@ -586,7 +586,7 @@ my_func <- function(n){
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,7)</script>IV. Using External Packages<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(7,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Using Local Code with source()</h2>
@@ -633,7 +633,7 @@ createRandomData <- function(n, dist){
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,5)</script>V. User-defined Functions<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>UDF Example</h2>
@@ -659,7 +659,7 @@ action_sequence[1:20]
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,5)</script>V. User-defined Functions<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Functions That Return Stuff</h2>
@@ -674,7 +674,7 @@ Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rpr
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,5)</script>V. User-defined Functions<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Functions That Return Nothing</h2>
@@ -700,7 +700,7 @@ x
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,5)</script>V. User-defined Functions<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Brief Review of Scoping</h2>
@@ -715,7 +715,7 @@ Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rpr
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,5)</script>V. User-defined Functions<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(5,5)</script>V. User-defined Functions<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Sourcing Helper Functions</h2>
@@ -737,7 +737,7 @@ Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rpr
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>VI. Working with Files<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(1,4)</script>VI. Working with Files<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Structured: Delimited Files</h2>
@@ -754,7 +754,7 @@ Let's look at an example:
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>VI. Working with Files<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(2,4)</script>VI. Working with Files<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Structured: Delimited Files</h2>
@@ -777,7 +777,7 @@ dataDF <- read.delim(
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>VI. Working with Files<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(3,4)</script>VI. Working with Files<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Semi-Structured: JSON Files</h2>
@@ -796,7 +796,7 @@ See the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,4)</script>VI. Working with Files<span style="float:right">ECON 6931 - R Programming</span>
+    <script>FooterBubbles(4,4)</script>VI. Working with Files<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Unstructured: Text files</h2>
@@ -818,7 +818,7 @@ See the Shakespeare example in the [Week 2 Supplement](https://jameslamb.github.
 
 <footer>
   <hr>
-  VIII. Additional Resources<span style="float:right">ECON 6931 - R Programming</span>
+  VIII. Additional Resources<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Learning More on Your Own</h2>
