@@ -598,7 +598,7 @@ if (DAY == &quot;MONDAY&quot;){
 } else {
     gaussfact()
 }</code></pre>
-<pre><code>## Gauss found BB(6), but his publisher refused to print it.</code></pre>
+<pre><code>## Gauss can find a perfect cube larger than 8 in Fibonacci Sequence.</code></pre>
 <p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
 <pre class="r"><code># Try to think through what this will do before you run it yourself:
 if (4 &gt; 5){
@@ -637,7 +637,13 @@ Controlling Program Flow: While Loops
 </h2>
 <p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R “look through an alphabetized list of movies and tell me if you find Apocalypse Now”. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies…long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
 <p>Here is the <code>for</code> loop implementation:</p>
-<pre class="r"><code>movie_list &lt;- c(&quot;ace ventura&quot;, &quot;apocalypse now&quot;, &quot;return of the jedi&quot;, &quot;v for vendetta&quot;, &quot;zoolander&quot;)
+<pre class="r"><code>movie_list &lt;- c(
+    &quot;ace ventura&quot;
+    , &quot;apocalypse now&quot;
+    , &quot;return of the jedi&quot;
+    , &quot;v for vendetta&quot;
+    , &quot;zoolander&quot;
+)
 MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
 
 # Naive for loop implementation
@@ -656,7 +662,13 @@ for (movie in movie_list) {
 ## [1] &quot;4: not found&quot;
 ## [1] &quot;5: not found&quot;</code></pre>
 <p>And here is the <code>while</code> loop implementation. Notice that this one stops checking once it finds what it wants.</p>
-<pre class="r"><code>movie_list &lt;- c(&quot;ace ventura&quot;, &quot;apocalypse now&quot;, &quot;return of the jedi&quot;, &quot;v for vendetta&quot;, &quot;zoolander&quot;)
+<pre class="r"><code>movie_list &lt;- c(
+    &quot;ace ventura&quot;
+    , &quot;apocalypse now&quot;
+    , &quot;return of the jedi&quot;
+    , &quot;v for vendetta&quot;
+    , &quot;zoolander&quot;
+)
 MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
 
 # Faster while loop implementation
@@ -745,7 +757,10 @@ data(mtcars)
 # Try three different sets of RHS variables and display a table
 spec1 &lt;- as.formula(mpg ~ hp)
 spec2 &lt;- as.formula(mpg ~ hp + wt)
-myModels &lt;- fitModels(spec_list = list(spec1, spec2), training_data = mtcars)
+myModels &lt;- fitModels(
+  spec_list = list(spec1, spec2)
+  , training_data = mtcars
+)
 
 # Display
 stargazer::stargazer(myModels, type = &quot;text&quot;)</code></pre>
@@ -802,7 +817,11 @@ is.numeric(rnorm(100))</code></pre>
 is.na(c(1, 5, 10, NA, 8))</code></pre>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE</code></pre>
 <pre class="r"><code># Vectors can be named
-batting_avg &lt;- c(youkilis = 0.300, ortiz = 0.355, nixon = 0.285)
+batting_avg &lt;- c(
+  youkilis = 0.300
+  , ortiz = 0.355
+  , nixon = 0.285
+)
 
 # You can combine two vectors with c()
 x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
@@ -877,8 +896,8 @@ grades &lt;- lapply(studentList, mean)</code></pre>
 Data Frames
 </h2>
 <p>Vectors and lists are crucial data structures in R, but you may find that they’re difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.</p>
-<p>Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type.</p>
-<pre class="r"><code># Create a dataframe!
+<p>Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type.</p>
+<pre class="r"><code># Create a data frame!
 myDF &lt;- data.frame(
     time_period    = c(1, 2, 3, 4, 5)
     , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
@@ -894,7 +913,7 @@ str(myDF)</code></pre>
 ##  $ station     : Factor w/ 2 levels &quot;A&quot;,&quot;B&quot;: 1 2 1 1 2
 ##  $ is_gov_owned: logi  TRUE FALSE TRUE TRUE FALSE</code></pre>
 <p>R comes with some sample data sets you can experiment with. Let’s load the <code>mtcars</code> data.frame and test out some new commands!</p>
-<pre class="r"><code># Load the mtcars dataframe
+<pre class="r"><code># Load the mtcars data frame
 data(&quot;mtcars&quot;)
 
 # Check out its structure
@@ -930,13 +949,21 @@ unique(mtcars$cyl)</code></pre>
 <p>We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I’d like to introduce you to one more looping function: <code>apply()</code>.</p>
 <p><code>apply()</code> allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with <code>apply()</code>.</p>
 <pre class="r"><code># Get the mean of each column
-apply(mtcars, MARGIN = 2, FUN = mean)</code></pre>
+apply(
+  mtcars
+  , MARGIN = 2
+  , FUN = mean
+)</code></pre>
 <pre><code>##        mpg        cyl       disp         hp       drat         wt       qsec 
 ##  20.090625   6.187500 230.721875 146.687500   3.596563   3.217250  17.848750 
 ##         vs         am       gear       carb 
 ##   0.437500   0.406250   3.687500   2.812500</code></pre>
 <pre class="r"><code># Get the mean of each row (nonsensical, just illustrating)
-apply(mtcars, MARGIN = 1, FUN = mean)</code></pre>
+apply(
+  mtcars
+  , MARGIN = 1
+  , FUN = mean
+)</code></pre>
 <pre><code>##           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
 ##            29.90727            29.98136            23.59818            38.73955 
 ##   Hornet Sportabout             Valiant          Duster 360           Merc 240D 

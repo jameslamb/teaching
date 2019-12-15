@@ -1,6 +1,7 @@
 #' @title Names to abbreviations
 #' @name NamesToAbbreviations
-#' @description This function takes a vector of names and returns a vector of corresponding initials.
+#' @description This function takes a vector of names and returns a vector
+#'              of corresponding initials.
 #' @param nameVec A character vector of player names
 #' @importFrom purrr map_chr
 #' @importFrom stringr str_split
@@ -8,7 +9,11 @@
 NamesToAbbreviations <- function(nameVec){
 
     # Split on whitespace
-    splitNames <- stringr::str_split(nameVec, pattern = " ", simplify = FALSE)
+    splitNames <- stringr::str_split(
+        nameVec
+        , pattern = " "
+        , simplify = FALSE
+    )
 
     # Grab the first letter of each name and combines
     abbrevs <- purrr::map_chr(splitNames, function(splitName){
@@ -21,7 +26,7 @@ NamesToAbbreviations <- function(nameVec){
     return(abbrevs)
 }
 
-#' @title Get Marquette BB Data
+#' @title Get Marquette Men's Basketball Data
 #' @name GetData
 #' @description This function scrapes sports-reference.com and returns some
 #'              player statistics for Marquette's men's basketball team.
@@ -61,14 +66,16 @@ GetData <- function(team = "marquette", season = "2018"){
 
 #' @title Scatterplot Comparison of Player Stats
 #' @name CompareOnStats
-#' @description Given a data.table of Marquette basketball statistics, plot a bivariate scatterplot of player performance on the basis of two statistics
+#' @description Given a data.table of Marquette basketball statistics, plot a bivariate scatterplot
+#'              of player performance on the basis of two statistics
 #' @import data.table
 #' @importFrom graphics plot text
 #' @param statDT A data.table of Marquette season stats, pulled with \code{\link[RquetteBB]{GetData}}
 #' @param x_stat A string with the name of the statistic to plot on the x-axis
 #' @param y_stat A string with the name of the statistic to plot on the y-axis
 #' @param season String indicating which season you pull data for. Used to create plot title
-#' @param useInitials A boolean. If TRUE, player initials will be plotted. If FALSE, full names will be used.
+#' @param useInitials A boolean. If TRUE, player initials will be plotted.
+#'                    If FALSE, full names will be used.
 #' @export
 CompareOnStats <- function(statDT
                            , x_stat = "PTS"
@@ -78,10 +85,15 @@ CompareOnStats <- function(statDT
 ){
 
     # Create a scatterplot
-    plot(x = statDT[, get(x_stat)], y = statDT[, get(y_stat)],
-         xlab = x_stat, ylab = y_stat,
-         type = "p", col = "white",
-         main = paste0(x_stat, " vs. ", y_stat, " (", season, ")"))
+    plot(
+        x = statDT[, get(x_stat)]
+        , y = statDT[, get(y_stat)]
+        , xlab = x_stat
+        , ylab = y_stat
+        , type = "p"
+        , col = "white"
+        , main = paste0(x_stat, " vs. ", y_stat, " (", season, ")")
+    )
 
     # Grab abbreviations from player names if asked
     if (useInitials){
@@ -91,9 +103,11 @@ CompareOnStats <- function(statDT
     }
 
     # Add those abbreviations to the plot
-    text(x = statDT[, get(x_stat)]
-         , y = statDT[, get(y_stat)]
-         , labels = namesToPlot)
+    text(
+        x = statDT[, get(x_stat)]
+        , y = statDT[, get(y_stat)]
+        , labels = namesToPlot
+    )
 
     return(invisible(NULL))
 }

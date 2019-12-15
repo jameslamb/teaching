@@ -758,7 +758,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
 
 <p>You may find the &quot;remove all the NAs everywhere&quot; strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases</code> to remove rows.</p>
 
-<pre><code class="r"># Create a dataframe where some variable have more NAs than others
+<pre><code class="r"># Create a data frame where some variable have more NAs than others
 testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),
                      var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE),
                      var3 = sample(c(rnorm(5), rep(NA, 95)), 200, replace = TRUE))
@@ -794,7 +794,7 @@ cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
 <li>For categorical columns, replace NAs with the most common value</li>
 </ul>
 
-<pre><code class="r"># Create a dataframe where some variable have more NAs than others
+<pre><code class="r"># Create a data frame where some variable have more NAs than others
 testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 500, replace = TRUE),
                      var2 = sample(c(rnorm(70), rep(NA, 30)), 500, replace = TRUE),
                      var3 = sample(c(rnorm(85), rep(NA, 15)), 500, replace = TRUE))

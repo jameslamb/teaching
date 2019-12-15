@@ -2,18 +2,23 @@
 *.Rhistory
 
 # MS Office files
-*.xlsx
+*.doc
 *.docx
+*.ppt
 *.pptx
+*.xls
+*.xlsx
 
 # data
 *.rds
 *.rda
+**/*.RData
 
 # intermediate knitr files
 mu_rprog/slides/*.md
 mu_rprog/slides/.cache
 mu_rprog/code/*_files/
+**/*.Rmd.html
 
 # other misc files
 *.DS_Store

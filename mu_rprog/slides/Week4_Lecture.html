@@ -198,7 +198,7 @@ Please follow along with the code in the <a href="https://jameslamb.github.io/te
 
 <h2>Examine Your Training Data</h2>
 
-<p>Once you&#39;ve split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use <code>str()</code> to view the contents of your data objects, <code>summary()</code> to view some basic summary statistics on dataframe columns, and <code>cor()</code> to get a correlation matrix between all pairs of numeric variables.</p>
+<p>Once you&#39;ve split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use <code>str()</code> to view the contents of your data objects, <code>summary()</code> to view some basic summary statistics on data frame columns, and <code>cor()</code> to get a correlation matrix between all pairs of numeric variables.</p>
 
 <pre><code class="r"># Look at the structure
 str(swiss)
@@ -255,13 +255,13 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
 
 <h2>Simple OLS Model</h2>
 
-<p>Ok now that we&#39;ve done some basic preprocessing and exploration, it&#39;s time to start fitting models! Let&#39;s begin with a simple one-variable OLS regression, estimated using the <code>lm</code> command.</p>
+<p>OK now that we&#39;ve done some basic preprocessing and exploration, it&#39;s time to start fitting models! Let&#39;s begin with a simple one-variable OLS regression, estimated using the <code>lm()</code> command.</p>
 
 <pre><code class="r"># Simple regression: Fertility = f(Agriculture)
 mod1 &lt;- lm(Fertility ~ Agriculture, data = swiss)
 </code></pre>
 
-<p>Once you have the fitted model, you can pass it and some new data to <code>predict</code> to generate predictions. Model evaluation metrics commonly used in regression problems:</p>
+<p>Once you have the fitted model, you can pass it and some new data to <code>predict()</code> to generate predictions. Model evaluation metrics commonly used in regression problems:</p>
 
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Mean_absolute_error">mean absolute error</a></li>
@@ -389,7 +389,7 @@ rfPreds &lt;- EvaluateModel(rfMod, swissTestDF, &quot;Random Forest (ntree=100)&
 
 <h2>Accuracy Comparison</h2>
 
-<p>In a real project, at some point you will find yourself saying &quot;ok, I have all these models. What should I actually use to generate predictions?&quot;. This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the &quot;best&quot; model from a set of candidate models.</p>
+<p>In a real project, at some point you will find yourself saying &quot;OK, I have all these models. What should I actually use to generate predictions?&quot;. This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the &quot;best&quot; model from a set of candidate models.</p>
 
 <p>Let&#39;s see how the models we trained in this exercise performed:</p>
 
@@ -568,7 +568,7 @@ fullDF &lt;- data.table::rbindlist(list(sample1, sample2, sample3))
 
 <h2>Getting Your Project Off the Ground</h2>
 
-<p>Ok so you have a business question, you&#39;ve chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...</p>
+<p>OK so you have a business question, you&#39;ve chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...</p>
 
 <p><center><img src="assets/img/spongebob.gif"></center></p>
 
@@ -713,7 +713,7 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
 <li>Declare all the dependencies you need in a bunch of <code>library()</code> calls at the top of your script(s)</li>
 <li>Set global variables (like file paths) in all-caps near the top of your script(s)</li>
 <li>Use comments like <code>#===== Section 1 - Do Stuff =====#</code> to separate major sections of the code</li>
-<li>Namespace any calls to external functions with <code>::</code> (e.g. <code>lubridate::ymd_hms</code>)</li>
+<li>Namespace any calls to external functions with <code>::</code> (e.g. <code>lubridate::ymd_hms()</code>)</li>
 </ul>
 
 <p>A sample script following these prescriptions is provided in the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html">Week 4 Programming Supplement</a>.</p>

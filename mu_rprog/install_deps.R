@@ -1,8 +1,15 @@
 # This script installs packages needed to run the examples
 # in the provided code supplements
+quit(status = 0)
 
 # "devtools" is needed to handle weird nonsense
-install.packages("devtools", repos = "http://cran.rstudio.com")
+install.packages(
+    "devtools"
+    , repos = "http://cran.rstudio.com"
+    , dependencies = c("Depends", "Imports")
+    , verbose = TRUE
+    , quiet = FALSE
+)
 
 install.packages(
     pkgs = c(
@@ -27,4 +34,5 @@ install.packages(
     , repos = "http://cran.rstudio.com"
     , dependencies = c("Depends", "Imports")
     , verbose = TRUE
+    , quiet = FALSE
 )

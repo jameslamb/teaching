@@ -4,8 +4,13 @@
 \alias{CompareOnStats}
 \title{Scatterplot Comparison of Player Stats}
 \usage{
-CompareOnStats(statDT, x_stat = "PTS", y_stat = "TB", season,
-  useInitials = TRUE)
+CompareOnStats(
+  statDT,
+  x_stat = "PTS",
+  y_stat = "TB",
+  season,
+  useInitials = TRUE
+)
 }
 \arguments{
 \item{statDT}{A data.table of Marquette season stats, pulled with \code{\link[RquetteBB]{GetData}}}

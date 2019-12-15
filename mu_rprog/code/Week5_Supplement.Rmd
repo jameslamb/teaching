@@ -9,7 +9,12 @@ output:
 <h1>Week 5 Programming Supplement</h1>
 
 ```{r setOpts, echo = FALSE}
-knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(
+    eval = TRUE
+    , echo = TRUE
+    , warning = FALSE
+    , message = FALSE
+)
 ```
 
 <h2>How to create an R package</h2>
@@ -128,13 +133,13 @@ NamesToAbbreviations <- function(nameVec){
 Now that we have a function in the package, we need to generate documentation for the package and install it! Do the following:
 
 1. Set your working directory to the package. e.g. `setwd("~/repos/RquetteBB")`
-2. Run `devtools::document()`. This function will populate your `NAMESPACE` file and (if we had written any yet) generate documentation that users could call with `?`
+2. Run `roxygen2::roxygenize()`. This function will populate your `NAMESPACE` file and (if we had written any yet) generate documentation that users could call with `?`
 3. Run `devtools::install_local("~/repos/RquetteBB", force = TRUE)` to install the package!
 4. Run `rm(list=ls())` to clear your working environment. Restart your R session.
 5. Run `library(RquetteBB)` to load the package
 6. Run `?NamesToAbbreviations` to see the documentation for that function
 
-Congratulations on creating your first R package! Lots of work still to be done, but you now have a minimum viable product (MVP) of the `Rquette` package.
+Congratulations on creating your first R package! Lots of work still to be done, but you now have a minimum viable product (MVP) of the `RquetteBB` package.
 
 <h3>Document Your Functions with roxygen2</h3>
 
@@ -156,9 +161,9 @@ NamesToAbbreviations <- function(nameVec){
 #...
 ```
 
-When you've added this information, save `my_functions.R` and re-run `devtools::document()`. Now try running `?NamesToAbbreviations` to see your documentation!
+When you've added this information, save `my_functions.R` and re-run `roxygen::roxygenize()`. Now try running `?NamesToAbbreviations` to see your documentation!
 
-These metadata items are called "roxygen comments". Lines in package R files that begin with `#'` are analyzed by the `roxygen2` package when you run `devtools::document()`.
+These metadata items are called "roxygen comments". Lines in package R files that begin with `#'` are analyzed by the `roxygen2` package when you run `roxygen2::roxygenize()`.
 
 - `@title`: A short description of what the function does
 - `@name`: The name of the function
@@ -172,10 +177,10 @@ Next, open up `DESCRIPTION` in a text editor of your choice. We need to add thes
 **RquetteBB/DESCRIPTION**
 ```
 Package: RquetteBB
-Title: Marquette BB in R
+Title: Marquette Basketball Data in R
 Version: 0.1
 Authors@R: person("James", "Lamb", email = "jaylamb20@gmail.com", role = c("aut", "cre"))
-Description: This package will be used to pull, analyze, and visualize Marquette Basketball data.
+Description: This package can be used to pull, analyze, and visualize Marquette men's basketball data.
 Depends: R (>= 3.3.2)
 Imports:
     purrr,
@@ -183,7 +188,7 @@ Imports:
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 7.0.2
 ```
 
 There are [four types](http://r-pkgs.had.co.nz/description.html) of dependency declarations used in R package `DESCRIPTION` files.
@@ -191,7 +196,7 @@ There are [four types](http://r-pkgs.had.co.nz/description.html) of dependency d
 - **Depends**: This section holds all things that are checked when someone calls `library()` on your package. Typically this section will just be used to enforce a minimum version of R that users of your package must have. If you put R packages here, they will automatically be loaded with `library()` whenever someone loads your package.
 - **Imports**: This section is really important. Imports holds the name of all the packages that your package's functions use. These packages will not be loaded by default when someone calls `library(your_package)` but they will be *installed* when someone tries to install your package.
 - **Suggests**: R packages that are used to support your package but aren't needed to run the code. Examples that commonly end up here are `testthat` for writing unit tests and `rmarkdown` for building documentaiton PDFs.
-- **LinkingTo**: Irrelevant. Don't use this.
+- **LinkingTo**: Irrelevant unless your package has C, C++, or Fortran code in it.
 
 <h3>Write Your First Unit Test</h3>
 
@@ -242,7 +247,7 @@ Next, let's add another function. This function, which we'll call `GetData`, sho
 **RquetteBB/R/my_functions.R**
 
 ```{r GetData, eval = FALSE}
-#' @title Get Marquette BB Data
+#' @title Get Marquette Men's Basketball Data
 #' @name GetData
 #' @description This function scrapes sports-reference.com and returns some 
 #'              player statistics for Marquette's men's basketball team.
@@ -252,23 +257,23 @@ Next, let's add another function. This function, which we'll call `GetData`, sho
 #' @importFrom htmltab htmltab
 #' @export
 GetData <- function(season = "2018"){
-    
+
     # Build URL
     queryURL <- paste0(
         "https://www.sports-reference.com/cbb/schools/marquette/"
         , season
         , ".html"
     )
-    
+
     # Grab tables from college basketbal reference
     result <- htmltab::htmltab(
         queryURL
         , which = "//table[@id = 'per_game']"
     )
-    
+
     # Convert to data.table
     statDT <- data.table::as.data.table(result)
-    
+
     # Coerce all the columns but Player to numeric
     numCols <- setdiff(names(statDT), "Player")
     statDT <- cbind(
@@ -283,7 +288,7 @@ GetData <- function(season = "2018"){
 
 Now that we've added a new function, we need to re-do a few thing:
 
-1. Re-run `devtools::document()` to regenerate package documentaiton
+1. Re-run `roxygen2::roxygenize()` to regenerate package documentaiton
 2. Add any new packages we've added to the `DESCRIPTION` file
     - for this, we need to add data.table and XML
 3. Write unit tests
@@ -315,7 +320,7 @@ test_that("GetData should return a data.table", {
 
 <h3>Add One More Function to Plot Data</h3>
 
-You're doing great! We should add one more function to the package. This function, `CompareOnStats`, should take a data table of season stats and create a scatterplot showing pairs of statistics for each player. For example, you could use this function to answer the question *Did Marquette's highest scorers also tend to be beter rebounders?*.
+You're doing great! We should add one more function to the package. This function, `CompareOnStats()`, should take a data table of season stats and create a scatterplot showing pairs of statistics for each player. For example, you could use this function to answer the question *Did Marquette's highest scorers also tend to be beter rebounders?*.
 
 You're a pro at adding new functions now, so I won't belabor the points about adding documentation, updating the DESCRIPTION file, etc.. Let's jump straight into an implementation of the funciton:
 
@@ -324,7 +329,8 @@ You're a pro at adding new functions now, so I won't belabor the points about ad
 ```{r CompareOnStats, eval = FALSE}
 #' @title Scatterplot Comparison of Player Stats
 #' @name CompareOnStats
-#' @description Given a data.table of Marquette basketball statistics, plot a bivariate scatterplot of player performance on the basis of two statistics
+#' @description Given a data.table of Marquette men's basketball statistics, plot a bivariate
+#'              scatterplot of player performance on the basis of two statistics
 #' @import data.table
 #' @importFrom graphics plot text
 #' @param statDT A data.table of Marquette season stats, pulled with \code{\link[RquetteBB]{GetData}}
@@ -339,7 +345,7 @@ CompareOnStats <- function(statDT
                            , season
                            , useInitials = TRUE
 ){
-    
+
     # Create a scatterplot
     plot(
         x = statDT[, get(x_stat)]
@@ -350,21 +356,21 @@ CompareOnStats <- function(statDT
         , col = "white"
         , main = paste0(x_stat, " vs. ", y_stat, " (", season, ")")
     )
-         
+
     # Grab abbreviations from player names if asked
     if (useInitials){
         namesToPlot <- NamesToAbbreviations(statDT[, Player])
     } else {
         namesToPlot <- statDT[, Player]
     }
-    
+
     # Add those abbreviations to the plot
     text(
         x = statDT[, get(x_stat)]
         , y = statDT[, get(y_stat)]
         , labels = namesToPlot
     )
-    
+
     return(invisible(NULL))
 }
 ```

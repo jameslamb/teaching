@@ -2,9 +2,9 @@
 % Please edit documentation in R/my_functions.R
 \name{GetData}
 \alias{GetData}
-\title{Get Marquette BB Data}
+\title{Get Marquette Basketball Data}
 \usage{
-GetData(season = "2018")
+GetData(team = "marquette", season = "2018")
 }
 \arguments{
 \item{season}{String indicating which season you want to pull data for.
