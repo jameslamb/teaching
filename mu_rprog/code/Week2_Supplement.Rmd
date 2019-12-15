@@ -7,7 +7,12 @@ output:
 ---
 
 ```{r setOpts, echo = FALSE}
-knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(
+    eval = TRUE
+    , echo = TRUE
+    , warning = FALSE
+    , message = FALSE
+)
 ```
 
 <h1>Week 2 Programming Supplement</h1>
@@ -20,7 +25,7 @@ You should use these programming supplements to follow along and try executing t
 
 <h3>Looping with lapply</h3>
 
-R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
+R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply()` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
 ```{r lapplyExample}
 # Get some data
@@ -30,11 +35,20 @@ weights <- ChickWeight$weight
 # Loop over and encode "above mean" and "below mean"
 the_mean <- mean(weights)
 meanCheck <- function(val, ref_mean){
-    if (val > ref_mean){return("above mean")}
-    if (val < ref_mean){return("below mean")}
+    if (val > ref_mean){
+        return("above mean")
+    }
+    if (val < ref_mean){
+        return("below mean")
+    }
     return("equal to the mean")
 }
-check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the_mean)})
+check_vec <- lapply(
+    X = weights
+    , FUN = function(x){
+        meanCheck(val = x, ref_mean = the_mean)
+    }
+)
 ```
 
 ```{r checkItOut, eval = FALSE, echo = TRUE}
@@ -54,11 +68,20 @@ weights <- ChickWeight$weight
 # Loop over and encode "above mean" and "below mean"
 the_mean <- mean(weights)
 meanCheck <- function(val, ref_mean){
-    if (val > ref_mean){return("above mean")}
-    if (val < ref_mean){return("below mean")}
+    if (val > ref_mean){
+        return("above mean")
+    }
+    if (val < ref_mean){
+        return("below mean")
+    }
     return("equal to the mean")
 }
-check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the_mean)})
+check_vec <- sapply(
+    X = weights
+    , FUN = function(x){
+        meanCheck(val = x, ref_mean = the_mean)
+    }
+)
 ```
 
 <h3>Looping with apply</h3>
@@ -70,10 +93,22 @@ When analyzing real-world datasets, you may want to use the same looping convent
 data("ChickWeight")
 
 # Calculate column-wise range
-cwRanges <- apply(ChickWeight, MARGIN = 2, FUN = function(x){range(as.numeric(x))})
+cwRanges <- apply(
+    X = ChickWeight
+    , MARGIN = 2
+    , FUN = function(x){
+        range(as.numeric(x))
+    }
+)
 
 # Calculate row-wise range
-rwRanges <- apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
+rwRanges <- apply(
+    X = ChickWeight
+    , MARGIN = 1
+    , FUN = function(blah){
+        range(as.numeric(blah))
+    }
+)
 ```
 
 <h2>II. Subsetting</h2>
@@ -84,7 +119,12 @@ rwRanges <- apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric
 
 ```{r subset_vecs}
 # Create a vector to work with
-myVec <- c(var1 = 10, var2 = 15, var3 = 20, av4 = 6)
+myVec <- c(
+  var1 = 10
+  , var2 = 15
+  , var3 = 20
+  , av4 = 6
+)
 
 # "the first element"
 myVec[1]
@@ -102,11 +142,15 @@ Lists, arbitrary collections of (potentially heterogeneous) R objects, are subse
 
 ```{r subsettingLists}
 # Set up a sample list object
-someList <- list(country = "DEU",
-                 region  = "EU",
-                 econ_stats = list(gdp_growth = 1.5,
-                                   rm10y      = 2.75,
-                                   DAXmonthly = c(1000, 1100, 1050, 1200, 1500)))
+someList <- list(
+    country = "DEU"
+    , region  = "EU"
+    , econ_stats = list(
+        gdp_growth = 1.5
+        , rm10y    = 2.75
+        , DAXmonthly = c(1000, 1100, 1050, 1200, 1500)
+    )
+)
 
 # Examine the list structure
 str(someList)
@@ -131,16 +175,18 @@ class(daxPrices)
 someList[["econ_stats"]][["DAXmonthly"]]
 ```
 
-<h3>Subsetting Dataframes</h3>
+<h3>Subsetting Data Frames</h3>
 
 Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:
 
 ```{r subsetDF}
 # Create a data frame
-someDF <- data.frame(conference  = c("Big East", "Big Ten", "Big East", "ACC", "SEC"),
-                     school_name = c("Villanova", "Minnesota", "Marquette", "Duke", "LSU"),
-                     wins        = c(18, 14, 19, 24, 12),
-                     ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7))
+someDF <- data.frame(
+    conference  = c("Big East", "Big Ten", "Big East", "ACC", "SEC")
+    , school_name = c("Villanova", "Minnesota", "Marquette", "Duke", "LSU")
+    , wins        = c(18, 14, 19, 24, 12)
+    , ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7)
+)
 
 # Grab the wins column (NOTE: will give you back a vector)
 someDF[, "wins"]
@@ -160,7 +206,7 @@ So far, we've seen how to subset R objects using numeric indices and named eleme
 Using these methods (especially numeric indices like saying *give me columns 2-4*) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.
 
 ```{r logicalSubsetting}
-# Some dataframe
+# Some data frame
 playerDF <- data.frame(
     playerName   = c("Rajon Rondo", "Paul Pierce", "Kevin Garnett", "Ray Allen", "Big Baby")
     , position   = c("PG", "SF", "PF", "SG", "C")
@@ -169,7 +215,7 @@ playerDF <- data.frame(
     , fg_percent = c(-.062, 0.48, 0.63, 0.80, 0.51)
 )
 
-# "Give me a dataframe with all Rondo and KG's stats"
+# "Give me a data frame with all Rondo and KG's stats"
 nameIndex <- playerDF$playerName %in% c("Rajon Rondo", "Kevin Garnett")
 nameIndex
 class(nameIndex)
@@ -228,7 +274,8 @@ sumBigNums <- function(aVector){
         }
         
         # print new state of the environment
-        print(paste0("num: ", num, " | before: ", sum_before, " | after: ", running_sum))
+        msg <- paste0("num: ", num, " | before: ", sum_before, " | after: ", running_sum)
+        print(msg)
     }
     return(running_sum)
 }
@@ -275,8 +322,8 @@ You can you user-defined functions to wrap arbitrarily complicated logic into co
 # Given a number between 0 and 1, multiply by a random number
 # between 0 and 1, then return an action based on quantile
 weirdFunction <- function(num){
-    rand_num    <- runif(n = 1, min = 0, max = 1)
-    action_val  <- num*rand_num
+    rand_num   <- runif(n = 1, min = 0, max = 1)
+    action_val <- num*rand_num
     if (action_val <= 0.25){
       return("left")
     }
@@ -288,7 +335,10 @@ weirdFunction <- function(num){
     }
     return("down")
 }
-action_sequence <- sapply(runif(n = 100, min = 0, max = 1), weirdFunction)
+action_sequence <- sapply(
+  X = runif(n = 100, min = 0, max = 1)
+  , FUN = weirdFunction
+)
 action_sequence[1:20]
 ```
 
@@ -327,7 +377,10 @@ These are called "null functions" and they're common in scripting languages like
 
 ```{r nullFunc}
 printSentence <- function(theSentence){
-    words <- strsplit(x = theSentence, split = " ")
+    words <- strsplit(
+      x = theSentence
+      , split = " "
+    )
     for (word in words){
         print(word)
     }
@@ -411,7 +464,8 @@ We can download the data and parse it into an R list object using the `jsonlite`
 library(jsonlite)
 
 # Go get some data
-result <- jsonlite::fromJSON("https://data.oregon.gov/api/views/t6bs-tkn4/rows.json")
+json_url <- "https://data.oregon.gov/api/views/t6bs-tkn4/rows.json"
+result <- jsonlite::fromJSON(json_url)
 
 # Check it out. Pass the max.level argument to the list to tell R how deep into it you want to go
 str(result, max.level = 1)

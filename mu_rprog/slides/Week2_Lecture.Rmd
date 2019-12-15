@@ -1,15 +1,14 @@
 ---
-title: "ECON 6114 - R Programming"
-author: "James Lamb"
-highlighter: highlight.js
-hitheme: tomorrow
-job: IoT Data Scientist | AWS
-knit: slidify::knit2slides
-lib_cdn: https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries
-logo: null
-mode: selfcontained
-framework: io2012
-widgets: bootstrap
+title       : "ECON 6114 - R Programming"
+author      : "James Lamb"
+highlighter : highlight.js
+hitheme     : tomorrow
+job         : IoT Data Scientist | AWS
+knit        : slidify::knit2slides
+lib_cdn     : https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries
+mode        : selfcontained
+framework   : io2012
+widgets     : bootstrap
 ---
 
 <!--Read in JavaScript function that prints footer bubbles-->
@@ -43,7 +42,6 @@ widgets: bootstrap
 
 *** =left
 
-
 <b class="toc_header"> I. Review and Catchup </b>
 <ol class="toc" type="none">
     <li> Quiz 1 Review                   <span style="float:right"> 6   </span></li>
@@ -53,7 +51,7 @@ widgets: bootstrap
 <b class="toc_header"> II. Subsetting </b>
 <ol class = "toc" type="none">
     <li> Subsetting Vectors    <span style="float:right"> 11 </span></li>
-    <li> Subsetting Dataframes <span style="float:right"> 12 </span></li>
+    <li> Subsetting Data frames <span style="float:right"> 12 </span></li>
     <li> Lists                 <span style="float:right"> 13 </span></li>
     <li> Using Logical Vectors <span style="float:right"> 14 </span></li>
 </ol>
@@ -170,7 +168,7 @@ check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <h2>Looping with sapply</h2>
 
-On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply` ("simplified apply") comes in. `sapply` works the same way that `lapply` does but returns a vector. Try it for yourself:
+On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean()` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply()` ("simplified apply") comes in. `sapply()` works the same way that `lapply()` does but returns a vector. Try it for yourself:
 
 ```{r sapplyExample, eval = FALSE}
 # Get some data
@@ -196,7 +194,7 @@ check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <h2>Looping with apply</h2>
 
-When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply` function comes in! Check it out
+When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply()` function comes in! Check it out
 
 ```{r applyExample, eval = FALSE}
 # Get some data
@@ -261,7 +259,7 @@ Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teach
     <script>FooterBubbles(3,4)</script>II. Subsetting<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
-<h2>Subsetting Dataframes</h2>
+<h2>Subsetting Data Frames</h2>
 
 Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:
 
@@ -474,7 +472,7 @@ rbokeh::figure(data = cpiDT, title = "U.S. CPI",
 
 <h2>Namespacing Calls</h2>
 
-You may have noticed that I use `::` frequently in my code. Remember when we used `search()` to print the ordered list of namespaces that R searches for objects? `::` is used to circumvent this process. `lubridate::ymd_hms` tells R *"Use the function ymd_hms from the 'lubridate' package"*
+You may have noticed that I use `::` frequently in my code. Remember when we used `search()` to print the ordered list of namespaces that R searches for objects? `::` is used to circumvent this process. `lubridate::ymd_hms()` tells R *"Use the function ymd_hms from the 'lubridate' package"*
 
 Without namespacing, R will search through the list of namespaces until it finds what it wants. When you load a new package that has a function with the same name as one already loaded in your session, R will warn you that that version has been "masked".
 
@@ -664,7 +662,7 @@ action_sequence[1:20]
 
 <h2>Functions That Return Stuff</h2>
 
-As you've seen in previous examples, the R special word `return` tells a function to "give back" some value. When you execute an expression like `x <- someFunction()`, that function's return value (an R object) is stored a variable called "x".
+As you've seen in previous examples, the R special word `return` tells a function to "give back" some value. When you execute an expression like `x <- someFunction()`, that function's return value (an R object) is stored in a variable called "x".
 
 Unlike in some other programming languages, R allows you to use multiple `return` values inside the body of a function. The first time that the code inside the function reaches a `return` value, it will pass that value back out of the function and immediately stop executing the function.
 
@@ -759,7 +757,7 @@ Let's look at an example:
 
 <h2>Structured: Delimited Files</h2>
 
-There are lots of options to read these types of files into R, but for the purposes of this class we will stick with `read.delim`.
+There are lots of options to read these types of files into R, but for the purposes of this class we will stick with `read.delim()`.
 
 ```{r, eval = FALSE}
 # Store the path to your file in an object

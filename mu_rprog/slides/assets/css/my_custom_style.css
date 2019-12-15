@@ -4,7 +4,6 @@ slides > slide:not(.nobackground):after {
 }
 
 /*=== Content Slide Theme ===*/
-
 slide.content_slide {
 	background-color: #FFFFFF;
 }
@@ -17,7 +16,7 @@ slide.content_slide h2 {
 footer {
 	color: #C94D00;
 	font-size: 3;
-} 
+}
 
 /*=== Table-of-Conents Slide Theme ===*/
 
@@ -53,7 +52,7 @@ slide.section_slide h2 {
 }*/
 
 /*=== Title slide fonts ===*/
-.title-slide hgroup > h1, 
+.title-slide hgroup > h1,
 .title-slide hgroup > h2 {
-  color: /*#FF9900;*/ /*#00C990*/ #ffa500;
+  color: #ffa500;
 }

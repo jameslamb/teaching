@@ -97,7 +97,7 @@
 
 <ol class = "toc" type="none">
     <li> Subsetting Vectors    <span style="float:right"> 11 </span></li>
-    <li> Subsetting Dataframes <span style="float:right"> 12 </span></li>
+    <li> Subsetting Data frames <span style="float:right"> 12 </span></li>
     <li> Lists                 <span style="float:right"> 13 </span></li>
     <li> Using Logical Vectors <span style="float:right"> 14 </span></li>
 </ol>
@@ -252,7 +252,7 @@ check_vec &lt;- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
 
 <h2>Looping with sapply</h2>
 
-<p>On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like <code>mean</code> over a list. For that, we&#39;d probably prefer to have a <em>vector</em> of results. This is where R&#39;s <code>sapply</code> (&quot;simplified apply&quot;) comes in. <code>sapply</code> works the same way that <code>lapply</code> does but returns a vector. Try it for yourself:</p>
+<p>On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like <code>mean()</code> over a list. For that, we&#39;d probably prefer to have a <em>vector</em> of results. This is where R&#39;s <code>sapply()</code> (&quot;simplified apply&quot;) comes in. <code>sapply()</code> works the same way that <code>lapply()</code> does but returns a vector. Try it for yourself:</p>
 
 <pre><code class="r"># Get some data
 data(&quot;ChickWeight&quot;)
@@ -283,7 +283,7 @@ check_vec &lt;- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
 
 <h2>Looping with apply</h2>
 
-<p>When analyzing real-world datasets, you may want to use the same looping convention we&#39;ve been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R&#39;s <code>apply</code> function comes in! Check it out</p>
+<p>When analyzing real-world datasets, you may want to use the same looping convention we&#39;ve been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R&#39;s <code>apply()</code> function comes in! Check it out</p>
 
 <pre><code class="r"># Get some data
 data(&quot;ChickWeight&quot;)
@@ -374,7 +374,7 @@ myVec[&quot;var3&quot;]
     <script>FooterBubbles(3,4)</script>II. Subsetting<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
-<h2>Subsetting Dataframes</h2>
+<h2>Subsetting Data Frames</h2>
 
 <p>Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:</p>
 
@@ -675,7 +675,7 @@ rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;,
 
 <h2>Namespacing Calls</h2>
 
-<p>You may have noticed that I use <code>::</code> frequently in my code. Remember when we used <code>search()</code> to print the ordered list of namespaces that R searches for objects? <code>::</code> is used to circumvent this process. <code>lubridate::ymd_hms</code> tells R <em>&quot;Use the function ymd_hms from the &#39;lubridate&#39; package&quot;</em></p>
+<p>You may have noticed that I use <code>::</code> frequently in my code. Remember when we used <code>search()</code> to print the ordered list of namespaces that R searches for objects? <code>::</code> is used to circumvent this process. <code>lubridate::ymd_hms()</code> tells R <em>&quot;Use the function ymd_hms from the &#39;lubridate&#39; package&quot;</em></p>
 
 <p>Without namespacing, R will search through the list of namespaces until it finds what it wants. When you load a new package that has a function with the same name as one already loaded in your session, R will warn you that that version has been &quot;masked&quot;.</p>
 
@@ -911,7 +911,7 @@ action_sequence[1:20]
 
 <h2>Functions That Return Stuff</h2>
 
-<p>As you&#39;ve seen in previous examples, the R special word <code>return</code> tells a function to &quot;give back&quot; some value. When you execute an expression like <code>x &lt;- someFunction()</code>, that function&#39;s return value (an R object) is stored a variable called &quot;x&quot;.</p>
+<p>As you&#39;ve seen in previous examples, the R special word <code>return</code> tells a function to &quot;give back&quot; some value. When you execute an expression like <code>x &lt;- someFunction()</code>, that function&#39;s return value (an R object) is stored in a variable called &quot;x&quot;.</p>
 
 <p>Unlike in some other programming languages, R allows you to use multiple <code>return</code> values inside the body of a function. The first time that the code inside the function reaches a <code>return</code> value, it will pass that value back out of the function and immediately stop executing the function.</p>
 
@@ -1047,7 +1047,7 @@ x
 
 <h2>Structured: Delimited Files</h2>
 
-<p>There are lots of options to read these types of files into R, but for the purposes of this class we will stick with <code>read.delim</code>.</p>
+<p>There are lots of options to read these types of files into R, but for the purposes of this class we will stick with <code>read.delim()</code>.</p>
 
 <pre><code class="r"># Store the path to your file in an object
 dataPath &lt;- &quot;~/repos/my_project/data/project_data.csv&quot;

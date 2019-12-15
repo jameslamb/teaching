@@ -35,8 +35,16 @@ RepLetter(n) <- function(){
 #    maximum of each numeric column. Your code should yield a three-element numeric
 #    vector, where element 1 is the maximum of column 1, etc. Your code should be sure
 #    to account for NAs. In a correct solution, maxes will hold c(8, 20, 30)
-myDF <- data.frame(var1 = c(rep(1:8),NA,NA), var2 = 11:20, var3 = 21:30)
-maxes <- apply(myDF, FUN = min, MARGIN = 1)
+myDF <- data.frame(
+    var1 = c(rep(1:8),NA,NA)
+    , var2 = 11:20
+    , var3 = 21:30
+)
+maxes <- apply(
+    myDF
+    , FUN = min
+    , MARGIN = 1
+)
 
 # d. Loop over a list object and return the entropy (ineq::entropy) of each vector
 #    Assume that the code to define faultList is correct.

@@ -64,6 +64,11 @@ ls("package:stats")
 
 Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
 
+```{r setseed, eval=TRUE, echo=FALSE}
+# prevent a new guassfact() from being printed every time this file is knitted
+set.seed(5678)
+```
+
 ```{r ifElse1}
 library(gaussfacts)
 
@@ -121,7 +126,13 @@ For loops are suitable for many applications, but they can be too restrictive in
 Here is the `for` loop implementation:
 
 ```{r whileLoop1}
-movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
+movie_list <- c(
+    "ace ventura"
+    , "apocalypse now"
+    , "return of the jedi"
+    , "v for vendetta"
+    , "zoolander"
+)
 MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
 # Naive for loop implementation
@@ -139,7 +150,13 @@ for (movie in movie_list) {
 And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants.
 
 ```{r whileLoop2}
-movie_list <- c("ace ventura", "apocalypse now", "return of the jedi", "v for vendetta", "zoolander")
+movie_list <- c(
+    "ace ventura"
+    , "apocalypse now"
+    , "return of the jedi"
+    , "v for vendetta"
+    , "zoolander"
+)
 MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
 # Faster while loop implementation
@@ -232,7 +249,10 @@ data(mtcars)
 # Try three different sets of RHS variables and display a table
 spec1 <- as.formula(mpg ~ hp)
 spec2 <- as.formula(mpg ~ hp + wt)
-myModels <- fitModels(spec_list = list(spec1, spec2), training_data = mtcars)
+myModels <- fitModels(
+  spec_list = list(spec1, spec2)
+  , training_data = mtcars
+)
 
 # Display
 stargazer::stargazer(myModels, type = "text")
@@ -266,7 +286,11 @@ is.numeric(rnorm(100))
 is.na(c(1, 5, 10, NA, 8))
 
 # Vectors can be named
-batting_avg <- c(youkilis = 0.300, ortiz = 0.355, nixon = 0.285)
+batting_avg <- c(
+  youkilis = 0.300
+  , ortiz = 0.355
+  , nixon = 0.285
+)
 
 # You can combine two vectors with c()
 x <- c("a", "b", "c")
@@ -326,10 +350,10 @@ grades <- lapply(studentList, mean)
 
 Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.
 
-Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type. 
+Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type. 
 
 ```{r dataFrame}
-# Create a dataframe!
+# Create a data frame!
 myDF <- data.frame(
     time_period    = c(1, 2, 3, 4, 5)
     , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
@@ -344,7 +368,7 @@ str(myDF)
 R comes with some sample data sets you can experiment with. Let's load the `mtcars` data.frame and test out some new commands!
 
 ```{r dateFrame2}
-# Load the mtcars dataframe
+# Load the mtcars data frame
 data("mtcars")
 
 # Check out its structure
@@ -363,8 +387,16 @@ We will be working with data frames throughout this class, given their importanc
 
 ```{r apply_on_a_DF}
 # Get the mean of each column
-apply(mtcars, MARGIN = 2, FUN = mean)
+apply(
+  mtcars
+  , MARGIN = 2
+  , FUN = mean
+)
 
 # Get the mean of each row (nonsensical, just illustrating)
-apply(mtcars, MARGIN = 1, FUN = mean)
+apply(
+  mtcars
+  , MARGIN = 1
+  , FUN = mean
+)
 ```

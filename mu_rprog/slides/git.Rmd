@@ -2,8 +2,7 @@
 title       : ECON 6114 - R Programming
 subtitle    : Git Basics
 author      : James Lamb
-job         : Senior Data Scientist | Uptake
-logo        : 
+job         : IoT Data Scientist | AWS
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -212,13 +211,13 @@ See example terminal session on the next slide.
 
 **In-Class Exercise**
 
-```{r engine='bash', eval=F}
+```{r engine='bash', eval=FALSE}
 cd ~/repos
 git clone https://github.com/ramnathv/slidify
 cd slidify
 git remote -v
 
-# Add a remote for our mu_rprog repo!
+# Add a remote for our mu_rprog repo
 cd ~/repos/mu_rprog_files
 git remote add origin https://github.com/YOUR_USERNAME/mu_rprog_files
 git push origin master

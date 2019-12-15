@@ -7,11 +7,15 @@ output:
 ---
 
 ```{r setOpts, echo = FALSE}
-knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(
+    eval = TRUE
+    , echo = TRUE
+    , warning = FALSE
+    , message = FALSE
+)
 ```
 
 <h1>Week 3 Programming Supplement</h1>
-
 
 <h2>Logical Operators</h2>
 
@@ -142,7 +146,7 @@ NOTE: This package requires certain Java components that you may not have on you
 # Read an Excel file into a data.frame
 library(openxlsx)
 newDF <- openxlsx::read.xlsx(
-  xlsxFile = "~/repos/sandbox/data/stockData.xlsx"
+    xlsxFile = "~/repos/sandbox/data/stockData.xlsx"
 )
 ```
 
@@ -156,11 +160,21 @@ data("mtcars")
 testWB <- openxlsx::createWorkbook()
 
 # Add sheets and data
-openxlsx::addWorksheet(testWB, sheetName = "car_data")
-openxlsx::writeData(testWB, sheet = "car_data", x = mtcars)
+openxlsx::addWorksheet(
+    wb = testWB
+    , sheetName = "car_data"
+)
+openxlsx::writeData(
+    wb = testWB
+    , sheet = "car_data"
+    , x = mtcars
+)
 
 # Write out the file
-openxlsx::saveWorkbook(wb = testWB, file = "~/sandbox/data/testing.xlsx")
+openxlsx::saveWorkbook(
+    wb = testWB
+    , file = "~/sandbox/data/testing.xlsx"
+)
 ```
 
 <h2>Text Processing Exercise</h2>
@@ -192,7 +206,11 @@ Regular expressions (used in many programming languages) offer a way to express 
 
 ```{r regex1}
 # 4 - Remove punctuation
-bsText <- gsub(pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\[", replacement = "", bsText)
+bsText <- gsub(
+    pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\["
+    , replacement = ""
+    , x =  bsText
+)
 ```
 
 <h3>Intro to Regular Expressions</h3>
@@ -237,7 +255,11 @@ The `data.table` package makes this operation easy to carry out.
 ```{r countTheWords}
 # 9 - Get Word counts and sort by those counts
 wordCountDT <- wordDT[, .N, by = words]
-data.table::setnames(wordCountDT, old = "N", new = "word_count")
+data.table::setnames(
+    wordCountDT
+    , old = "N"
+    , new = "word_count"
+)
 data.table::setorder(wordCountDT, -word_count)
 print(wordCountDT[1:10], row.names = FALSE)
 
@@ -287,7 +309,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 You may find the "remove all the NAs everywhere" strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
 ```{r subsetNAwisely}
-# Create a dataframe where some variable have more NAs than others
+# Create a data frame where some variable have more NAs than others
 testDF <- data.frame(
     var1 = sample(c(rnorm(99), NA), 200, replace = TRUE)
     , var2 = sample(c(rnorm(50), rep(NA, 50)), 200, replace = TRUE)
@@ -312,7 +334,7 @@ A final strategy, particularly useful in modeling contexts, is to use some [impu
 - For categorical columns, replace NAs with the most common value
 
 ```{r imputation}
-# Create a dataframe where some variable have more NAs than others
+# Create a data frame where some variable have more NAs than others
 testDF <- data.frame(
   var1 = sample(c(rnorm(99), NA), 500, replace = TRUE)
   , var2 = sample(c(rnorm(70), rep(NA, 30)), 500, replace = TRUE)
@@ -432,7 +454,7 @@ par(mfrow = c(2,2))
 plot(density(iris$Sepal.Width), main = "Empirical density of petal length", col = "red")
 plot(x = iris$Sepal.Width, y = iris$Sepal.Length, col = iris$Species, bg = iris$Species, pch = 21)
 plot(x = iris$Sepal.Width, y = iris$Petal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Width, col = iris$Species, bg = iris$Species, pch = 21)
+plot(x = iris$Sepal.Width, y = iris$Petal.Width , col = iris$Species, bg = iris$Species, pch = 21)
 
 # reset options
 par(mfrow = c(1,1))

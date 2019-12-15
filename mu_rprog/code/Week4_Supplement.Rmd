@@ -9,7 +9,12 @@ output:
 <h1>Week 4 Programming Supplement</h1>
 
 ```{r setOpts, echo = FALSE}
-knitr::opts_chunk$set(eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(
+  eval = TRUE
+  , echo = TRUE
+  , warning = FALSE
+  , message = FALSE
+)
 ```
 
 <h2>I. Statistical Analysis in R</h2>
@@ -45,7 +50,7 @@ swiss       <- swiss[-testIndx,]
 
 <h3>Examine Your Training Data</h3>
 
-Once you've split your data into training and test, you shouold start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on dataframe columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
+Once you've split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on data frame columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
 
 ```{r eda}
 # Look at the structure
@@ -55,7 +60,7 @@ str(swiss)
 summary(swiss)
 
 # Correlation matrix
-round(cor(swiss),2)
+round(cor(swiss), 2)
 ```
 
 <h3>Hypothesis Testing</h3>
@@ -75,26 +80,29 @@ t.test(Fertility ~ majority_agg, data = swiss)
 
     #=== a. Drop that majority_agg feature
     swiss$majority_agg <- NULL
-    
+
     #=== b. Create the binary columns
     x_var_names <- names(swiss)[names(swiss) != "Fertility"]
     for (var_name in x_var_names){
-        
+
         bin_var_name <- paste0(var_name, "_above_median")
         swiss[, bin_var_name] <- swiss[, var_name] > median(swiss[, var_name])
-        
+
         # Remember to give the test set these new features!
         swissTestDF[, bin_var_name] <- swissTestDF[, var_name] > median(swiss[, var_name])
     }
 ```
 
-We can use `lapply` to apply the same test to every variable in our data frame.
+We can use `lapply()` to apply the same test to every variable in our data frame.
 
 ```{r tTestFunc}
 # 3. Could just loop over every non-Fertility column and do this test!
 bin_var_names <- grep("_above_median", names(swiss), value = TRUE)
 t_tests <- lapply(bin_var_names, function(bin_var){
-    t_test <- t.test(Fertility ~ get(bin_var), data = swiss)
+    t_test <- t.test(
+        Fertility ~ get(bin_var)
+        , data = swiss
+    )
     p_val  <- t_test$p.value 
     return(data.frame(
         signal = bin_var
@@ -108,7 +116,7 @@ tDT
 
 <h3>Simple OLS Model</h3>
 
-Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regression, estimated using the `lm` command.
+Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regression, estimated using the `lm()` command.
 
 ```{r simpleOLS}
 # 4. Simple regression: Fertility = f(Agriculture)
@@ -121,7 +129,7 @@ summary(mod1)
 plot(mod1, which = 2)
 ```
 
-Once you have the fitted model, you can pass it and some new data to `predict` to generate predictions. I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
+Once you have the fitted model, you can pass it and some new data to `predict()` to generate predictions. I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
 
 ```{r predOLS}
 # Check how well our model does on the held-out data
@@ -133,10 +141,15 @@ MSE   <- mean(errors^2)
 MAPE  <- 100*mean(abs(errors)/swissTestDF$Fertility)
 
 # Actuals vs. Preds plot
-plot(x = swissTestDF$Fertility, y = preds,
-     xlab = "Actual Fertility", ylab = "Predicted Fertility",
-     main = "Predictions from a simple OLS model",
-     ylim = c(0, 100), xlim = c(0, 100))
+plot(
+    x = swissTestDF$Fertility
+    , y = preds
+    , xlab = "Actual Fertility"
+    , ylab = "Predicted Fertility"
+    , main = "Predictions from a simple OLS model"
+    , ylim = c(0, 100)
+    , xlim = c(0, 100)
+)
 lines(x = 0:100, y = 0:100, col = "red")
 ```
 
@@ -150,26 +163,36 @@ EvaluateModel <- function(model, testDF, modelName){
     # Check how well our model does on the held-out data
     preds <- predict(model, newdata = testDF)
     errors <- testDF$Fertility - preds
-    
+
     MAE   <- mean(abs(errors))
     MSE   <- mean(errors^2)
     MAPE  <- 100 * mean(abs(errors) / testDF$Fertility)
-    
+
     # Actuals vs. Preds plot
-    plot(x = testDF$Fertility, y = preds,
-         xlab = "Actual Fertility", ylab = "Predicted Fertility",
-         main = paste0(modelName, ": predictions"),
-         ylim = c(0, 100), xlim = c(0, 100))
-    
+    plot(
+        x = testDF$Fertility
+        , y = preds
+        , xlab = "Actual Fertility"
+        , ylab = "Predicted Fertility"
+        , main = paste0(modelName, ": predictions")
+        , ylim = c(0, 100)
+        , xlim = c(0, 100)
+    )
+
     # Add a 45-degree line
     lines(x = 0:100, y = 0:100, col = "red")
-    
+
     # add error metrics
     text(x = rep(5,3), y = c(72,80,88), labels = c("MAE: ", "MSE: ", "MAPE: "))
-    text(x = rep(15,3), y = c(72,80,88), labels = round(c(MAE, MSE, MAPE),2))
-    
+    text(x = rep(15,3), y = c(72,80,88), labels = round(c(MAE, MSE, MAPE), 2))
+
     # Give back the preds in case user wants to do something customized
-    return(list(pred = preds, MAE = MAE, MSE = MSE, MAPE = MAPE))
+    return(list(
+        pred = preds
+        , MAE = MAE
+        , MSE = MSE
+        , MAPE = MAPE
+    ))
 }
 ```
 
@@ -185,7 +208,11 @@ mod2 <- lm(
 )
 
 # Predict + Evaluate
-regPreds2 <- EvaluateModel(mod2, testDF = swissTestDF, modelName = "Expanded OLS")
+regPreds2 <- EvaluateModel(
+    mod2
+    , testDF = swissTestDF
+    , modelName = "Expanded OLS"
+)
 ```
   
 <h3>Regression Trees</h3>
@@ -201,7 +228,11 @@ The details of tree-based learning are outside the scope of this class, but I en
 treeMod <- rpart::rpart(Fertility ~ ., data = swiss)
 
 # Evaluate
-dtPreds <- EvaluateModel(treeMod, swissTestDF, "Decision Tree")
+dtPreds <- EvaluateModel(
+    treeMod
+    , swissTestDF
+    , "Decision Tree"
+)
 ```
 
 You can walk through the tree with this awesome package called `rattle`. This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
@@ -240,9 +271,9 @@ Let's see how the models we trained in this exercise performed:
 # Build a table showing performance of each model type on the holdout
 compDF <- data.frame(
     modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)")
-    , MAE       = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE)
-    , MSE       = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE)
-    , MAPE       = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
+    , MAE     = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE)
+    , MSE     = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE)
+    , MAPE    = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
 )
 compDF
 ```
@@ -280,7 +311,7 @@ fullDF <- cbind(dealerDF1, dealerDF2)
 
 <h3>Column Matching with merge</h3>
 
-`cbind` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge` command.
+`cbind()` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge()` command.
 
 ```{r mergeExample}
 # If you can't trust that things are identically ordered, use merge()
@@ -304,7 +335,7 @@ fullDF2 <- merge(dealerDF1, dealerDF2, by = "dealer_id")
 
 <h3>Rowwise combination with rbind</h3>
 
-So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind` function.
+So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind()` function.
 
 **rbind = "row-wise bind"**
 
@@ -319,7 +350,7 @@ sample1 <- data.frame(
     , value = rnorm(180, 5, 2.5)
     , sampleId = rep("sample1", 180)
 )
-                      
+
 
 sample2 <- data.frame(
     startTime = seq.Date(
@@ -341,7 +372,7 @@ dim(fullDF)
 
 <h3>Rowwise Combination of Many Tables with rbindlist</h3>
 
-`rbind` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist` from the `data.table` package. 
+`rbind()` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist()` from the `data.table` package. 
 
 ```{r rbindlistExample}
 # Define some data frames
@@ -353,7 +384,6 @@ sample1 <- data.frame(
     )
     , value = rnorm(180, 5, 2.5)
 )
-
 
 sample2 <- data.frame(
     startTime = seq.Date(
@@ -384,7 +414,9 @@ sample4 <- data.frame(
 
 # Load up data.table and rbind all the tables together into one
 library(data.table)
-fullDF <- data.table::rbindlist(list(sample1, sample2, sample3, sample4))
+fullDF <- data.table::rbindlist(
+    list(sample1, sample2, sample3, sample4)
+)
 head(fullDF)
 
 # What if we had one more table with a column none of the others have?
@@ -397,10 +429,13 @@ sample5 <- data.frame(
     , value = rnorm(240, 5, 2.5)
     , temperature = runif(240, min = -20, max = 95)
 )
-fullDF2 <- data.table::rbindlist(list(sample1, sample2, sample3, sample4, sample5), fill = TRUE)
+fullDF2 <- data.table::rbindlist(
+    list(sample1, sample2, sample3, sample4, sample5)
+    , fill = TRUE
+)
 head(fullDF2)
 ```
-    
+
 <h2>III. Software Principles</h2>
 
 <h3>Getting Your Project Off the Ground</h3>
@@ -416,61 +451,61 @@ Don't fear! In this section, we're going to walk through the process of building
 Resist the urge to just start writing code. Investing a few minutes upfront in thinking through the structure of your code will pay off in a big way as the project evolves and grows more complicated. Trust me.
 
 First, just write down the main things you want to do. In this exercise, we're going to write some R code that can generate n-page "books" or random sentences in English.
-        
+
 ```{r fromScratch}
 #=== Write an R script that writes a book! ===#
-    
+
 # Function to create random sentences
-    
+
 # Function to create a "page" with n sentences
-    
+
 # Function to create a "book" with m pages
-    
+
 # Call the book function and create a 5-page book
 ```
 
 <h3>Step 2: Define Functions</h3>
 
 Next, fill in the high-level outline with slightly more specifics. Try to strategize about the functions you'll need to implement and the individual steps that will have to happen inside each of those functions. This will probably change once you start writing code, but in my experience it's always easier to have a plan and change it.
-        
+
 ```{r level2}
 # Function to create random sentences
 createSentence <- function(){
-    
+
     # Define a list of nouns
-    
+
     # Define a list of adjectives
-    
+
     # Define a list of adverbs
-    
+
     # Define a list of verbs
-    
+
     # Define a list of articles
-    
+
     # Define a list of prepositions
-    
+
     # Choose randomly from each, construct a sentence of the form 
     # article-adjective-noun-adverb-verb-preposition
-    
+
     # Return the sentence
-    
+
 } 
 
 # Function to create a "page" with n sentences
 createPage <- function(n){
-    
+
     # Call the function to create pages n times
-    
+
     # Paste the n results together into one string, separated by a period and a space.
-    
+
     # Return that one string
 }
 
 # Function to create a "book" with m pages
 createBook <- function(n_pages, sentences_per_page){
-    
+
     # Call the function to create pages n_pages times
-    
+
     # Return a list with 1 page per element
 }
 
@@ -485,56 +520,68 @@ You'll spend the most time on this and you will have to go through it many times
 ```{r level3}
 # Function to create random sentences
 createSentence <- function(){
-    
+
     # Define a list of nouns
     nouns <- c("parrot", "giant squid", "whale", "captain", "first mate")
-    
+
     # Define a list of adjectives
     adjectives <- c("hearty", "brave", "grimy", "tough", "swarthy")
-    
+
     # Define a list of adverbs
     adverbs <- c("quickly", "carefully")
-    
+
     # Define a list of verbs
     verbs <- c("scurried", "trundled", "rolled", "walked")
-    
+
     # Define a list of articles
     articles <- c("a", "the")
-    
+
     # Define a list of prepositions
     prepositions <- c("away", "below")
-    
+
     # Construct a sentence of the form article-adjective-noun-adverb-verb.
-    sentence <- paste(sample(articles, 1),
-                      sample(adjectives, 1),
-                      sample(nouns, 1),
-                      sample(adverbs, 1),
-                      sample(verbs, 1),
-                      sample(prepositions, 1))
-    
+    sentence <- paste(
+        sample(articles, 1)
+        , sample(adjectives, 1)
+        , sample(nouns, 1)
+        , sample(adverbs, 1)
+        , sample(verbs, 1)
+        , sample(prepositions, 1)
+    )
+
     # Return the sentence
     return(sentence)
 } 
 
 # Function to create a "page" with n sentences
 createPage <- function(n){
-    
+
     # Call the function to create pages n times
-    some_sentences <- sapply(1:n, FUN = function(x){createSentence()})
-    
+    some_sentences <- sapply(
+        X = 1:n
+        , FUN = function(x){
+            createSentence()
+        }
+    )
+
     # Paste the n results together into one string, separated by a period and a space.
     a_page <- paste(some_sentences, collapse = ". ")
-    
+
     # Return that one string
     return(a_page)
 }
 
 # Function to create a "book" with m pages
 createBook <- function(n_pages, sentences_per_page){
-    
+
     # Call the function to create pages n_pages times
-    a_book <- lapply(1:n_pages, function(x){createPage(n = sentences_per_page)})
-    
+    a_book <- lapply(
+        X = 1:n_pages
+        , FUN = function(x){
+            createPage(n = sentences_per_page)
+        }
+    )
+
     # Return a list with 1 page per element
     return(a_book)
 }
@@ -553,7 +600,7 @@ Use this slide as a general reference of coding best practices.
 - Declare all the dependencies you need in a bunch of `library()` calls at the top of your script(s)
 - Set global variables (like file paths) in all-caps near the top of your script(s)
 - Use comments like `#===== Section 1 - Do Stuff =====#` to separate major sections of the code
-- Namespace any calls to external functions with `::` (e.g. `lubridate::ymd_hms`)
+- Namespace any calls to external functions with `::` (e.g. `lubridate::ymd_hms()`)
 
 For other practices to keep your code clean and readable, check out [Hadley Wickham's style guide for R](http://adv-r.had.co.nz/Style.html).
 
@@ -581,7 +628,10 @@ VAR_UNITS   <- "Index (1982-1984 = 100)" # "% of labor force"
 quantmod::getSymbols(Symbols = FRED_SERIES, src = 'FRED')
 
 # Put it in a data.table
-dataDT <- data.table::data.table(get(FRED_SERIES), keep.rownames = TRUE)
+dataDT <- data.table::data.table(
+    get(FRED_SERIES)
+    , keep.rownames = TRUE
+)
 
 #===== 3. Plot it! =====#
 
@@ -592,5 +642,9 @@ rbokeh::figure(
     , ylab = VAR_UNITS
     , xlab = "date"
     , width = 800
-) %>% rbokeh::ly_lines(x = dataDT[,index], y = dataDT[,get(FRED_SERIES)], color = "blue")
+) %>% rbokeh::ly_lines(
+    x = dataDT[,index]
+    , y = dataDT[,get(FRED_SERIES)]
+    , color = "blue"
+  )
 ```

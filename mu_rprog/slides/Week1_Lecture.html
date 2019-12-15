@@ -657,7 +657,7 @@ ls(&quot;package:stats&quot;)
 <li><em>integer</em>: non-complex whole numbers. created with an L like - <code>anInteger &lt;- 1L</code></li>
 <li><em>numeric</em>: all real numbers. Default type for numbers in R - <code>someNums &lt;- c(1.005, 2)</code></li>
 <li><em>logical</em>: TRUE or FALSE. - <code>someLogicals &lt;- c(TRUE, FALSE, FALSE)</code></li>
-<li><em>character</em>: strings of arbitrary characters. Sometimes referred to informally as &quot;text data&quot;. - <code>stringVar &lt;- &quot;noone knows what it means. It&#39;s provocative.&quot;</code></li>
+<li><em>character</em>: strings of arbitrary characters. Sometimes referred to informally as &quot;text data&quot;. - <code>stringVar &lt;- &quot;no one knows what it means. It&#39;s provocative.&quot;</code></li>
 </ul>
 
   </article>
@@ -1169,10 +1169,9 @@ for (i in 1:length(studentList)){
 }
 </code></pre>
 
-<p>Luckily, R provides a built-in function called <code>lapply</code> to handle this more expressively. We&#39;ll cover R&#39;s <a href="https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU">apply family of functions</a> later in the course. Here&#39;s a sneak peek:</p>
+<p>Luckily, R provides a built-in function called <code>lapply()</code> to handle this more expressively. We&#39;ll cover R&#39;s <a href="https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU">apply family of functions</a> later in the course. Here&#39;s a sneak peek:</p>
 
-<pre><code class="r"># Better way with lapply
-grades &lt;- lapply(studentList, mean)
+<pre><code class="r">grades &lt;- lapply(studentList, mean)
 </code></pre>
 
   </article>
@@ -1192,9 +1191,9 @@ grades &lt;- lapply(studentList, mean)
 
 <p>Vectors and lists are crucial data structures in R, but you may find that they&#39;re difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.</p>
 
-<p>Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type.</p>
+<p>Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type.</p>
 
-<pre><code class="r"># Create a dataframe!
+<pre><code class="r"># Create a data frame!
 myDF &lt;- data.frame(
     time_period  = c(1, 2, 3, 4, 5)
     , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
@@ -1223,7 +1222,7 @@ str(myDF)
 
 <p>R comes with some sample data sets you can experiment with. Let&#39;s load the <code>mtcars</code> data.frame and test out some new commands!</p>
 
-<pre><code class="r"># Load the mtcars dataframe
+<pre><code class="r"># Load the mtcars data frame
 data(&quot;mtcars&quot;)
 
 # Check out its structure

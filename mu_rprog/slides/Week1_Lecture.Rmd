@@ -3,7 +3,6 @@ title       : ECON 6114 - R Programming
 subtitle    : Week 1
 author      : James Lamb
 job         : IoT Data Scientist | AWS
-logo        : 
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -428,7 +427,7 @@ Languages like Java and C are more verbose than R partially because they require
 - *integer*: non-complex whole numbers. created with an L like - `anInteger <- 1L`
 - *numeric*: all real numbers. Default type for numbers in R - `someNums <- c(1.005, 2)`
 - *logical*: TRUE or FALSE. - `someLogicals <- c(TRUE, FALSE, FALSE)`
-- *character*: strings of arbitrary characters. Sometimes referred to informally as "text data". - `stringVar <- "noone knows what it means. It's provocative."`
+- *character*: strings of arbitrary characters. Sometimes referred to informally as "text data". - `stringVar <- "no one knows what it means. It's provocative."`
 
 --- .content_slide
 
@@ -780,9 +779,8 @@ for (i in 1:length(studentList)){
     grades[[i]] <- mean(studentList[[i]])
 }
 ```
-Luckily, R provides a built-in function called `lapply` to handle this more expressively. We'll cover R's [apply family of functions](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU) later in the course. Here's a sneak peek:
+Luckily, R provides a built-in function called `lapply()` to handle this more expressively. We'll cover R's [apply family of functions](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU) later in the course. Here's a sneak peek:
 ```{r listLapply}
-# Better way with lapply
 grades <- lapply(studentList, mean)
 ```
 
@@ -797,10 +795,10 @@ grades <- lapply(studentList, mean)
 
 Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.
 
-Data frames are tables of data. Each column of a dataframe can be a different type, but all values within a column must be the same type.
+Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type.
 
 ```{r dataFrame, eval = FALSE}
-# Create a dataframe!
+# Create a data frame!
 myDF <- data.frame(
     time_period  = c(1, 2, 3, 4, 5)
     , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
@@ -824,7 +822,7 @@ str(myDF)
 R comes with some sample data sets you can experiment with. Let's load the `mtcars` data.frame and test out some new commands!
 
 ```{r dateFrame2, eval = FALSE}
-# Load the mtcars dataframe
+# Load the mtcars data frame
 data("mtcars")
 
 # Check out its structure

@@ -506,13 +506,13 @@ You Can Install Your Package with devtools::install_local
 <p>Now that we have a function in the package, we need to generate documentation for the package and install it! Do the following:</p>
 <ol style="list-style-type: decimal">
 <li>Set your working directory to the package. e.g. <code>setwd(&quot;~/repos/RquetteBB&quot;)</code></li>
-<li>Run <code>devtools::document()</code>. This function will populate your <code>NAMESPACE</code> file and (if we had written any yet) generate documentation that users could call with <code>?</code></li>
+<li>Run <code>roxygen2::roxygenize()</code>. This function will populate your <code>NAMESPACE</code> file and (if we had written any yet) generate documentation that users could call with <code>?</code></li>
 <li>Run <code>devtools::install_local(&quot;~/repos/RquetteBB&quot;, force = TRUE)</code> to install the package!</li>
 <li>Run <code>rm(list=ls())</code> to clear your working environment. Restart your R session.</li>
 <li>Run <code>library(RquetteBB)</code> to load the package</li>
 <li>Run <code>?NamesToAbbreviations</code> to see the documentation for that function</li>
 </ol>
-<p>Congratulations on creating your first R package! Lots of work still to be done, but you now have a minimum viable product (MVP) of the <code>Rquette</code> package.</p>
+<p>Congratulations on creating your first R package! Lots of work still to be done, but you now have a minimum viable product (MVP) of the <code>RquetteBB</code> package.</p>
 <h3>
 Document Your Functions with roxygen2
 </h3>
@@ -528,8 +528,8 @@ Document Your Functions with roxygen2
 #' @export
 NamesToAbbreviations &lt;- function(nameVec){
 #...</code></pre>
-<p>When you’ve added this information, save <code>my_functions.R</code> and re-run <code>devtools::document()</code>. Now try running <code>?NamesToAbbreviations</code> to see your documentation!</p>
-<p>These metadata items are called “roxygen comments”. Lines in package R files that begin with <code>#'</code> are analyzed by the <code>roxygen2</code> package when you run <code>devtools::document()</code>.</p>
+<p>When you’ve added this information, save <code>my_functions.R</code> and re-run <code>roxygen::roxygenize()</code>. Now try running <code>?NamesToAbbreviations</code> to see your documentation!</p>
+<p>These metadata items are called “roxygen comments”. Lines in package R files that begin with <code>#'</code> are analyzed by the <code>roxygen2</code> package when you run <code>roxygen2::roxygenize()</code>.</p>
 <ul>
 <li><code>@title</code>: A short description of what the function does</li>
 <li><code>@name</code>: The name of the function</li>
@@ -541,10 +541,10 @@ NamesToAbbreviations &lt;- function(nameVec){
 <p>Next, open up <code>DESCRIPTION</code> in a text editor of your choice. We need to add these two new dependencies! Under the <code>Depends:</code> line, add an <code>Imports:</code> blocks like this:</p>
 <p><strong>RquetteBB/DESCRIPTION</strong></p>
 <pre><code>Package: RquetteBB
-Title: Marquette BB in R
+Title: Marquette Basketball Data in R
 Version: 0.1
 Authors@R: person(&quot;James&quot;, &quot;Lamb&quot;, email = &quot;jaylamb20@gmail.com&quot;, role = c(&quot;aut&quot;, &quot;cre&quot;))
-Description: This package will be used to pull, analyze, and visualize Marquette Basketball data.
+Description: This package can be used to pull, analyze, and visualize Marquette men's basketball data.
 Depends: R (&gt;= 3.3.2)
 Imports:
     purrr,
@@ -552,13 +552,13 @@ Imports:
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1</code></pre>
+RoxygenNote: 7.0.2</code></pre>
 <p>There are <a href="http://r-pkgs.had.co.nz/description.html">four types</a> of dependency declarations used in R package <code>DESCRIPTION</code> files.</p>
 <ul>
 <li><strong>Depends</strong>: This section holds all things that are checked when someone calls <code>library()</code> on your package. Typically this section will just be used to enforce a minimum version of R that users of your package must have. If you put R packages here, they will automatically be loaded with <code>library()</code> whenever someone loads your package.</li>
 <li><strong>Imports</strong>: This section is really important. Imports holds the name of all the packages that your package’s functions use. These packages will not be loaded by default when someone calls <code>library(your_package)</code> but they will be <em>installed</em> when someone tries to install your package.</li>
 <li><strong>Suggests</strong>: R packages that are used to support your package but aren’t needed to run the code. Examples that commonly end up here are <code>testthat</code> for writing unit tests and <code>rmarkdown</code> for building documentaiton PDFs.</li>
-<li><strong>LinkingTo</strong>: Irrelevant. Don’t use this.</li>
+<li><strong>LinkingTo</strong>: Irrelevant unless your package has C, C++, or Fortran code in it.</li>
 </ul>
 <h3>
 Write Your First Unit Test
@@ -592,7 +592,7 @@ Add a Function to Scrape Marquette Basketball Data
 </h3>
 <p>Next, let’s add another function. This function, which we’ll call <code>GetData</code>, should go out to espn.com and scrape down player statistics for any specified season of Marquette basketball.</p>
 <p><strong>RquetteBB/R/my_functions.R</strong></p>
-<pre class="r"><code>#' @title Get Marquette BB Data
+<pre class="r"><code>#' @title Get Marquette Men's Basketball Data
 #' @name GetData
 #' @description This function scrapes sports-reference.com and returns some 
 #'              player statistics for Marquette's men's basketball team.
@@ -602,23 +602,23 @@ Add a Function to Scrape Marquette Basketball Data
 #' @importFrom htmltab htmltab
 #' @export
 GetData &lt;- function(season = &quot;2018&quot;){
-    
+
     # Build URL
     queryURL &lt;- paste0(
         &quot;https://www.sports-reference.com/cbb/schools/marquette/&quot;
         , season
         , &quot;.html&quot;
     )
-    
+
     # Grab tables from college basketbal reference
     result &lt;- htmltab::htmltab(
         queryURL
         , which = &quot;//table[@id = 'per_game']&quot;
     )
-    
+
     # Convert to data.table
     statDT &lt;- data.table::as.data.table(result)
-    
+
     # Coerce all the columns but Player to numeric
     numCols &lt;- setdiff(names(statDT), &quot;Player&quot;)
     statDT &lt;- cbind(
@@ -631,7 +631,7 @@ GetData &lt;- function(season = &quot;2018&quot;){
 }</code></pre>
 <p>Now that we’ve added a new function, we need to re-do a few thing:</p>
 <ol style="list-style-type: decimal">
-<li>Re-run <code>devtools::document()</code> to regenerate package documentaiton</li>
+<li>Re-run <code>roxygen2::roxygenize()</code> to regenerate package documentaiton</li>
 <li>Add any new packages we’ve added to the <code>DESCRIPTION</code> file
 <ul>
 <li>for this, we need to add data.table and XML</li>
@@ -664,12 +664,13 @@ test_that(&quot;GetData should return a data.table&quot;, {
 <h3>
 Add One More Function to Plot Data
 </h3>
-<p>You’re doing great! We should add one more function to the package. This function, <code>CompareOnStats</code>, should take a data table of season stats and create a scatterplot showing pairs of statistics for each player. For example, you could use this function to answer the question <em>Did Marquette’s highest scorers also tend to be beter rebounders?</em>.</p>
+<p>You’re doing great! We should add one more function to the package. This function, <code>CompareOnStats()</code>, should take a data table of season stats and create a scatterplot showing pairs of statistics for each player. For example, you could use this function to answer the question <em>Did Marquette’s highest scorers also tend to be beter rebounders?</em>.</p>
 <p>You’re a pro at adding new functions now, so I won’t belabor the points about adding documentation, updating the DESCRIPTION file, etc.. Let’s jump straight into an implementation of the funciton:</p>
 <p><strong>RquetteBB/R/my_functions.R</strong></p>
 <pre class="r"><code>#' @title Scatterplot Comparison of Player Stats
 #' @name CompareOnStats
-#' @description Given a data.table of Marquette basketball statistics, plot a bivariate scatterplot of player performance on the basis of two statistics
+#' @description Given a data.table of Marquette men's basketball statistics, plot a bivariate
+#'              scatterplot of player performance on the basis of two statistics
 #' @import data.table
 #' @importFrom graphics plot text
 #' @param statDT A data.table of Marquette season stats, pulled with \code{\link[RquetteBB]{GetData}}
@@ -684,7 +685,7 @@ CompareOnStats &lt;- function(statDT
                            , season
                            , useInitials = TRUE
 ){
-    
+
     # Create a scatterplot
     plot(
         x = statDT[, get(x_stat)]
@@ -695,21 +696,21 @@ CompareOnStats &lt;- function(statDT
         , col = &quot;white&quot;
         , main = paste0(x_stat, &quot; vs. &quot;, y_stat, &quot; (&quot;, season, &quot;)&quot;)
     )
-         
+
     # Grab abbreviations from player names if asked
     if (useInitials){
         namesToPlot &lt;- NamesToAbbreviations(statDT[, Player])
     } else {
         namesToPlot &lt;- statDT[, Player]
     }
-    
+
     # Add those abbreviations to the plot
     text(
         x = statDT[, get(x_stat)]
         , y = statDT[, get(y_stat)]
         , labels = namesToPlot
     )
-    
+
     return(invisible(NULL))
 }</code></pre>
 <h3>
