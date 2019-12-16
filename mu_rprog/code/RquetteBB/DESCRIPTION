@@ -1,4 +1,5 @@
 Package: RquetteBB
+Type: Package
 Title: Marquette BB in R
 Version: 0.1
 Authors@R: person("James", "Lamb", email = "jaylamb20@gmail.com", role = c("aut", "cre"))
@@ -12,7 +13,10 @@ Imports:
 Suggests:
 	roxygen2,
 	testthat
+URL: https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB
+BugReports: https://github.com/jameslamb/teaching//issues
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
+VignetteBuilder: knitr
 RoxygenNote: 7.0.2

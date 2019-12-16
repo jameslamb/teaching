@@ -54,42 +54,104 @@ library(testthat)
 
 <h3>Let's get started!</h3>
 
-We can use `devtools` from R to get a headstart! Please do the following:
+You can do most of the setup with R code!
 
-1. set your working directory (with `setwd`) to wherever you'd like the package to live. If you're not sure, just do `setwd("~/repos")`
-2. run `devtools::create('RquetteBB')`
-3. open up `DESCRIPTION` in your text editor of choice
+1. set your working directory (with `setwd()`) to wherever you'd like the package to live.
+
+```{r, eval=FALSE}
+repo_directory <- file.path(Sys.getenv("HOME"), "repos")
+dir.create(
+  repo_directory
+  , showWarnings = FALSE
+)
+setwd(repo_directory)
+```
+
+2. run `package.skeleton()` to create a basic package setup
+
+```{r, eval=FALSE}
+# Create the package skeleton
+package_name <- "RquetteBB"
+package.skeleton(
+  name = package_name
+)
+
+# Remove some unnecessary files
+package_path <- file.path(repo_directory, "RquetteBB")
+file.remove(file.path(package_path, "Read-and-delete-me"))
+file.remove(file.path(package_path, "NAMESPACE"))
+unlink(file.path(package_path, "data"), recursive = TRUE)
+unlink(file.path(package_path, "man"), recursive = TRUE)
+```
+
+3. open up `DESCRIPTION` in the text editor of choice
     - change version number to `0.1`
     - put your information (first name, last name, email) in the `Author` section
     - put an informative description in `Description:`
     - change license to `License: file LICENSE`
     - put an informative Title in `Title:`
-4. delete `RquetteBB.Rpoj`
-5. create a file called `LICENSE`
-    - just write the line: `You can use my stuff but you better give me credit!`
+4. create a file called `LICENSE`
+    - just write the line: ``
+
+```{r, eval=FALSE}
+license_txt <- "You can use my stuff but you better give me credit!"
+license_file <- file.path(package_path, "LICENSE")
+file.create(license_file)
+write(license_txt, file = license_file)
+```
+
+5. create the `man/` directory to store documentation files
+
+```{r, eval=FALSE}
+dir.create(file.path(package_path, "man"), showWarnings = FALSE)
+```
+
 6. create the `tests/` and `tests/testthat` directories
     - create a blank R script, `tests/testthat.R`
     - create a blank R script, `tests/testthat/test-my_functions.R`
+
+```{r, eval=FALSE}
+test_path <- file.path(package_path, "tests", "testthat")
+dir.create(
+    test_path
+    , showWarnings = FALSE
+    , recursive = TRUE
+)
+file.create(file.path(package_path, "tests", "testthat.R"))
+file.create(file.path(test_path, "test-my_functions.R"))
+```
+
 7. create a blank R script, `R/my_functions.R`
 
-I've provided a shell script you can run to generate this package. If you're curious:
+```{r, eval=FALSE}
+file.create(file.path(package_path, "R", "my_functions.R"))
+```
+
+Alternatively, I've provided a shell script you can run to generate this package.
 
 **make_rquettebb_pkg.sh**
 
 ```{r makePackage, engine = 'bash', eval = FALSE, echo = TRUE}
 # Create the package directory
-mkdir -p ~/repos
-cd ~/repos
+mkdir -p ${HOME}/repos
+cd ${HOME}/repos
 
 # Create package skeleton
-Rscript -e "devtools::create('RquetteBB')"
+Rscript -e "package.skeleton(name = 'RquetteBB', list = c('LETTERS'))"
+cd RquetteBB
+
+# Remove unnecessary stuff
+rm Read-and-delete-me
+rm -rf data/
+rm man/*.Rd
+rm NAMESPACE
 
 # Create all the required directories
+mkdir -p R
 mkdir -p tests/testthat
-mkdir man
 
 # Create all the required files
-echo "You can use this but you better cite me!" > LICENSE
+echo 'You can use this but you better cite me!\n' > LICENSE
 touch R/my_functions.R
 touch tests/testthat.R
 touch tests/testthat/test-my_functions.R
