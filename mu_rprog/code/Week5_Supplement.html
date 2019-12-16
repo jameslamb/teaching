@@ -430,11 +430,33 @@ Building a Package Skeleton
 <h3>
 Let’s get started!
 </h3>
-<p>We can use <code>devtools</code> from R to get a headstart! Please do the following:</p>
+<p>You can do most of the setup with R code!</p>
 <ol style="list-style-type: decimal">
-<li>set your working directory (with <code>setwd</code>) to wherever you’d like the package to live. If you’re not sure, just do <code>setwd(&quot;~/repos&quot;)</code></li>
-<li>run <code>devtools::create('RquetteBB')</code></li>
-<li>open up <code>DESCRIPTION</code> in your text editor of choice
+<li>set your working directory (with <code>setwd()</code>) to wherever you’d like the package to live.</li>
+</ol>
+<pre class="r"><code>repo_directory &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;)
+dir.create(
+  repo_directory
+  , showWarnings = FALSE
+)
+setwd(repo_directory)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>run <code>package.skeleton()</code> to create a basic package setup</li>
+</ol>
+<pre class="r"><code># Create the package skeleton
+package_name &lt;- &quot;RquetteBB&quot;
+package.skeleton(
+  name = package_name
+)
+
+# Remove some unnecessary files
+package_path &lt;- file.path(repo_directory, &quot;RquetteBB&quot;)
+file.remove(file.path(package_path, &quot;Read-and-delete-me&quot;))
+file.remove(file.path(package_path, &quot;NAMESPACE&quot;))
+unlink(file.path(package_path, &quot;data&quot;), recursive = TRUE)
+unlink(file.path(package_path, &quot;man&quot;), recursive = TRUE)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>open up <code>DESCRIPTION</code> in the text editor of choice
 <ul>
 <li>change version number to <code>0.1</code></li>
 <li>put your information (first name, last name, email) in the <code>Author</code> section</li>
@@ -442,33 +464,60 @@ Let’s get started!
 <li>change license to <code>License: file LICENSE</code></li>
 <li>put an informative Title in <code>Title:</code></li>
 </ul></li>
-<li>delete <code>RquetteBB.Rpoj</code></li>
 <li>create a file called <code>LICENSE</code>
 <ul>
-<li>just write the line: <code>You can use my stuff but you better give me credit!</code></li>
+<li>just write the line: ``</li>
 </ul></li>
+</ol>
+<pre class="r"><code>license_txt &lt;- &quot;You can use my stuff but you better give me credit!&quot;
+license_file &lt;- file.path(package_path, &quot;LICENSE&quot;)
+file.create(license_file)
+write(license_txt, file = license_file)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>create the <code>man/</code> directory to store documentation files</li>
+</ol>
+<pre class="r"><code>dir.create(file.path(package_path, &quot;man&quot;), showWarnings = FALSE)</code></pre>
+<ol start="6" style="list-style-type: decimal">
 <li>create the <code>tests/</code> and <code>tests/testthat</code> directories
 <ul>
 <li>create a blank R script, <code>tests/testthat.R</code></li>
 <li>create a blank R script, <code>tests/testthat/test-my_functions.R</code></li>
 </ul></li>
+</ol>
+<pre class="r"><code>test_path &lt;- file.path(package_path, &quot;tests&quot;, &quot;testthat&quot;)
+dir.create(
+    test_path
+    , showWarnings = FALSE
+    , recursive = TRUE
+)
+file.create(file.path(package_path, &quot;tests&quot;, &quot;testthat.R&quot;))
+file.create(file.path(test_path, &quot;test-my_functions.R&quot;))</code></pre>
+<ol start="7" style="list-style-type: decimal">
 <li>create a blank R script, <code>R/my_functions.R</code></li>
 </ol>
-<p>I’ve provided a shell script you can run to generate this package. If you’re curious:</p>
+<pre class="r"><code>file.create(file.path(package_path, &quot;R&quot;, &quot;my_functions.R&quot;))</code></pre>
+<p>Alternatively, I’ve provided a shell script you can run to generate this package.</p>
 <p><strong>make_rquettebb_pkg.sh</strong></p>
 <pre class="bash"><code># Create the package directory
-mkdir -p ~/repos
-cd ~/repos
+mkdir -p ${HOME}/repos
+cd ${HOME}/repos
 
 # Create package skeleton
-Rscript -e &quot;devtools::create('RquetteBB')&quot;
+Rscript -e &quot;package.skeleton(name = 'RquetteBB', list = c('LETTERS'))&quot;
+cd RquetteBB
+
+# Remove unnecessary stuff
+rm Read-and-delete-me
+rm -rf data/
+rm man/*.Rd
+rm NAMESPACE
 
 # Create all the required directories
+mkdir -p R
 mkdir -p tests/testthat
-mkdir man
 
 # Create all the required files
-echo &quot;You can use this but you better cite me!&quot; &gt; LICENSE
+echo 'You can use this but you better cite me!\n' &gt; LICENSE
 touch R/my_functions.R
 touch tests/testthat.R
 touch tests/testthat/test-my_functions.R</code></pre>
