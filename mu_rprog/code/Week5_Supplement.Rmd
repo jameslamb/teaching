@@ -194,9 +194,25 @@ NamesToAbbreviations <- function(nameVec){
 
 Now that we have a function in the package, we need to generate documentation for the package and install it! Do the following:
 
-1. Set your working directory to the package. e.g. `setwd("~/repos/RquetteBB")`
+1. Set your working directory to the package
+
+```{r, eval = FALSE, echo = TRUE}
+package_path <- file.path(Sys.getenv("HOME"), "repos", "RquetteBB")
+setwd(package_path)
+```
+
 2. Run `roxygen2::roxygenize()`. This function will populate your `NAMESPACE` file and (if we had written any yet) generate documentation that users could call with `?`
-3. Run `devtools::install_local("~/repos/RquetteBB", force = TRUE)` to install the package!
+
+```{r, eval = FALSE, echo = TRUE}
+rxygen2::roxygenize()
+```
+
+3. Run `devtools::install_local()` to install the package!
+
+```{r, eval = FALSE, echo = TRUE}
+devtools::install_local(package_path, force = TRUE)
+```
+
 4. Run `rm(list=ls())` to clear your working environment. Restart your R session.
 5. Run `library(RquetteBB)` to load the package
 6. Run `?NamesToAbbreviations` to see the documentation for that function

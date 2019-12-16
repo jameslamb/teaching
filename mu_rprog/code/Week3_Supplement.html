@@ -495,25 +495,31 @@ File Paths
 <p>Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer’s file system. These paths can either be <em>relative</em> (expressed as steps above/below your current location) or <em>absolute</em> (full addresses).</p>
 <p>All relative paths in R are relative to your <strong>working directory</strong>, a single location that you can set and reset any time in your session.</p>
 <pre class="r"><code># Check and then change the current working directory
-getwd()
-setwd(&quot;~/repos/sandbox&quot;)
+print(getwd())
+sandbox_repo &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;sandbox&quot;)
+setwd(sandbox_repo)
 
 # Reference a file with a full path
-myDF &lt;- read.csv(file = &quot;~/repos/sandbox/data/some_data.csv&quot;)
+myDF &lt;- read.csv(
+  file = file.path(sandbox_repo, &quot;data&quot;, &quot;some_data.csv&quot;)
+)
 
 # Reference a file with a relative path
 myDF &lt;- read.csv(file = &quot;./data/some_data.csv&quot;)</code></pre>
 <p>R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!</p>
 <pre class="r"><code># List all the files in some directory and put the list in a vector
-theFiles &lt;- list.files(path = &quot;~/repos/some_folder/docs/&quot;)
+docs_dir &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;some_folder&quot;, &quot;docs&quot;)
+theFiles &lt;- list.files(path = docs_dir)
 
 # Create a directory if it doesn't exist
-if (!dir.exists(&quot;~/repos/some_folder/docs/slides&quot;)) {
-    dir.create(&quot;~/repos/some_folder/docs/slides&quot;)
+slide_dir &lt;- file.path(docs_dir, &quot;slides&quot;)
+if (!dir.exists(slide_dir)) {
+    dir.create(slide_dir)
 }
 
 # Check if a file exists
-myFileExists &lt;- file.exists(&quot;~/repos/some_folder/docs/report.xlsx&quot;)</code></pre>
+report_file &lt;- file.path(docs_dir, &quot;report.xlsx&quot;)
+myFileExists &lt;- file.exists(report_file)</code></pre>
 <h2>
 R + Excel
 </h2>
@@ -521,8 +527,9 @@ R + Excel
 <p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
 <pre class="r"><code># Read an Excel file into a data.frame
 library(openxlsx)
+stock_file &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;sandbox&quot;, &quot;data&quot;, &quot;stockData.xlsx&quot;)
 newDF &lt;- openxlsx::read.xlsx(
-    xlsxFile = &quot;~/repos/sandbox/data/stockData.xlsx&quot;
+    xlsxFile = stock_file
 )</code></pre>
 <p>You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It’s tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.</p>
 <pre class="r"><code># load mtcars
@@ -543,9 +550,10 @@ openxlsx::writeData(
 )
 
 # Write out the file
+testing_file &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;sandbox&quot;, &quot;data&quot;, &quot;testing.xlsx&quot;)
 openxlsx::saveWorkbook(
     wb = testWB
-    , file = &quot;~/sandbox/data/testing.xlsx&quot;
+    , file = testing_file
 )</code></pre>
 <h2>
 Text Processing Exercise

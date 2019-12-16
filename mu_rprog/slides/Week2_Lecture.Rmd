@@ -145,7 +145,6 @@ If you're arriving at this slide and are disappointed not to find quiz answers, 
 R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
 ```{r lapplyExample, eval = FALSE}
-# Get some data
 data("ChickWeight")
 weights <- ChickWeight$weight
 
@@ -171,7 +170,6 @@ check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean()` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply()` ("simplified apply") comes in. `sapply()` works the same way that `lapply()` does but returns a vector. Try it for yourself:
 
 ```{r sapplyExample, eval = FALSE}
-# Get some data
 data("ChickWeight")
 weights <- ChickWeight$weight
 
@@ -197,7 +195,6 @@ check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply()` function comes in! Check it out
 
 ```{r applyExample, eval = FALSE}
-# Get some data
 data("ChickWeight")
 
 # Calculate column-wise range
@@ -552,7 +549,7 @@ To install R packages sitting on your file system, you can use `install_local()`
 <center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/week2_min_r_package.png"></a></center>
 
 ```{r install_local, eval = FALSE, echo = TRUE, warning = FALSE, message = FALSE}
-devtools::install_local(path = "~/path/to/package")
+devtools::install_local(path = "path/to/package")
 ```
 
 --- .content_slide
@@ -593,11 +590,12 @@ There is one other option we have not discussed yet, in part because it doesn't 
 
 *** =left
 
-**~/repos/my_script.R**
+**my_script.R**
 
 ```{r echo = TRUE, eval = FALSE}
 # Load in your functions
-source("~/repos/my_helper_functions.R")
+soure_file <- file.path("my_helper_functions.R")
+source(source_file)
 
 # Run pipeline
 myData <- createRandomData(100, "norm")
@@ -606,7 +604,7 @@ head(myData)
 
 *** =right
 
-**~/repos/my_helper_functions.R**
+**my_helper_functions.R**
 
 ```{r echo = TRUE, eval = FALSE}
 # Function returning random nums
@@ -761,7 +759,9 @@ There are lots of options to read these types of files into R, but for the purpo
 
 ```{r, eval = FALSE}
 # Store the path to your file in an object
-dataPath <- "~/repos/my_project/data/project_data.csv"
+dataPath <- file.path(
+  Sys.getenv("HOME"), "repos", "my_project", "data", "project_data.csv"
+)
 
 # Read the file into a data.frame
 dataDF <- read.delim(

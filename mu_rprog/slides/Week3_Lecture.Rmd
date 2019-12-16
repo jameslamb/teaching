@@ -273,11 +273,14 @@ All relative paths in R are relative to your **working directory**, a single loc
 
 ```{r setwdExample, eval = FALSE, echo = TRUE}
 # Check and then change the current working directory
-getwd()
-setwd("~/repos/my-cool-project")
+print(getwd())
+sandbox_repo <- file.path(Sys.getenv("HOME"), "repos", "sandbox")
+setwd(sandbox_repo)
 
 # Reference a file with a full path
-myDF <- read.csv(file = "~/repos/my-cool-project/data/some_data.csv")
+myDF <- read.csv(
+  file = file.path(sandbox_repo, "data", "some_data.csv")
+)
 
 # Reference a file with a relative path
 myDF <- read.csv(file = "./data/some_data.csv")
@@ -296,15 +299,18 @@ R provides a few other utilities for working with file paths and directory struc
 
 ```{r moarFilez, eval = FALSE, echo = TRUE}
 # List all the files in some directory and put the list in a vector
-theFiles <- list.files(path = "~/repos/some_folder/docs/")
+docs_dir <- file.path(Sys.getenv("HOME"), "some_folder", "docs")
+theFiles <- list.files(path = docs_dir)
 
 # Create a directory if it doesn't exist
-if (!dir.exists("~/repos/some_folder/docs/slides")) {
-    dir.create("~/repos/some_folder/docs/slides")
+slide_dir <- file.path(docs_dir, "slides")
+if (!dir.exists(slide_dir)) {
+    dir.create(slide_dir)
 }
 
 # Check if a file exists
-myFileExists <- file.exists("~/repos/some_folder/docs/report.xlsx")
+report_file <- file.path(docs_dir, "report.xlsx")
+myFileExists <- file.exists(report_file)
 ```
 
 --- .content_slide
@@ -323,7 +329,10 @@ NOTE: This package requires certain Java components that you may not have on you
 ```{r readingExcel, eval = FALSE, echo = TRUE}
 # Read an Excel file into a data.frame
 library(openxlsx)
-newDF <- openxlsx::read.xlsx(xlsxFile = "~/repos/my_project/data/stockData.xlsx")
+stock_file <- file.path(Sys.getenv("HOME"), "repos", "sandbox", "data", "stockData.xlsx")
+newDF <- openxlsx::read.xlsx(
+    xlsxFile = stock_file
+)
 ```
 
 --- .content_slide
@@ -349,7 +358,7 @@ openxlsx::addWorksheet(testWB, sheetName = "car_data")
 openxlsx::writeData(testWB, sheet = "car_data", x = mtcars)
 
 # Write out the file
-openxlsx::saveWorkbook(wb = testWB, file = "~/testing.xlsx")
+openxlsx::saveWorkbook(wb = testWB, file = "testing.xlsx")
 ```
 
 --- .section_slide
@@ -748,7 +757,7 @@ When R (or any other program!) creates plots, it needs to know where to put them
 
 ```{r path2png, eval = FALSE, echo = TRUE}
 # Create 10 plots in a loop
-outDir <- "~/sandbox"
+outDir <- file.path(Sys.getenv("HOME"), "sandbox")
 for (i in 1:10){
     # Open a connection to a .png file
     filePath <- paste0(outDir, "/plot_", i, ".png")
