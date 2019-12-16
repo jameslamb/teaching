@@ -70,7 +70,7 @@ Using the resources I've provided below, your goal is to download two series: Ja
 
 <h3>Submission</h3>
 
-Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt2.R*. In the example script below, I've filled in the pieces needed to pull the U.S. data and plot it. Your task is to fill out the rest of this script so that Japan is added to the same plot.
+Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt2.R*. In the example script below, I've filled in the pieces needed to pull the U.S. data. Your task is to fill out the rest of this script so that it produces a plot comparing Japan and the U.S.
 
 You need to complete all of the following steps, indicated by the phrase `### FILL THIS IN ###` in the example script below:
 
@@ -79,10 +79,10 @@ You need to complete all of the following steps, indicated by the phrase `### FI
 - Add the Japanese data to the `merge()` command to create a single dataset for plotting
     - please look at the documentation for `?merge`
 - set the plot type to line (hint: see `?graphics::plot`)
-- set the plot title to "Quandl Inflation Data""
+- set the plot title to "Quandl Inflation Data"
 - set the plot y-axis label to "CPI Inflation (%yoy)"
 - set the plot x-axis label to "time"
-- add the Japanese data to the plot with `lines(type = "l")`
+- add the U.S. data to the plot with `lines(type = "l")`
     - use the `col` argument within `lines()` to set the color of this line to "red"
 
 ```{r quandlData, eval = FALSE, echo = TRUE, message = FALSE, warning=FALSE}
@@ -100,14 +100,14 @@ names(jpnDF) <- ### FILL THIS IN ###
 # Combine the two data.frames with merge()
 mergedDF <- merge(
     x = usaDF,
-    y = jpnDF, ### FILL THIS IN ###,
+    y = ### FILL THIS IN ###,
     by = "Date"
 )
 
 # Plot the two series
 plot(
     x = mergedDF$Date,
-    y = mergedDF$USA_INF_YOY,
+    y = mergedDF$JPN_INF_YOY,
     type = ### FILL THIS IN ###,
     main = ### FILL THIS IN ###,
     xlab = ### FILL THIS IN ###,
