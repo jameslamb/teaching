@@ -223,8 +223,7 @@
 
 <p>R&#39;s <code>*apply</code> family of functions are a bit difficult to understand at first, but soon you&#39;ll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is <code>lapply</code> (&quot;list apply&quot;), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let&#39;s try it out:</p>
 
-<pre><code class="r"># Get some data
-data(&quot;ChickWeight&quot;)
+<pre><code class="r">data(&quot;ChickWeight&quot;)
 weights &lt;- ChickWeight$weight
 
 # Loop over and encode &quot;above mean&quot; and &quot;below mean&quot;
@@ -254,8 +253,7 @@ check_vec &lt;- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
 
 <p>On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like <code>mean()</code> over a list. For that, we&#39;d probably prefer to have a <em>vector</em> of results. This is where R&#39;s <code>sapply()</code> (&quot;simplified apply&quot;) comes in. <code>sapply()</code> works the same way that <code>lapply()</code> does but returns a vector. Try it for yourself:</p>
 
-<pre><code class="r"># Get some data
-data(&quot;ChickWeight&quot;)
+<pre><code class="r">data(&quot;ChickWeight&quot;)
 weights &lt;- ChickWeight$weight
 
 # Loop over and encode &quot;above mean&quot; and &quot;below mean&quot;
@@ -285,8 +283,7 @@ check_vec &lt;- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
 
 <p>When analyzing real-world datasets, you may want to use the same looping convention we&#39;ve been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R&#39;s <code>apply()</code> function comes in! Check it out</p>
 
-<pre><code class="r"># Get some data
-data(&quot;ChickWeight&quot;)
+<pre><code class="r">data(&quot;ChickWeight&quot;)
 
 # Calculate column-wise range
 apply(ChickWeight, MARGIN = 2, FUN = function(x){range(as.numeric(x))})
@@ -768,7 +765,7 @@ find.package(&quot;dml&quot;)
 
 <p><center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/week2_min_r_package.png"></a></center></p>
 
-<pre><code class="r">devtools::install_local(path = &quot;~/path/to/package&quot;)
+<pre><code class="r">devtools::install_local(path = &quot;path/to/package&quot;)
 </code></pre>
 
   </article>
@@ -822,10 +819,11 @@ my_func &lt;- function(n){
 <p>There is one other option we have not discussed yet, in part because it doesn&#39;t technically involve the use of packages. Many analysts working in R prefer to define a file with their function and use <code>source()</code> to make those functions available to other scripts.</p>
 
 <div style='float:left;width:48%;' class='centered'>
-  <p><strong>~/repos/my_script.R</strong></p>
+  <p><strong>my_script.R</strong></p>
 
 <pre><code class="r"># Load in your functions
-source(&quot;~/repos/my_helper_functions.R&quot;)
+soure_file &lt;- file.path(&quot;my_helper_functions.R&quot;)
+source(source_file)
 
 # Run pipeline
 myData &lt;- createRandomData(100, &quot;norm&quot;)
@@ -834,7 +832,7 @@ head(myData)
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><strong>~/repos/my_helper_functions.R</strong></p>
+  <p><strong>my_helper_functions.R</strong></p>
 
 <pre><code class="r"># Function returning random nums
 createRandomData &lt;- function(n, dist){
@@ -1050,7 +1048,9 @@ x
 <p>There are lots of options to read these types of files into R, but for the purposes of this class we will stick with <code>read.delim()</code>.</p>
 
 <pre><code class="r"># Store the path to your file in an object
-dataPath &lt;- &quot;~/repos/my_project/data/project_data.csv&quot;
+dataPath &lt;- file.path(
+  Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;my_project&quot;, &quot;data&quot;, &quot;project_data.csv&quot;
+)
 
 # Read the file into a data.frame
 dataDF &lt;- read.delim(

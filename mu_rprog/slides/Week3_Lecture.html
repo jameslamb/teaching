@@ -385,11 +385,14 @@ levels(wbDF$regions)
 <p>All relative paths in R are relative to your <strong>working directory</strong>, a single location that you can set and reset any time in your session.</p>
 
 <pre><code class="r"># Check and then change the current working directory
-getwd()
-setwd(&quot;~/repos/my-cool-project&quot;)
+print(getwd())
+sandbox_repo &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;sandbox&quot;)
+setwd(sandbox_repo)
 
 # Reference a file with a full path
-myDF &lt;- read.csv(file = &quot;~/repos/my-cool-project/data/some_data.csv&quot;)
+myDF &lt;- read.csv(
+  file = file.path(sandbox_repo, &quot;data&quot;, &quot;some_data.csv&quot;)
+)
 
 # Reference a file with a relative path
 myDF &lt;- read.csv(file = &quot;./data/some_data.csv&quot;)
@@ -413,15 +416,18 @@ myDF &lt;- read.csv(file = &quot;./data/some_data.csv&quot;)
 <p>R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!</p>
 
 <pre><code class="r"># List all the files in some directory and put the list in a vector
-theFiles &lt;- list.files(path = &quot;~/repos/some_folder/docs/&quot;)
+docs_dir &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;some_folder&quot;, &quot;docs&quot;)
+theFiles &lt;- list.files(path = docs_dir)
 
 # Create a directory if it doesn&#39;t exist
-if (!dir.exists(&quot;~/repos/some_folder/docs/slides&quot;)) {
-    dir.create(&quot;~/repos/some_folder/docs/slides&quot;)
+slide_dir &lt;- file.path(docs_dir, &quot;slides&quot;)
+if (!dir.exists(slide_dir)) {
+    dir.create(slide_dir)
 }
 
 # Check if a file exists
-myFileExists &lt;- file.exists(&quot;~/repos/some_folder/docs/report.xlsx&quot;)
+report_file &lt;- file.path(docs_dir, &quot;report.xlsx&quot;)
+myFileExists &lt;- file.exists(report_file)
 </code></pre>
 
   </article>
@@ -445,7 +451,10 @@ myFileExists &lt;- file.exists(&quot;~/repos/some_folder/docs/report.xlsx&quot;)
 
 <pre><code class="r"># Read an Excel file into a data.frame
 library(openxlsx)
-newDF &lt;- openxlsx::read.xlsx(xlsxFile = &quot;~/repos/my_project/data/stockData.xlsx&quot;)
+stock_file &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;sandbox&quot;, &quot;data&quot;, &quot;stockData.xlsx&quot;)
+newDF &lt;- openxlsx::read.xlsx(
+    xlsxFile = stock_file
+)
 </code></pre>
 
   </article>
@@ -476,7 +485,7 @@ openxlsx::addWorksheet(testWB, sheetName = &quot;car_data&quot;)
 openxlsx::writeData(testWB, sheet = &quot;car_data&quot;, x = mtcars)
 
 # Write out the file
-openxlsx::saveWorkbook(wb = testWB, file = &quot;~/testing.xlsx&quot;)
+openxlsx::saveWorkbook(wb = testWB, file = &quot;testing.xlsx&quot;)
 </code></pre>
 
   </article>
@@ -1006,7 +1015,7 @@ par(mfrow = c(1,1))
 <p>When R (or any other program!) creates plots, it needs to know where to put them! When you call <code>plot()</code> or other commands from within and RStudio session, the default is to just display the resulting figure in the &quot;Plots&quot; pane. However, you can use other <strong>graphics devices</strong> (places to put visual output) to tell R to put your figures elsewhere.</p>
 
 <pre><code class="r"># Create 10 plots in a loop
-outDir &lt;- &quot;~/sandbox&quot;
+outDir &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;sandbox&quot;)
 for (i in 1:10){
     # Open a connection to a .png file
     filePath &lt;- paste0(outDir, &quot;/plot_&quot;, i, &quot;.png&quot;)

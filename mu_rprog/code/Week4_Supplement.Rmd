@@ -41,6 +41,11 @@ data("swiss")
 ?swiss
 ```
 
+```{r, eval = TRUE, echo = FALSE}
+# make the sampling below the same every time this is knitted
+set.seed(8910)
+```
+
 ```{r traintest, eval = TRUE, echo = TRUE}
 # Test vs. Training Data: Let's hold out 40 random records right now for testing
 testIndx    <- sample(1:nrow(swiss), size = 10, replace = FALSE)
@@ -606,7 +611,7 @@ For other practices to keep your code clean and readable, check out [Hadley Wick
 
 My script below shows an example of a typical layout for professional-quality R code.
 
-**~/repos/some_project/make_plot.R**
+**make_plot.R**
 
 ```{r someScript}
 #===== 1. Setup =====#

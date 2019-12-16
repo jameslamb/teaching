@@ -554,9 +554,19 @@ You Can Install Your Package with devtools::install_local
 </h3>
 <p>Now that we have a function in the package, we need to generate documentation for the package and install it! Do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Set your working directory to the package. e.g. <code>setwd(&quot;~/repos/RquetteBB&quot;)</code></li>
+<li>Set your working directory to the package</li>
+</ol>
+<pre class="r"><code>package_path &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;RquetteBB&quot;)
+setwd(package_path)</code></pre>
+<ol start="2" style="list-style-type: decimal">
 <li>Run <code>roxygen2::roxygenize()</code>. This function will populate your <code>NAMESPACE</code> file and (if we had written any yet) generate documentation that users could call with <code>?</code></li>
-<li>Run <code>devtools::install_local(&quot;~/repos/RquetteBB&quot;, force = TRUE)</code> to install the package!</li>
+</ol>
+<pre class="r"><code>rxygen2::roxygenize()</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Run <code>devtools::install_local()</code> to install the package!</li>
+</ol>
+<pre class="r"><code>devtools::install_local(package_path, force = TRUE)</code></pre>
+<ol start="4" style="list-style-type: decimal">
 <li>Run <code>rm(list=ls())</code> to clear your working environment. Restart your R session.</li>
 <li>Run <code>library(RquetteBB)</code> to load the package</li>
 <li>Run <code>?NamesToAbbreviations</code> to see the documentation for that function</li>
