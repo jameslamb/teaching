@@ -106,6 +106,8 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*          |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution appears rushed, sloppy*                     |                          |
 
+There are definitely good and bad ways to comment code. For some tips, see [this code-commenting tutorial](https://www.learncpp.com/cpp-tutorial/comments/) I really like.
+
 ---
 
 <h2>Part 3: Code Review</h2>
