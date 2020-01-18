@@ -30,8 +30,6 @@ knit        : slidify::knit2slides
 
 <h2 class="content_slide">Welcome to Class!</h2>
 
-I'm pumped for this.
-
 <center><img src="./assets/img/you_gon_learn_today.jpg"></center>
 
 --- .toc_slide &twocol
@@ -131,13 +129,13 @@ I'm pumped for this.
     - M.S.A.E. (2014)
 
 >- <b>Since Marquette:</b>
-    - Data Scientist @ [AWS](https://aws.amazon.com/) in Chicago, IL 2019-present
-    - Data Scientist @ [Uptake](https://uptake.com/) in Chicago, IL 2016-2019
+    - Data Scientist @ [Uptake](https://uptake.com/) then [AWS](https://aws.amazon.com/), 2016-present
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
     - Co-author and maintainer of [uptasticsearch](https://github.com/UptakeOpenSource/uptasticsearch) and [pkgnet](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
+    - Maintainer on [LightGBM](https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues)
     - Created ["Timeseries with data.table in R"](https://www.datacamp.com/courses/time-series-with-datatable-in-r) DataCamp course
-    - Analyst/Economist @ [IHS Economics](https://www.ihs.com/industry/economics-country-risk.html), [Abbott Laboratories](http://www.abbott.com/)
-    - Finished 20+ data science and computer science MOOCs (incl. [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science) | [UMich Python/Web](https://www.coursera.org/specializations/python))
+    - Analyst/Economist @ [IHS Economics](https://www.ihs.com/industry/economics-country-risk.html), [Abbott Laboratories](http://www.abbott.com/), 2014-2015
+    - Finished 20+ data science and computer science MOOCs (incl. [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science))
     - Co-wrote an EViews add-in to perform time-series cross validation. [code](https://github.com/jameslamb/ML4EVIEWS) | [blog](http://blog.eviews.com/2016/04/add-in-round-up-for-2016-q1.html)
 
 --- .content_slide
@@ -187,7 +185,7 @@ The main objectives for the course are as follows:
 
 <h2>Installing R + RStudio</h2>
 
-Programming in R begins with installing R! To install R:
+Programming in R begins with installing R!
 
 * Go to https://cran.r-project.org/
 * Choose the appropriate download for your operating system (you'll see links like "Download R for Mac OS")
@@ -261,7 +259,6 @@ A few common ones you'll want to know for this course:
 - General text files (.md, .txt)
 - R scripts (.R, .r)
 - SQL queries (.sql)
-- Git-specific files (.gitignore, .gitkeep, .gitprofile)
 - Slides and reports (.css, .html, .pdf, .rmd)
 
 *** =right
@@ -337,8 +334,11 @@ When R is just one of the tools in your stack, it's often quicker to execute you
 Interpreted languages are those which break commands down into building blocks called "subroutines" that have already been compiled in machine code (source: [Wikipedia](https://en.wikipedia.org/wiki/Interpreted_language)). Much of the R source code (including these subroutines) is actually written in C.
 
 To ensure that that process of breaking down ("interpreting") code goes smoothly, R needs to use a few keywords to identify crucial operations. Like other scripting languages, it has a set of "reserved words" which you cannot use as object names.
-<br><br><br>
-<center><img src="./assets/img/week1_reserved_words.png"></center>
+<br><br>
+
+**Run `?reserved` in RStudio**
+
+**Run `TRUE = 4` in RStudio**
 
 --- .content_slide
 
@@ -403,7 +403,7 @@ someData <- readRDS("my_data.rds")
 
 When you execute a statement like `x <- 5` in R, you are creating an **object** in memory which holds the numeric **value** 5 and is referenced by the **variable name** "x".
 
-If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thought of as collections of labels pointing to places in memory. You can use R's `search` command to examine the ordered list of namespaces that R will search in for variables.
+If you later ask R to do something like `y <- x + 2`, it will search through a series of **namespaces** until it finds a variable called "x". Namespaces can be thought of as collections of labels pointing to places in memory. You can use R's `search()` command to examine the ordered list of namespaces that R will search in for variables.
 
 ```{r namespaces, eval = FALSE}
 # Check the search path of namespaces
@@ -424,10 +424,10 @@ ls("package:stats")
 
 Languages like Java and C are more verbose than R partially because they require programmers to explicitly declare *types* for data values. We will not go into the intricacy of typing in this course, but you should be familiar with the following types (this knowledge will serve you well across all languages):
 
-- *integer*: non-complex whole numbers. created with an L like - `anInteger <- 1L`
-- *numeric*: all real numbers. Default type for numbers in R - `someNums <- c(1.005, 2)`
-- *logical*: TRUE or FALSE. - `someLogicals <- c(TRUE, FALSE, FALSE)`
-- *character*: strings of arbitrary characters. Sometimes referred to informally as "text data". - `stringVar <- "no one knows what it means. It's provocative."`
+- *integer*: non-complex whole numbers. created with an L like `anInteger <- 1L`
+- *numeric*: all real numbers. Default type for numbers in R `someNums <- c(1.005, 2)`
+- *logical*: TRUE or FALSE. `someLogicals <- c(TRUE, FALSE, FALSE)`
+- *character*: strings of arbitrary characters. Sometimes referred to informally as "text data". `stringVar <- "Chicago Heights"`
 
 --- .content_slide
 
@@ -492,7 +492,9 @@ Languages like Java and C are more verbose than R partially because they require
 
 <h2>Controlling Program Flow: If-Else</h2>
 
-Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
+Soon after you start writing code (in any language), you'll find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
+
+<br>
 
 ```{r ifElse1, eval = TRUE, echo = TRUE, warning = FALSE, message = FALSE}
 x <- 4
@@ -779,7 +781,7 @@ for (i in 1:length(studentList)){
     grades[[i]] <- mean(studentList[[i]])
 }
 ```
-Luckily, R provides a built-in function called `lapply()` to handle this more expressively. We'll cover R's [apply family of functions](https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU) later in the course. Here's a sneak peek:
+Luckily, R provides a built-in function called `lapply()` to handle this more expressively. We'll cover R's [apply family of functions](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/) later in the course. Here's a sneak peek:
 ```{r listLapply}
 grades <- lapply(studentList, mean)
 ```
@@ -876,7 +878,7 @@ We covered a lot of stuff this week, and will have to be selective about which t
 
 **Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/)
 
-**R**: [DataCamp](https://www.datacamp.com/) | [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
+**R**: [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
 
 **RStudio**: [RStudio blog](https://blog.rstudio.org/)
 

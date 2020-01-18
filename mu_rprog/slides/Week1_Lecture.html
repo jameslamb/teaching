@@ -68,8 +68,6 @@
 
 <h2 class="content_slide">Welcome to Class!</h2>
 
-<p>I&#39;m pumped for this.</p>
-
 <p><center><img src="./assets/img/you_gon_learn_today.jpg"></center></p>
 
   </article>
@@ -209,13 +207,13 @@
 <li><p><b>Since Marquette:</b></p>
 
 <ul>
-<li>Data Scientist @ <a href="https://aws.amazon.com/">AWS</a> in Chicago, IL 2019-present</li>
-<li>Data Scientist @ <a href="https://uptake.com/">Uptake</a> in Chicago, IL 2016-2019</li>
+<li>Data Scientist @ <a href="https://uptake.com/">Uptake</a> then <a href="https://aws.amazon.com/">AWS</a>, 2016-present</li>
 <li>M.I. in Data Science, University of California - Berkeley (<a href="https://datascience.berkeley.edu/">MIDS</a>)</li>
 <li>Co-author and maintainer of <a href="https://github.com/UptakeOpenSource/uptasticsearch">uptasticsearch</a> and <a href="https://github.com/UptakeOpenSource/pkgnet">pkgnet</a> packages on CRAN</li>
+<li>Maintainer on <a href="https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues">LightGBM</a></li>
 <li>Created <a href="https://www.datacamp.com/courses/time-series-with-datatable-in-r">&quot;Timeseries with data.table in R&quot;</a> DataCamp course</li>
-<li>Analyst/Economist @ <a href="https://www.ihs.com/industry/economics-country-risk.html">IHS Economics</a>, <a href="http://www.abbott.com/">Abbott Laboratories</a></li>
-<li>Finished 20+ data science and computer science MOOCs (incl. <a href="https://www.coursera.org/specializations/jhu-data-science">JHU Data Science</a> | <a href="https://www.coursera.org/specializations/python">UMich Python/Web</a>)</li>
+<li>Analyst/Economist @ <a href="https://www.ihs.com/industry/economics-country-risk.html">IHS Economics</a>, <a href="http://www.abbott.com/">Abbott Laboratories</a>, 2014-2015</li>
+<li>Finished 20+ data science and computer science MOOCs (incl. <a href="https://www.coursera.org/specializations/jhu-data-science">JHU Data Science</a>)</li>
 <li>Co-wrote an EViews add-in to perform time-series cross validation. <a href="https://github.com/jameslamb/ML4EVIEWS">code</a> | <a href="http://blog.eviews.com/2016/04/add-in-round-up-for-2016-q1.html">blog</a></li>
 </ul></li>
 </ul>
@@ -297,7 +295,7 @@ The main objectives for the course are as follows:</p>
 
 <h2>Installing R + RStudio</h2>
 
-<p>Programming in R begins with installing R! To install R:</p>
+<p>Programming in R begins with installing R!</p>
 
 <ul>
 <li>Go to <a href="https://cran.r-project.org/">https://cran.r-project.org/</a></li>
@@ -394,7 +392,6 @@ The main objectives for the course are as follows:</p>
 <li>General text files (.md, .txt)</li>
 <li>R scripts (.R, .r)</li>
 <li>SQL queries (.sql)</li>
-<li>Git-specific files (.gitignore, .gitkeep, .gitprofile)</li>
 <li>Slides and reports (.css, .html, .pdf, .rmd)</li>
 </ul>
 
@@ -512,8 +509,11 @@ The main objectives for the course are as follows:</p>
 <p>Interpreted languages are those which break commands down into building blocks called &quot;subroutines&quot; that have already been compiled in machine code (source: <a href="https://en.wikipedia.org/wiki/Interpreted_language">Wikipedia</a>). Much of the R source code (including these subroutines) is actually written in C.</p>
 
 <p>To ensure that that process of breaking down (&quot;interpreting&quot;) code goes smoothly, R needs to use a few keywords to identify crucial operations. Like other scripting languages, it has a set of &quot;reserved words&quot; which you cannot use as object names.
-<br><br><br>
-<center><img src="./assets/img/week1_reserved_words.png"></center></p>
+<br><br></p>
+
+<p><strong>Run <code>?reserved</code> in RStudio</strong></p>
+
+<p><strong>Run <code>TRUE = 4</code> in RStudio</strong></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -627,7 +627,7 @@ someData &lt;- readRDS(&quot;my_data.rds&quot;)
 
 <p>When you execute a statement like <code>x &lt;- 5</code> in R, you are creating an <strong>object</strong> in memory which holds the numeric <strong>value</strong> 5 and is referenced by the <strong>variable name</strong> &quot;x&quot;.</p>
 
-<p>If you later ask R to do something like <code>y &lt;- x + 2</code>, it will search sequentially through a series of <strong>namespaces</strong> until it finds a variable called &quot;x&quot;. Namespaces can be thought of as collections of labels pointing to places in memory. You can use R&#39;s <code>search</code> command to examine the ordered list of namespaces that R will search in for variables.</p>
+<p>If you later ask R to do something like <code>y &lt;- x + 2</code>, it will search through a series of <strong>namespaces</strong> until it finds a variable called &quot;x&quot;. Namespaces can be thought of as collections of labels pointing to places in memory. You can use R&#39;s <code>search()</code> command to examine the ordered list of namespaces that R will search in for variables.</p>
 
 <pre><code class="r"># Check the search path of namespaces
 search()
@@ -654,10 +654,10 @@ ls(&quot;package:stats&quot;)
 <p>Languages like Java and C are more verbose than R partially because they require programmers to explicitly declare <em>types</em> for data values. We will not go into the intricacy of typing in this course, but you should be familiar with the following types (this knowledge will serve you well across all languages):</p>
 
 <ul>
-<li><em>integer</em>: non-complex whole numbers. created with an L like - <code>anInteger &lt;- 1L</code></li>
-<li><em>numeric</em>: all real numbers. Default type for numbers in R - <code>someNums &lt;- c(1.005, 2)</code></li>
-<li><em>logical</em>: TRUE or FALSE. - <code>someLogicals &lt;- c(TRUE, FALSE, FALSE)</code></li>
-<li><em>character</em>: strings of arbitrary characters. Sometimes referred to informally as &quot;text data&quot;. - <code>stringVar &lt;- &quot;no one knows what it means. It&#39;s provocative.&quot;</code></li>
+<li><em>integer</em>: non-complex whole numbers. created with an L like <code>anInteger &lt;- 1L</code></li>
+<li><em>numeric</em>: all real numbers. Default type for numbers in R <code>someNums &lt;- c(1.005, 2)</code></li>
+<li><em>logical</em>: TRUE or FALSE. <code>someLogicals &lt;- c(TRUE, FALSE, FALSE)</code></li>
+<li><em>character</em>: strings of arbitrary characters. Sometimes referred to informally as &quot;text data&quot;. <code>stringVar &lt;- &quot;Chicago Heights&quot;</code></li>
 </ul>
 
   </article>
@@ -769,7 +769,9 @@ ls(&quot;package:stats&quot;)
 
 <h2>Controlling Program Flow: If-Else</h2>
 
-<p>Soon after you start writing code (in any language), you&#39;ll inevitably find yourself saying &quot;I only want to do this thing if certain conditions are met&quot;. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming">if-else syntax</a>)</p>
+<p>Soon after you start writing code (in any language), you&#39;ll find yourself saying &quot;I only want to do this thing if certain conditions are met&quot;. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming">if-else syntax</a>)</p>
+
+<p><br></p>
 
 <pre><code class="r">x &lt;- 4
 if (x &gt; 5){
@@ -1169,7 +1171,7 @@ for (i in 1:length(studentList)){
 }
 </code></pre>
 
-<p>Luckily, R provides a built-in function called <code>lapply()</code> to handle this more expressively. We&#39;ll cover R&#39;s <a href="https://www.datacamp.com/community/tutorials/r-tutorial-apply-family#gs.ER5hbLU">apply family of functions</a> later in the course. Here&#39;s a sneak peek:</p>
+<p>Luckily, R provides a built-in function called <code>lapply()</code> to handle this more expressively. We&#39;ll cover R&#39;s <a href="https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/">apply family of functions</a> later in the course. Here&#39;s a sneak peek:</p>
 
 <pre><code class="r">grades &lt;- lapply(studentList, mean)
 </code></pre>
@@ -1297,7 +1299,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
 
 <p><strong>Bash</strong>: <a href="https://www.codecademy.com/learn/learn-the-command-line">Codecademy</a> | <a href="https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/">Learn Bash</a></p>
 
-<p><strong>R</strong>: <a href="https://www.datacamp.com/">DataCamp</a> | <a href="http://swirlstats.com/">swirl</a> | <a href="https://www.coursera.org/specializations/jhu-data-science">JHU Data Science</a></p>
+<p><strong>R</strong>: <a href="http://swirlstats.com/">swirl</a> | <a href="https://www.coursera.org/specializations/jhu-data-science">JHU Data Science</a></p>
 
 <p><strong>RStudio</strong>: <a href="https://blog.rstudio.org/">RStudio blog</a></p>
 

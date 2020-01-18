@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 <h1>Week 1 Programming Supplement</h1>
 
-This document contains code that were too long to display in the week's slides. Unlike code in the slides, all examples below are executed so you can see the values.
+This document contains code is too long to display in the week's slides. Unlike code in the slides, all examples below are executed so you can see the values.
 
 You should use these programming supplements to follow along and try executing the example code yourself.
 
@@ -160,14 +160,14 @@ movie_list <- c(
 MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
 # Faster while loop implementation
-KEEP_SEARCHING = TRUE
+KEEP_SEARCHING <- TRUE
 i = 1
 while (KEEP_SEARCHING){
     
     # Check this element
     if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
         print(paste0(i, ": found it!"))
-        KEEP_SEARCHING = FALSE
+        KEEP_SEARCHING <- FALSE
     } else {
         print(paste0(i, ": not found"))
     }
@@ -217,7 +217,7 @@ sqrt()
 <h2>Default Argument Values</h2>
 
 - For more complicated functions, passing values to each argument can get burdensome
-- To handle this, R allows function authors to specify *default arguments*. These are values that certain arguments will take automatically unless you decide to overwrite them
+- To handle this, R allows function authors to specify *default values*. These are values that certain arguments will take automatically unless you decide to overwrite them
 - Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`. 
 
 ```{r normalDraw}
@@ -230,7 +230,7 @@ rand_nums <- rnorm(n = 100, mean = 4.5)
 
 <h2>User-Defined Functions</h2>
 
-As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you'll be able to do some really powerful stuff. We'll spend more time on functions in the following weeks, but here's a sneak peak of what is possible:
+R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you'll be able to do some really powerful stuff. We'll spend more time on functions in the following weeks, but here's a sneak peak of what is possible:
 
 ```{r udfs}
 library(stargazer)
