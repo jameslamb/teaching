@@ -393,7 +393,7 @@ summary {
 <h1>
 Week 1 Programming Supplement
 </h1>
-<p>This document contains code that were too long to display in the week’s slides. Unlike code in the slides, all examples below are executed so you can see the values.</p>
+<p>This document contains code is too long to display in the week’s slides. Unlike code in the slides, all examples below are executed so you can see the values.</p>
 <p>You should use these programming supplements to follow along and try executing the example code yourself.</p>
 <h2>
 Variables and Namespaces
@@ -672,14 +672,14 @@ for (movie in movie_list) {
 MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
 
 # Faster while loop implementation
-KEEP_SEARCHING = TRUE
+KEEP_SEARCHING &lt;- TRUE
 i = 1
 while (KEEP_SEARCHING){
     
     # Check this element
     if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
         print(paste0(i, &quot;: found it!&quot;))
-        KEEP_SEARCHING = FALSE
+        KEEP_SEARCHING &lt;- FALSE
     } else {
         print(paste0(i, &quot;: not found&quot;))
     }
@@ -729,7 +729,7 @@ Default Argument Values
 </h2>
 <ul>
 <li>For more complicated functions, passing values to each argument can get burdensome</li>
-<li>To handle this, R allows function authors to specify <em>default arguments</em>. These are values that certain arguments will take automatically unless you decide to overwrite them</li>
+<li>To handle this, R allows function authors to specify <em>default values</em>. These are values that certain arguments will take automatically unless you decide to overwrite them</li>
 <li>Example: look at <code>?rnorm</code>. You’ll see that this function’s signature reads <code>rnorm(n, mean = 0, sd = 1)</code>.</li>
 </ul>
 <pre class="r"><code># 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
@@ -740,7 +740,7 @@ rand_nums &lt;- rnorm(n = 100, mean = 4.5)</code></pre>
 <h2>
 User-Defined Functions
 </h2>
-<p>As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you’ll be able to do some really powerful stuff. We’ll spend more time on functions in the following weeks, but here’s a sneak peak of what is possible:</p>
+<p>R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you’ll be able to do some really powerful stuff. We’ll spend more time on functions in the following weeks, but here’s a sneak peak of what is possible:</p>
 <pre class="r"><code>library(stargazer)
 
 # Wrap your modeling pipeline in a function so you can do model comparisons
