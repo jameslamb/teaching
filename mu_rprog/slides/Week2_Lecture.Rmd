@@ -76,10 +76,10 @@ widgets     : bootstrap
 <b class="toc_header"> IV. Using External Packages </b>
 <ol class="toc" type="none">
     <li> Loading Installed Packages     <span style="float:right"> 25 </span></li>
-    <li> Namespacing Calls              <span style="float:right"> 26 </span></li>
-    <li> Installing from CRAN           <span style="float:right"> 27 </span></li>
-    <li> Installing from GitHub         <span style="float:right"> 28 </span></li>
-    <li> Installing Local Code          <span style="float:right"> 29 </span></li>
+    <li> Installing from CRAN           <span style="float:right"> 26 </span></li>
+    <li> Installing from GitHub         <span style="float:right"> 27 </span></li>
+    <li> Installing Local Code          <span style="float:right"> 28 </span></li>
+    <li> Namespacing Calls              <span style="float:right"> 29 </span></li>
     <li> library() vs. require()        <span style="float:right"> 30 </span></li>
     <li> Using Local Code with source() <span style="float:right"> 31 </span></li>
 </ol>
@@ -131,7 +131,7 @@ widgets     : bootstrap
 
 I will show the questions from quiz 1 that a lot of students struggled with. Not including them in these slides in case I teach the course again in the future.
 
-If you're arriving at this slide and are disappointed not to find quiz answers, I'm sorry but I'll at least give you this bit of entertainment. Go check out [A Day in the Life of Americas](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/)
+If you're arriving at this slide and are disappointed not to find quiz answers, I'm sorry but I'll at least give you this bit of entertainment. Go check out [A Day in the Life of Americans](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/)
 
 --- .content_slide
 
@@ -371,6 +371,9 @@ You'll find yourself at http://stackoverflow.com/ REGULARLY.
 
 If print debugging doesn't work, you may want to ask someone (a colleague, a package author, your teach) for help in debugging the issue. Before asking for someone's help, you owe it to them to try to reduce the problem to a **Minimum Working Example (MWE)**, the simplest possible code that reproduces the error.
 
+* [this is bad](https://github.com/uptake/uptasticsearch/issues/140)
+* [this is good](https://github.com/uptake/pkgnet/issues/70)
+
 <br>
 
 In many instances, you'll find that just doing this exercise will reveal the problem before you even have to ask for anyone's help.
@@ -467,31 +470,6 @@ rbokeh::figure(data = cpiDT, title = "U.S. CPI",
     <script>FooterBubbles(2,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
-<h2>Namespacing Calls</h2>
-
-You may have noticed that I use `::` frequently in my code. Remember when we used `search()` to print the ordered list of namespaces that R searches for objects? `::` is used to circumvent this process. `lubridate::ymd_hms()` tells R *"Use the function ymd_hms from the 'lubridate' package"*
-
-Without namespacing, R will search through the list of namespaces until it finds what it wants. When you load a new package that has a function with the same name as one already loaded in your session, R will warn you that that version has been "masked".
-
-```{r eval = FALSE, echo = TRUE, warning = TRUE}
-library(lubridate)
-```
-
-```
-Attaching package: 'lubridate'
-
-The following object is masked from 'package:base':
-
-    date
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(3,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
 <h2>Installing from CRAN</h2>
 
 **[CRAN](https://cran.r-project.org/)**, "The Comprehensive R Archive Network", is the main server from which you'll download external packages. It provides an easy framework for distributing code (way better than passing around hundreds of links to GitHub repos).
@@ -514,7 +492,7 @@ utils::update.packages()
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(3,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Installing from GitHub</h2>
@@ -536,7 +514,7 @@ find.package("dml")
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(4,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Installing Local Code</h2>
@@ -550,6 +528,31 @@ To install R packages sitting on your file system, you can use `install_local()`
 
 ```{r install_local, eval = FALSE, echo = TRUE, warning = FALSE, message = FALSE}
 devtools::install_local(path = "path/to/package")
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+    <script>FooterBubbles(5,7)</script>IV. Using External Packages<span style="float:right">ECON 6114 - R Programming</span>
+</footer>
+
+<h2>Namespacing Calls</h2>
+
+You may have noticed that I use `::` frequently in my code. Remember when we used `search()` to print the ordered list of namespaces that R searches for objects? `::` is used to circumvent this process. `lubridate::ymd_hms()` tells R *"Use the function ymd_hms from the 'lubridate' package"*
+
+Without namespacing, R will search through the list of namespaces until it finds what it wants. When you load a new package that has a function with the same name as one already loaded in your session, R will warn you that that version has been "masked".
+
+```{r eval = FALSE, echo = TRUE, warning = TRUE}
+library(lubridate)
+```
+
+```
+Attaching package: 'lubridate'
+
+The following object is masked from 'package:base':
+
+    date
 ```
 
 --- .content_slide
