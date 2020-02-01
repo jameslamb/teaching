@@ -18,7 +18,7 @@ The learning objectives for this course can be summarized by the terms "independ
 Your task for the final project is construct a small analysis of a real-world dataset relevant to economics, finance, or business. The main deliverable will be one or more R scripts (you are more than welcome to have, for example, a `get_data.R` and a separate `analyze_data.R`) which accomplish all the following tasks:
 
 1. **Read in data from the web or from a local file**
-    - If you download one or more files yourself and have your code read them from your local machine, you must include a comment or printed message in your script that tells users exactly how to download the dataset themselves
+    - Anyone should be able to run your code to load the data, without needing any data files you provide. If you have manually-collected data, I can show you how to host it publicly.
     - Please see this [list of example data sources](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/some_data_sources.md) for some ideas to get you started
 2. **Preprocess those data so they are ready for analysis**
     - Put the data into a data.frame, data.table, or matrix
@@ -52,7 +52,8 @@ This report should answer the following items:
 
 - What data set do you plan to use? Where can others find it? What variables does it contain?
 - What is the question you're trying to answer?
-    - e.g. *"I am using data on Japanese 10-year bond yields and inflation to predict BOJ monetary policy dovishness / hawkishness."*
+    - good: *"I am using data on Japanese 10-year bond yields and inflation to predict BOJ monetary policy dovishness / hawkishness."*
+    - bad: *"I am analyzing bond data"*
 - What "Data Retrieval and Munging" package do you plan to use? What does that package do?
 - What "Math and Statistics" package do you plan to use? What does that package do?
 - What "Visualization, Presentation, and Reporting" package do you plan to use? What does that package do?
@@ -84,7 +85,7 @@ Your script will be scored out of 100 points, using the following rubric:
 |Grade Item                                                                          |Total Possible Points     |
 |:-----------------------------------------------------------------------------------|:------------------------:|
 |**All-or-Nothing Grade Items**                                                      |                          |
-|&nbsp;&nbsp;1. All code runs without error                                          |25                        |
+|&nbsp;&nbsp;1. All code runs without error (with no reliance on local data)         |25                        |
 |&nbsp;&nbsp;2. Uses at least one Data Retrieval and Munging package                 |5                         |
 |&nbsp;&nbsp;3. Uses at least one Math and Statistics package                        |5                         |
 |&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |5                         |
