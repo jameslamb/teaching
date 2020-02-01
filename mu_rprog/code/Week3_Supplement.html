@@ -562,7 +562,7 @@ download.file(
   , header = TRUE
 )
 print(head(irisDF))</code></pre>
-<p>This function can also read JSON data directly from files on the internet.</p>
+<p>This function can also read CSV data directly from files on the internet.</p>
 <pre class="r"><code>irisDF &lt;- read.csv(
   file = iris_url
   , header = TRUE
@@ -574,15 +574,22 @@ Excel
 <p>In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You’ll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we’ll focus on <a href="https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf">openxlsx</a>.</p>
 <p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
 <p>To begin this example, download the example file from the course repository.</p>
-<pre class="r"><code>gdp_file &lt;- &quot;gdp.xlsx&quot;
+<pre class="r"><code>gdp_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/gdp.xlsx&quot;
+gdp_file &lt;- &quot;gdp.xlsx&quot;
 download.file(
-  url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/gdp.xlsx&quot;
+  url = gdp_url
   , destfile = gdp_file
 )</code></pre>
 <p>Then read it in with <code>openxlsx::read.xlsx()</code> and view it with <code>head()</code>.</p>
 <pre class="r"><code>library(openxlsx)
 gdpDF &lt;- openxlsx::read.xlsx(
     xlsxFile = gdp_file
+)
+print(head(gdpDF))</code></pre>
+<p>This function can also read Excel data directly from files on the internet.</p>
+<pre class="r"><code>library(openxlsx)
+gdpDF &lt;- openxlsx::read.xlsx(
+    xlsxFile = gdp_url
 )
 print(head(gdpDF))</code></pre>
 <p>You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It’s tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.</p>
