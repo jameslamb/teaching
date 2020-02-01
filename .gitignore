@@ -8,6 +8,7 @@
 *.pptx
 *.xls
 *.xlsx
+!mu_rprog/sample-data/gdp.xlsx
 
 # data
 *.rds
