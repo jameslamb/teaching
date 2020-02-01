@@ -311,7 +311,7 @@ As you've probably already learned, writing code involves a never-ending process
 
 The simplest way to debug an issue in your code is to use **print debugging**. This approach involves forming expectations about the state of the objects in your environment at each point in your code, then printing those states at each point to find where things broke.
 
-Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for and example of this approach.
+Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an example of this approach.
 
 --- .content_slide
 

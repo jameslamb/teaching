@@ -116,7 +116,7 @@
     <li> Step 3: Fill in Your Code! <span style="float:right">         24 </span></li>
 </ol>
 
-<p><b class="toc_header"> IV. Final Project Discussion </b></p>
+<p><b class="toc_header"> V. Final Project Discussion </b></p>
 
 <ol class = "toc" type="none">
     <li> Code Review Tips <span style="float:right">       26 </span></li>
@@ -234,7 +234,10 @@ str(swiss)
 
 <pre><code class="r"># 1. Is fertility very different in provinces with above-median % of men in Agriculture
 swiss$majority_agg &lt;- swiss$Agriculture &gt; median(swiss$Agriculture)
-t.test(Fertility ~ majority_agg, data = swiss)
+t.test(
+  Fertility ~ majority_agg
+  , data = swiss
+)
 </code></pre>
 
 <p><br>
@@ -258,7 +261,10 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
 <p>OK now that we&#39;ve done some basic preprocessing and exploration, it&#39;s time to start fitting models! Let&#39;s begin with a simple one-variable OLS regression, estimated using the <code>lm()</code> command.</p>
 
 <pre><code class="r"># Simple regression: Fertility = f(Agriculture)
-mod1 &lt;- lm(Fertility ~ Agriculture, data = swiss)
+mod1 &lt;- lm(
+  Fertility ~ Agriculture
+  , data = swiss
+)
 </code></pre>
 
 <p>Once you have the fitted model, you can pass it and some new data to <code>predict()</code> to generate predictions. Model evaluation metrics commonly used in regression problems:</p>
@@ -317,11 +323,17 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
 <p>To add more variables to a model in R, you have to use formula notation. I&#39;ve specified specific right-hand side variables in this case, but if you want to express the idea &quot;all of the X variables&quot;, you can use a statement like <code>Fertility ~ .</code>.</p>
 
 <pre><code class="r"># Fit
-mod2 &lt;- lm(Fertility ~ Education + Infant.Mortality + Examination_above_median,
-           data = swiss)
+mod2 &lt;- lm(
+  Fertility ~ Education + Infant.Mortality + Examination_above_median
+  , data = swiss
+)
 
 # Predict + Evaluate
-regPreds2 &lt;- EvaluateModel(mod2, testDF = swissTestDF, modelName = &quot;Expanded OLS&quot;)
+regPreds2 &lt;- EvaluateModel(
+  mod2
+  , testDF = swissTestDF
+  , modelName = &quot;Expanded OLS&quot;
+)
 </code></pre>
 
   </article>
@@ -365,13 +377,19 @@ regPreds2 &lt;- EvaluateModel(mod2, testDF = swissTestDF, modelName = &quot;Expa
 <p>I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.</p>
 
 <pre><code class="r"># Fit
-rfMod &lt;- randomForest::randomForest(Fertility ~ .
-                                    , data = swiss
-                                    , ntree = 50
-                                    , do.trace = TRUE)
+rfMod &lt;- randomForest::randomForest(
+  Fertility ~ .
+  , data = swiss
+  , ntree = 50
+  , do.trace = TRUE
+)
 
 # Evaluate
-rfPreds &lt;- EvaluateModel(rfMod, swissTestDF, &quot;Random Forest (ntree=100)&quot;)
+rfPreds &lt;- EvaluateModel(
+  rfMod
+  , swissTestDF
+  , &quot;Random Forest (ntree=100)&quot;
+)
 </code></pre>
 
   </article>
@@ -394,12 +412,13 @@ rfPreds &lt;- EvaluateModel(rfMod, swissTestDF, &quot;Random Forest (ntree=100)&
 <p>Let&#39;s see how the models we trained in this exercise performed:</p>
 
 <pre><code class="r"># Build a table showing performance of each model type on the holdout
-compDF &lt;- data.frame(modelName = c(&quot;Expanded OLS&quot;, &quot;Decision Tree&quot;, &quot;Random Forest (ntree=100)&quot;),
-                     MAE       = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE),
-                     MSE       = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE),
-                     MAPE       = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
-                     )
-compDF
+compDF &lt;- data.frame(
+  modelName = c(&quot;Expanded OLS&quot;, &quot;Decision Tree&quot;, &quot;Random Forest (ntree=100)&quot;)
+  , MAE     = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE)
+  , MSE     = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE)
+  , MAPE    = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
+)
+print(compDF)
 </code></pre>
 
   </article>
@@ -438,13 +457,20 @@ compDF
 
 <p><strong>cbind = &quot;column-wise bind&quot;</strong></p>
 
-<pre><code class="r">dealerDF1 &lt;- data.frame(dealer_id = c(1:20),
-                        avg_price = runif(20, min = 15, max = 75),
-                        avg_margin = runif(20, min = -0.1, max = 0.45))
+<pre><code class="r">dealerDF1 &lt;- data.frame(
+  dealer_id = c(1:20)
+  , avg_price = runif(20, min = 15, max = 75)
+  , avg_margin = runif(20, min = -0.1, max = 0.45)
+)
 
-dealerDF2 &lt;- data.frame(dealer_id = c(1:20),
-                        industry = sample(c(&quot;Mining&quot;, &quot;Healthcare&quot;, &quot;Robot Stuff&quot;),
-                                          size = 20, replace = TRUE))
+dealerDF2 &lt;- data.frame(
+    dealer_id = c(1:20)
+    , industry = sample(
+        c(&quot;Mining&quot;, &quot;Healthcare&quot;, &quot;Robot Stuff&quot;)
+        , size = 20
+        , replace = TRUE
+    )
+)
 fullDF &lt;- cbind(dealerDF1, dealerDF2)
 </code></pre>
 
@@ -465,15 +491,26 @@ fullDF &lt;- cbind(dealerDF1, dealerDF2)
 
 <p><code>cbind</code> works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn&#39;t happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think <code>JOIN</code> in SQL or <code>VLOOKUP</code> in Excel. To perform this operation in R, you can use the <code>merge</code> command.</p>
 
-<pre><code class="r">dealerDF1 &lt;- data.frame(dealer_id = c(20:1),
-                        avg_price = runif(20, min = 15, max = 75),
-                        avg_margin = runif(20, min = -0.1, max = 0.45))
+<pre><code class="r">dealerDF1 &lt;- data.frame(
+    dealer_id = c(20:1)
+    , avg_price = runif(20, min = 15, max = 75)
+    , avg_margin = runif(20, min = -0.1, max = 0.45)
+)
 
-dealerDF2 &lt;- data.frame(dealer_id = c(1:20),
-                        industry = sample(c(&quot;Mining&quot;, &quot;Healthcare&quot;, &quot;Robot Stuff&quot;),
-                                          size = 20, replace = TRUE))
+dealerDF2 &lt;- data.frame(
+    dealer_id = c(1:20)
+    , industry = sample(
+        c(&quot;Mining&quot;, &quot;Healthcare&quot;, &quot;Robot Stuff&quot;)
+        , size = 20
+        , replace = TRUE
+    )
+)
 
-fullDF2 &lt;- merge(dealerDF1, dealerDF2, by = &quot;dealer_id&quot;)
+fullDF2 &lt;- merge(
+    dealerDF1
+    , dealerDF2
+    , by = &quot;dealer_id&quot;
+)
 </code></pre>
 
   </article>
@@ -495,13 +532,25 @@ fullDF2 &lt;- merge(dealerDF1, dealerDF2, by = &quot;dealer_id&quot;)
 
 <p><strong>rbind = &quot;row-wise bind&quot;</strong></p>
 
-<pre><code class="r">sample1 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-01-01&quot;),
-                                           to = as.Date(&quot;2016-06-30&quot;), length.out = 180),
-                      value = rnorm(180, 5, 2.5), sampleId = rep(&quot;sample1&quot;, 180))
+<pre><code class="r">sample1 &lt;- data.frame(
+    startTime = seq.Date(
+        from = as.Date(&quot;2016-01-01&quot;)
+        , to = as.Date(&quot;2016-06-30&quot;)
+        , length.out = 180
+    )
+    , value = rnorm(180, 5, 2.5)
+    , sampleId = rep(&quot;sample1&quot;, 180)
+)
 
-sample2 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-07-01&quot;),
-                                           to = as.Date(&quot;2017-03-31&quot;), length.out = 210),
-                      value = rnorm(210, 5, 2.5), sampleId = rep(&quot;sample2&quot;, 210))
+sample2 &lt;- data.frame(
+    startTime = seq.Date(
+        from = as.Date(&quot;2016-07-01&quot;)
+        , to = as.Date(&quot;2017-03-31&quot;)
+        , length.out = 210
+    )
+    , value = rnorm(210, 5, 2.5)
+    , sampleId = rep(&quot;sample2&quot;, 210)
+)
 
 fullDF &lt;- rbind(sample1, sample2)
 </code></pre>
@@ -523,17 +572,36 @@ fullDF &lt;- rbind(sample1, sample2)
 
 <p><code>rbind</code> works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout <code>rbindlist</code> from the <code>data.table</code> package.</p>
 
-<pre><code class="r">sample1 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-01-01&quot;),
-                                           to = as.Date(&quot;2016-06-30&quot;), length.out = 180),
-                      value = rnorm(180, 5, 2.5))
-sample2 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2016-07-01&quot;),
-                                           to = as.Date(&quot;2017-03-31&quot;), length.out = 210),
-                      value = rnorm(210, 5, 2.5))
-sample3 &lt;- data.frame(startTime = seq.Date(from = as.Date(&quot;2017-05-01&quot;),
-                                           to = as.Date(&quot;2017-12-31&quot;), length.out = 240),
-                      value = rnorm(240, 5, 2.5))
+<pre><code class="r">sample1 &lt;- data.frame(
+    startTime = seq.Date(
+        from = as.Date(&quot;2016-01-01&quot;)
+        , to = as.Date(&quot;2016-06-30&quot;)
+        , length.out = 180
+    )
+    , value = rnorm(180, 5, 2.5)
+)
 
-fullDF &lt;- data.table::rbindlist(list(sample1, sample2, sample3))
+sample2 &lt;- data.frame(
+    startTime = seq.Date(
+        from = as.Date(&quot;2016-07-01&quot;)
+        , to = as.Date(&quot;2017-03-31&quot;)
+        , length.out = 210
+    )
+    , value = rnorm(210, 5, 2.5)
+)
+
+sample3 &lt;- data.frame(
+    startTime = seq.Date(
+        from = as.Date(&quot;2017-05-01&quot;)
+        , to = as.Date(&quot;2017-12-31&quot;)
+        , length.out = 240
+    )
+    , value = rnorm(240, 5, 2.5)
+)
+
+fullDF &lt;- data.table::rbindlist(
+    list(sample1, sample2, sample3)
+)
 </code></pre>
 
   </article>
@@ -659,7 +727,7 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
     <p><hr></hr>
 </br></br></br></p>
 
-<h2>Final Project Discussion</h2>
+<h2>Working With Strings</h2>
 
   </article>
   <!-- Presenter Notes -->
@@ -671,7 +739,163 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(1,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(1,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+</footer></p>
+
+<h2>Common Preprocessing Steps</h2>
+
+<p>In this section, we&#39;re going to revisit the <a href="https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt">Shakespeare corpus</a> we looked at in Week 2 and implement a basic &quot;keyword extraction&quot; pipeline. Let&#39;s start by loading it and doing some common string preprocessing on it.</p>
+
+<pre><code class="r"># Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
+shakespeareFile &lt;- &quot;https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt&quot;
+bsText &lt;- readLines(con = shakespeareFile, n = 10000)[5001:10000]
+
+# 1 - Convert everything to lowercase
+bsText &lt;- tolower(bsText)
+
+# 2 - Trim leading and trailing whitespace (e.g. change &quot;   a&quot; to &quot;a&quot;)
+bsText &lt;- trimws(bsText)
+
+# 3 - Remove empty lines
+bsText &lt;- bsText[sapply(bsText, nchar)&gt;0]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-26" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(2,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+</footer></p>
+
+<h2>Intro to Regular Expressions</h2>
+
+<p>After applying these basic steps, we&#39;re going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">regular expressions</a>.</p>
+
+<p>Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let&#39;s work through some examples to demonstrate the properties.</p>
+
+<pre><code class="r"># 4 - Remove punctuation
+bsText &lt;- gsub(pattern = &quot;;|,|!|?|\\.|\\:|&lt;|&gt;|\\]|\\[&quot;, replacement = &quot;&quot;, bsText)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-27" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(3,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+</footer></p>
+
+<h2>Intro to Regular Expressions</h2>
+
+<p>You can run <code>sample(bsText, 10)</code> and see that our data are looking cleaner...but we still have work to do! Next, let&#39;s use regular expressions (commonly just called &quot;regex&quot;) to handle some other issues.</p>
+
+<pre><code class="r"># 5 - split some common contractions into two words
+bsText &lt;- gsub(&quot;he(&#39;s)&quot;, &quot;he is&quot;, bsText)
+bsText &lt;- gsub(&quot;&#39;ll&quot;, &quot; will&quot;, bsText)
+
+# 6 - Change any numbers to __number__
+bsText &lt;- gsub(&quot;[:digit:]*&quot;, &quot;__number__&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-28" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(4,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+</footer></p>
+
+<h2>Tokenization</h2>
+
+<p>The next task we need to accomplish is <strong>tokenizing</strong> our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.</p>
+
+<pre><code class="r"># 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
+library(stringr)
+library(data.table)
+allWords &lt;- lapply(
+    bsText
+    , FUN = function(thisLine){
+        return(data.frame(words = str_split(thisLine, &quot; &quot;)[[1]]))
+    }
+)
+
+# 8 - Put into a data.table and print that just to make sure it worked
+wordDT &lt;- data.table::rbindlist(allWords)
+wordDT
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-29" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(5,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+</footer></p>
+
+<h2>Counting Words in Text</h2>
+
+<p>Now that our data are a bit cleaner, it&#39;s time to try finding key terms! Broadly speaking, &quot;key terms&quot; in a body of text are those that more common in the text than they are in the language as a whole (e.g. &quot;the&quot; will never be a key word). We aren&#39;t looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we&#39;ll just drop the top 20 words and call the next 20 &quot;key&quot;.</p>
+
+<p>The <code>data.table</code> package makes this operation easy to carry out.</p>
+
+<pre><code class="r"># 9 - Get Word counts and sort by those counts
+wordCountDT &lt;- wordDT[, .N, by = words]
+data.table::setnames(wordCountDT, old = &quot;N&quot;, new = &quot;word_count&quot;)
+data.table::setorder(wordCountDT, -word_count)
+wordCountDT
+
+key_words &lt;- wordCountDT[21:40]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="section_slide" id="slide-30" style="background:;">
+  
+  <hgroup>
+    <h2>Section V.</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><hr></hr>
+</br></br></br></p>
+
+<h2>Final Project Discussion</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-31" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(1,3)</script>V. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
 <h2>Code Review Tips</h2>
@@ -697,12 +921,12 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
   
 </slide>
 
-<slide class="content_slide" id="slide-26" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(2,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(2,3)</script>V. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
 <h2>Scripting: Style Notes</h2>
@@ -723,12 +947,12 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
   
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(3,3)</script>IV. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(3,3)</script>V. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
 <h2>Project Q&A</h2>
@@ -933,6 +1157,48 @@ For more, see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/We
       <a href="#" target="_self" rel='tooltip' 
         data-slide=27 title='NA'>
          27
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='NA'>
+         28
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=29 title='NA'>
+         29
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=30 title='Section V.'>
+         30
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=31 title='NA'>
+         31
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=32 title='NA'>
+         32
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=33 title='NA'>
+         33
       </a>
     </li>
     

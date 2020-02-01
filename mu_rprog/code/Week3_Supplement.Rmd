@@ -124,7 +124,13 @@ myDF <- read.csv(
 myDF <- read.csv(file = "./data/some_data.csv")
 ```
 
-R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!
+R provides a few other utilities for working with file paths and directory structures.
+
+* `file.path()`: create a filepath from multiple parts
+* `file.exists()`: returns `TRUE` is a file exists and  `FALSE` if it doesn't
+* `list.files()`: get a character vector with names of all files found in a directory
+* `dir.exists()`: returns `TRUE` is a directory exists and  `FALSE` if it doesn't
+* `dir.create()`: create a new directory
 
 ```{r moarFilez, eval = FALSE, echo = TRUE}
 # List all the files in some directory and put the list in a vector
@@ -142,19 +148,89 @@ report_file <- file.path(docs_dir, "report.xlsx")
 myFileExists <- file.exists(report_file)
 ```
 
-<h2>R + Excel</h2>
+<h2>Downloading files from the internet</h2>
+
+To download files hosted on the internet, you can use `download.file()`.
+
+```{r, eval = FALSE, echo = TRUE}
+download.file(
+  url = "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv"
+  , destfile = "iris.csv"
+)
+```
+
+<h2>CSV</h2>
+
+CSV stands for "comma-separated values". This format is a really common to share small, tabular datasets because it is just a text file, and can be ready by many different types of programs. R has several options for reading this type of file.
+
+* `read.csv()`: base R function for reading CSVs into a `data.frame`
+* `data.table::fread()`: super-fast CSV reader that creates a special type of `data.frame` called a `data.table`
+* `read.delim()`: similar to `read.csv()`, but can read files with any delimiter
+* `readr::read_csv()`: CSV reader from RStudio
+
+A CSV is just a plaintext file where the first row is column names separated by columns and each following row is an observation with columns separated by commas.
+
+```text
+date,open,close
+01-01-2012,10.5,8.9
+01-02-2012,8.9,10.3
+```
+
+To begin this example, download the example file from the course repository.
+
+```{r, eval=FALSE, echo=TRUE}
+iris_url <- "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv"
+iris_file <- "iris.csv"
+download.file(
+  url = iris_url
+  , destfile = iris_file
+)
+```
+
+Then read it in with `read.csv()` and inspect it with `head()`.
+
+```{r, eval=FALSE, echo=TRUE}
+irisDF <- read.csv(
+  file = iris_file
+  , header = TRUE
+)
+print(head(irisDF))
+```
+
+This function can also read JSON data directly from files on the internet.
+
+```{r, eval=FALSE, echo=TRUE}
+irisDF <- read.csv(
+  file = iris_url
+  , header = TRUE
+)
+print(head(irisDF))
+```
+
+<h2>Excel</h2>
 
 In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You'll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we'll focus on [openxlsx](https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf).
 
 NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or 2) exploring other packages like [xlsx](https://cran.r-project.org/web/packages/xlsx/xlsx.pdf) or [readxl](https://cran.r-project.org/web/packages/readxl/readxl.pdf).
 
-```{r readingExcel, eval = FALSE, echo = TRUE}
-# Read an Excel file into a data.frame
-library(openxlsx)
-stock_file <- file.path(Sys.getenv("HOME"), "repos", "sandbox", "data", "stockData.xlsx")
-newDF <- openxlsx::read.xlsx(
-    xlsxFile = stock_file
+To begin this example, download the example file from the course repository.
+
+```{r, eval=FALSE, echo=TRUE}
+gdp_file <- "gdp.xlsx"
+download.file(
+  url = "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/gdp.xlsx"
+  , destfile = gdp_file
 )
+```
+
+Then read it in with `openxlsx::read.xlsx()` and view it with `head()`.
+
+```{r readingExcel, eval = FALSE, echo = TRUE}
+library(openxlsx)
+gdpDF <- openxlsx::read.xlsx(
+    xlsxFile = gdp_file
+)
+print(head(gdpDF))
 ```
 
 You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
@@ -178,100 +254,86 @@ openxlsx::writeData(
 )
 
 # Write out the file
-testing_file <- file.path(Sys.getenv("HOME"), "sandbox", "data", "testing.xlsx")
+testing_file <- file.path(Sys.getenv("HOME"), "testing.xlsx")
 openxlsx::saveWorkbook(
     wb = testWB
     , file = testing_file
 )
 ```
 
-<h2>Text Processing Exercise</h2>
+<h2>JSON</h2>
 
-<h3>Common Preprocessing Steps</h3>
+JSON ("Javascript Object Notation") is a standard format for "semi-structured" or "nested" data. It's a plain-text format that can be used by many programs and programming languages.
 
-In this section, we're going to revisit the [Shakespeare corpus](https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt) we looked at in Week 2 and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
-
-```{r startTextAnalysis}
-# Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
-shakespeareFile <- "https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt"
-bsText <- readLines(con = shakespeareFile, n = 10000)[5001:10000]
-
-# 1 - Convert everything to lowercase
-bsText <- tolower(bsText)
-
-# 2 - Trim leading and trailing whitespace (e.g. change "   a" to "a")
-bsText <- trimws(bsText)
-
-# 3 - Remove empty lines
-bsText <- bsText[sapply(bsText, nchar)>0]
+```
+{
+  "status": 200,
+  "data": [
+    {"customer_name": "Lupe", "purchases": 10},
+    {"customer_name": "Wale", "purchases": 30}
+  ]
+}
 ```
 
-<h3>Intro to Regular Expressions</h3>
+To begin this example, download the example file from the course repository.
 
-After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
-
-Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let's work through some examples to demonstrate the properties.
-
-```{r regex1}
-# 4 - Remove punctuation
-bsText <- gsub(
-    pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\["
-    , replacement = ""
-    , x =  bsText
+```{r, eval=FALSE, echo=TRUE}
+tweet_url <- "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/tweets.json"
+tweet_file <- "tweets.json"
+download.file(
+  url = tweet_url
+  , destfile = tweet_file
 )
 ```
 
-<h3>Intro to Regular Expressions</h3>
+Open the file in a text editor and inspect its contents. It contains a sample response from the Twitter API, which is used by developers to build applications that interact with Twitter. Here's a preview:
 
-You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
-
-```{r moreRegex}
-# 5 - split some common contractions into two words
-bsText <- gsub("he('s)", "he is", bsText)
-bsText <- gsub("'ll", " will", bsText)
-
-# 6 - Change any numbers to __number__
-bsText <- gsub("[:digit:]", "__number__", bsText)
+```
+{
+  "created_at": "Mon May 06 20:01:29 +0000 2019",
+  "id": 1125490788736032800,
+  "id_str": "1125490788736032770",
+  "text": "Today's new update means that you can finally add Pizza Cat to your Retweet with comments! Learn more about this ne… https://t.co/Rbc9TF2s5X",
+  "display_text_range": [
+    0,
+    140
+  ],
+  "truncated": true,
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 2244994945,
+    "id_str": "2244994945",
+    "name": "Twitter Dev",
+    "screen_name": "TwitterDev",
+    "location": "Internet",
+    "url": "https://developer.twitter.com/",
+    "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https://twittercommunity.com/ ⌨️ #TapIntoTwitter",
+    "translator_type": "null",
 ```
 
-<h3>Tokenization</h3>
+There are a few packages for reading this type of data in R. The example below uses one of the most popular, `jsonlite`. Read in the file with `jsonlite::fromJSON()` and view its contents with `str()`.
 
-The next task we need to acomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
-
-```{r tokenization}
-# 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
-library(stringr)
-library(data.table)
-allWords <- lapply(
-    X = bsText
-    , FUN = function(thisLine){
-        return(data.frame(words = str_split(thisLine, " ")[[1]]))
-    }
+```{r, eval=FALSE, echo=TRUE}
+tweetList <- jsonlite::fromJSON(
+  txt  = tweet_file
+  , simplifyDataFrame = FALSE
 )
 
-# 8 - Put into a data.table and print that just to make sure it worked
-wordDT <- data.table::rbindlist(allWords)
-print(wordDT[1:10], row.names = FALSE)
+str(tweetList, max.level = 3)
 ```
 
-<h3>Counting Words in Text</h3>
-    
-Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
+This function can also read JSON data directly from files on the internet.
 
-The `data.table` package makes this operation easy to carry out.
-
-```{r countTheWords}
-# 9 - Get Word counts and sort by those counts
-wordCountDT <- wordDT[, .N, by = words]
-data.table::setnames(
-    wordCountDT
-    , old = "N"
-    , new = "word_count"
+```{r, eval=FALSE, echo=TRUE}
+tweetList <- jsonlite::fromJSON(
+  txt  = tweet_url
+  , simplifyDataFrame = FALSE
 )
-data.table::setorder(wordCountDT, -word_count)
-print(wordCountDT[1:10], row.names = FALSE)
-
-key_words <- wordCountDT[21:40]
+str(tweetList, max.level = 3)
 ```
 
 <h2>Specialness of NAs</h2>
@@ -298,7 +360,15 @@ The first approach you may take to dealing with `NA` values is to simply drop th
 
 ```{r removeNAs}
 # Removing NAs for vectors
-top5 <- c("Wale", "Chance", NA, "Lupe Fiasco", "Shad", "Kanye", NA)
+top5 <- c(
+  "Wale"
+  , "Chance"
+  , NA
+  , "Lupe Fiasco"
+  , "Shad"
+  , "Kanye"
+  , NA
+)
 print(top5)
 top5cleaned <- top5[!is.na(top5)]
 print(top5cleaned)
@@ -370,7 +440,11 @@ Let's start with a simple line plot to answer the question *are sepal length and
 
 ```{r baseLinePlot}
 # Create a simple line plot
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = "p")
+plot(
+  x = iris$Sepal.Length
+  , y = iris$Sepal.Width
+  , type = "p"
+)
 
 # Try again, but with labels!
 plot(
@@ -459,10 +533,32 @@ You can control the plotting options to make a grid of plots. The code below cre
 par(mfrow = c(2,2))
 
 # Dump in some plots
-plot(density(iris$Sepal.Width), main = "Empirical density of petal length", col = "red")
-plot(x = iris$Sepal.Width, y = iris$Sepal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Width , col = iris$Species, bg = iris$Species, pch = 21)
+plot(
+  density(iris$Sepal.Width)
+  , main = "Empirical density of petal length"
+  , col = "red"
+)
+plot(
+  x = iris$Sepal.Width
+  , y = iris$Sepal.Length
+  , col = iris$Species
+  , bg = iris$Species
+  , pch = 21
+)
+plot(
+  x = iris$Sepal.Width
+  , y = iris$Petal.Length
+  , col = iris$Species
+  , bg = iris$Species
+  , pch = 21
+)
+plot(
+  x = iris$Sepal.Width
+  , y = iris$Petal.Width
+  , col = iris$Species
+  , bg = iris$Species
+  , pch = 21
+)
 
 # reset options
 par(mfrow = c(1,1))
