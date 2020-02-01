@@ -601,6 +601,95 @@ aPirateTale <- createBook(n_pages = 5, sentences_per_page = 10)
 print(aPirateTale)
 ```
 
+<h2>Text Processing Exercise</h2>
+
+<h3>Common Preprocessing Steps</h3>
+
+In this section, we're going to revisit the [Shakespeare corpus](https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt) we looked at in Week 2 and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
+
+```{r startTextAnalysis}
+# Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
+shakespeareFile <- "https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt"
+bsText <- readLines(con = shakespeareFile, n = 10000)[5001:10000]
+
+# 1 - Convert everything to lowercase
+bsText <- tolower(bsText)
+
+# 2 - Trim leading and trailing whitespace (e.g. change "   a" to "a")
+bsText <- trimws(bsText)
+
+# 3 - Remove empty lines
+bsText <- bsText[sapply(bsText, nchar)>0]
+```
+
+<h3>Intro to Regular Expressions</h3>
+
+After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
+
+Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let's work through some examples to demonstrate the properties.
+
+```{r regex1}
+# 4 - Remove punctuation
+bsText <- gsub(
+    pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\["
+    , replacement = ""
+    , x =  bsText
+)
+```
+
+<h3>Intro to Regular Expressions</h3>
+
+You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
+
+```{r moreRegex}
+# 5 - split some common contractions into two words
+bsText <- gsub("he('s)", "he is", bsText)
+bsText <- gsub("'ll", " will", bsText)
+
+# 6 - Change any numbers to __number__
+bsText <- gsub("[:digit:]", "__number__", bsText)
+```
+
+<h3>Tokenization</h3>
+
+The next task we need to acomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
+
+```{r tokenization}
+# 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
+library(stringr)
+library(data.table)
+allWords <- lapply(
+    X = bsText
+    , FUN = function(thisLine){
+        return(data.frame(words = str_split(thisLine, " ")[[1]]))
+    }
+)
+
+# 8 - Put into a data.table and print that just to make sure it worked
+wordDT <- data.table::rbindlist(allWords)
+print(wordDT[1:10], row.names = FALSE)
+```
+
+<h3>Counting Words in Text</h3>
+    
+Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
+
+The `data.table` package makes this operation easy to carry out.
+
+```{r countTheWords}
+# 9 - Get Word counts and sort by those counts
+wordCountDT <- wordDT[, .N, by = words]
+data.table::setnames(
+    wordCountDT
+    , old = "N"
+    , new = "word_count"
+)
+data.table::setorder(wordCountDT, -word_count)
+print(wordCountDT[1:10], row.names = FALSE)
+
+key_words <- wordCountDT[21:40]
+```
+
 <h2>IV. R Programming Best Practices</h2>
 
 <h3>Scripting: Style Notes</h3>

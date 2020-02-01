@@ -97,32 +97,28 @@
 <ol class="toc" type="none">
     <li> Logical Operators <span style="float:right"> 8-10 </span></li>
     <li> Factors <span style="float:right"> 11-12 </span></li>
-    <li> File Paths <span style="float:right"> 13-14 </span></li>
-    <li> R + Excel <span style="float:right"> 15-16 </span></li>
 </ol>
 
-<p><b class="toc_header"> III. Working With Strings </b></p>
+<p><b class="toc_header"> III. Getting Data </b></p>
 
 <ol class="toc" type="none">
-    <li> Common Preprocessing Steps  <span style="float:right"> 18 </span></li>
-    <li> Intro to Regular Expressions <span style="float:right"> 19-20 </span></li>
-    <li> Tokenization <span style="float:right"> 21 </span></li>
+    <li> File Paths <span style="float:right"> 13-14 </span></li>
+    <li> Downloading files from the internet <span style="float:right"> 15 </span></li>
+    <li> CSV <span style="float:right"> 16 </span></li>
+    <li> Excel <span style="float:right"> 17-18 </span></li>
+    <li> JSON <span style="float:right"> 19 </span></li>
 </ol>
 
 </div>
 <div style='float:right;width:48%;'>
-  <ol class="toc" type="none">
-    <li> Identifying Keywords <span style="float:right"> 22 </span></li>
-</ol>
-
-<p><b class="toc_header"> IV. Dealing with Missing Data </b></p>
+  <p><b class="toc_header"> IV. Dealing with Missing Data </b></p>
 
 <ol class = "toc" type="none">
-    <li> Specialness of NAs<span style="float:right"> 24 </span></li>
-    <li> You Should Care About NAs<span style="float:right"> 25  </span></li>
-    <li> Strategy 1: Total Eradication<span style="float:right"> 26  </span></li>
-    <li> Strategy 2: Handle on Subsets<span style="float:right"> 27  </span></li>
-    <li> Strategy 3: Imputation<span style="float:right"> 28 </span></li>
+    <li> Specialness of NAs<span style="float:right"> 21 </span></li>
+    <li> You Should Care About NAs<span style="float:right"> 22 </span></li>
+    <li> Strategy 1: Total Eradication<span style="float:right"> 23 </span></li>
+    <li> Strategy 2: Handle on Subsets<span style="float:right"> 24 </span></li>
+    <li> Strategy 3: Imputation<span style="float:right"> 25 </span></li>
 </ol>
 
 </div>
@@ -145,16 +141,16 @@
   <p><b class="toc_header"> V. Visualizing Data </b></p>
 
 <ol class = "toc" type="none">
-    <li> Base Plotting System<span style="float:right"> 30-34</span></li>
-    <li> Other Plotting Systems in R<span style="float:right"> 35</span></li>
-    <li> Graphics Devices<span style="float:right"> 36 </span></li>
+    <li> Base Plotting System<span style="float:right"> 27-31</span></li>
+    <li> Other Plotting Systems in R<span style="float:right"> 32</span></li>
+    <li> Graphics Devices<span style="float:right"> 33 </span></li>
 </ol>
 
 <p><b class="toc_header"> VI. Final Project Discussion </b></p>
 
 <ol class = "toc" type="none">
-    <li> Project Proposal Guidelines <span style="float:right"> 38 </span></li>
-    <li> Final Project Outline <span style="float:right"> 39 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 36 </span></li>
+    <li> Final Project Outline <span style="float:right"> 37 </span></li>
 </ol>
 
 </div>
@@ -293,7 +289,7 @@ FALSE | FALSE  # FALSE
 
 <h2>Logical Operators (continued)</h2>
 
-<p>As we learned in week two, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
+<p>As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
 
 <pre><code class="r"># Load some data
 data(&quot;mtcars&quot;)
@@ -327,15 +323,7 @@ mtcars[bigCarIndex,]
 
 <p>Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called &quot;region&quot; with values like &quot;Africa&quot;, &quot;European Union&quot;, and &quot;South America&quot;. How can you use this variable in a model or for generating region-by-region summary stats? This is where R&#39;s <strong>factor type</strong> comes in.</p>
 
-<pre><code class="r"># Sample Data
-wbDF &lt;- data.frame(country = c(&quot;Egypt&quot;, &quot;Cyprus&quot;, &quot;Nicaragua&quot;, &quot;Colombia&quot;, &quot;Germany&quot;),
-                   region  = c(&quot;Africa&quot;, &quot;European Union&quot;, &quot;South America&quot;,
-                               &quot;South America&quot;, &quot;European Union&quot;),
-                   lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9))
-
-# Check classes...see that &quot;region&quot; is a &quot;Factor&quot; by default!
-str(wbDF)
-</code></pre>
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -352,51 +340,26 @@ str(wbDF)
 
 <h2>Factors</h2>
 
-<p>What does it mean for <code>region</code> to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
+<p>Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
 
-<pre><code class="r"># Check it out! R has assigned integer values to the &quot;region&quot; variable
-as.integer(wbDF$region)
-
-# But you can also access the character values if you want
-as.character(wbDF$region)
-
-# For more, see:
-str(wbDF$region)
-levels(wbDF$regions)
-</code></pre>
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="content_slide" id="slide-12" style="background:;">
+<slide class="section_slide" id="slide-12" style="background:;">
+  
+  <hgroup>
+    <h2>Section III.</h2>
+  </hgroup>
   
   <article data-timings="">
-    <p><footer>
-  <hr>
-    <script>FooterBubbles(6,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
-</footer></p>
+    <p><hr></hr>
+</br></br></br></p>
 
-<h2>File Paths</h2>
-
-<p>Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer&#39;s file system. These paths can either be <em>relative</em> (expressed as steps above/below your current location) or <em>absolute</em> (full addresses).</p>
-
-<p>All relative paths in R are relative to your <strong>working directory</strong>, a single location that you can set and reset any time in your session.</p>
-
-<pre><code class="r"># Check and then change the current working directory
-print(getwd())
-sandbox_repo &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;sandbox&quot;)
-setwd(sandbox_repo)
-
-# Reference a file with a full path
-myDF &lt;- read.csv(
-  file = file.path(sandbox_repo, &quot;data&quot;, &quot;some_data.csv&quot;)
-)
-
-# Reference a file with a relative path
-myDF &lt;- read.csv(file = &quot;./data/some_data.csv&quot;)
-</code></pre>
+<h2>Getting Data</h2>
 
   </article>
   <!-- Presenter Notes -->
@@ -408,27 +371,20 @@ myDF &lt;- read.csv(file = &quot;./data/some_data.csv&quot;)
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(7,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(1,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
 <h2>File Paths</h2>
 
-<p>R provides a few other utilities for working with file paths and directory structures from inside your code. Check it out!</p>
+<p>Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer&#39;s file system. These paths can either be <em>relative</em> (expressed as steps above/below your current location) or <em>absolute</em> (full addresses).</p>
 
-<pre><code class="r"># List all the files in some directory and put the list in a vector
-docs_dir &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;some_folder&quot;, &quot;docs&quot;)
-theFiles &lt;- list.files(path = docs_dir)
+<p>All relative paths in R are relative to your <strong>working directory</strong>, a single location that you can set and reset any time in your session.</p>
 
-# Create a directory if it doesn&#39;t exist
-slide_dir &lt;- file.path(docs_dir, &quot;slides&quot;)
-if (!dir.exists(slide_dir)) {
-    dir.create(slide_dir)
-}
+<p><strong>relative path</strong>: <code>&quot;file.txt&quot;</code></p>
 
-# Check if a file exists
-report_file &lt;- file.path(docs_dir, &quot;report.xlsx&quot;)
-myFileExists &lt;- file.exists(report_file)
-</code></pre>
+<p><strong>absolute path</strong>: <code>&quot;/Users/jlamb/repos/some-project/data/file.txt&quot;</code></p>
+
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -440,22 +396,22 @@ myFileExists &lt;- file.exists(report_file)
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(8,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(2,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
-<h2>R + Excel</h2>
+<h2>File Paths</h2>
 
-<p>In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You&#39;ll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we&#39;ll focus on <a href="https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf">openxlsx</a>.</p>
+<p>R provides a few other utilities for working with file paths and directory structures.</p>
 
-<p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
+<ul>
+<li><code>file.path()</code>: create a filepath from multiple parts</li>
+<li><code>file.exists()</code>: returns <code>TRUE</code> is a file exists and  <code>FALSE</code> if it doesn&#39;t</li>
+<li><code>list.files()</code>: get a character vector with names of all files found in a directory</li>
+<li><code>dir.exists()</code>: returns <code>TRUE</code> is a directory exists and  <code>FALSE</code> if it doesn&#39;t</li>
+<li><code>dir.create()</code>: create a new directory</li>
+</ul>
 
-<pre><code class="r"># Read an Excel file into a data.frame
-library(openxlsx)
-stock_file &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;repos&quot;, &quot;sandbox&quot;, &quot;data&quot;, &quot;stockData.xlsx&quot;)
-newDF &lt;- openxlsx::read.xlsx(
-    xlsxFile = stock_file
-)
-</code></pre>
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for more examples.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -467,25 +423,17 @@ newDF &lt;- openxlsx::read.xlsx(
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(9, 9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(3,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
-<h2>R + Excel</h2>
+<h2>Downloading files from the internet</h2>
 
-<p>You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It&#39;s tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.</p>
+<p>To download files hosted on the internet, you can use <code>download.file()</code>.</p>
 
-<pre><code class="r"># load mtcars
-data(&quot;mtcars&quot;)
-
-# create a workbook object in R
-testWB &lt;- openxlsx::createWorkbook()
-
-# Add sheets and data
-openxlsx::addWorksheet(testWB, sheetName = &quot;car_data&quot;)
-openxlsx::writeData(testWB, sheet = &quot;car_data&quot;, x = mtcars)
-
-# Write out the file
-openxlsx::saveWorkbook(wb = testWB, file = &quot;testing.xlsx&quot;)
+<pre><code class="r">download.file(
+  url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv&quot;
+  , destfile = &quot;iris.csv&quot;
+)
 </code></pre>
 
   </article>
@@ -493,17 +441,26 @@ openxlsx::saveWorkbook(wb = testWB, file = &quot;testing.xlsx&quot;)
   
 </slide>
 
-<slide class="section_slide" id="slide-16" style="background:;">
-  
-  <hgroup>
-    <h2>Section III.</h2>
-  </hgroup>
+<slide class="content_slide" id="slide-16" style="background:;">
   
   <article data-timings="">
-    <p><hr></hr>
-</br></br></br></p>
+    <p><footer>
+  <hr>
+    <script>FooterBubbles(4,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+</footer></p>
 
-<h2>Working With Strings</h2>
+<h2>CSV</h2>
+
+<p>CSV (&quot;comma-separated values&quot;) is a really common format to share small datasets because it is just a text file, and can be ready by many different types of programs. R has several options for reading this type of file.</p>
+
+<ul>
+<li><code>read.csv()</code>: base R function for reading CSVs into a <code>data.frame</code></li>
+<li><code>data.table::fread()</code>: super-fast CSV reader that creates a special type of <code>data.frame</code> called a <code>data.table</code></li>
+<li><code>read.delim()</code>: similar to <code>read.csv()</code>, but can read files with any delimiter</li>
+<li><code>readr::read_csv()</code>: CSV reader from RStudio</li>
+</ul>
+
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for more examples.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -515,26 +472,16 @@ openxlsx::saveWorkbook(wb = testWB, file = &quot;testing.xlsx&quot;)
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(1,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(5,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
-<h2>Common Preprocessing Steps</h2>
+<h2>Excel</h2>
 
-<p>In this section, we&#39;re going to revisit the <a href="https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt">Shakespeare corpus</a> we looked at in Week 2 and implement a basic &quot;keyword extraction&quot; pipeline. Let&#39;s start by loading it and doing some common string preprocessing on it.</p>
+<p>In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You&#39;ll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we&#39;ll focus on <a href="https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf">openxlsx</a>.</p>
 
-<pre><code class="r"># Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
-shakespeareFile &lt;- &quot;https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt&quot;
-bsText &lt;- readLines(con = shakespeareFile, n = 10000)[5001:10000]
+<p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
 
-# 1 - Convert everything to lowercase
-bsText &lt;- tolower(bsText)
-
-# 2 - Trim leading and trailing whitespace (e.g. change &quot;   a&quot; to &quot;a&quot;)
-bsText &lt;- trimws(bsText)
-
-# 3 - Remove empty lines
-bsText &lt;- bsText[sapply(bsText, nchar)&gt;0]
-</code></pre>
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -546,18 +493,14 @@ bsText &lt;- bsText[sapply(bsText, nchar)&gt;0]
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(2,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(6,7)</script>III. Getting Dataspan style=&quot;float:right&quot;&gt;ECON 6114 - R Programming</span>
 </footer></p>
 
-<h2>Intro to Regular Expressions</h2>
+<h2>Excel</h2>
 
-<p>After applying these basic steps, we&#39;re going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">regular expressions</a>.</p>
+<p>You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It&#39;s tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.</p>
 
-<p>Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let&#39;s work through some examples to demonstrate the properties.</p>
-
-<pre><code class="r"># 4 - Remove punctuation
-bsText &lt;- gsub(pattern = &quot;;|,|!|?|\\.|\\:|&lt;|&gt;|\\]|\\[&quot;, replacement = &quot;&quot;, bsText)
-</code></pre>
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -569,85 +512,30 @@ bsText &lt;- gsub(pattern = &quot;;|,|!|?|\\.|\\:|&lt;|&gt;|\\]|\\[&quot;, repla
   <article data-timings="">
     <p><footer>
   <hr>
-    <script>FooterBubbles(3,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
+    <script>FooterBubbles(7,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
 </footer></p>
 
-<h2>Intro to Regular Expressions</h2>
+<h2>JSON</h2>
 
-<p>You can run <code>sample(bsText, 10)</code> and see that our data are looking cleaner...but we still have work to do! Next, let&#39;s use regular expressions (commonly just called &quot;regex&quot;) to handle some other issues.</p>
+<p>JSON (&quot;Javascript Object Notation&quot;) is a standard format for &quot;semi-structured&quot; or &quot;nested&quot; data. It&#39;s a plain-text format that can be used by many programs and programming languages.</p>
 
-<pre><code class="r"># 5 - split some common contractions into two words
-bsText &lt;- gsub(&quot;he(&#39;s)&quot;, &quot;he is&quot;, bsText)
-bsText &lt;- gsub(&quot;&#39;ll&quot;, &quot; will&quot;, bsText)
-
-# 6 - Change any numbers to __number__
-bsText &lt;- gsub(&quot;[:digit:]*&quot;, &quot;__number__&quot;)
+<pre><code class="json">{
+  &quot;status&quot;: 200,
+  &quot;data&quot;: [
+    {&quot;customer_name&quot;: &quot;Lupe&quot;, &quot;purchases&quot;: 10},
+    {&quot;customer_name&quot;: &quot;Wale&quot;, &quot;purchases&quot;: 30}
+  ]
+}
 </code></pre>
+
+<p>This type of data is commonly represented as an R <code>list</code>. See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="content_slide" id="slide-20" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    <script>FooterBubbles(4,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer></p>
-
-<h2>Tokenization</h2>
-
-<p>The next task we need to accomplish is <strong>tokenizing</strong> our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.</p>
-
-<pre><code class="r"># 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
-library(stringr)
-library(data.table)
-allWords &lt;- lapply(bsText, FUN = function(thisLine){
-                            return(data.frame(words = str_split(thisLine, &quot; &quot;)[[1]]))
-                                        }
-                )
-
-# 8 - Put into a data.table and print that just to make sure it worked
-wordDT &lt;- data.table::rbindlist(allWords)
-wordDT
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-21" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    <script>FooterBubbles(5,5)</script>III. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer></p>
-
-<h2>Counting Words in Text</h2>
-
-<p>Now that our data are a bit cleaner, it&#39;s time to try finding key terms! Broadly speaking, &quot;key terms&quot; in a body of text are those that more common in the text than they are in the language as a whole (e.g. &quot;the&quot; will never be a key word). We aren&#39;t looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we&#39;ll just drop the top 20 words and call the next 20 &quot;key&quot;.</p>
-
-<p>The <code>data.table</code> package makes this operation easy to carry out.</p>
-
-<pre><code class="r"># 9 - Get Word counts and sort by those counts
-wordCountDT &lt;- wordDT[, .N, by = words]
-data.table::setnames(wordCountDT, old = &quot;N&quot;, new = &quot;word_count&quot;)
-data.table::setorder(wordCountDT, -word_count)
-wordCountDT
-
-key_words &lt;- wordCountDT[21:40]
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="section_slide" id="slide-22" style="background:;">
+<slide class="section_slide" id="slide-20" style="background:;">
   
   <hgroup>
     <h2>Section IV.</h2>
@@ -664,7 +552,7 @@ key_words &lt;- wordCountDT[21:40]
   
 </slide>
 
-<slide class="content_slide" id="slide-23" style="background:;">
+<slide class="content_slide" id="slide-21" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -705,7 +593,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-24" style="background:;">
+<slide class="content_slide" id="slide-22" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -726,7 +614,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-25" style="background:;">
+<slide class="content_slide" id="slide-23" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -755,7 +643,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
   
 </slide>
 
-<slide class="content_slide" id="slide-26" style="background:;">
+<slide class="content_slide" id="slide-24" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -786,7 +674,7 @@ cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
   
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-25" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -818,7 +706,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="section_slide" id="slide-28" style="background:;">
+<slide class="section_slide" id="slide-26" style="background:;">
   
   <hgroup>
     <h2>Section V.</h2>
@@ -835,7 +723,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-29" style="background:;">
+<slide class="content_slide" id="slide-27" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -861,7 +749,7 @@ head(iris, n = 10)
   
 </slide>
 
-<slide class="content_slide" id="slide-30" style="background:;">
+<slide class="content_slide" id="slide-28" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -892,7 +780,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
   
 </slide>
 
-<slide class="content_slide" id="slide-31" style="background:;">
+<slide class="content_slide" id="slide-29" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -920,7 +808,7 @@ plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&
   
 </slide>
 
-<slide class="content_slide" id="slide-32" style="background:;">
+<slide class="content_slide" id="slide-30" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -948,7 +836,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;r
   
 </slide>
 
-<slide class="content_slide" id="slide-33" style="background:;">
+<slide class="content_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -978,7 +866,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-34" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -994,7 +882,6 @@ par(mfrow = c(1,1))
 <li><a href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot2</a>: One of the most popular packages in the R world. Based on the &quot;grammar of graphics&quot; approach to building plots</li>
 <li><a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a>: Send your data to the google charts API to make fancy interactive visualizations</li>
 <li><a href="https://hafen.github.io/rbokeh/#preview">rbokeh</a>: high-level library for creating interactive charts that can be embedded directly in HTML</li>
-<li><a href="https://github.com/ramnathv/rCharts">rCharts</a>: library built on JavaScript D3 for creating interactive plots</li>
 </ul>
 
   </article>
@@ -1002,7 +889,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-35" style="background:;">
+<slide class="content_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1034,7 +921,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-36" style="background:;">
+<slide class="section_slide" id="slide-34" style="background:;">
   
   <hgroup>
     <h2>Section VI.</h2>
@@ -1051,7 +938,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-37" style="background:;">
+<slide class="content_slide" id="slide-35" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1087,7 +974,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-38" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1108,7 +995,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-39" style="background:;">
+<slide class="section_slide" id="slide-37" style="background:;">
   
   <hgroup>
     <h2>Section VII.</h2>
@@ -1125,7 +1012,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-38" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1228,7 +1115,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='NA'>
+        data-slide=12 title='Section III.'>
          12
       </a>
     </li>
@@ -1256,7 +1143,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Section III.'>
+        data-slide=16 title='NA'>
          16
       </a>
     </li>
@@ -1284,7 +1171,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='NA'>
+        data-slide=20 title='Section IV.'>
          20
       </a>
     </li>
@@ -1298,7 +1185,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Section IV.'>
+        data-slide=22 title='NA'>
          22
       </a>
     </li>
@@ -1326,7 +1213,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='NA'>
+        data-slide=26 title='Section V.'>
          26
       </a>
     </li>
@@ -1340,7 +1227,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Section V.'>
+        data-slide=28 title='NA'>
          28
       </a>
     </li>
@@ -1382,7 +1269,7 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='NA'>
+        data-slide=34 title='Section VI.'>
          34
       </a>
     </li>
@@ -1396,14 +1283,14 @@ for (i in 1:10){
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='Section VI.'>
+        data-slide=36 title='NA'>
          36
       </a>
     </li>
     
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='NA'>
+        data-slide=37 title='Section VII.'>
          37
       </a>
     </li>
@@ -1412,20 +1299,6 @@ for (i in 1:10){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=38 title='NA'>
          38
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Section VII.'>
-         39
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='NA'>
-         40
       </a>
     </li>
     
