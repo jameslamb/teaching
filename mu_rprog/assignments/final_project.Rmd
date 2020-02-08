@@ -17,7 +17,7 @@ The learning objectives for this course can be summarized by the terms "independ
 
 Your task for the final project is construct a small analysis of a real-world dataset relevant to economics, finance, or business. The main deliverable will be one or more R scripts (you are more than welcome to have, for example, a `get_data.R` and a separate `analyze_data.R`) which accomplish all the following tasks:
 
-1. **Read in data from the web or from a local file**
+1. **Read in data from the internet*
     - Anyone should be able to run your code to load the data, without needing any data files you provide. If you have manually-collected data, I can show you how to host it publicly.
     - Please see this [list of example data sources](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/some_data_sources.md) for some ideas to get you started
 2. **Preprocess those data so they are ready for analysis**

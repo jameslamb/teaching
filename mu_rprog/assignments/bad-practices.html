@@ -393,8 +393,8 @@ summary {
 <ul>
 <li><a href="#overview">Overview</a><ul>
 <li><a href="#never-use-t-or-f.-always-use-true-or-false">Never use <code>T</code> or <code>F</code>. Always use <code>TRUE</code> or <code>FALSE</code></a></li>
-<li><a href="#use-seq_len-or-seq_along-instead-of-1lengthx">Use <code>seq_len()</code> or <code>seq_along()</code> instead of <code>1:length(x)</code></a></li>
-<li><a href="#use-library-instead-of-require">Use <code>library()</code> instead of <code>require()</code></a></li>
+<li><a href="#never-use-1lengthx-useseq_len-or-seq_along-instead">Never use <code>1:length(x)</code>, use<code>seq_len()</code> or <code>seq_along()</code> instead</a></li>
+<li><a href="#never-use-require-use-library-instead">Never use <code>require()</code>, use <code>library()</code> instead</a></li>
 </ul></li>
 </ul>
 </div>
@@ -427,8 +427,8 @@ if (T &amp;&amp; F){
 }</code></pre>
 <pre><code>## Error in T &amp;&amp; F: invalid 'x' type in 'x &amp;&amp; y'</code></pre>
 </div>
-<div id="use-seq_len-or-seq_along-instead-of-1lengthx" class="section level3">
-<h3>Use <code>seq_len()</code> or <code>seq_along()</code> instead of <code>1:length(x)</code></h3>
+<div id="never-use-1lengthx-useseq_len-or-seq_along-instead" class="section level3">
+<h3>Never use <code>1:length(x)</code>, use<code>seq_len()</code> or <code>seq_along()</code> instead</h3>
 <p>It’s inevitable that you’ll encounter a situation where you want to loop over every element of a vector and do something with it.</p>
 <pre class="r"><code>revenue &lt;- c(10, 20,  15, 30)
 cost &lt;- c(8, 18, 11, 26)
@@ -485,8 +485,8 @@ for (i in seq_along(cost)){
     print(paste0(&quot;  * profit: &quot;, revenue[i] - cost[i]))
 }</code></pre>
 </div>
-<div id="use-library-instead-of-require" class="section level3">
-<h3>Use <code>library()</code> instead of <code>require()</code></h3>
+<div id="never-use-require-use-library-instead" class="section level3">
+<h3>Never use <code>require()</code>, use <code>library()</code> instead</h3>
 <p>In R, “packages” are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (<code>getOption(&quot;defaultPackages&quot;)</code>), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded <code>data.table</code>.</p>
 <pre class="r"><code>data.table(
     x = rnorm(10)
@@ -499,17 +499,17 @@ data.table(
     x = rnorm(10)
     , y = rnorm(10)
 )</code></pre>
-<pre><code>##               x           y
-##  1: -0.25357223 -0.01498526
-##  2:  0.19927175  0.86725638
-##  3:  0.99667267 -0.84535357
-##  4: -1.89235517  0.14711387
-##  5:  0.32357386  0.93916240
-##  6: -1.11481533 -0.93570458
-##  7: -0.18393614 -0.95425635
-##  8:  1.13371826 -1.73490764
-##  9: -0.37449703  1.05342425
-## 10:  0.04615384  0.84277173</code></pre>
+<pre><code>##              x           y
+##  1: -1.5358425  1.47674566
+##  2: -0.9718898  0.96649034
+##  3:  0.2132312  0.52055835
+##  4: -1.9940803  1.07742051
+##  5:  0.1064158 -0.03248282
+##  6: -1.1550277 -0.26816773
+##  7:  0.3202354 -0.27325114
+##  8: -0.9458782 -0.60349364
+##  9: -0.3836403  0.58977025
+## 10: -2.5866966  0.38972138</code></pre>
 <p>The most popular commands to load packages are <code>library()</code> and <code>require()</code>. You may find examples on the internet which say or at least imply that these can be used interchangeably. Those examples are not correct.</p>
 <p><code>require()</code> will throw a warning if you use it on a package that has not been installed, but it will not throw an error. That means that code that comes after <code>require()</code> will run, which increases the time until you find out that you are missing a required package for some program!</p>
 <pre class="r"><code>require(&quot;nonsense-package&quot;)</code></pre>

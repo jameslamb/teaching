@@ -1,0 +1,125 @@
+---
+title : Practices to Avoid in R Programming
+output:
+  html_document:
+    toc: true
+    theme: spacelab
+---
+
+## Overview
+
+This section describes some practices that are common in R programming but should be avoided because they make programs slow, hard to maintain, or unsafe.
+
+### Never use `T` or `F`. Always use `TRUE` or `FALSE`
+
+R uses some special "reserved words" which can never be overwritten. For example, you cannot name a variable `if` because `if` is a foundational element of how R programs are structure. To see the full list of reserved words, run `?reserved`.
+
+Two of these are `TRUE` and `FALSE`. These are used to represent logical values and control flow, like this:
+
+```{r}
+if (TRUE && FALSE){
+    print("both TRUE!")
+} else {
+    print("at least one FALSE")
+}
+```
+
+Because `TRUE` and `FALSE` are reserved keywords, it's impossible to change their values.
+
+```{r, error=TRUE}
+TRUE <- "hello"
+```
+
+R also comes with two objects `T` and `F`. If you type one of these in the terminal, you'll see that `T` is an alias for `TRUE` and `F` is an alias for `FALSE`. It's common for R programmers to believe that `T` and `TRUE` are interchangeable, but they are not!
+
+Unlike `TRUE` and `FALSE`, `T` and `F` can be changed!
+
+```{r, error=TRUE}
+T <- "hello"
+F <- "goodbye"
+
+if (T && F){
+    print("both TRUE!")
+} else {
+    print("at least one FALSE")
+}
+```
+
+### Never use `1:length(x)`, use`seq_len()` or `seq_along()` instead
+
+It's inevitable that you'll encounter a situation where you want to loop over every element of a vector and do something with it.
+
+```{r}
+revenue <- c(10, 20,  15, 30)
+cost <- c(8, 18, 11, 26)
+for (i in 1:length(cost)){
+    print(paste0("i: ", i))
+    print(paste0("  * revenue: ", revenue[i]))
+    print(paste0("  * cost: ", cost[i]))
+    print(paste0("  * profit: ", revenue[i] - cost[i]))
+}
+```
+
+The code above will work fine in most cases, but it will behave in a surprising way if `cost` is empty
+
+```{r}
+revenue <- numeric()
+cost <- numeric()
+for (i in 1:length(cost)){
+    print(paste0("i: ", i))
+    print(paste0("  * revenue: ", revenue[i]))
+    print(paste0("  * cost: ", cost[i]))
+    print(paste0("  * profit: ", revenue[i] - cost[i]))
+}
+```
+
+This is because `1:0` generates a 2-element vector equivalent to `c(1, 0)`. In this case, what we really want is to not run the cost at all bcause the input is empty! R provides two functions that are safer for this task:
+
+* `seq_along()`: equivalent to `1:length(x)`, but returns a length-0 input for length-0 output
+* `seq_len(length.out)`: generates an integer vector with length `length.out`
+
+```{r}
+revenue <- numeric()
+cost <- numeric()
+for (i in seq_along(cost)){
+    print(paste0("i: ", i))
+    print(paste0("  * revenue: ", revenue[i]))
+    print(paste0("  * cost: ", cost[i]))
+    print(paste0("  * profit: ", revenue[i] - cost[i]))
+}
+```
+
+### Never use `require()`, use `library()` instead
+
+In R, "packages" are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded `data.table`. 
+
+```{r, error = TRUE}
+data.table(
+    x = rnorm(10)
+    , y = rnorm(10)
+)
+```
+
+When I load the package, this command now succeeds.
+
+```{r}
+library(data.table)
+data.table(
+    x = rnorm(10)
+    , y = rnorm(10)
+)
+```
+
+The most popular commands to load packages are `library()` and `require()`. You may find examples on the internet which say or at least imply that these can be used interchangeably. Those examples are not correct.
+
+`require()` will throw a warning if you use it on a package that has not been installed, but it will not throw an error. That means that code that comes after `require()` will run, which increases the time until you find out that you are missing a required package for some program!
+
+```{r, warning=TRUE}
+require("nonsense-package")
+print("this code ran")
+```
+
+```{r, error = TRUE}
+library("nonsense-package")
+```
+

@@ -70,11 +70,19 @@ knit        : slidify::knit2slides
     <li> Step 3: Fill in Your Code! <span style="float:right">         24 </span></li>
 </ol>
 
+<b class="toc_header"> IV. Working with Strings </b>
+<ol class = "toc" type="none">
+    <li> Common Preprocessing Steps <span style="float:right"> 26 </span></li>
+    <li> Intro to Regular Expressions <span style="float:right"> 27-28 </span></li>
+    <li> Tokenization <span style="float:right"> 29 </span></li>
+    <li> Counting Words in Text <span style="float:right"> 30 </span></li>
+</ol>
+
 <b class="toc_header"> V. Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Code Review Tips <span style="float:right">       26 </span></li>
-    <li> Scripting: Style Notes <span style="float:right"> 27 </span></li>
-    <li> Lingering Questions <span style="float:right">    28 </span></li>
+    <li> Code Review Tips <span style="float:right">       32 </span></li>
+    <li> Scripting: Style Notes <span style="float:right"> 33 </span></li>
+    <li> Lingering Questions <span style="float:right">    34 </span></li>
 </ol>
 
 --- .section_slide
@@ -699,4 +707,4 @@ A sample script following these prescriptions is provided in the [Week 4 Program
 
 <br>
 
-<center><img src="assets/img/chuck_norris.jpg" height=700px width=400px></center>
+<center><img src="assets/img/dwight.jpg" height=700px width=400px></center>
