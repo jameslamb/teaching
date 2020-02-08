@@ -29,7 +29,9 @@
 
 ## Other Resources:
 
-[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB) | [Git basics](https://jameslamb.github.io/teaching/mu_rprog/slides/git.html#1) | 
+[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB)
+
+[Git basics](https://jameslamb.github.io/teaching/mu_rprog/slides/git.html#1)
 
 ## Installing R Dependencies
 
