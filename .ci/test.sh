@@ -25,6 +25,8 @@ if [[ $OS_NAME == "linux" ]]; then
     sudo apt-get install \
         --no-install-recommends \
         -y --allow-downgrades \
+            libcurl4-openssl-dev \
+            curl \
             r-base-dev=${R_LINUX_VERSION} \
             texinfo \
             texlive-latex-recommended \
