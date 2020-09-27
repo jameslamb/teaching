@@ -19,7 +19,7 @@ jobs:
           - os: ubuntu-latest
             task: lint-r
           - os: macOS-latest
-            task: r-package
+            task: lint-r
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
