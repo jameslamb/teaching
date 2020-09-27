@@ -6,7 +6,7 @@
 #' @importFrom purrr map_chr
 #' @importFrom stringr str_split
 #' @export
-NamesToAbbreviations <- function(nameVec){
+NamesToAbbreviations <- function(nameVec) {
 
     # Split on whitespace
     splitNames <- stringr::str_split(
@@ -16,7 +16,7 @@ NamesToAbbreviations <- function(nameVec){
     )
 
     # Grab the first letter of each name and combines
-    abbrevs <- purrr::map_chr(splitNames, function(splitName){
+    abbrevs <- purrr::map_chr(splitNames, function(splitName) {
         firstInitial <- substr(splitName[1], 1, 1)
         lastInitial  <- substr(splitName[2], 1, 1)
         return(paste0(firstInitial, lastInitial))
@@ -35,7 +35,7 @@ NamesToAbbreviations <- function(nameVec){
 #' @importFrom data.table data.table
 #' @importFrom htmltab htmltab
 #' @export
-GetData <- function(team = "marquette", season = "2018"){
+GetData <- function(team = "marquette", season = "2018") {
 
     # Build URL
     queryURL <- sprintf(
@@ -77,12 +77,13 @@ GetData <- function(team = "marquette", season = "2018"){
 #' @param useInitials A boolean. If TRUE, player initials will be plotted.
 #'                    If FALSE, full names will be used.
 #' @export
-CompareOnStats <- function(statDT
-                           , x_stat = "PTS"
-                           , y_stat = "TB"
-                           , season
-                           , useInitials = TRUE
-){
+CompareOnStats <- function(
+    statDT
+    , x_stat = "PTS"
+    , y_stat = "TB"
+    , season
+    , useInitials = TRUE
+    ) {
 
     # Create a scatterplot
     plot(
@@ -96,7 +97,7 @@ CompareOnStats <- function(statDT
     )
 
     # Grab abbreviations from player names if asked
-    if (useInitials){
+    if (useInitials) {
         namesToPlot <- NamesToAbbreviations(statDT[, Player])
     } else {
         namesToPlot <- statDT[, Player]

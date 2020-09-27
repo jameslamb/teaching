@@ -1,4 +1,3 @@
-
 #####=== Programming Assignment 1: Debugging ==============================#####
 
 # In this assignment, I've provided 5 small bits of code. Each of these is intentionally
@@ -27,7 +26,7 @@ print("hello,", myname, "    is ", James)
 # b. Write a function that takes in an integer n (1-26) and returns a character vector with
 #    the nth element repeated n times. e.g. RepLetter(3) would yield c("c", "c", "c")
 #    and RepLetter(7) would yield c("g", "g", "g", "g", "g", "g", "g")
-RepLetter(n) <- function(){
+RepLetter(n) <- function() {
     return(rep(letters[7]))
 }
 
@@ -36,7 +35,7 @@ RepLetter(n) <- function(){
 #    vector, where element 1 is the maximum of column 1, etc. Your code should be sure
 #    to account for NAs. In a correct solution, maxes will hold c(8, 20, 30)
 myDF <- data.frame(
-    var1 = c(rep(1:8),NA,NA)
+    var1 = c(rep(1:8), NA, NA)
     , var2 = 11:20
     , var3 = 21:30
 )
@@ -64,14 +63,14 @@ entropies <- apply(fault_list, inqe::entropy)
 #    should involve the use of a while loop.
 #    NOTE: Just change the function body...do not change the calls
 #    to findMin() at the end
-findMin <- function(numVec){
+findMin <- function(numVec) {
 
     lowest_val <- -Inf
     i <- 5
-    while (i != length(numVec)){
+    while (i != length(numVec)) {
         this_val <- numVec[i]
 
-        if (this_val > lowest_val){
+        if (this_val > lowest_val) {
             lowest_val <- this_val
         }
 
