@@ -1,5 +1,5 @@
 
-# Our goal: 
+# Our goal:
 # - generate a report on monthly high-level inflation and
 #   commodities prices
 
@@ -14,7 +14,7 @@ suppressPackageStartupMessages({
 #######################
 # Monthly commodities #
 #######################
-macro_symbols <- c("CPIAUCSL")
+macro_symbols <- "CPIAUCSL"
 quantmod::getSymbols(
     Symbols = macro_symbols
     , src = "FRED"
@@ -32,15 +32,15 @@ nickelDF   <- Quandl::Quandl("LME/PR_NI")
 # Given this data....let's solve the problem with data.table!
 
 # Step 1 - Create a function for pulling an arbitrary set of metals prices from LME
-get_metal_prices <- function(qcodes){
-    
+get_metal_prices <- function(qcodes) {
+
     responseList <- lapply(
         X = names(qcodes)
         , qcodes = qcodes
-        , function(metal_name, qcodes){
-            
+        , function(metal_name, qcodes) {
+
             print(sprintf("Fetching data for %s...", qcodes[[metal_name]]))
-            
+
             # Grab the dataset and immediately drop columns we don't care about
             responseDT <- data.table::as.data.table(
                 Quandl::Quandl(
@@ -49,15 +49,17 @@ get_metal_prices <- function(qcodes){
                     , end_date = "2018-03-12"
                 )
             )[, .SD, .SDcols = c("Date", `Cash Buyer`)]
-            
+
             # Change names
             data.table::setnames(responseDT, c("obs_date", metal_name))
         }
     )
-    
+
     # merge datasets on time
     outDT <- Reduce(
-        f = function(x, y){merge(x, y, all = TRUE, by = "obs_date")}
+        f = function(x, y) {
+            merge(x, y, all = TRUE, by = "obs_date")
+        }
         , x = responseList
     )
     return(outDT)
@@ -80,12 +82,12 @@ macro_codes <- c(
     , "pce_inflation" = "PCEPILFE"
 )
 
-get_macro_data <- function(mcodes){
+get_macro_data <- function(mcodes) {
     responseList <- lapply(
         X = names(mcodes)
         , mcodes = mcodes
-        , FUN = function(macro_name, mcodes){
-            
+        , FUN = function(macro_name, mcodes) {
+
             # get data and convert to data.table
             macroDT <- data.table::as.data.table(
                 quantmod::getSymbols(
@@ -94,15 +96,17 @@ get_macro_data <- function(mcodes){
                     , auto.assign = FALSE
                 )
             )
-            
+
             # change names in place
             data.table::setnames(macroDT, c("obs_date", macro_name))
         }
     )
-    
+
     # merge datasets on time
     outDT <- Reduce(
-        f = function(x, y){merge(x, y, all = TRUE, by = "obs_date")}
+        f = function(x, y) {
+            merge(x, y, all = TRUE, by = "obs_date")
+        }
         , x = responseList
     )
     return(outDT)
@@ -123,7 +127,7 @@ fullDT <- merge(
 
 # oh no! we have missing data! We need to convert the metals data to monthly
 # averages to better compare to the inflation series
-.ym <- function(some_date){
+.ym <- function(some_date) {
     lubridate::make_date(
         year = lubridate::year(some_date)
         , month = lubridate::month(some_date)
@@ -132,7 +136,7 @@ fullDT <- merge(
 }
 
 metalsDT[, obs_month := .ym(obs_date)]
-monthlyMetalsDT <- metalsDT[, lapply(.SD, function(x){mean(x, na.rm = TRUE)})
+monthlyMetalsDT <- metalsDT[, lapply(.SD, function(x) {mean(x, na.rm = TRUE)})
                            , .SDcols = setdiff(names(metalsDT), c("obs_date", "obs_month"))
                            , by = "obs_month"]
 
@@ -150,9 +154,9 @@ fullDT <- merge(
 # woo! we have 75-ish months of data! Now to make fair comparisons, let's make
 # a dataset of % month-over-month growth rates in each of these measures. We can do
 # that with the data.table::shift() function
-for (colname in setdiff(names(fullDT), "obs_month")){
+for (colname in setdiff(names(fullDT), "obs_month")) {
     new_name <- paste0(colname, "_MoM")
     print(sprintf("Creating %s...", new_name))
-    
+
     fullDT[, (new_name) := (get(colname) - shift(get(colname), n = 1, type = "lag")) / get(colname)]
 }

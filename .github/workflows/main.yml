@@ -1,0 +1,52 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  test:
+    name: ${{ matrix.task }} (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            task: lint-r
+          - os: macOS-latest
+            task: lint-r
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 5
+          submodules: true
+      - name: Use conda 
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          auto-update-conda: false
+      - name: Setup and run tests on Linux and macOS
+        if: matrix.os == 'macOS-latest' || matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          export TASK="${{ matrix.task }}"
+          if [[ "${{ matrix.os }}" == "macOS-latest" ]]; then
+              export OS_NAME="macos"
+          elif [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+              export OS_NAME="linux"
+          fi
+          export BUILD_DIRECTORY="$GITHUB_WORKSPACE"
+          export CONDA="$HOME/miniconda"
+          export PATH="$CONDA/bin:${HOME}/.local/bin:$PATH"
+          $GITHUB_WORKSPACE/.ci/test.sh
+  all-successful:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+    - name: Note that all tests succeeded
+      run: echo "all tests succeeded"
