@@ -25,13 +25,12 @@ install.packages(
         , "randomForest"
         , "rattle"
         , "rbokeh"
-        , "RGtk2"
         , "roxygen2"
         , "stargazer"
         , "stringr"
         , "testthat"
     )
-    , repos = "http://cran.rstudio.com"
+    , repos = "http://cran.r-project.org"
     , dependencies = c("Depends", "Imports")
     , verbose = TRUE
     , quiet = FALSE
