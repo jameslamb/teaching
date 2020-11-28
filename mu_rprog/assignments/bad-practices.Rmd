@@ -94,6 +94,7 @@ for (i in seq_along(cost)){
 In R, "packages" are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded `data.table`. 
 
 ```{r, error = TRUE}
+set.seed(708)
 data.table(
     x = rnorm(10)
     , y = rnorm(10)
@@ -104,6 +105,7 @@ When I load the package, this command now succeeds.
 
 ```{r}
 library(data.table)
+set.seed(708)
 data.table(
     x = rnorm(10)
     , y = rnorm(10)
@@ -122,4 +124,3 @@ print("this code ran")
 ```{r, error = TRUE}
 library("nonsense-package")
 ```
-

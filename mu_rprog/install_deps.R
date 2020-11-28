@@ -1,19 +1,10 @@
 # This script installs packages needed to run the examples
 # in the provided code supplements
-quit(status = 0)
-
-# "devtools" is needed to handle weird nonsense
-install.packages(
-    "devtools"
-    , repos = "http://cran.rstudio.com"
-    , dependencies = c("Depends", "Imports")
-    , verbose = TRUE
-    , quiet = FALSE
-)
 
 install.packages(
     pkgs = c(
-        "gaussfacts"
+        "devtools"
+        , "gaussfacts"
         , "htmltab"
         , "ineq"
         , "jsonlite"
@@ -25,13 +16,12 @@ install.packages(
         , "randomForest"
         , "rattle"
         , "rbokeh"
-        , "RGtk2"
         , "roxygen2"
         , "stargazer"
         , "stringr"
         , "testthat"
     )
-    , repos = "http://cran.rstudio.com"
+    , repos = "http://cran.r-project.org"
     , dependencies = c("Depends", "Imports")
     , verbose = TRUE
     , quiet = FALSE

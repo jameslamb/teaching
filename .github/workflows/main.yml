@@ -22,12 +22,12 @@ jobs:
             task: lint-r
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           fetch-depth: 5
           submodules: true
       - name: Use conda 
-        uses: goanpeca/setup-miniconda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: false
       - name: Setup and run tests on Linux and macOS
