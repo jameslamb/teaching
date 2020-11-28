@@ -2,7 +2,7 @@
 title       : ECON 6114 - R Programming
 subtitle    : Week 1
 author      : James Lamb
-job         : IoT Data Scientist | AWS
+job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -129,7 +129,8 @@ knit        : slidify::knit2slides
     - M.S.A.E. (2014)
 
 >- <b>Since Marquette:</b>
-    - Data Scientist @ [Uptake](https://uptake.com/) then [AWS](https://aws.amazon.com/), 2016-present
+    - Engineer @ [Saturn Cloud](https://www.saturncloud.io/s/), 2020-present
+    - Data Scientist @ [Uptake](https://uptake.com/) then [AWS](https://aws.amazon.com/), 2016-2020
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
     - Co-author and maintainer of [uptasticsearch](https://github.com/UptakeOpenSource/uptasticsearch) and [pkgnet](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
     - Maintainer on [LightGBM](https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues)
