@@ -31,8 +31,6 @@
 
 [RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB)
 
-[Git basics](https://jameslamb.github.io/teaching/mu_rprog/slides/git.html#1)
-
 ## Installing R Dependencies
 
 Throughout the course, students are asked to follow along with example code in slides and coding supplements. Those who want to install all the dependencies needed for this upfront (instead of as they go, week-by-week) can run the provided script in this repo.
