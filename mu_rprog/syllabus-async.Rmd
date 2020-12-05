@@ -6,7 +6,7 @@ urlcolor: blue
 
 \textbf{ECON 6114} \hspace{30mm}
 \textbf{R Programming} \hspace{30mm}
-\textbf{Spring 2020}
+\textbf{J-Term 2020}
 
 \hrulefill
 
@@ -17,6 +17,8 @@ urlcolor: blue
 \section{I. Course Info}
 
 Welcome to R Programming!
+
+This syllabus describes a virtual, asynchronous version of this course.
 
 \subsection{A. Learning Objectives and Outcomes}
 
@@ -32,7 +34,14 @@ My contact information is given at the top of this syllabus. Email is my preferr
 
 **Office Hours:**
 
-I will be on campus at least an hour before class on the days we meet, and will host "office hours" in the classroom. I will clarify office hour details during our first session.
+Virtual office hours will be available every week, starting the week before the class.
+
+- Every Thursday from 4:00p-6:00p CST
+- Every Sunday from 9:00a-11:00a CST
+
+If these times don't work for you or you'd like to talk 1-on-1, please email me and we can find another time that works.
+
+These will be video calls using Zoom. Prior to the beginning of the class, you'll receive calendar invitations for all office hours, with information on how to join.
 
 **Course Repo:**
 
@@ -44,7 +53,7 @@ None :)
 
 **Required Hardware:**
 
-\textcolor{red}{You are required to bring your own laptop to class.} If you do not have a personal laptop, please tell me as soon as possible and we can make other arrangements.
+\textcolor{red}{You are required to use your own laptop for this class.} If you do not have a personal laptop, please let me know as soon as possible.
 
 The use of personal hardware is required because one of the objectives for this course is to help each of you set up a data science friendly environment on your own machines.
 
@@ -52,7 +61,7 @@ The use of personal hardware is required because one of the objectives for this 
 
 We will be working with the [R programming language](https://www.r-project.org/). For script editing and exploratory analysis, we'll use [RStudio](https://www.rstudio.com/), a popular integrated development environment (IDE) for R.
 
-Instructions for setting up all of these components can be found in the section below. Download and installation instructions are given in this syllabus, but we will also spend some time on the first day of class ensuring that everyone is set up.
+Instructions for setting up these components can be found in the section below. Download and installation instructions are given in this syllabus, but please come to office hours if you need additional help.
 
 **Slides and Assignment Rubrics:**
 
@@ -60,26 +69,28 @@ Slides and assignment rubrics will be available both in the "Content" section of
 
 \subsection{C. To-Do Before the First Session}
 
-The course begins on 1/18/2020. Before class on that date, please do the following:
+The course begins on 12/14/2020. Before that date, please do the following:
 
 **1. Take the pre-course survey on [d2l](https://d2l.mu.edu/)**
 
 The survey must be completed before the first day of class. This is just to help me understand your previous experience with programming and data science.
 
-**2. Try to set up your development environment**
+**2. Set up your development environment**
 
-I'll devote some time in the first class to ensuring everyone is set up and resolving any lingering issues, so don't stress if you can't figure these out. I'm including the links here just to give you a chance to get a head start.
-
-- Try to [install R v4.0.2](https://cloud.r-project.org/) or higher on your personal laptop
+- Try to [install R v4.0.3](https://cloud.r-project.org/) or higher on your personal laptop
 - Try to [install RStudio v1.3](https://www.rstudio.com/products/rstudio/download/) or higher on your personal laptop
 
 I hope you'll be able to install these components using the information at those links and some moderate Googling. If you run into any issues, please email me and I'll help you out.
 
 \subsection{D. Course Outline}
 
-The outline below describes my goals for each lecture. Assignment due dates and lecture dates are fixed but content may change as the class progresses.
+The outline below describes my goals for each lecture.
 
-\underline{Week 1: January 18, 2020}
+All lecture videos will be available immediately on the first day of class. Additional videos explaining the answers to quizzes and homework assignments will be posted after the deadlines for those items have passed.
+
+All videos can be accessed under the "Content" section on D2L.
+
+\underline{Week 1: December 14, 2020}
 
 Due before class: Pre-course survey
 
@@ -95,7 +106,7 @@ Due before class: Pre-course survey
     \item Introduction to data frames
 \end{itemize}
 
-\underline{Week 2: January 25, 2020}
+\underline{Week 2: December 21, 2020}
 
 Due before class: Quiz 1
 
@@ -109,7 +120,7 @@ Due before class: Quiz 1
     \item Debugging Strategies
 \end{itemize}
 
-\underline{Week 3: February 1, 2020}
+\underline{Week 3: December 28, 2020}
 
 Due before class: Quiz 2, Programming Assignment 1
 
@@ -122,7 +133,7 @@ Due before class: Quiz 2, Programming Assignment 1
     \item Final Project Discussion
 \end{itemize}
 
-\underline{Week 4: February 8, 2020}
+\underline{Week 4: January 4, 2021}
 
 Due before class: Programming Assignment 2, Final Project Proposal
 
@@ -133,11 +144,9 @@ Due before class: Programming Assignment 2, Final Project Proposal
     \item Discussion of Project Proposals
 \end{itemize}
 
-\underline{Week 5: February 15, 2020}
+\underline{Week 5: January 15, 2021}
 
 Due before class: Final Project script + report
-
-In class: Final Project code reviews
 
 \begin{itemize}
     \item Final Project Code Reviews
@@ -181,13 +190,13 @@ The descriptions of all assignments are available immediately.
 
 There will be two quizzes which will test your understanding of topics covered in class. These quizzes will test your knowledge of terminology and core concepts. In addition, quizzes may require you to interpret pseudo-code or to write a bit of R code yourself to solve questions.
 
-Quizzes will be delivered online via D2L (see the "Quizzes" section of the course site) and you are expected to complete them outside of class. Quizzes have no time limit. You will be allowed two attempts for each quiz and your grade on each quiz will be the better of your two scores.
+Quizzes will be delivered online via D2L (see the "Quizzes" section of the course site). Quizzes have no time limit. You will be allowed two attempts for each quiz and your grade on each quiz will be the better of your two scores.
 
-|Quiz                       |Opens                             |Due                                 |
-|:-------------------------:|:--------------------------------:|:----------------------------------:|
-|Pre-class survey           | Immediately                      | Prior to Week 1 class (January 18) |
-|Quiz 1                     | After Week 1 class (January 18)  | Prior to Week 2 class (January 25) |
-|Quiz 2                     | After Week 2 class (January 25)  | Prior to Week 3 class (February 1) |
+|Quiz                       |Opens                             |Due                          |
+|:-------------------------:|:--------------------------------:|:---------------------------:|
+|Pre-class survey           | Immediately                      | 12:00p on December 14, 2020 |
+|Quiz 1                     | Immediately                      | 12:00p on December 21, 2020 |
+|Quiz 2                     | Immediately                      | 12:00p on December 28, 2020 |
 
 \subsection{B. Programming Assignments (30\%)}
 
@@ -197,10 +206,10 @@ Assignment rubrics can be found under the "Programming Assignments" module in th
 
 Your completed assignment must be uploaded to the appropriate folder in the "Dropbox" section on the course D2L page by the due date listed in the table below.
 
-|Assignment                 |Due                                 |
-|:-------------------------:|:----------------------------------:|
-|Programming Assignment 1   | Prior to Week 3 class (February 1) |
-|Programming Assignment 2   | Prior to Week 4 class (February 8) |
+|Assignment                 |Due                          |
+|:-------------------------:|:---------------------------:|
+|Programming Assignment 1   | 12:00p on December 28, 2020 |
+|Programming Assignment 2   | 12:00p on January 4, 2021   |
 
 \subsection{C. Final Project (45\%)}
 
@@ -212,16 +221,16 @@ The project comprises four parts:
     \item \emph{Final project proposal}: A 1-2 page briefing on your planned project
     \item \emph{Final project script}: The R script/scripts supporting your project
     \item \emph{Final project report}: A 2-4 page report detailing the outcome of your analysis
-    \item \emph{Final project code review}: You will give a 3-5 minute review of your project and code on the final day of class.
+    \item \emph{Final project code review}: You will give a 3-5 minute review of your project on a live video call.
 \end{enumerate}
 
 Full details of the project and each of its components are available in the "Final Project" module in the "Content" section of the course D2L page.
 
-|Assignment                      |Due                                  |
-|:------------------------------:|:-----------------------------------:|
-|Final Project proposal          | Prior to Week 4 class (February 8)  |
-|Final Project (script + report) | Prior to Week 5 class (February 15) |
-|Final Project code review       | In class Week 5 (February 15)       |
+|Assignment                      |Due                         |
+|:------------------------------:|:--------------------------:|
+|Final Project proposal          | 12:00p on January 4, 2021  |
+|Final Project (script + report) | 12:00p on January 15, 2021 |
+|Final Project code review       | TODO see below                  |
 
 \subsection{D. Grade Appeal}
 
