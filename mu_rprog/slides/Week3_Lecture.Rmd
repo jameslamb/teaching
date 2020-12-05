@@ -117,7 +117,7 @@ knit        : slidify::knit2slides
 
 <h2>Assignment 1 Discussion</h2>
 
-IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
+IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
 
 <center><img src="assets/img/week3_aliens.jpg" height=200px width = 500px></center>
 
@@ -293,7 +293,7 @@ To download files hosted on the internet, you can use `download.file()`.
 
 ```{r, eval = FALSE, echo = TRUE}
 download.file(
-  url = "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv"
+  url = "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
   , destfile = "iris.csv"
 )
 ```
@@ -673,7 +673,7 @@ for (i in 1:10){
 
 **Choosing External Packages**
 
-- You need to choose one data munging package, one statistics package, and one visualization package from [this list](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/final_project_packages.md)
+- You need to choose one data munging package, one statistics package, and one visualization package from [this list](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/final_project_packages.md)
 - Don't stress! You can do all of the following:
     - Change which packages you actually use in the final project
     - Use a package that isn't on the list (as long as you clear it with me)

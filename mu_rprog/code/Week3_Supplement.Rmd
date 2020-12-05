@@ -154,7 +154,7 @@ To download files hosted on the internet, you can use `download.file()`.
 
 ```{r, eval = FALSE, echo = TRUE}
 download.file(
-  url = "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv"
+  url = "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
   , destfile = "iris.csv"
 )
 ```
@@ -179,7 +179,7 @@ date,open,close
 To begin this example, download the example file from the course repository.
 
 ```{r, eval=FALSE, echo=TRUE}
-iris_url <- "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv"
+iris_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
 iris_file <- "iris.csv"
 download.file(
   url = iris_url
@@ -216,7 +216,7 @@ NOTE: This package requires certain Java components that you may not have on you
 To begin this example, download the example file from the course repository.
 
 ```{r, eval=FALSE, echo=TRUE}
-gdp_url <- "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/gdp.xlsx"
+gdp_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/gdp.xlsx"
 gdp_file <- "gdp.xlsx"
 download.file(
   url = gdp_url
@@ -289,7 +289,7 @@ JSON ("Javascript Object Notation") is a standard format for "semi-structured" o
 To begin this example, download the example file from the course repository.
 
 ```{r, eval=FALSE, echo=TRUE}
-tweet_url <- "https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/tweets.json"
+tweet_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/tweets.json"
 tweet_file <- "tweets.json"
 download.file(
   url = tweet_url

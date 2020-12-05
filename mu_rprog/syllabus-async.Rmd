@@ -67,7 +67,7 @@ Instructions for setting up these components can be found in the section below. 
 
 **Slides and Assignment Rubrics:**
 
-Slides and assignment rubrics will be available both in the "Content" section of the course page on D2L and on the course [GitHub repository](https://github.com/jameslamb/teaching/tree/master/mu_rprog).
+Slides and assignment rubrics will be available both in the "Content" section of the course page on D2L and on the course [GitHub repository](https://github.com/jameslamb/teaching/tree/main/mu_rprog).
 
 \subsection{C. To-Do Before the First Session}
 

@@ -545,7 +545,7 @@ Downloading files from the internet
 </h2>
 <p>To download files hosted on the internet, you can use <code>download.file()</code>.</p>
 <pre class="r"><code>download.file(
-  url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv&quot;
+  url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv&quot;
   , destfile = &quot;iris.csv&quot;
 )</code></pre>
 <h2>
@@ -563,7 +563,7 @@ CSV
 01-01-2012,10.5,8.9
 01-02-2012,8.9,10.3</code></pre>
 <p>To begin this example, download the example file from the course repository.</p>
-<pre class="r"><code>iris_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/iris.csv&quot;
+<pre class="r"><code>iris_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv&quot;
 iris_file &lt;- &quot;iris.csv&quot;
 download.file(
   url = iris_url
@@ -587,7 +587,7 @@ Excel
 <p>In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You’ll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we’ll focus on <a href="https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf">openxlsx</a>.</p>
 <p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
 <p>To begin this example, download the example file from the course repository.</p>
-<pre class="r"><code>gdp_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/gdp.xlsx&quot;
+<pre class="r"><code>gdp_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/gdp.xlsx&quot;
 gdp_file &lt;- &quot;gdp.xlsx&quot;
 download.file(
   url = gdp_url
@@ -641,7 +641,7 @@ JSON
   ]
 }</code></pre>
 <p>To begin this example, download the example file from the course repository.</p>
-<pre class="r"><code>tweet_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/master/mu_rprog/sample-data/tweets.json&quot;
+<pre class="r"><code>tweet_url &lt;- &quot;https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/tweets.json&quot;
 tweet_file &lt;- &quot;tweets.json&quot;
 download.file(
   url = tweet_url
