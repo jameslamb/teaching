@@ -47,6 +47,8 @@ These will be video calls using Zoom. Prior to the beginning of the class, you'l
 
 All course resources (including this syllabus!) can be found at https://github.com/jameslamb/teaching/tree/main/mu_rprog.
 
+BOOKMARK THIS RIGHT NOW: https://jameslamb.github.io/teaching/mu_rprog/
+
 **Required Textbooks:**
 
 None :)
@@ -221,16 +223,19 @@ The project comprises four parts:
     \item \emph{Final project proposal}: A 1-2 page briefing on your planned project
     \item \emph{Final project script}: The R script/scripts supporting your project
     \item \emph{Final project report}: A 2-4 page report detailing the outcome of your analysis
-    \item \emph{Final project code review}: You will give a 3-5 minute review of your project on a live video call.
+    \item \emph{Final project code review}: A 5-10 minute overview of your project. You will record
+        a video of yourself presenting your final project and submit it on D2L.
+    \item \emph{Final Project peer review}: Written feedback for three of your classmates' presentations.
 \end{enumerate}
 
-Full details of the project and each of its components are available in the "Final Project" module in the "Content" section of the course D2L page.
+Full details of the project and each of its components are available at [https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html).
 
 |Assignment                      |Due                         |
 |:------------------------------:|:--------------------------:|
 |Final Project proposal          | 12:00p on January 4, 2021  |
 |Final Project (script + report) | 12:00p on January 15, 2021 |
-|Final Project code review       | TODO see below                  |
+|Final Project code review video | 12:00p on January 15, 2021 |
+|Final Project peer reviews      | 12:00p on January 20, 2021 |
 
 \subsection{D. Grade Appeal}
 

@@ -38,6 +38,8 @@ I will be on campus at least an hour before class on the days we meet, and will 
 
 All course resources (including this syllabus!) can be found at https://github.com/jameslamb/teaching/tree/main/mu_rprog.
 
+BOOKMARK THIS RIGHT NOW: https://jameslamb.github.io/teaching/mu_rprog/
+
 **Required Textbooks:**
 
 None :)
