@@ -20,16 +20,16 @@
 
 ## Assignments:
 
-* [Programming Assignment 1](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/programming_assignment1.R)
+* [Programming Assignment 1](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R)
 * [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/assignments/programming_assignment2.html)
 * [Final Project](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html)
-    - [example data sources](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/some_data_sources.md)
-    - [package list](https://github.com/jameslamb/teaching/blob/master/mu_rprog/assignments/final_project_packages.md)
+    - [example data sources](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/some_data_sources.md)
+    - [package list](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/final_project_packages.md)
     - [R bad practices](https://jameslamb.github.io/teaching/mu_rprog/assignments/bad-practices.html)
 
 ## Other Resources:
 
-[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/master/mu_rprog/code/RquetteBB)
+[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/main/mu_rprog/code/RquetteBB)
 
 ## Installing R Dependencies
 
