@@ -13,7 +13,7 @@ knit        : slidify::knit2slides
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/week5_kermit.png");
+  background-image:url("assets/img/kermit.png");
   background-size: cover;
 }
 </style>
@@ -25,7 +25,7 @@ knit        : slidify::knit2slides
 
 <h2>The Final Week is Upon Us!</h2>
 
-<center><img src="assets/img/week5_almost_done.jpg" height=350px width = 650px></center>
+<center><img src="assets/img/almost-done.jpg" height=350px width = 650px></center>
 
 --- .toc_slide &twocol
 
@@ -71,7 +71,7 @@ knit        : slidify::knit2slides
 
 <br>
 
-<center><img src="assets/img/Week5_rafiki.jpg"></center>
+<center><img src="assets/img/rafiki.jpg"></center>
 
 --- .section_slide
 
@@ -107,4 +107,4 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 
 <br>
 
-<center><img src="assets/img/week5_ama.jpg" width = 500px height=750px></center>
+<center><img src="assets/img/ama.jpg" width = 500px height=750px></center>

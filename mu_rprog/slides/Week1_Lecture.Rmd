@@ -25,7 +25,7 @@ knit        : slidify::knit2slides
 
 <h2 class="content_slide">Welcome to Class!</h2>
 
-<center><img src="./assets/img/you_gon_learn_today.jpg"></center>
+<center><img src="./assets/img/you-gon-learn-today.jpg"></center>
 
 --- .toc_slide &twocol
 
@@ -211,7 +211,7 @@ R comes with a command-line client and a default GUI, but most users prefer to u
 
 Sequences of R code are typically saved in scripts with the file extension ".R". To open a blank script in RStudio and start editing, you can either go to "File --> New File --> R script" or choose "R Script" from the paper image in RStudio:
 
-<center><img src="./assets/img/week1_rstudio_rscript.png"></center>
+<center><img src="./assets/img/rstudio-rscript.png"></center>
 
 --- .content_slide &twocol
 
@@ -259,13 +259,13 @@ R is an [interpreted language](https://en.wikipedia.org/wiki/Interpreted_languag
 
 **Using Scripts**
 
-<img src="./assets/img/week1_rstudio_runscript.png">
+<img src="./assets/img/rstudio-runscript.png">
 
 *** =right
 
 **The Console**
 
-<img src="./assets/img/week1_r_console.png">
+<img src="./assets/img/r-console.png">
 
 --- .content_slide  &twocol
 

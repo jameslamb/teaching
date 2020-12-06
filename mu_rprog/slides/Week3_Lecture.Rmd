@@ -13,7 +13,7 @@ knit        : slidify::knit2slides
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/week3_statler_waldorf.jpeg");
+  background-image:url("assets/img/statler-waldorf.jpeg");
   background-size: cover;
 }
 </style>
@@ -25,7 +25,7 @@ knit        : slidify::knit2slides
 
 <h2>Welcome back!</h2>
 
-<center><img src="assets/img/week3_programming.png" height=350px width = 650px></center>
+<center><img src="assets/img/programming.png" height=350px width = 650px></center>
 
 
 --- .toc_slide &twocol
@@ -112,7 +112,7 @@ knit        : slidify::knit2slides
 
 IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
 
-<center><img src="assets/img/week3_aliens.jpg" height=200px width = 500px></center>
+<center><img src="assets/img/aliens.jpg" height=200px width = 500px></center>
 
 --- .section_slide
 
@@ -566,7 +566,7 @@ for (i in 1:10){
 
 - let's go through the [Final Project description](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html)
 
-<center><img src="assets/img/final_project_ski.jpg" height=350px width = 650px></center>
+<center><img src="assets/img/final-project-ski.jpg" height=350px width = 650px></center>
 
 --- .section_slide
 

@@ -24,7 +24,7 @@ widgets     : bootstrap
 
 <h2>Welcome back!</h2>
 
-<center><img src="assets/img/you_are_brave.jpg"></center>
+<center><img src="assets/img/you-are-brave.jpg"></center>
 
 --- .toc_slide &twocol
 
@@ -316,7 +316,7 @@ Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teach
 
 The second most popular debugging strategy:
 
-<center><img src="assets/img/week2_google_it.jpg"></center>
+<center><img src="assets/img/google-it.jpg"></center>
 
 --- .content_slide
 
@@ -350,7 +350,7 @@ Try to figure out what went wrong. HINT: it often helps to type the function nam
 
 You'll find yourself at http://stackoverflow.com/ REGULARLY.
 
-<center><img src="assets/img/stack_overflow.jpg" height=700px width=400px></center>
+<center><img src="assets/img/stack-overflow.jpg" height=700px width=400px></center>
 
 --- .content_slide
 
@@ -514,7 +514,7 @@ On professional data science teams, you may find yourself passing around R packa
 
 To install R packages sitting on your file system, you can use `install_local()` from the `{remotes}` package.
 
-<center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/week2_min_r_package.png"></a></center>
+<center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/min-r-package.png"></a></center>
 
 ```{r install_local, eval = FALSE, echo = TRUE, warning = FALSE, message = FALSE}
 remotes::install_local(path = "path/to/package")

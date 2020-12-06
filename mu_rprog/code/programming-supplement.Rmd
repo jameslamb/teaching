@@ -2438,7 +2438,7 @@ test_that("NamesToAbbreviations should return the expected output for simple vec
 
 Save this file, the run `testthat::test_dir("tests/testthat/")` from the console. You should get something like this:
 
-<center><img src="../slides/assets/img/Week5_test_ouptut.png" height=200px, width=400px></center>
+<center><img src="../slides/assets/img/test-output.png" height=200px, width=400px></center>
 
 The text in white is the "context" you specified. The white dot signifies one passed tests. The number 1 indicates your first test failure. I you had 5 failures and 12 successes you may see somthing like `.1...23...4...5..`. 
 

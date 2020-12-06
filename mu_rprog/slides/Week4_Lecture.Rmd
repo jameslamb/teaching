@@ -13,7 +13,7 @@ knit        : slidify::knit2slides
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/Week4_gonzo.png");
+  background-image:url("assets/img/gonzo.png");
   background-size: cover;
 }
 </style>
@@ -25,7 +25,7 @@ knit        : slidify::knit2slides
 
 <h2>R + Statistics = Besties 5 evah</h2>
 
-<center><img src="assets/img/Week4_nice_guys.gif" height=350px width = 650px></center>
+<center><img src="assets/img/nice-guys.gif" height=350px width = 650px></center>
 
 --- .toc_slide &twocol
 
