@@ -109,7 +109,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    I. Programming Assignment 1 Review<span style="float:right">ECON 6114 - R Programming</span>
+    Programming Assignment 1 Review<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Assignment 1 Discussion</h2>
@@ -129,7 +129,7 @@ IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog
 
 <footer>
   <hr>
-    II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Logical Operators</h2>
@@ -154,7 +154,7 @@ FALSE | FALSE  # FALSE
 
 <footer>
   <hr>
-    II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Logical Operators (continued)</h2>

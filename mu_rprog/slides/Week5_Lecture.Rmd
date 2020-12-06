@@ -68,7 +68,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    I. Final Project Code Reviews<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Code Reviews<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>It is Time.</h2>
@@ -88,7 +88,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    II. Wrapping Your Code in A Package<span style="float:right">ECON 6114 - R Programming</span>
+    Wrapping Your Code in A Package<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>In-Class Exercise: RquetteBB</h2>
@@ -108,7 +108,7 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 
 <footer>
   <hr>
-    III. Data Science AMA<span style="float:right">ECON 6114 - R Programming</span>
+    Data Science AMA<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Data Science AMA</h2>
