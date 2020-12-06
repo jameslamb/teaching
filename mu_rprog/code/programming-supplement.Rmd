@@ -419,7 +419,7 @@ names(playerDF)[grepl("^p", names(playerDF))]
 
 # Controlling Program Flow
 
-### If-Else
+## If-Else
 
 Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
 
@@ -459,7 +459,7 @@ if (4 > 5){
 }
 ```
 
-### For Loops
+## For Loops
 
 One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a `for` loop.
 
@@ -478,7 +478,7 @@ for (some_number in x){
 }
 ```
 
-### While Loops
+## While Loops
 
 For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R "look through an alphabetized list of movies and tell me if you find Apocalypse Now". A `for` loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a `while` loop.
 
@@ -506,7 +506,7 @@ for (movie in movie_list) {
 }
 ```
 
-And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants.
+And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants. In this case, it's more efficient to use a `while` loop to solve this problem.
 
 ```{r whileLoop2}
 movie_list <- c(
@@ -1183,7 +1183,7 @@ is.na(some_nums)
 class(some_nums)
 ```
 
-### Strategy 1: Total Eradication
+## Strategy 1: Total Eradication
 
 The first approach you may take to dealing with `NA` values is to simply drop them from your data. If you don't think these missing data have any business value and your dataset is big enough that you can afford to drop some rows / columns, this is the right move for you.
 
@@ -1211,7 +1211,7 @@ myDF <- data.frame(
 cleanDF <- myDF[complete.cases(myDF), ]
 ```
 
-### Strategy 2: Handle on Subsets
+## Strategy 2: Handle on Subsets
 
 You may find the "remove all the NAs everywhere" strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
@@ -1234,7 +1234,7 @@ cleanDF <- testDF[, !colsToDrop]
 cleanDF <- cleanDF[complete.cases(cleanDF),]
 ```
 
-### Strategy 3: Imputation
+## Strategy 3: Imputation
 
 A final strategy, particularly useful in modeling contexts, is to use some [imputation strategy](https://www.analyticsvidhya.com/blog/2016/03/tutorial-powerful-packages-imputing-missing-values/) to replace `NA` values with reasonable alternatives. One common approach (and my favorite), the `roughfix` method. It works like this:
 - For numeric columns, replace NAs with the column median

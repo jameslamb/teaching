@@ -1,8 +1,6 @@
 ---
 title       : R Programming
 subtitle    : Week 1
-author      : James Lamb
-job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -49,10 +47,10 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> Setting Up Your Environment </b>
 <ol class = "toc" type="none">
-    <li> Installing R + RStudio             <span style="float:right"> 10  </span></li>
-    <li> Authoring Scripts in RStudio       <span style="float:right"> 11 </span></li>
+    <li> Installing R + RStudio <span style="float:right"> 10  </span></li>
+    <li> Authoring Scripts in RStudio <span style="float:right"> 11 </span></li>
     <li> Authoring Scripts in a Text Editor <span style="float:right"> 12 </span></li>
-    <li> Executing R Code                   <span style="float:right"> 13-14 </span></li>
+    <li> Executing R Code <span style="float:right"> 13-14 </span></li>
 </ol>
 
 *** =right
@@ -75,8 +73,8 @@ knit        : slidify::knit2slides
 <ol class="toc" type="none">
     <li> Vectors <span style="float:right"> 26-27 </span></li>
     <li> Lists <span style="float:right"> 28-29 </span></li>
-    <li> Factors      <span style="float:right"> 30-31 </span></li>
-    <li> Data Frames      <span style="float:right"> 32-34 </span></li>
+    <li> Factors <span style="float:right"> 30 </span></li>
+    <li> Data Frames <span style="float:right"> 31-33 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -92,30 +90,30 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> Logical Operators </b>
 <ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 36-38 </span></li>
+    <li> Logical Operators <span style="float:right"> 35-37 </span></li>
 </ol>
 
 <b class="toc_header"> Subsetting </b>
 <ol class="toc" type="none">
-    <li> Subsetting Vectors <span style="float:right"> 40 </span></li>
-    <li> Subsetting Lists <span style="float:right"> 41 </span></li>
-    <li> Subsetting Data Frames <span style="float:right"> 42 </span></li>
-    <li> Using Logical Vectors <span style="float:right"> 43 </span></li>
+    <li> Subsetting Vectors <span style="float:right"> 39 </span></li>
+    <li> Subsetting Lists <span style="float:right"> 40 </span></li>
+    <li> Subsetting Data Frames <span style="float:right"> 41 </span></li>
+    <li> Using Logical Vectors <span style="float:right"> 42 </span></li>
 </ol>
 
 <b class="toc_header"> Controlling Program Flow </b>
 
 <ol class = "toc" type="none">
-    <li> If-Else <span style="float:right"> 45-46 </span></li>
-    <li> For Loops <span style="float:right"> 47 </span></li>
-    <li> While Loops <span style="float:right"> 48-49 </span></li>
+    <li> If-Else <span style="float:right"> 44-45 </span></li>
+    <li> For Loops <span style="float:right"> 46 </span></li>
+    <li> While Loops <span style="float:right"> 47 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Additional Resources </b>
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right"> 51 </span></li>
+    <li> Learning More on Your Own<span style="float:right"> 49 </span></li>
 </ol>
 
 --- .section_slide
@@ -166,8 +164,6 @@ knit        : slidify::knit2slides
 </footer>
 
 <h2>Course Objectives</h2>
-
-In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code.
 
 <br>
 The main objectives for the course are as follows:
@@ -580,22 +576,16 @@ grades <- lapply(studentList, mean)
 
 <h2>Factors</h2>
 
-Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America". How can you use this variable in a model or for generating region-by-region summary stats? This is where R's **factor type** comes in.
+R comes with a special type called a "factor" for modelling categorical variables. To save memory, internally R will convert factor values to integers and then keep around a single table that says, for example, 1 = "Africa", 2 = "Asia", etc.
 
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
+```{r factorExample}
+regions <- as.factor(c("Africa", "Asia", "Europe", "Asia"))
+region_fac <- as.factor(regions)
+print(region_fac)
+print(as.integer(region_fac))
+```
 
---- .content_slide
-
-<footer>
-  <hr>
-    R Data Structures<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Factors</h2>
-
- Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
+See ["Factors"](../code/programming-supplement.html#Factors) in the programming supplement for an example.
 
 --- .content_slide
 
@@ -657,9 +647,9 @@ unique(mtcars$cyl)
 
 <h2>Data Frames (pt 3)</h2>
 
-We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I'd like to introduce you to one more looping function: `apply`.
+We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in later sections. For now, I'd like to introduce you to one more looping function: `apply()`.
 
-`apply` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply`.
+`apply()` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply()`.
 
 ```{r apply_on_a_DF, eval = FALSE}
 # Get the mean of each column
@@ -683,7 +673,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
 
 <h2>Logical Operators</h2>
 
-Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.
+Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE).
 
 ```{r logicalCond1, echo = TRUE, eval = FALSE}
 # "and" logic is expressed with "&"
@@ -737,7 +727,7 @@ The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 
 <h2>Logical Operators (continued)</h2>
 
-As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
+As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
 
 ```{r logicalCond3, eval = FALSE, echo = TRUE}
 # Load some data
@@ -793,7 +783,7 @@ myVec["var3"]
 
 Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use `[` with a list, you are guaranteed to get back another list. If you use `[[`, you will get back an object in its natural form (whatever it would look like if it wasn't in the list). You can also use `$` to access named elements.
 
-Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for some examples of list subsetting.
+Please see ["Subsetting Lists"](../code/programming-supplement.html#Subsetting_Lists) in the programming supplement.
 
 --- .content_slide
 
@@ -835,9 +825,7 @@ So far, we've seen how to subset R objects using numeric indices and named eleme
 
 Using these methods (especially numeric indices like saying *give me columns 2-4*) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.
 
-Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for a treatment of subsetting with logical vectors.
-
---- .content_slide
+Please see ["Using Logical Vectors"](../code/programming-supplement.html#Using_Logical_Vectors) in the programming supplement for an example.
 
 <footer>
   <hr>
@@ -857,7 +845,7 @@ if (x > 5){
 }
 ```
 
-See the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html) for more examples.
+See ["If-Else"](../code/programming-supplement.html#Controlling_Program_Flow) in the programming supplement for more examples.
 
 --- .section_slide
 
@@ -876,7 +864,7 @@ See the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week
 What if you want to express more than two possible outcomes? For this, we could use R's `else if` construct to nest conditions. Note that conditional blocks can have any number of "else if" statements, but only one "else" block.
 
 ```{r ifElse2, eval = FALSE, echo = TRUE}
-# Try to think through what this will do before you run it yourself:
+# Try to think through what this will do before you run it yourself
 if (4 > 5){
     print("3")
 } else if (6 <= (5/10)) {
@@ -921,22 +909,19 @@ for (some_number in x){
   Controlling Program Flow<span style="float:right">R Programming</span>
 </footer>
 
-<h2>While Loops (pt 1)</h2>
+<h2>While Loops</h2>
 
-For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R "look through an alphabetized list of movies and tell me if you find Apocalypse Now". A `for` loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a `while` loop.
+For loops are suitable for many applications, but they can be too restrictive in some cases. When you want to say "run this code until some condition is met", a `while` loops is more appropriate.
 
-Consult the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html) for the `for` loop implementation to solve this problem.
+```{r, whileExample}
+i <- 1
+while (i < 5) {
+    print(i)
+    i <- i + 1
+}
+```
 
---- .content_slide
-
-<footer>
-  <hr>
-  Controlling Program Flow<span style="float:right">R Programming</span>
-</footer>
-
-<h2>While Loops (pt 2)</h2>
-
-The `while` loop implementation can be found in the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html). Notice that it stops checking once it finds what it wants, making it potentially more efficient than the `for` implementation.
+See ["While Loops"](../code/programming-supplement.html#While_Loops) in the programing supplement for a hands-on example.
 
 --- .section_slide
 
@@ -952,7 +937,7 @@ The `while` loop implementation can be found in the [Week 1 Code Supplement](jam
 
 <h2>Learning More on Your Own</h2>
 
-We covered a lot of stuff this week, and will have to be selective about which things we delve deeper into in the following weeks. For the brave and curious, I've included a few online free resources for learning more about the technologies we discussed.
+For the brave and curious, I've included a few online free resources for learning more about the technologies we discussed.
 
 **Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/)
 

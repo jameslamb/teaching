@@ -4,7 +4,7 @@
   <title>R Programming</title>
   <meta charset="utf-8">
   <meta name="description" content="R Programming">
-  <meta name="author" content="James Lamb">
+  <meta name="author" content="">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -36,7 +36,7 @@
   <hgroup class="auto-fadein">
     <h1>R Programming</h1>
     <h2>Week 3</h2>
-    <p>James Lamb<br/>Engineer | Saturn Cloud</p>
+    <p><br/></p>
   </hgroup>
   
   <article></article>  
@@ -194,114 +194,6 @@
   <article data-timings="">
     <p></br></br></br></p>
 
-<h2>Intro Topic Grab Bag</h2>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-7" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Logical Operators</h2>
-
-<p>Often in your code, you&#39;ll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.</p>
-
-<pre><code class="r"># &quot;and&quot; logic is expressed with &quot;&amp;&quot;
-TRUE &amp; TRUE   # TRUE
-TRUE &amp; FALSE  # FALSE
-FALSE &amp; FALSE # FALSE
--5 &lt; 5 &amp; 3 &gt; 2 # TRUE
-
-# &quot;or&quot; logic is expressed with &quot;|&quot;
-TRUE | TRUE    # TRUE
-TRUE | FALSE   # TRUE
-FALSE | FALSE  # FALSE
-3 &lt; 8 | 8 &gt; 19 # TRUE
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-8" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Logical Operators (continued)</h2>
-
-<p>The most common operators used to generate logicals are <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, and <code>!=</code></p>
-
-<pre><code class="r"># &quot;equality&quot; logic is specified with &quot;==&quot;
-3 == 3   # TRUE
-4 == 4.1 # FALSE
-
-# &quot;not&quot; logic is specified with !. In a special case, != signifies &quot;not equal&quot;
-!TRUE            # FALSE
-!FALSE           # TRUE
-! (TRUE | FALSE) # FALSE
-4 != 5           # TRUE
-
-# &quot;greater than&quot; and &quot;less than&quot; logic are specified in the way you might expect
-5 &lt; 5  # FALSE
-6 &lt;= 6 # TRUE
-4 &gt; 2  # TRUE
-3 &gt;= 3 # TRUE
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-9" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Logical Operators (continued)</h2>
-
-<p>As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
-
-<pre><code class="r"># Load some data
-data(&quot;mtcars&quot;)
-
-# Create a logical index. Note that we get a VECTOR of logicals back
-bigCarIndex &lt;- mtcars$wt &gt; 4
-
-# Taking the SUM of a logical vector tells you the number of TRUEs.
-# Taking the MEAN of a logical vector tells you the proportion of TRUEs
-sum(bigCarIndex)
-mean(bigCarIndex)
-
-# You can use this for subsetting
-mtcars[bigCarIndex,]
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="section_slide" id="slide-10" style="background:;">
-  
-  <article data-timings="">
-    <p></br></br></br></p>
-
 <h2>Getting Data</h2>
 
   </article>
@@ -309,7 +201,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-11" style="background:;">
+<slide class="content_slide" id="slide-7" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -334,7 +226,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-12" style="background:;">
+<slide class="content_slide" id="slide-8" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -361,7 +253,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-13" style="background:;">
+<slide class="content_slide" id="slide-9" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -384,7 +276,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-14" style="background:;">
+<slide class="content_slide" id="slide-10" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -410,7 +302,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-15" style="background:;">
+<slide class="content_slide" id="slide-11" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -431,7 +323,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-16" style="background:;">
+<slide class="content_slide" id="slide-12" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -450,7 +342,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-17" style="background:;">
+<slide class="content_slide" id="slide-13" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -478,7 +370,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="section_slide" id="slide-18" style="background:;">
+<slide class="section_slide" id="slide-14" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -490,7 +382,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-19" style="background:;">
+<slide class="content_slide" id="slide-15" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -531,7 +423,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-20" style="background:;">
+<slide class="content_slide" id="slide-16" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -552,7 +444,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-21" style="background:;">
+<slide class="content_slide" id="slide-17" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -581,7 +473,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
   
 </slide>
 
-<slide class="content_slide" id="slide-22" style="background:;">
+<slide class="content_slide" id="slide-18" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -612,7 +504,7 @@ cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
   
 </slide>
 
-<slide class="content_slide" id="slide-23" style="background:;">
+<slide class="content_slide" id="slide-19" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -644,7 +536,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="section_slide" id="slide-24" style="background:;">
+<slide class="section_slide" id="slide-20" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -656,7 +548,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-25" style="background:;">
+<slide class="content_slide" id="slide-21" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -682,7 +574,7 @@ head(iris, n = 10)
   
 </slide>
 
-<slide class="content_slide" id="slide-26" style="background:;">
+<slide class="content_slide" id="slide-22" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -713,7 +605,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
   
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-23" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -741,7 +633,7 @@ plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&
   
 </slide>
 
-<slide class="content_slide" id="slide-28" style="background:;">
+<slide class="content_slide" id="slide-24" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -769,7 +661,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;r
   
 </slide>
 
-<slide class="content_slide" id="slide-29" style="background:;">
+<slide class="content_slide" id="slide-25" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -799,7 +691,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-30" style="background:;">
+<slide class="content_slide" id="slide-26" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -822,7 +714,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-31" style="background:;">
+<slide class="content_slide" id="slide-27" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -854,7 +746,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-32" style="background:;">
+<slide class="section_slide" id="slide-28" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -866,7 +758,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-33" style="background:;">
+<slide class="content_slide" id="slide-29" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -902,7 +794,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-34" style="background:;">
+<slide class="content_slide" id="slide-30" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -923,7 +815,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-35" style="background:;">
+<slide class="section_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -935,7 +827,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1180,34 +1072,6 @@ for (i in 1:10){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=32 title='NA'>
          32
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='NA'>
-         33
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='NA'>
-         34
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='NA'>
-         35
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='NA'>
-         36
       </a>
     </li>
     

@@ -1,8 +1,6 @@
 ---
 title       : R Programming
 subtitle    : Week 3
-author      : James Lamb
-job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -115,92 +113,6 @@ knit        : slidify::knit2slides
 IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
 
 <center><img src="assets/img/week3_aliens.jpg" height=200px width = 500px></center>
-
---- .section_slide
-
-</br></br></br>
-<h2>Intro Topic Grab Bag</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Logical Operators</h2>
-
-Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.
-
-```{r logicalCond1, echo = TRUE, eval = FALSE}
-# "and" logic is expressed with "&"
-TRUE & TRUE   # TRUE
-TRUE & FALSE  # FALSE
-FALSE & FALSE # FALSE
--5 < 5 & 3 > 2 # TRUE
-
-# "or" logic is expressed with "|"
-TRUE | TRUE    # TRUE
-TRUE | FALSE   # TRUE
-FALSE | FALSE  # FALSE
-3 < 8 | 8 > 19 # TRUE
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Logical Operators (continued)</h2>
-
-The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
-
-```{r logicalCond2, echo = TRUE, eval = FALSE}
-# "equality" logic is specified with "=="
-3 == 3   # TRUE
-4 == 4.1 # FALSE
-
-# "not" logic is specified with !. In a special case, != signifies "not equal"
-!TRUE            # FALSE
-!FALSE           # TRUE
-! (TRUE | FALSE) # FALSE
-4 != 5           # TRUE
-
-# "greater than" and "less than" logic are specified in the way you might expect
-5 < 5  # FALSE
-6 <= 6 # TRUE
-4 > 2  # TRUE
-3 >= 3 # TRUE
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Logical Operators (continued)</h2>
-
-As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
-
-```{r logicalCond3, eval = FALSE, echo = TRUE}
-# Load some data
-data("mtcars")
-
-# Create a logical index. Note that we get a VECTOR of logicals back
-bigCarIndex <- mtcars$wt > 4
-
-# Taking the SUM of a logical vector tells you the number of TRUEs.
-# Taking the MEAN of a logical vector tells you the proportion of TRUEs
-sum(bigCarIndex)
-mean(bigCarIndex)
-
-# You can use this for subsetting
-mtcars[bigCarIndex,]
-```
 
 --- .section_slide
 

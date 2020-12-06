@@ -1,9 +1,7 @@
 ---
 title       : "R Programming"
-author      : "James Lamb"
 highlighter : highlight.js
 hitheme     : tomorrow
-job         : Engineer | Saturn Cloud
 knit        : slidify::knit2slides
 lib_cdn     : https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libraries
 mode        : selfcontained

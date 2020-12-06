@@ -1,8 +1,6 @@
 ---
 title       : R Programming
 subtitle    : Week 5
-author      : James Lamb
-job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow

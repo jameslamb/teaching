@@ -4,7 +4,7 @@
   <title>R Programming</title>
   <meta charset="utf-8">
   <meta name="description" content="R Programming">
-  <meta name="author" content="James Lamb">
+  <meta name="author" content="">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -36,7 +36,7 @@
   <hgroup class="auto-fadein">
     <h1>R Programming</h1>
     <h2>Week 1</h2>
-    <p>James Lamb<br/>Engineer | Saturn Cloud</p>
+    <p><br/></p>
   </hgroup>
   
   <article></article>  
@@ -93,10 +93,10 @@
 <p><b class="toc_header"> Setting Up Your Environment </b></p>
 
 <ol class = "toc" type="none">
-    <li> Installing R + RStudio             <span style="float:right"> 10  </span></li>
-    <li> Authoring Scripts in RStudio       <span style="float:right"> 11 </span></li>
+    <li> Installing R + RStudio <span style="float:right"> 10  </span></li>
+    <li> Authoring Scripts in RStudio <span style="float:right"> 11 </span></li>
     <li> Authoring Scripts in a Text Editor <span style="float:right"> 12 </span></li>
-    <li> Executing R Code                   <span style="float:right"> 13-14 </span></li>
+    <li> Executing R Code <span style="float:right"> 13-14 </span></li>
 </ol>
 
 </div>
@@ -122,8 +122,8 @@
 <ol class="toc" type="none">
     <li> Vectors <span style="float:right"> 26-27 </span></li>
     <li> Lists <span style="float:right"> 28-29 </span></li>
-    <li> Factors      <span style="float:right"> 30-31 </span></li>
-    <li> Data Frames      <span style="float:right"> 32-34 </span></li>
+    <li> Factors <span style="float:right"> 30 </span></li>
+    <li> Data Frames <span style="float:right"> 31-33 </span></li>
 </ol>
 
 </div>
@@ -146,24 +146,24 @@
   <p><b class="toc_header"> Logical Operators </b></p>
 
 <ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 36-38 </span></li>
+    <li> Logical Operators <span style="float:right"> 35-37 </span></li>
 </ol>
 
 <p><b class="toc_header"> Subsetting </b></p>
 
 <ol class="toc" type="none">
-    <li> Subsetting Vectors <span style="float:right"> 40 </span></li>
-    <li> Subsetting Lists <span style="float:right"> 41 </span></li>
-    <li> Subsetting Data Frames <span style="float:right"> 42 </span></li>
-    <li> Using Logical Vectors <span style="float:right"> 43 </span></li>
+    <li> Subsetting Vectors <span style="float:right"> 39 </span></li>
+    <li> Subsetting Lists <span style="float:right"> 40 </span></li>
+    <li> Subsetting Data Frames <span style="float:right"> 41 </span></li>
+    <li> Using Logical Vectors <span style="float:right"> 42 </span></li>
 </ol>
 
 <p><b class="toc_header"> Controlling Program Flow </b></p>
 
 <ol class = "toc" type="none">
-    <li> If-Else <span style="float:right"> 45-46 </span></li>
-    <li> For Loops <span style="float:right"> 47 </span></li>
-    <li> While Loops <span style="float:right"> 48-49 </span></li>
+    <li> If-Else <span style="float:right"> 44-45 </span></li>
+    <li> For Loops <span style="float:right"> 46 </span></li>
+    <li> While Loops <span style="float:right"> 47 </span></li>
 </ol>
 
 </div>
@@ -171,7 +171,7 @@
   <p><b class="toc_header"> Additional Resources </b></p>
 
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right"> 51 </span></li>
+    <li> Learning More on Your Own<span style="float:right"> 49 </span></li>
 </ol>
 
 </div>
@@ -255,8 +255,6 @@
 </footer></p>
 
 <h2>Course Objectives</h2>
-
-<p>In this 5-week course, we are going to install a bunch of software and read/write a bunch of R code.</p>
 
 <p><br>
 The main objectives for the course are as follows:</p>
@@ -891,9 +889,24 @@ for (i in 1:length(studentList)){
 
 <h2>Factors</h2>
 
-<p>Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called &quot;region&quot; with values like &quot;Africa&quot;, &quot;European Union&quot;, and &quot;South America&quot;. How can you use this variable in a model or for generating region-by-region summary stats? This is where R&#39;s <strong>factor type</strong> comes in.</p>
+<p>R comes with a special type called a &quot;factor&quot; for modelling categorical variables. To save memory, internally R will convert factor values to integers and then keep around a single table that says, for example, 1 = &quot;Africa&quot;, 2 = &quot;Asia&quot;, etc.</p>
 
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
+<pre><code class="r">regions &lt;- as.factor(c(&quot;Africa&quot;, &quot;Asia&quot;, &quot;Europe&quot;, &quot;Asia&quot;))
+region_fac &lt;- as.factor(regions)
+print(region_fac)
+</code></pre>
+
+<pre><code>## [1] Africa Asia   Europe Asia  
+## Levels: Africa Asia Europe
+</code></pre>
+
+<pre><code class="r">print(as.integer(region_fac))
+</code></pre>
+
+<pre><code>## [1] 1 2 3 2
+</code></pre>
+
+<p>See <a href="../code/programming-supplement.html#Factors">&quot;Factors&quot;</a> in the programming supplement for an example.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -901,25 +914,6 @@ for (i in 1:length(studentList)){
 </slide>
 
 <slide class="content_slide" id="slide-30" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    R Data Structures<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Factors</h2>
-
-<p>Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -950,7 +944,7 @@ str(myDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-32" style="background:;">
+<slide class="content_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -980,7 +974,7 @@ unique(mtcars$cyl)
   
 </slide>
 
-<slide class="content_slide" id="slide-33" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -990,9 +984,9 @@ unique(mtcars$cyl)
 
 <h2>Data Frames (pt 3)</h2>
 
-<p>We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I&#39;d like to introduce you to one more looping function: <code>apply</code>.</p>
+<p>We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in later sections. For now, I&#39;d like to introduce you to one more looping function: <code>apply()</code>.</p>
 
-<p><code>apply</code> allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with <code>apply</code>.</p>
+<p><code>apply()</code> allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with <code>apply()</code>.</p>
 
 <pre><code class="r"># Get the mean of each column
 apply(mtcars, MARGIN = 2, FUN = mean)
@@ -1006,7 +1000,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   
 </slide>
 
-<slide class="section_slide" id="slide-34" style="background:;">
+<slide class="section_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1018,7 +1012,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   
 </slide>
 
-<slide class="content_slide" id="slide-35" style="background:;">
+<slide class="content_slide" id="slide-34" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1028,7 +1022,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
 
 <h2>Logical Operators</h2>
 
-<p>Often in your code, you&#39;ll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.</p>
+<p>Often in your code, you&#39;ll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE).</p>
 
 <pre><code class="r"># &quot;and&quot; logic is expressed with &quot;&amp;&quot;
 TRUE &amp; TRUE   # TRUE
@@ -1048,7 +1042,7 @@ FALSE | FALSE  # FALSE
   
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-35" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1082,7 +1076,7 @@ FALSE | FALSE  # FALSE
   
 </slide>
 
-<slide class="content_slide" id="slide-37" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1092,7 +1086,7 @@ FALSE | FALSE  # FALSE
 
 <h2>Logical Operators (continued)</h2>
 
-<p>As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
+<p>As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
 
 <pre><code class="r"># Load some data
 data(&quot;mtcars&quot;)
@@ -1111,7 +1105,7 @@ mean(bigCarIndex)
   
 </slide>
 
-<slide class="section_slide" id="slide-38" style="background:;">
+<slide class="section_slide" id="slide-37" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1123,7 +1117,7 @@ mean(bigCarIndex)
   
 </slide>
 
-<slide class="content_slide" id="slide-39" style="background:;">
+<slide class="content_slide" id="slide-38" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1153,7 +1147,7 @@ myVec[&quot;var3&quot;]
   
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-39" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1165,14 +1159,14 @@ myVec[&quot;var3&quot;]
 
 <p>Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use <code>[</code> with a list, you are guaranteed to get back another list. If you use <code>[[</code>, you will get back an object in its natural form (whatever it would look like if it wasn&#39;t in the list). You can also use <code>$</code> to access named elements.</p>
 
-<p>Please see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html">Week 2 Programming Supplement</a> for some examples of list subsetting.</p>
+<p>Please see <a href="../code/programming-supplement.html#Subsetting_Lists">&quot;Subsetting Lists&quot;</a> in the programming supplement.</p>
 
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="content_slide" id="slide-41" style="background:;">
+<slide class="content_slide" id="slide-40" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1204,7 +1198,7 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
   
 </slide>
 
-<slide class="content_slide" id="slide-42" style="background:;">
+<slide class="content_slide" id="slide-41" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1218,17 +1212,9 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
 
 <p>Using these methods (especially numeric indices like saying <em>give me columns 2-4</em>) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.</p>
 
-<p>Please see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html">Week 2 Programming Supplement</a> for a treatment of subsetting with logical vectors.</p>
+<p>Please see <a href="../code/programming-supplement.html#Using_Logical_Vectors">&quot;Using Logical Vectors&quot;</a> in the programming supplement for an example.</p>
 
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-43" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
+<p><footer>
   <hr>
   Programming Fundamentals<span style="float:right">R Programming</span>
 </footer></p>
@@ -1245,14 +1231,14 @@ if (x &gt; 5){
 }
 </code></pre>
 
-<p>See the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> for more examples.</p>
+<p>See <a href="../code/programming-supplement.html#Controlling_Program_Flow">&quot;If-Else&quot;</a> in the programming supplement for more examples.</p>
 
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="section_slide" id="slide-44" style="background:;">
+<slide class="section_slide" id="slide-42" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1264,7 +1250,7 @@ if (x &gt; 5){
   
 </slide>
 
-<slide class="content_slide" id="slide-45" style="background:;">
+<slide class="content_slide" id="slide-43" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1276,7 +1262,7 @@ if (x &gt; 5){
 
 <p>What if you want to express more than two possible outcomes? For this, we could use R&#39;s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of &quot;else if&quot; statements, but only one &quot;else&quot; block.</p>
 
-<pre><code class="r"># Try to think through what this will do before you run it yourself:
+<pre><code class="r"># Try to think through what this will do before you run it yourself
 if (4 &gt; 5){
     print(&quot;3&quot;)
 } else if (6 &lt;= (5/10)) {
@@ -1293,7 +1279,7 @@ if (4 &gt; 5){
   
 </slide>
 
-<slide class="content_slide" id="slide-46" style="background:;">
+<slide class="content_slide" id="slide-44" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1324,7 +1310,7 @@ for (some_number in x){
   
 </slide>
 
-<slide class="content_slide" id="slide-47" style="background:;">
+<slide class="content_slide" id="slide-45" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1332,35 +1318,31 @@ for (some_number in x){
   Controlling Program Flow<span style="float:right">R Programming</span>
 </footer></p>
 
-<h2>While Loops (pt 1)</h2>
+<h2>While Loops</h2>
 
-<p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R &quot;look through an alphabetized list of movies and tell me if you find Apocalypse Now&quot;. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
+<p>For loops are suitable for many applications, but they can be too restrictive in some cases. When you want to say &quot;run this code until some condition is met&quot;, a <code>while</code> loops is more appropriate.</p>
 
-<p>Consult the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> for the <code>for</code> loop implementation to solve this problem.</p>
+<pre><code class="r">i &lt;- 1
+while (i &lt; 5) {
+    print(i)
+    i &lt;- i + 1
+}
+</code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+</code></pre>
 
-<slide class="content_slide" id="slide-48" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Controlling Program Flow<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>While Loops (pt 2)</h2>
-
-<p>The <code>while</code> loop implementation can be found in the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a>. Notice that it stops checking once it finds what it wants, making it potentially more efficient than the <code>for</code> implementation.</p>
+<p>See <a href="../code/programming-supplement.html#While_Loops">&quot;While Loops&quot;</a> in the programing supplement for a hands-on example.</p>
 
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="section_slide" id="slide-49" style="background:;">
+<slide class="section_slide" id="slide-46" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1372,7 +1354,7 @@ for (some_number in x){
   
 </slide>
 
-<slide class="content_slide" id="slide-50" style="background:;">
+<slide class="content_slide" id="slide-47" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1382,7 +1364,7 @@ for (some_number in x){
 
 <h2>Learning More on Your Own</h2>
 
-<p>We covered a lot of stuff this week, and will have to be selective about which things we delve deeper into in the following weeks. For the brave and curious, I&#39;ve included a few online free resources for learning more about the technologies we discussed.</p>
+<p>For the brave and curious, I&#39;ve included a few online free resources for learning more about the technologies we discussed.</p>
 
 <p><strong>Bash</strong>: <a href="https://www.codecademy.com/learn/learn-the-command-line">Codecademy</a> | <a href="https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/">Learn Bash</a></p>
 
@@ -1732,27 +1714,6 @@ for (some_number in x){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=47 title='NA'>
          47
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='NA'>
-         48
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='NA'>
-         49
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='NA'>
-         50
       </a>
     </li>
     
