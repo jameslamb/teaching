@@ -297,45 +297,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-10" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Factors</h2>
-
-<p>Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called &quot;region&quot; with values like &quot;Africa&quot;, &quot;European Union&quot;, and &quot;South America&quot;. How can you use this variable in a model or for generating region-by-region summary stats? This is where R&#39;s <strong>factor type</strong> comes in.</p>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-11" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Factors</h2>
-
-<p>Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="section_slide" id="slide-12" style="background:;">
+<slide class="section_slide" id="slide-10" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -347,7 +309,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-13" style="background:;">
+<slide class="content_slide" id="slide-11" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -372,7 +334,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-14" style="background:;">
+<slide class="content_slide" id="slide-12" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -399,7 +361,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-15" style="background:;">
+<slide class="content_slide" id="slide-13" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -422,7 +384,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-16" style="background:;">
+<slide class="content_slide" id="slide-14" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -448,7 +410,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-17" style="background:;">
+<slide class="content_slide" id="slide-15" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -469,7 +431,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-18" style="background:;">
+<slide class="content_slide" id="slide-16" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -488,7 +450,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-19" style="background:;">
+<slide class="content_slide" id="slide-17" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -516,7 +478,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="section_slide" id="slide-20" style="background:;">
+<slide class="section_slide" id="slide-18" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -528,7 +490,7 @@ mtcars[bigCarIndex,]
   
 </slide>
 
-<slide class="content_slide" id="slide-21" style="background:;">
+<slide class="content_slide" id="slide-19" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -569,7 +531,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-22" style="background:;">
+<slide class="content_slide" id="slide-20" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -590,7 +552,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-23" style="background:;">
+<slide class="content_slide" id="slide-21" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -619,7 +581,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
   
 </slide>
 
-<slide class="content_slide" id="slide-24" style="background:;">
+<slide class="content_slide" id="slide-22" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -650,7 +612,7 @@ cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
   
 </slide>
 
-<slide class="content_slide" id="slide-25" style="background:;">
+<slide class="content_slide" id="slide-23" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -682,7 +644,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="section_slide" id="slide-26" style="background:;">
+<slide class="section_slide" id="slide-24" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -694,7 +656,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-25" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -720,7 +682,7 @@ head(iris, n = 10)
   
 </slide>
 
-<slide class="content_slide" id="slide-28" style="background:;">
+<slide class="content_slide" id="slide-26" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -751,7 +713,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
   
 </slide>
 
-<slide class="content_slide" id="slide-29" style="background:;">
+<slide class="content_slide" id="slide-27" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -779,7 +741,7 @@ plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&
   
 </slide>
 
-<slide class="content_slide" id="slide-30" style="background:;">
+<slide class="content_slide" id="slide-28" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -807,7 +769,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;r
   
 </slide>
 
-<slide class="content_slide" id="slide-31" style="background:;">
+<slide class="content_slide" id="slide-29" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -837,7 +799,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-32" style="background:;">
+<slide class="content_slide" id="slide-30" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -860,7 +822,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-33" style="background:;">
+<slide class="content_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -892,7 +854,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-34" style="background:;">
+<slide class="section_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -904,7 +866,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-35" style="background:;">
+<slide class="content_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -940,7 +902,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-34" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -961,7 +923,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-37" style="background:;">
+<slide class="section_slide" id="slide-35" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -973,7 +935,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-38" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1246,20 +1208,6 @@ for (i in 1:10){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=36 title='NA'>
          36
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='NA'>
-         37
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='NA'>
-         38
       </a>
     </li>
     

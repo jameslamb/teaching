@@ -42,15 +42,14 @@ widgets     : bootstrap
 <b class="toc_header"> I. Review and Catchup </b>
 <ol class="toc" type="none">
     <li> Quiz 1 Review                   <span style="float:right"> 6   </span></li>
-    <li> The "apply" family of functions <span style="float:right"> 7-9 </span></li>
+    <li> Intro to Functional Programming <span style="float:right"> 32 </span></li>
+    <li> Required and Default Arguments  <span style="float:right"> 33-34 </span></li>
+    <li> User-Defined Functions          <span style="float:right"> 35 </span></li>
 </ol>
 
 <b class="toc_header"> II. Subsetting </b>
 <ol class = "toc" type="none">
-    <li> Subsetting Vectors    <span style="float:right"> 11 </span></li>
-    <li> Subsetting Data frames <span style="float:right"> 12 </span></li>
-    <li> Lists                 <span style="float:right"> 13 </span></li>
-    <li> Using Logical Vectors <span style="float:right"> 14 </span></li>
+    <li> The "apply" family of functions <span style="float:right"> 7-9 </span></li>
 </ol>
 
 <b class="toc_header"> III. Debugging Strategies </b>
@@ -128,6 +127,95 @@ I will show the questions from quiz 1 that a lot of students struggled with. Not
 
 If you're arriving at this slide and are disappointed not to find quiz answers, I'm sorry but I'll at least give you this bit of entertainment. Go check out [A Day in the Life of Americans](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/)
 
+--- .section_slide
+
+</br></br></br>
+<h2>Functions in R</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+  Functions in R<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Intro to Functional Programming</h2>
+
+R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
+
+> "If you find yourself copying and pasting the same code more than twice, it's time to write a function." - Hadley Wickham
+
+
+```{r functionExample, eval = FALSE}
+# Function to return only the even numbers from a vector
+answers <- c(1, 3, 4, 8, 13, 24)
+
+getEvens <- function(some_numbahs){
+    the_evens <- some_numbahs[some_numbahs %% 2 == 0]
+    return(the_evens)
+}
+
+getEvens(answers)
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  Functions in R<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Required Arguments</h2>
+
+- R functions take 0 or more arguments...basically named variables that the function uses to do it's work
+- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt` will return the square root of each element
+- In this case, we'd say `x` is a *required argument* of `sqrt`
+
+```{r requiredArgs, eval = FALSE}
+# Take the square root of a vector of numbers
+sqrt(x = c(1,4,9,16,25))
+
+# Note that calling this function without the argument will throw an error!
+sqrt()
+### Error in sqrt(): 0 arguments passed to `sqrt` which requires 1
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  Functions in R<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Default Argument Values</h2>
+
+- For more complicated functions, passing values to each argument can get burdensome
+- To handle this, R allows function authors to specify *default arguments*. These are values that certain arguments will take automatically unless you decide to overwrite them
+- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`.
+
+```{r normalDraw}
+# 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
+rand_nums <- rnorm(n = 100)
+
+# 100 random draws from a normal distribution w/ mean 4.5 and standard deviation 1
+rand_nums <- rnorm(n = 100, mean = 4.5)
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  Functions in R<span style="float:right">R Programming</span>
+</footer>
+
+<h2>User-Defined Functions</h2>
+
+As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you'll be able to do some really powerful stuff. We'll spend more time on functions in the following weeks, but here's a sneak peak of what is possible:
+
+<br>
+
+Head over to the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html) to see an example of this.
+
 --- .content_slide
 
 <footer>
@@ -198,91 +286,6 @@ apply(ChickWeight, MARGIN = 2, FUN = function(x){range(as.numeric(x))})
 # Calculate row-wise range
 apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
 ```
-
---- .section_slide
-
-</br></br></br>
-<h2>Subsetting</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    Subsetting<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Subsetting Vectors</h2>
-
-**Subsetting** is the act of retrieving a portion of an object, usually based on some logical condition (e.g. "all elements greater than 5"). In R, this is done with the `[` operator.
-
-```{subset_vecs}
-# Create a vector to work with
-myVec <- c(var1 = 10, var2 = 15, var3 = 20, av4 = 6)
-
-# "the first element"
-myVec[1]
-
-# "second to fourth elements"
-myVec[2:4]
-
-# "the element named var3"
-myVec["var3"]
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    Subsetting<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Subsetting Lists</h2>
-
-Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use `[` with a list, you are guaranteed to get back another list. If you use `[[`, you will get back an object in its natural form (whatever it would look like if it wasn't in the list). You can also use `$` to access named elements.
-
-Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for some examples of list subsetting.
-
---- .content_slide
-
-<footer>
-  <hr>
-    Subsetting<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Subsetting Data Frames</h2>
-
-Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:
-
-```{r subsetDF, eval = FALSE}
-# Create a data frame
-someDF <- data.frame(
-    , conference  = c("Big East", "Big Ten", "Big East", "ACC", "SEC")
-    , school_name = c("Villanova", "Minnesota", "Marquette", "Duke", "LSU")
-    , wins        = c(18, 14, 19, 24, 12)
-    , ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7)
-)
-
-# Grab the wins column (NOTE: will give you back a vector)
-someDF[, "wins"]
-
-# Grab the first 3 rows and the two numeric columns
-someDF[1:3, c("wins", "ppg")]
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    Subsetting<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Using Logical Vectors</h2>
-
-So far, we've seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the object you're working with.
-
-Using these methods (especially numeric indices like saying *give me columns 2-4*) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.
-
-Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for a treatment of subsetting with logical vectors.
 
 --- .section_slide
 

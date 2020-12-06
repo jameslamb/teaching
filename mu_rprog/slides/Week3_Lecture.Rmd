@@ -202,32 +202,6 @@ mean(bigCarIndex)
 mtcars[bigCarIndex,]
 ```
 
---- .content_slide
-
-<footer>
-  <hr>
-    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Factors</h2>
-
-Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America". How can you use this variable in a model or for generating region-by-region summary stats? This is where R's **factor type** comes in.
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Factors</h2>
-
- Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
 --- .section_slide
 
 </br></br></br>

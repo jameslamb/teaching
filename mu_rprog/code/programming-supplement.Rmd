@@ -290,9 +290,6 @@ bigCarIndex <- mtcars$wt > 4
 # Taking the MEAN of a logical vector tells you the proportion of TRUEs
 sum(bigCarIndex)
 mean(bigCarIndex)
-
-# You can use this for subsetting
-mtcars[bigCarIndex,]
 ```
 
 # Subsetting
@@ -1692,7 +1689,7 @@ compDF <- data.frame(
 compDF
 ```
 
-# Combining and Transforming Data Frames
+# Manipulating Data Frames
 
 ## Columnwise combination with cbind
 

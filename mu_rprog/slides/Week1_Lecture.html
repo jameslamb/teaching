@@ -82,40 +82,48 @@
 <h2>Contents</h2>
 
 <div style='float:left;width:48%;' class='centered'>
-  <p><b class="toc_header"> I. Introduction to R </b></p>
+  <p><b class="toc_header"> Introduction </b></p>
 
 <ol class="toc" type="none">
     <li> Introduction <span style="float:right"> 6 </span></li>
-    <li> Syllabus Review       <span style="float:right"> 7 </span></li>
-    <li> Course Objectives     <span style="float:right"> 8 </span></li>
+    <li> Syllabus Review <span style="float:right"> 7 </span></li>
+    <li> Course Objectives <span style="float:right"> 8 </span></li>
 </ol>
 
-<p><b class="toc_header"> II. Setting Up Your Environment </b></p>
+<p><b class="toc_header"> Setting Up Your Environment </b></p>
 
 <ol class = "toc" type="none">
     <li> Installing R + RStudio             <span style="float:right"> 10  </span></li>
     <li> Authoring Scripts in RStudio       <span style="float:right"> 11 </span></li>
-    <li> Authoring Scripts in a Text Editor <span style="float:right"> 13 </span></li>
-    <li> Executing R Code                   <span style="float:right"> 14-15 </span></li>
+    <li> Authoring Scripts in a Text Editor <span style="float:right"> 12 </span></li>
+    <li> Executing R Code                   <span style="float:right"> 13-14 </span></li>
 </ol>
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><b class="toc_header"> III. Introduction to R </b></p>
+  <p><b class="toc_header"> Introduction to R </b></p>
 
 <ol class = "toc" type="none">
-    <li> R is an interpreted language      <span style="float:right"> 17 </span></li>
-    <li> R is dynamically typed language   <span style="float:right"> 18 </span></li>
-    <li> R has a few of its own file types <span style="float:right"> 19 </span></li>
+    <li> R is an interpreted language <span style="float:right"> 16 </span></li>
+    <li> R is dynamically typed language <span style="float:right"> 17 </span></li>
+    <li> R has a few of its own file types <span style="float:right"> 18 </span></li>
 </ol>
 
-<p><b class="toc_header"> IV. Programming Fundamentals </b></p>
+<p><b class="toc_header"> Programming Fundamentals </b></p>
 
 <ol class = "toc" type="none">
-    <li> Variables and Namespaces    <span style="float:right"> 21    </span></li>
-    <li> Introduction to Types       <span style="float:right"> 22    </span></li>
-    <li> Dollarstore Calculator Math <span style="float:right"> 23-25 </span></li>
-    <li> Controlling Program Flow    <span style="float:right"> 26-30 </span></li>
+    <li> Variables and Namespaces <span style="float:right"> 20 </span></li>
+    <li> Introduction to Types <span style="float:right"> 21 </span></li>
+    <li> Dollarstore Calculator Math <span style="float:right"> 22-24 </span></li>
+</ol>
+
+<p><b class="toc_header"> R Data Structures </b></p>
+
+<ol class="toc" type="none">
+    <li> Vectors <span style="float:right"> 26-27 </span></li>
+    <li> Lists <span style="float:right"> 28-29 </span></li>
+    <li> Factors      <span style="float:right"> 30-31 </span></li>
+    <li> Data Frames      <span style="float:right"> 32-34 </span></li>
 </ol>
 
 </div>
@@ -135,28 +143,35 @@
 <h2>Contents</h2>
 
 <div style='float:left;width:48%;' class='centered'>
-  <p><b class="toc_header"> V. Functions in R </b></p>
+  <p><b class="toc_header"> Logical Operators </b></p>
 
 <ol class="toc" type="none">
-    <li> Intro to Functional Programming <span style="float:right"> 32 </span></li>
-    <li> Required and Default Arguments  <span style="float:right"> 33-34 </span></li>
-    <li> User-Defined Functions          <span style="float:right"> 35 </span></li>
+    <li> Logical Operators <span style="float:right"> 36-38 </span></li>
 </ol>
 
-<p><b class="toc_header"> VI. Common R Data Structures </b></p>
+<p><b class="toc_header"> Subsetting </b></p>
+
+<ol class="toc" type="none">
+    <li> Subsetting Vectors <span style="float:right"> 40 </span></li>
+    <li> Subsetting Lists <span style="float:right"> 41 </span></li>
+    <li> Subsetting Data Frames <span style="float:right"> 42 </span></li>
+    <li> Using Logical Vectors <span style="float:right"> 43 </span></li>
+</ol>
+
+<p><b class="toc_header"> Controlling Program Flow </b></p>
 
 <ol class = "toc" type="none">
-    <li> Vectors          <span style="float:right"> 37-38 </span></li>
-    <li> Lists            <span style="float:right"> 39-40 </span></li>
-    <li> Data Frames      <span style="float:right"> 41-43 </span></li>
+    <li> If-Else <span style="float:right"> 45-46 </span></li>
+    <li> For Loops <span style="float:right"> 47 </span></li>
+    <li> While Loops <span style="float:right"> 48-49 </span></li>
 </ol>
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><b class="toc_header"> VII. Additional Resources </b></p>
+  <p><b class="toc_header"> Additional Resources </b></p>
 
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right"> 45 </span></li>
+    <li> Learning More on Your Own<span style="float:right"> 51 </span></li>
 </ol>
 
 </div>
@@ -699,27 +714,12 @@ ls(&quot;package:stats&quot;)
   
 </slide>
 
-<slide class="content_slide" id="slide-24" style="background:;">
+<slide class="section_slide" id="slide-24" style="background:;">
   
   <article data-timings="">
-    <p><footer>
-  <hr>
-  Programming Fundamentals<span style="float:right">R Programming</span>
-</footer></p>
+    <p></br></br></br></p>
 
-<h2>Controlling Program Flow: If-Else</h2>
-
-<p>Soon after you start writing code (in any language), you&#39;ll find yourself saying &quot;I only want to do this thing if certain conditions are met&quot;. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming">if-else syntax</a>)</p>
-
-<p><br></p>
-
-<pre><code class="r">x &lt;- 4
-if (x &gt; 5){
-    print(&quot;x is above the threshold&quot;)
-}
-</code></pre>
-
-<p>See the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> for more examples.</p>
+<h2>Data Structures</h2>
 
   </article>
   <!-- Presenter Notes -->
@@ -731,237 +731,7 @@ if (x &gt; 5){
   <article data-timings="">
     <p><footer>
   <hr>
-  Programming Fundamentals<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Controlling Program Flow: If-Else</h2>
-
-<p>What if you want to express more than two possible outcomes? For this, we could use R&#39;s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of &quot;else if&quot; statements, but only one &quot;else&quot; block.</p>
-
-<pre><code class="r"># Try to think through what this will do before you run it yourself:
-if (4 &gt; 5){
-    print(&quot;3&quot;)
-} else if (6 &lt;= (5/10)) {
-    print(&quot;1&quot;)
-} else if (4 + 4 + 4 == 12.0001) {
-    print(&quot;4&quot;)
-} else {
-    print(&quot;2&quot;)
-}
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-26" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Programming Fundamentals<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Controlling Program Flow: For Loops</h2>
-
-<p>One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a <code>for</code> loop.</p>
-
-<pre><code class="r"># Create a vector
-x &lt;- c(1,4,6)
-
-# Print the square of each element one at a time
-print(1^2)
-print(4^2)
-print(6^2)
-
-# BETTER: Loop over the vector and print the square of each element
-for (some_number in x){
-    print(some_number^2)
-}
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-27" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Programming Fundamentals<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Controlling Program Flow: While Loops (pt 1)</h2>
-
-<p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R &quot;look through an alphabetized list of movies and tell me if you find Apocalypse Now&quot;. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
-
-<p>Consult the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> for the <code>for</code> loop implementation to solve this problem.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-28" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Programming Fundamentals<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Controlling Program Flow: While Loops (pt 2)</h2>
-
-<p>The <code>while</code> loop implementation can be found in the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a>. Notice that it stops checking once it finds what it wants, making it potentially more efficient than the <code>for</code> implementation.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="section_slide" id="slide-29" style="background:;">
-  
-  <article data-timings="">
-    <p></br></br></br></p>
-
-<h2>Functions in R</h2>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-30" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Functions in R<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Intro to Functional Programming</h2>
-
-<p>R is a <a href="http://adv-r.had.co.nz/Functions.html">functional programming language</a>. To write powerful, concise code, you&#39;ll need to master the use and creation of functions.</p>
-
-<blockquote>
-<p>&quot;If you find yourself copying and pasting the same code more than twice, it&#39;s time to write a function.&quot; - Hadley Wickham</p>
-</blockquote>
-
-<pre><code class="r"># Function to return only the even numbers from a vector
-answers &lt;- c(1, 3, 4, 8, 13, 24)
-
-getEvens &lt;- function(some_numbahs){
-    the_evens &lt;- some_numbahs[some_numbahs %% 2 == 0]
-    return(the_evens)
-}
-
-getEvens(answers)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-31" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Functions in R<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Required Arguments</h2>
-
-<ul>
-<li>R functions take 0 or more arguments...basically named variables that the function uses to do it&#39;s work</li>
-<li>Take a look at <code>?sqrt</code>. You&#39;ll see that it takes one argument, named <code>x</code>. You can pass any vector of numeric values to this argument and <code>sqrt</code> will return the square root of each element</li>
-<li>In this case, we&#39;d say <code>x</code> is a <em>required argument</em> of <code>sqrt</code></li>
-</ul>
-
-<pre><code class="r"># Take the square root of a vector of numbers
-sqrt(x = c(1,4,9,16,25))
-
-# Note that calling this function without the argument will throw an error!
-sqrt()
-### Error in sqrt(): 0 arguments passed to `sqrt` which requires 1
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-32" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Functions in R<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Default Argument Values</h2>
-
-<ul>
-<li>For more complicated functions, passing values to each argument can get burdensome</li>
-<li>To handle this, R allows function authors to specify <em>default arguments</em>. These are values that certain arguments will take automatically unless you decide to overwrite them</li>
-<li>Example: look at <code>?rnorm</code>. You&#39;ll see that this function&#39;s signature reads <code>rnorm(n, mean = 0, sd = 1)</code>.</li>
-</ul>
-
-<pre><code class="r"># 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
-rand_nums &lt;- rnorm(n = 100)
-
-# 100 random draws from a normal distribution w/ mean 4.5 and standard deviation 1
-rand_nums &lt;- rnorm(n = 100, mean = 4.5)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-33" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Functions in R<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>User-Defined Functions</h2>
-
-<p>As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you&#39;ll be able to do some really powerful stuff. We&#39;ll spend more time on functions in the following weeks, but here&#39;s a sneak peak of what is possible:</p>
-
-<p><br></p>
-
-<p>Head over to the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> to see an example of this.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="section_slide" id="slide-34" style="background:;">
-  
-  <article data-timings="">
-    <p></br></br></br></p>
-
-<h2>Common R Data Structures</h2>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-35" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Vectors (pt 1)</h2>
@@ -989,12 +759,12 @@ c(&quot;all&quot;, &quot;of&quot;, &quot;the&quot;, &quot;lights&quot;)
   
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-26" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Vectors (pt 2)</h2>
@@ -1026,12 +796,12 @@ c(x, y)
   
 </slide>
 
-<slide class="content_slide" id="slide-37" style="background:;">
+<slide class="content_slide" id="slide-27" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Lists (pt 1)</h2>
@@ -1079,12 +849,12 @@ str(myList)
   
 </slide>
 
-<slide class="content_slide" id="slide-38" style="background:;">
+<slide class="content_slide" id="slide-28" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Lists (pt 2)</h2>
@@ -1111,12 +881,50 @@ for (i in 1:length(studentList)){
   
 </slide>
 
-<slide class="content_slide" id="slide-39" style="background:;">
+<slide class="content_slide" id="slide-29" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+    R Data Structures<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Factors</h2>
+
+<p>Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called &quot;region&quot; with values like &quot;Africa&quot;, &quot;European Union&quot;, and &quot;South America&quot;. How can you use this variable in a model or for generating region-by-region summary stats? This is where R&#39;s <strong>factor type</strong> comes in.</p>
+
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-30" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    R Data Structures<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Factors</h2>
+
+<p>Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = &quot;Africa&quot;, 2 = &quot;European Union&quot;, etc..</p>
+
+<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-31" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Data Frames (pt 1)</h2>
@@ -1142,12 +950,12 @@ str(myDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Data Frames (pt 2)</h2>
@@ -1172,12 +980,12 @@ unique(mtcars$cyl)
   
 </slide>
 
-<slide class="content_slide" id="slide-41" style="background:;">
+<slide class="content_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p><footer>
   <hr>
-  Common R Data Structures<span style="float:right">R Programming</span>
+  Data Structures<span style="float:right">R Programming</span>
 </footer></p>
 
 <h2>Data Frames (pt 3)</h2>
@@ -1198,7 +1006,361 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   
 </slide>
 
-<slide class="section_slide" id="slide-42" style="background:;">
+<slide class="section_slide" id="slide-34" style="background:;">
+  
+  <article data-timings="">
+    <p></br></br></br></p>
+
+<h2>Logical Operators</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-35" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Logical Operators<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Logical Operators</h2>
+
+<p>Often in your code, you&#39;ll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.</p>
+
+<pre><code class="r"># &quot;and&quot; logic is expressed with &quot;&amp;&quot;
+TRUE &amp; TRUE   # TRUE
+TRUE &amp; FALSE  # FALSE
+FALSE &amp; FALSE # FALSE
+-5 &lt; 5 &amp; 3 &gt; 2 # TRUE
+
+# &quot;or&quot; logic is expressed with &quot;|&quot;
+TRUE | TRUE    # TRUE
+TRUE | FALSE   # TRUE
+FALSE | FALSE  # FALSE
+3 &lt; 8 | 8 &gt; 19 # TRUE
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-36" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Logical Operators<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Logical Operators (continued)</h2>
+
+<p>The most common operators used to generate logicals are <code>&gt;</code>, <code>&lt;</code>, <code>==</code>, and <code>!=</code></p>
+
+<pre><code class="r"># &quot;equality&quot; logic is specified with &quot;==&quot;
+3 == 3   # TRUE
+4 == 4.1 # FALSE
+
+# &quot;not&quot; logic is specified with !. In a special case, != signifies &quot;not equal&quot;
+!TRUE            # FALSE
+!FALSE           # TRUE
+! (TRUE | FALSE) # FALSE
+4 != 5           # TRUE
+
+# &quot;greater than&quot; and &quot;less than&quot; logic are specified in the way you might expect
+5 &lt; 5  # FALSE
+6 &lt;= 6 # TRUE
+4 &gt; 2  # TRUE
+3 &gt;= 3 # TRUE
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-37" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Logical Operators<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Logical Operators (continued)</h2>
+
+<p>As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
+
+<pre><code class="r"># Load some data
+data(&quot;mtcars&quot;)
+
+# Create a logical index. Note that we get a VECTOR of logicals back
+bigCarIndex &lt;- mtcars$wt &gt; 4
+
+# Taking the SUM of a logical vector tells you the number of TRUEs.
+# Taking the MEAN of a logical vector tells you the proportion of TRUEs
+sum(bigCarIndex)
+mean(bigCarIndex)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="section_slide" id="slide-38" style="background:;">
+  
+  <article data-timings="">
+    <p></br></br></br></p>
+
+<h2>Subsetting</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-39" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Subsetting<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Subsetting Vectors</h2>
+
+<p><strong>Subsetting</strong> is the act of retrieving a portion of an object, usually based on some logical condition (e.g. &quot;all elements greater than 5&quot;). In R, this is done with the <code>[</code> operator.</p>
+
+<pre><code class="subset_vecs"># Create a vector to work with
+myVec &lt;- c(var1 = 10, var2 = 15, var3 = 20, av4 = 6)
+
+# &quot;the first element&quot;
+myVec[1]
+
+# &quot;second to fourth elements&quot;
+myVec[2:4]
+
+# &quot;the element named var3&quot;
+myVec[&quot;var3&quot;]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-40" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Subsetting<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Subsetting Lists</h2>
+
+<p>Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use <code>[</code> with a list, you are guaranteed to get back another list. If you use <code>[[</code>, you will get back an object in its natural form (whatever it would look like if it wasn&#39;t in the list). You can also use <code>$</code> to access named elements.</p>
+
+<p>Please see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html">Week 2 Programming Supplement</a> for some examples of list subsetting.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-41" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Subsetting<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Subsetting Data Frames</h2>
+
+<p>Data frames are the workhorse data structure of statistics in R. The best way to learn data frame subsetting is to just walk through the examples below:</p>
+
+<pre><code class="r"># Create a data frame
+someDF &lt;- data.frame(
+    , conference  = c(&quot;Big East&quot;, &quot;Big Ten&quot;, &quot;Big East&quot;, &quot;ACC&quot;, &quot;SEC&quot;)
+    , school_name = c(&quot;Villanova&quot;, &quot;Minnesota&quot;, &quot;Marquette&quot;, &quot;Duke&quot;, &quot;LSU&quot;)
+    , wins        = c(18, 14, 19, 24, 12)
+    , ppg         = c(71.5, 45.8, 66.9, 83.4, 58.7)
+)
+
+# Grab the wins column (NOTE: will give you back a vector)
+someDF[, &quot;wins&quot;]
+
+# Grab the first 3 rows and the two numeric columns
+someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-42" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Subsetting<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Using Logical Vectors</h2>
+
+<p>So far, we&#39;ve seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the object you&#39;re working with.</p>
+
+<p>Using these methods (especially numeric indices like saying <em>give me columns 2-4</em>) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.</p>
+
+<p>Please see the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html">Week 2 Programming Supplement</a> for a treatment of subsetting with logical vectors.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-43" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Programming Fundamentals<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Controlling Program Flow: If-Else</h2>
+
+<p>Soon after you start writing code (in any language), you&#39;ll find yourself saying &quot;I only want to do this thing if certain conditions are met&quot;. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming">if-else syntax</a>)</p>
+
+<p><br></p>
+
+<pre><code class="r">x &lt;- 4
+if (x &gt; 5){
+    print(&quot;x is above the threshold&quot;)
+}
+</code></pre>
+
+<p>See the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> for more examples.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="section_slide" id="slide-44" style="background:;">
+  
+  <article data-timings="">
+    <p></br></br></br></p>
+
+<h2>Controlling Program Flow</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-45" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Controlling Program Flow<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>If-Else</h2>
+
+<p>What if you want to express more than two possible outcomes? For this, we could use R&#39;s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of &quot;else if&quot; statements, but only one &quot;else&quot; block.</p>
+
+<pre><code class="r"># Try to think through what this will do before you run it yourself:
+if (4 &gt; 5){
+    print(&quot;3&quot;)
+} else if (6 &lt;= (5/10)) {
+    print(&quot;1&quot;)
+} else if (4 + 4 + 4 == 12.0001) {
+    print(&quot;4&quot;)
+} else {
+    print(&quot;2&quot;)
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-46" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Controlling Program Flow<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>For Loops</h2>
+
+<p>One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a <code>for</code> loop.</p>
+
+<pre><code class="r"># Create a vector
+x &lt;- c(1,4,6)
+
+# Print the square of each element one at a time
+print(1^2)
+print(4^2)
+print(6^2)
+
+# BETTER: Loop over the vector and print the square of each element
+for (some_number in x){
+    print(some_number^2)
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-47" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Controlling Program Flow<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>While Loops (pt 1)</h2>
+
+<p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R &quot;look through an alphabetized list of movies and tell me if you find Apocalypse Now&quot;. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
+
+<p>Consult the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a> for the <code>for</code> loop implementation to solve this problem.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-48" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Controlling Program Flow<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>While Loops (pt 2)</h2>
+
+<p>The <code>while</code> loop implementation can be found in the <a href="jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html">Week 1 Code Supplement</a>. Notice that it stops checking once it finds what it wants, making it potentially more efficient than the <code>for</code> implementation.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="section_slide" id="slide-49" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1210,7 +1372,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
   
 </slide>
 
-<slide class="content_slide" id="slide-43" style="background:;">
+<slide class="content_slide" id="slide-50" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1542,6 +1704,55 @@ apply(mtcars, MARGIN = 1, FUN = mean)
       <a href="#" target="_self" rel='tooltip' 
         data-slide=43 title='NA'>
          43
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='NA'>
+         44
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=45 title='NA'>
+         45
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=46 title='NA'>
+         46
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=47 title='NA'>
+         47
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=48 title='NA'>
+         48
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=49 title='NA'>
+         49
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=50 title='NA'>
+         50
       </a>
     </li>
     
