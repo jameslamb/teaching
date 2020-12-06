@@ -440,7 +440,7 @@ In week 1, we discussed R functions, packages, and namespaces. As you advance in
 
 ```{r makePlots, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}
 # Load dependencies
-library(data.table); library(quantmod); library(rbokeh); library(purrr);
+library(data.table); library(quantmod); library(rbokeh);
 
 # Get data and plot it
 quantmod::getSymbols('CPIAUCSL', src = 'FRED')
@@ -467,7 +467,7 @@ To download and install packages, do the following:
 
 ```{r cranInstall, eval = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
 # Install packages + their dependencies with install.packages()
-install.packages(c("data.table", "rbokeh", "purrr"),
+install.packages(c("data.table", "jsonlite"),
                  dependencies = c("Depends", "Imports"))
 
 # Load package namespace with library()

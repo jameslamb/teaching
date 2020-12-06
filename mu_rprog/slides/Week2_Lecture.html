@@ -626,7 +626,7 @@ someDF[1:3, c(&quot;wins&quot;, &quot;ppg&quot;)]
 <p>In week 1, we discussed R functions, packages, and namespaces. As you advance in R, you will find that the functions provided by packages like <code>base</code>, <code>stats</code>, and <code>utils</code> are not sufficient. For example, you may want to use <code>rbokeh</code> to make interactive plots.</p>
 
 <pre><code class="r"># Load dependencies
-library(data.table); library(quantmod); library(rbokeh); library(purrr);
+library(data.table); library(quantmod); library(rbokeh);
 
 # Get data and plot it
 quantmod::getSymbols(&#39;CPIAUCSL&#39;, src = &#39;FRED&#39;)
@@ -658,7 +658,7 @@ rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;,
 <p>To download and install packages, do the following:</p>
 
 <pre><code class="r"># Install packages + their dependencies with install.packages()
-install.packages(c(&quot;data.table&quot;, &quot;rbokeh&quot;, &quot;purrr&quot;),
+install.packages(c(&quot;data.table&quot;, &quot;jsonlite&quot;),
                  dependencies = c(&quot;Depends&quot;, &quot;Imports&quot;))
 
 # Load package namespace with library()
