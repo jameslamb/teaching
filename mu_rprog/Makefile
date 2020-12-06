@@ -4,8 +4,8 @@ SHELL = bash
 
 install:
 	Rscript install_deps.R && \
-	Rscript -e "devtools::install_github('ramnathv/slidify', force = FALSE)" && \
-	Rscript -e "devtools::install_github('ramnathv/slidifyLibraries', force = FALSE)" && \
+	Rscript -e "remotes::install_github('ramnathv/slidify', force = FALSE)" && \
+	Rscript -e "remotes::install_github('ramnathv/slidifyLibraries', force = FALSE)" && \
 	R CMD install --with-keep.source code/RquetteBB
 
 assignments:

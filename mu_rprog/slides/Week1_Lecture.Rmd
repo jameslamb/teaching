@@ -51,7 +51,6 @@ knit        : slidify::knit2slides
 <ol class = "toc" type="none">
     <li> Installing R + RStudio             <span style="float:right"> 10  </span></li>
     <li> Authoring Scripts in RStudio       <span style="float:right"> 11 </span></li>
-    <li> Installing Sublime Text            <span style="float:right"> 12 </span></li>
     <li> Authoring Scripts in a Text Editor <span style="float:right"> 13 </span></li>
     <li> Executing R Code                   <span style="float:right"> 14-15 </span></li>
 </ol>
@@ -203,35 +202,6 @@ R comes with a command-line client and a default GUI, but most users prefer to u
 Sequences of R code are typically saved in scripts with the file extension ".R". To open a blank script in RStudio and start editing, you can either go to "File --> New File --> R script" or choose "R Script" from the paper image in RStudio:
 
 <center><img src="./assets/img/week1_rstudio_rscript.png"></center>
-
-
---- .content_slide &twocol
-
-<footer>
-  <hr>
-  Setting Up Your Environment<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Installing Sublime Text</h2>
-
-The world of data science is a world of text files...of many types. For working with other types of text files (e.g. config files, queries, JSON data, READMEs, and more), you'll want to install a full-featured text editor. One possibility is [Sublime Text 3](https://www.sublimetext.com/3), but you are welcome to use whatever works for you.
-
-"Full-featured" text editors do far more than provide a simple window for entering basic text.
-
-*** =left
-
-**Example features**
-
-* [syntax highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting)
-* [syntax validation](https://www.google.com/search?q=syntax+validation)
-* [pretty printing](https://en.wikipedia.org/wiki/Prettyprint)
-* [code execution](https://realpython.com/blog/python/setting-up-sublime-text-3-for-full-stack-python-development/)
-* [tab completion](https://en.wikipedia.org/wiki/Command-line_completion)
-
-*** =right
-
-<br>
-<img src="./assets/img/week1_syntax_highlighting.png">
 
 --- .content_slide &twocol
 
@@ -865,5 +835,3 @@ We covered a lot of stuff this week, and will have to be selective about which t
 **R**: [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
 
 **RStudio**: [RStudio blog](https://blog.rstudio.org/)
-
-**Sublime Text**: [Sublime Text 3 docs](https://www.sublimetext.com/docs/3/) | [Package Control](https://www.sitepoint.com/10-essential-sublime-text-plugins-full-stack-developer/)

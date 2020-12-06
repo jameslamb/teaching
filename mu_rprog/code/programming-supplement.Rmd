@@ -2166,12 +2166,12 @@ We are going to create a package called `RquetteBB`, a package for fetching, cle
 
 Before we begin, be sure that you have a few of the mainstream package-building libraries in R. If you don't have any of these in your R library, please install them:
 
-- [devtools](https://cran.r-project.org/web/packages/devtools/index.html) = R wrappers around some command-line tools used to build R packages. Also includes some utilities for installing packages from source code
+- [remotes](https://cran.r-project.org/web/packages/remotes/index.html) = R wrappers around some command-line tools used to build R packages. Also includes some utilities for installing packages from source code.
 - [roxygen2](https://cran.r-project.org/web/packages/roxygen2/index.html) = provides a framework for turning specially-formatting comments in R functions into package documentation that you can call with `?`
 - [testthat](https://cran.r-project.org/web/packages/testthat/index.html) = a popular library for running unit tests, essentially tests that your code works as it should
 
 ```{r getDeps}
-library(devtools)
+library(remotes)
 library(roxygen2)
 library(testthat)
 ```
@@ -2339,10 +2339,10 @@ setwd(package_path)
 rxygen2::roxygenize()
 ```
 
-3. Run `devtools::install_local()` to install the package!
+3. Run `remotes::install_local()` to install the package!
 
 ```{r, eval = FALSE, echo = TRUE}
-devtools::install_local(package_path, force = TRUE)
+remotes::install_local(package_path, force = TRUE)
 ```
 
 4. Run `rm(list=ls())` to clear your working environment. Restart your R session.
@@ -2439,7 +2439,7 @@ test_that("NamesToAbbreviations should return the expected output for simple vec
 })
 ```
 
-Save this file, the run `devtools::test()` from the console. You should get something like this:
+Save this file, the run `testthat::test_dir("tests/testthat/")` from the console. You should get something like this:
 
 <center><img src="../slides/assets/img/Week5_test_ouptut.png" height=200px, width=400px></center>
 

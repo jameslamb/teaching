@@ -686,10 +686,10 @@ utils::update.packages()
 <p>While there are <a href="https://cran.r-project.org/">many many packages available from CRAN</a>, you may sometimes want to install directly from a source control site like GitHub. R developers will often release bleeding-edge (&quot;dev&quot;) features on GitHub before they make it to CRAN.</p>
 
 <pre><code class="r"># Load deps
-library(devtools)
+library(remotes)
 
 # Install from GitHub
-devtools::install_github(repo = &quot;terrytangyuan/dml&quot;)
+remotes::install_github(&quot;terrytangyuan/dml&quot;)
 
 # Check where R put this package on your machine
 find.package(&quot;dml&quot;)
@@ -713,11 +713,11 @@ find.package(&quot;dml&quot;)
 <p>On professional data science teams, you may find yourself passing around R packages on an internal file system.
     - see, for example: <a href="https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d#.c3qbgjtdr">&quot;Using R packages and education to scale Data Science at Airbnb&quot;</a></p>
 
-<p>To install R packages sitting on your file system, you can use <code>install_local()</code> from the <code>devtools</code> package.</p>
+<p>To install R packages sitting on your file system, you can use <code>install_local()</code> from the <code>{remotes}</code> package.</p>
 
 <p><center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/week2_min_r_package.png"></a></center></p>
 
-<pre><code class="r">devtools::install_local(path = &quot;path/to/package&quot;)
+<pre><code class="r">remotes::install_local(path = &quot;path/to/package&quot;)
 </code></pre>
 
   </article>
@@ -998,7 +998,7 @@ x
 <ul>
 <li>Download some stock data from Quandl: <a href="https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv">https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv</a></li>
 <li>Navigate to wherever you stored the file</li>
-<li>Right click on the file, and use &quot;Open With&quot; to open it with sublime</li>
+<li>Right click on the file, and use &quot;Open With&quot; to open it with a text editor like Sublime or Notepad</li>
 </ul>
 
   </article>

@@ -490,10 +490,10 @@ While there are [many many packages available from CRAN](https://cran.r-project.
 
 ```{r ghInstall, eval = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
 # Load deps
-library(devtools)
+library(remotes)
 
 # Install from GitHub
-devtools::install_github(repo = "terrytangyuan/dml")
+remotes::install_github("terrytangyuan/dml")
 
 # Check where R put this package on your machine
 find.package("dml")
@@ -511,12 +511,12 @@ find.package("dml")
 On professional data science teams, you may find yourself passing around R packages on an internal file system.
     - see, for example: ["Using R packages and education to scale Data Science at Airbnb"](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d#.c3qbgjtdr)
 
-To install R packages sitting on your file system, you can use `install_local()` from the `devtools` package.
+To install R packages sitting on your file system, you can use `install_local()` from the `{remotes}` package.
 
 <center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/week2_min_r_package.png"></a></center>
 
 ```{r install_local, eval = FALSE, echo = TRUE, warning = FALSE, message = FALSE}
-devtools::install_local(path = "path/to/package")
+remotes::install_local(path = "path/to/package")
 ```
 
 --- .content_slide
@@ -732,7 +732,7 @@ Let's look at an example:
 
 - Download some stock data from Quandl: https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv
 - Navigate to wherever you stored the file
-- Right click on the file, and use "Open With" to open it with sublime
+- Right click on the file, and use "Open With" to open it with a text editor like Sublime or Notepad
 
 --- .content_slide
 

@@ -3,8 +3,7 @@
 
 install.packages(
     pkgs = c(
-        "devtools"
-        , "gaussfacts"
+        "gaussfacts"
         , "htmltab"
         , "jsonlite"
         , "lubridate"
@@ -14,6 +13,7 @@ install.packages(
         , "randomForest"
         , "rattle"
         , "rbokeh"
+        , "remotes"
         , "stringr"
     )
     , repos = "http://cran.r-project.org"
