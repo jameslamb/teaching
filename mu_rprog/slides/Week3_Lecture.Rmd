@@ -100,8 +100,6 @@ knit        : slidify::knit2slides
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Programming Assignment 1 Review</h2>
 
@@ -120,8 +118,6 @@ IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Intro Topic Grab Bag</h2>
 
@@ -234,8 +230,6 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Getting Data</h2>
 
@@ -366,8 +360,6 @@ This type of data is commonly represented as an R `list`. See the [Week 3 Supple
 
 --- .section_slide
 
-<h2>Section IV.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Dealing with Missing Data</h2>
 
@@ -487,8 +479,6 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 --- .section_slide
 
-<h2>Section V.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Visualizing Data</h2>
 
@@ -654,8 +644,6 @@ for (i in 1:10){
 
 --- .section_slide
 
-<h2>Section VI.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Final Project Discussion</h2>
 
@@ -696,8 +684,6 @@ for (i in 1:10){
 
 --- .section_slide
 
-<h2>Section VII.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Additional Resources</h2>
 

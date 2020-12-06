@@ -112,8 +112,6 @@ widgets     : bootstrap
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Review and Catchup</h2>
 
@@ -203,8 +201,6 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Subsetting</h2>
 
@@ -290,8 +286,6 @@ Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teach
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Debugging Strategies</h2>
 
@@ -430,8 +424,6 @@ https://github.com/tidyverse/ggplot2
 
 --- .section_slide
 
-<h2>Section IV.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Installing and Using External Packages</h2>
 
@@ -620,8 +612,6 @@ createRandomData <- function(n, dist){
 
 --- .section_slide
 
-<h2>Section V.</h2>
-<hr></hr>
 </br></br></br>
 <h2>User-defined Functions</h2>
 
@@ -724,8 +714,6 @@ Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rpr
 
 --- .section_slide
 
-<h2>Section VI.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Working with Files</h2>
 
@@ -807,8 +795,6 @@ See the Shakespeare example in the [Week 2 Supplement](https://jameslamb.github.
 
 --- .section_slide
 
-<h2>Section VIII.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Additional Resources</h2>
 

@@ -59,8 +59,6 @@ knit        : slidify::knit2slides
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Final Project Code Reviews</h2>
 
@@ -79,8 +77,6 @@ knit        : slidify::knit2slides
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Wrapping Your Code in a Package</h2>
 
@@ -99,8 +95,6 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
 <h2>R/Data Science AMA</h2>
 

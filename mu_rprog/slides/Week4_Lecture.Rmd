@@ -84,8 +84,6 @@ knit        : slidify::knit2slides
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Statistical Analysis in R</h2>
 
@@ -299,8 +297,6 @@ print(compDF)
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Combining and Transforming Data Frames</h2>
 
@@ -452,8 +448,6 @@ fullDF <- data.table::rbindlist(
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
 <h2>How to Write Statistical Software</h2>
 
@@ -527,8 +521,6 @@ For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/te
 
 --- .section_slide
 
-<h2>Section IV.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Working With Strings</h2>
 
@@ -648,8 +640,6 @@ key_words <- wordCountDT[21:40]
 
 --- .section_slide
 
-<h2>Section V.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Final Project Discussion</h2>
 

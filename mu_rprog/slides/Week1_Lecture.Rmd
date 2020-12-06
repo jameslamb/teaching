@@ -107,8 +107,6 @@ knit        : slidify::knit2slides
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Introduction</h2>
 
@@ -169,8 +167,6 @@ The main objectives for the course are as follows:
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Setting Up Your Environment</h2>
 
@@ -315,8 +311,6 @@ When R is just one of the tools in your stack, it's often quicker to execute you
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Introduction to R</h2>
 
@@ -385,8 +379,6 @@ someData <- readRDS("my_data.rds")
 
 --- .section_slide
 
-<h2>Section IV.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Programming Fundamentals</h2>
 
@@ -579,8 +571,6 @@ The `while` loop implementation can be found in the [Week 1 Code Supplement](jam
 
 --- .section_slide
 
-<h2>Section V.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Functions in R</h2>
 
@@ -670,8 +660,6 @@ Head over to the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/
 
 --- .section_slide
 
-<h2>Section VI.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Common R Data Structures</h2>
 
@@ -858,8 +846,6 @@ apply(mtcars, MARGIN = 1, FUN = mean)
 
 --- .section_slide
 
-<h2>Section VII.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Additional Resources</h2>
 
