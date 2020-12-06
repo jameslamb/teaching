@@ -12,9 +12,6 @@ lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libr
 knit        : slidify::knit2slides
 ---
 
-<!--Read in JavaScript function that prints footer bubbles-->
-<script src="assets/js/footer_bubbles.js"></script>
-
 <!--Define background image for title slide-->
 <style>
 .title-slide {
@@ -71,7 +68,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>I. Final Project Code Reviews<span style="float:right">ECON 6114 - R Programming</span>
+    I. Final Project Code Reviews<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>It is Time.</h2>
@@ -91,7 +88,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>II. Wrapping Your Code in A Package<span style="float:right">ECON 6114 - R Programming</span>
+    II. Wrapping Your Code in A Package<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>In-Class Exercise: RquetteBB</h2>
@@ -111,7 +108,7 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>III. Data Science AMA<span style="float:right">ECON 6114 - R Programming</span>
+    III. Data Science AMA<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Data Science AMA</h2>

@@ -12,9 +12,6 @@ lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libr
 knit        : slidify::knit2slides
 ---
 
-<!--Read in JavaScript function that prints footer bubbles-->
-<script src="assets/js/footer_bubbles.js"></script>
-
 <!--Define background image for title slide-->
 <style>
 .title-slide {
@@ -96,7 +93,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>R Was Made for Statistics!</h2>
@@ -109,7 +106,7 @@ In this section, we're going to walk through all the steps of basic statistical 
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Getting and Splitting the Data</h2>
@@ -125,7 +122,7 @@ Please follow along with the code in the [Week 4 Programming Supplement](https:/
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Examine Your Training Data</h2>
@@ -141,7 +138,7 @@ str(swiss)
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Hypothesis Testing</h2>
@@ -166,7 +163,7 @@ For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/te
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Simple OLS Model</h2>
@@ -192,7 +189,7 @@ Once you have the fitted model, you can pass it and some new data to `predict()`
 
 <footer>
   <hr>
-    <script>FooterBubbles(6, 10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Wrap Parts of Your Pipeline in Functions</h2>
@@ -211,7 +208,7 @@ For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/te
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>OLS With Multiple RHS Variables</h2>
@@ -237,7 +234,7 @@ regPreds2 <- EvaluateModel(
 
 <footer>
   <hr>
-    <script>FooterBubbles(8,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Regression Trees</h2>
@@ -252,7 +249,7 @@ The details of tree-based learning are outside the scope of this class, but I en
 
 <footer>
   <hr>
-    <script>FooterBubbles(9,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Random Forests</h2>
@@ -282,7 +279,7 @@ rfPreds <- EvaluateModel(
 
 <footer>
   <hr>
-    <script>FooterBubbles(10,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Accuracy Comparison</h2>
@@ -313,7 +310,7 @@ print(compDF)
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
+    II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Columnwise Combination With cbind</h2>
@@ -344,7 +341,7 @@ fullDF <- cbind(dealerDF1, dealerDF2)
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
+    II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Column Matching with merge</h2>
@@ -378,7 +375,7 @@ fullDF2 <- merge(
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
+    II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
 </footer>
 
 <h2>Rowwise Combination With rbind</h2>
