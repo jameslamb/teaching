@@ -595,213 +595,6 @@ Dollarstore Calculator Math
 4 * (5 + 5) / 5</code></pre>
 <pre><code>## [1] 8</code></pre>
 <h2>
-Controlling Program Flow: If-Else
-</h2>
-<p>Soon after you start writing code (in any language), you’ll inevitably find yourself saying “I only want to do this thing if certain conditions are met”. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)">if-else syntax</a></p>
-<pre class="r"><code>library(gaussfacts)
-
-# Set some variable
-DAY &lt;- &quot;SATURDAY&quot;
-print(DAY)</code></pre>
-<pre><code>## [1] &quot;SATURDAY&quot;</code></pre>
-<pre class="r"><code># If it&#39;s Monday, print 2 Gauss facts. Otherwise, print 1
-if (DAY == &quot;MONDAY&quot;){
-    gaussfact()
-    gaussfact()
-} else {
-    gaussfact()
-}</code></pre>
-<pre><code>## Gauss can find a perfect cube larger than 8 in Fibonacci Sequence.</code></pre>
-<p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
-<pre class="r"><code># Try to think through what this will do before you run it yourself:
-if (4 &gt; 5){
-    print(&quot;3&quot;)
-} else if (6 &lt;= (5/10)) {
-    print(&quot;1&quot;)
-} else if (4 + 4 + 4 == 12.0001) {
-    print(&quot;4&quot;)
-} else {
-    print(&quot;2&quot;)
-}</code></pre>
-<pre><code>## [1] &quot;2&quot;</code></pre>
-<h2>
-Controlling Program Flow: For Loops
-</h2>
-<p>One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a <code>for</code> loop.</p>
-<pre class="r"><code># Create a vector
-x &lt;- c(1,4,6)
-
-# Print the square of each element one at a time
-print(1^2)</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>print(4^2)</code></pre>
-<pre><code>## [1] 16</code></pre>
-<pre class="r"><code>print(6^2)</code></pre>
-<pre><code>## [1] 36</code></pre>
-<pre class="r"><code># BETTER: Loop over the vector and print the square of each element
-for (some_number in x){
-    print(some_number^2)
-}</code></pre>
-<pre><code>## [1] 1
-## [1] 16
-## [1] 36</code></pre>
-<h2>
-Controlling Program Flow: While Loops
-</h2>
-<p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R “look through an alphabetized list of movies and tell me if you find Apocalypse Now”. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies…long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
-<p>Here is the <code>for</code> loop implementation:</p>
-<pre class="r"><code>movie_list &lt;- c(
-    &quot;ace ventura&quot;
-    , &quot;apocalypse now&quot;
-    , &quot;return of the jedi&quot;
-    , &quot;v for vendetta&quot;
-    , &quot;zoolander&quot;
-)
-MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
-
-# Naive for loop implementation
-i &lt;- 1
-for (movie in movie_list) {
-    if (movie == MOVIE_TO_SEARCH_FOR) {
-        print(paste0(i, &quot;: found it!&quot;))
-    } else {
-        print(paste0(i, &quot;: not found&quot;))
-    }
-    i &lt;- i + 1
-}</code></pre>
-<pre><code>## [1] &quot;1: not found&quot;
-## [1] &quot;2: found it!&quot;
-## [1] &quot;3: not found&quot;
-## [1] &quot;4: not found&quot;
-## [1] &quot;5: not found&quot;</code></pre>
-<p>And here is the <code>while</code> loop implementation. Notice that this one stops checking once it finds what it wants.</p>
-<pre class="r"><code>movie_list &lt;- c(
-    &quot;ace ventura&quot;
-    , &quot;apocalypse now&quot;
-    , &quot;return of the jedi&quot;
-    , &quot;v for vendetta&quot;
-    , &quot;zoolander&quot;
-)
-MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
-
-# Faster while loop implementation
-KEEP_SEARCHING &lt;- TRUE
-i = 1
-while (KEEP_SEARCHING){
-    
-    # Check this element
-    if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
-        print(paste0(i, &quot;: found it!&quot;))
-        KEEP_SEARCHING &lt;- FALSE
-    } else {
-        print(paste0(i, &quot;: not found&quot;))
-    }
-    
-    # If we&#39;ve reached the end, break out. Otherwise, increment the counter
-    if (i == length(movie_list)){
-        print(&quot;Done searching. This movie isn&#39;t in the list&quot;)
-    } else {
-        i &lt;- i + 1
-    }
-}</code></pre>
-<pre><code>## [1] &quot;1: not found&quot;
-## [1] &quot;2: found it!&quot;</code></pre>
-<h2>
-Intro to Functional Programming
-</h2>
-<p>R is a <a href="http://adv-r.had.co.nz/Functions.html">functional programming language</a>. To write powerful, concise code, you’ll need to master the use and creation of functions.</p>
-<blockquote>
-<p>“If you find yourself copying and pasting the same code more than twice, it’s time to write a function.” - Hadley Wickham</p>
-</blockquote>
-<pre class="r"><code># Function to return only the even numbers from a vector
-nums &lt;- c(1, 3, 4, 8, 13, 24)
-
-getEvens &lt;- function(some_numbahs){
-    the_evens &lt;- some_numbahs[some_numbahs %% 2 == 0]
-    return(the_evens)
-}
-
-getEvens(nums)</code></pre>
-<pre><code>## [1]  4  8 24</code></pre>
-<h2>
-Required Arguments
-</h2>
-<ul>
-<li>R functions take 0 or more arguments…basically named variables that the function uses to do it’s work</li>
-<li>Take a look at <code>?sqrt</code>. You’ll see that it takes one argument, named <code>x</code>. You can pass any vector of numeric values to this argument and <code>sqrt()</code> will return the square root of each element</li>
-<li>In this case, we’d say <code>x</code> is a <em>required argument</em> of <code>sqrt()</code></li>
-</ul>
-<pre class="r"><code># Take the square root of a vector of numbers
-sqrt(x = c(1, 4, 9, 16, 25))</code></pre>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="r"><code># Note that calling this function without the argument will throw an error!
-sqrt()</code></pre>
-<pre><code>## Error in sqrt(): 0 arguments passed to &#39;sqrt&#39; which requires 1</code></pre>
-<h2>
-Default Argument Values
-</h2>
-<ul>
-<li>For more complicated functions, passing values to each argument can get burdensome</li>
-<li>To handle this, R allows function authors to specify <em>default values</em>. These are values that certain arguments will take automatically unless you decide to overwrite them</li>
-<li>Example: look at <code>?rnorm</code>. You’ll see that this function’s signature reads <code>rnorm(n, mean = 0, sd = 1)</code>.</li>
-</ul>
-<pre class="r"><code># 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
-rand_nums &lt;- rnorm(n = 100)
-
-# 100 random draws from a normal distribution w/ mean 4.5 and standard deviation 1
-rand_nums &lt;- rnorm(n = 100, mean = 4.5)</code></pre>
-<h2>
-User-Defined Functions
-</h2>
-<p>R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you’ll be able to do some really powerful stuff. We’ll spend more time on functions in the following weeks, but here’s a sneak peak of what is possible:</p>
-<pre class="r"><code>library(stargazer)
-
-# Wrap your modeling pipeline in a function so you can do model comparisons
-fitModels &lt;- function(spec_list, training_data){
-    fitted_mods &lt;- lapply(spec_list, function(spec){
-        lm(spec, data = training_data)
-    })
-    return(fitted_mods)
-}
-
-# Load data
-data(mtcars)
-
-# Try three different sets of RHS variables and display a table
-spec1 &lt;- as.formula(mpg ~ hp)
-spec2 &lt;- as.formula(mpg ~ hp + wt)
-myModels &lt;- fitModels(
-  spec_list = list(spec1, spec2)
-  , training_data = mtcars
-)
-
-# Display
-stargazer::stargazer(myModels, type = &quot;text&quot;)</code></pre>
-<pre><code>## 
-## =================================================================
-##                                  Dependent variable:             
-##                     ---------------------------------------------
-##                                          mpg                     
-##                              (1)                    (2)          
-## -----------------------------------------------------------------
-## hp                        -0.068***              -0.032***       
-##                            (0.010)                (0.009)        
-##                                                                  
-## wt                                               -3.878***       
-##                                                   (0.633)        
-##                                                                  
-## Constant                  30.099***              37.227***       
-##                            (1.634)                (1.599)        
-##                                                                  
-## -----------------------------------------------------------------
-## Observations                  32                     32          
-## R2                          0.602                  0.827         
-## Adjusted R2                 0.589                  0.815         
-## Residual Std. Error    3.863 (df = 30)        2.593 (df = 29)    
-## F Statistic         45.460*** (df = 1; 30) 69.211*** (df = 2; 29)
-## =================================================================
-## Note:                                 *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<h2>
 Vectors
 </h2>
 <ul>
@@ -993,6 +786,213 @@ apply(
 ##            57.37955            18.92864            24.77909            24.88027 
 ##      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
 ##            60.97182            34.50818            63.15545            26.26273</code></pre>
+<h2>
+Controlling Program Flow: If-Else
+</h2>
+<p>Soon after you start writing code (in any language), you’ll inevitably find yourself saying “I only want to do this thing if certain conditions are met”. This type of logic is expressed using <a href="https://en.wikipedia.org/wiki/Conditional_(computer_programming)">if-else syntax</a></p>
+<pre class="r"><code>library(gaussfacts)
+
+# Set some variable
+DAY &lt;- &quot;SATURDAY&quot;
+print(DAY)</code></pre>
+<pre><code>## [1] &quot;SATURDAY&quot;</code></pre>
+<pre class="r"><code># If it&#39;s Monday, print 2 Gauss facts. Otherwise, print 1
+if (DAY == &quot;MONDAY&quot;){
+    gaussfact()
+    gaussfact()
+} else {
+    gaussfact()
+}</code></pre>
+<pre><code>## Gauss can find a perfect cube larger than 8 in Fibonacci Sequence.</code></pre>
+<p>What if you want to express more than two possible outcomes? For this, we could use R’s <code>else if</code> construct to nest conditions. Note that conditional blocks can have any number of “else if” statements, but only one “else” block.</p>
+<pre class="r"><code># Try to think through what this will do before you run it yourself:
+if (4 &gt; 5){
+    print(&quot;3&quot;)
+} else if (6 &lt;= (5/10)) {
+    print(&quot;1&quot;)
+} else if (4 + 4 + 4 == 12.0001) {
+    print(&quot;4&quot;)
+} else {
+    print(&quot;2&quot;)
+}</code></pre>
+<pre><code>## [1] &quot;2&quot;</code></pre>
+<h2>
+Controlling Program Flow: For Loops
+</h2>
+<p>One of the most powerful characteristics of general purpose programming languages is their ability to automate repetitive tasks. When you know that you want to do something a fixed number of times (say, squaring each item in a vector), you can use a <code>for</code> loop.</p>
+<pre class="r"><code># Create a vector
+x &lt;- c(1,4,6)
+
+# Print the square of each element one at a time
+print(1^2)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>print(4^2)</code></pre>
+<pre><code>## [1] 16</code></pre>
+<pre class="r"><code>print(6^2)</code></pre>
+<pre><code>## [1] 36</code></pre>
+<pre class="r"><code># BETTER: Loop over the vector and print the square of each element
+for (some_number in x){
+    print(some_number^2)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 16
+## [1] 36</code></pre>
+<h2>
+Controlling Program Flow: While Loops
+</h2>
+<p>For loops are suitable for many applications, but they can be too restrictive in some cases. For example, imagine that you are writing a simple movie search engine and you want to tell R “look through an alphabetized list of movies and tell me if you find Apocalypse Now”. A <code>for</code> loop can certainly do this, but it will keep running over ALL movies…long after it finds Ace Ventura! This is a great place to use a <code>while</code> loop.</p>
+<p>Here is the <code>for</code> loop implementation:</p>
+<pre class="r"><code>movie_list &lt;- c(
+    &quot;ace ventura&quot;
+    , &quot;apocalypse now&quot;
+    , &quot;return of the jedi&quot;
+    , &quot;v for vendetta&quot;
+    , &quot;zoolander&quot;
+)
+MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
+
+# Naive for loop implementation
+i &lt;- 1
+for (movie in movie_list) {
+    if (movie == MOVIE_TO_SEARCH_FOR) {
+        print(paste0(i, &quot;: found it!&quot;))
+    } else {
+        print(paste0(i, &quot;: not found&quot;))
+    }
+    i &lt;- i + 1
+}</code></pre>
+<pre><code>## [1] &quot;1: not found&quot;
+## [1] &quot;2: found it!&quot;
+## [1] &quot;3: not found&quot;
+## [1] &quot;4: not found&quot;
+## [1] &quot;5: not found&quot;</code></pre>
+<p>And here is the <code>while</code> loop implementation. Notice that this one stops checking once it finds what it wants.</p>
+<pre class="r"><code>movie_list &lt;- c(
+    &quot;ace ventura&quot;
+    , &quot;apocalypse now&quot;
+    , &quot;return of the jedi&quot;
+    , &quot;v for vendetta&quot;
+    , &quot;zoolander&quot;
+)
+MOVIE_TO_SEARCH_FOR &lt;- &quot;apocalypse now&quot;
+
+# Faster while loop implementation
+KEEP_SEARCHING &lt;- TRUE
+i = 1
+while (KEEP_SEARCHING){
+    
+    # Check this element
+    if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
+        print(paste0(i, &quot;: found it!&quot;))
+        KEEP_SEARCHING &lt;- FALSE
+    } else {
+        print(paste0(i, &quot;: not found&quot;))
+    }
+    
+    # If we&#39;ve reached the end, break out. Otherwise, increment the counter
+    if (i == length(movie_list)){
+        print(&quot;Done searching. This movie isn&#39;t in the list&quot;)
+    } else {
+        i &lt;- i + 1
+    }
+}</code></pre>
+<pre><code>## [1] &quot;1: not found&quot;
+## [1] &quot;2: found it!&quot;</code></pre>
+<h2>
+Intro to Functional Programming
+</h2>
+<p>R is a <a href="http://adv-r.had.co.nz/Functions.html">functional programming language</a>. To write powerful, concise code, you’ll need to master the use and creation of functions.</p>
+<blockquote>
+<p>“If you find yourself copying and pasting the same code more than twice, it’s time to write a function.” - Hadley Wickham</p>
+</blockquote>
+<pre class="r"><code># Function to return only the numbers smaller than 10
+nums &lt;- c(1, 3, 4, 8, 13, 24)
+
+getLittleNumbers &lt;- function(some_numbahs){
+    lil_ones &lt;- some_numbahs[some_numbahs &lt; 10]
+    return(lil_ones)
+}
+
+getLittleNumbers(nums)</code></pre>
+<pre><code>## [1] 1 3 4 8</code></pre>
+<h2>
+Required Arguments
+</h2>
+<ul>
+<li>R functions take 0 or more arguments…basically named variables that the function uses to do it’s work</li>
+<li>Take a look at <code>?sqrt</code>. You’ll see that it takes one argument, named <code>x</code>. You can pass any vector of numeric values to this argument and <code>sqrt()</code> will return the square root of each element</li>
+<li>In this case, we’d say <code>x</code> is a <em>required argument</em> of <code>sqrt()</code></li>
+</ul>
+<pre class="r"><code># Take the square root of a vector of numbers
+sqrt(x = c(1, 4, 9, 16, 25))</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code># Note that calling this function without the argument will throw an error!
+sqrt()</code></pre>
+<pre><code>## Error in sqrt(): 0 arguments passed to &#39;sqrt&#39; which requires 1</code></pre>
+<h2>
+Default Argument Values
+</h2>
+<ul>
+<li>For more complicated functions, passing values to each argument can get burdensome</li>
+<li>To handle this, R allows function authors to specify <em>default values</em>. These are values that certain arguments will take automatically unless you decide to overwrite them</li>
+<li>Example: look at <code>?rnorm</code>. You’ll see that this function’s signature reads <code>rnorm(n, mean = 0, sd = 1)</code>.</li>
+</ul>
+<pre class="r"><code># 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
+rand_nums &lt;- rnorm(n = 100)
+
+# 100 random draws from a normal distribution w/ mean 4.5 and standard deviation 1
+rand_nums &lt;- rnorm(n = 100, mean = 4.5)</code></pre>
+<h2>
+User-Defined Functions
+</h2>
+<p>R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you’ll be able to do some really powerful stuff. We’ll spend more time on functions in the following weeks, but here’s a sneak peak of what is possible:</p>
+<pre class="r"><code>library(stargazer)
+
+# Wrap your modeling pipeline in a function so you can do model comparisons
+fitModels &lt;- function(spec_list, training_data){
+    fitted_mods &lt;- lapply(spec_list, function(spec){
+        lm(spec, data = training_data)
+    })
+    return(fitted_mods)
+}
+
+# Load data
+data(mtcars)
+
+# Try three different sets of RHS variables and display a table
+spec1 &lt;- as.formula(mpg ~ hp)
+spec2 &lt;- as.formula(mpg ~ hp + wt)
+myModels &lt;- fitModels(
+  spec_list = list(spec1, spec2)
+  , training_data = mtcars
+)
+
+# Display
+stargazer::stargazer(myModels, type = &quot;text&quot;)</code></pre>
+<pre><code>## 
+## =================================================================
+##                                  Dependent variable:             
+##                     ---------------------------------------------
+##                                          mpg                     
+##                              (1)                    (2)          
+## -----------------------------------------------------------------
+## hp                        -0.068***              -0.032***       
+##                            (0.010)                (0.009)        
+##                                                                  
+## wt                                               -3.878***       
+##                                                   (0.633)        
+##                                                                  
+## Constant                  30.099***              37.227***       
+##                            (1.634)                (1.599)        
+##                                                                  
+## -----------------------------------------------------------------
+## Observations                  32                     32          
+## R2                          0.602                  0.827         
+## Adjusted R2                 0.589                  0.815         
+## Residual Std. Error    3.863 (df = 30)        2.593 (df = 29)    
+## F Statistic         45.460*** (df = 1; 30) 69.211*** (df = 2; 29)
+## =================================================================
+## Note:                                 *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 
 
 
