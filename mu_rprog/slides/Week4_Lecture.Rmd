@@ -183,8 +183,6 @@ Once you have the fitted model, you can pass it and some new data to `predict()`
 - [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error)
 - [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
 
-**shameless plug:** If you want to go deep into the world of error metrics, you can check out the [documentation in this EViews Add-in](https://github.com/jameslamb/ML4EVIEWS/blob/main/tscval/Docs/tscval.pdf) my friend Rita and I wrote.
-
 --- .content_slide
 
 <footer>
