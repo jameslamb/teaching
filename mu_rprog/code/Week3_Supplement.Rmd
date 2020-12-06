@@ -1,5 +1,5 @@
 ---
-title: ECON 6114 - R Programming (Code Supplement)
+title: R Programming (Code Supplement)
 output:
   html_document:
     toc: true
