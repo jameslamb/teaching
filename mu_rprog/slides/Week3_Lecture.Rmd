@@ -1,5 +1,5 @@
 ---
-title       : ECON 6114 - R Programming
+title       : R Programming
 subtitle    : Week 3
 author      : James Lamb
 job         : Engineer | Saturn Cloud
@@ -22,7 +22,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Welcome back!</h2>
@@ -34,7 +34,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -76,7 +76,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right"> ECON 6114 - R Programming </span>
+  <span style="float:right"> R Programming </span>
 </footer>
 
 <h2>Contents</h2>
@@ -109,7 +109,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Programming Assignment 1 Review<span style="float:right">ECON 6114 - R Programming</span>
+    Programming Assignment 1 Review<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Assignment 1 Discussion</h2>
@@ -129,7 +129,7 @@ IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog
 
 <footer>
   <hr>
-    Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    Intro Topic Grab Bag<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Logical Operators</h2>
@@ -154,7 +154,7 @@ FALSE | FALSE  # FALSE
 
 <footer>
   <hr>
-    Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    Intro Topic Grab Bag<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Logical Operators (continued)</h2>
@@ -183,7 +183,7 @@ The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 
 <footer>
   <hr>
-    II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Logical Operators (continued)</h2>
@@ -210,7 +210,7 @@ mtcars[bigCarIndex,]
 
 <footer>
   <hr>
-    II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Factors</h2>
@@ -223,7 +223,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
+    II. Intro Topic Grab Bag<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Factors</h2>
@@ -243,7 +243,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>File Paths</h2>
@@ -262,7 +262,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>File Paths</h2>
@@ -281,7 +281,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Downloading files from the internet</h2>
@@ -299,7 +299,7 @@ download.file(
 
 <footer>
   <hr>
-    III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>CSV</h2>
@@ -317,7 +317,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Excel</h2>
@@ -332,7 +332,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    III. Getting Dataspan style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Dataspan style="float:right">R Programming</span>
 </footer>
 
 <h2>Excel</h2>
@@ -345,7 +345,7 @@ See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
 
 <footer>
   <hr>
-    III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
+    III. Getting Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>JSON</h2>
@@ -375,7 +375,7 @@ This type of data is commonly represented as an R `list`. See the [Week 3 Supple
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Specialness of NAs</h2>
@@ -400,7 +400,7 @@ class(some_nums)
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>You Should Care About NAs</h2>
@@ -415,7 +415,7 @@ Depending on how the system was set up, `date_of_second_contact1` may have dates
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 1: Total Eradication</h2>
@@ -439,7 +439,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 2: Handle on Subsets</h2>
@@ -465,7 +465,7 @@ cleanDF <- cleanDF[complete.cases(cleanDF),]
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 3: Imputation</h2>
@@ -496,7 +496,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Intro to the Base Plotting System</h2>
@@ -517,7 +517,7 @@ head(iris, n = 10)
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Creating a Line Plot</h2>
@@ -543,7 +543,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Histograms and Densities</h2>
@@ -566,7 +566,7 @@ plot(density(iris$Petal.Length), main = "Empirical density of petal length", col
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Multi-variable line charts</h2>
@@ -589,7 +589,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), 
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Creating a Grid of plots</h2>
@@ -614,7 +614,7 @@ par(mfrow = c(1,1))
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Other Plotting Systems in R</h2>
@@ -629,7 +629,7 @@ We don't have time in this short class to go into great depth on data visualizat
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    V. Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>A Note On Graphics Devices</h2>
@@ -663,7 +663,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    VI. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    VI. Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Your Final Project Proposal is Due in Week 4</h2>
@@ -685,7 +685,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    VI. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    VI. Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Your Final Project is Due in Week 5</h2>
@@ -705,7 +705,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    VII. Additional Resources<span style="float:right">ECON 6114 - R Programming</span>
+    VII. Additional Resources<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Additional Resources</h2>

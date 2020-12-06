@@ -1,5 +1,5 @@
 ---
-title       : ECON 6114 - R Programming
+title       : R Programming
 subtitle    : Week 5
 author      : James Lamb
 job         : Engineer | Saturn Cloud
@@ -22,7 +22,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>The Final Week is Upon Us!</h2>
@@ -33,7 +33,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -68,7 +68,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Final Project Code Reviews<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Code Reviews<span style="float:right">R Programming</span>
 </footer>
 
 <h2>It is Time.</h2>
@@ -88,7 +88,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Wrapping Your Code in A Package<span style="float:right">ECON 6114 - R Programming</span>
+    Wrapping Your Code in A Package<span style="float:right">R Programming</span>
 </footer>
 
 <h2>In-Class Exercise: RquetteBB</h2>
@@ -108,7 +108,7 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 
 <footer>
   <hr>
-    Data Science AMA<span style="float:right">ECON 6114 - R Programming</span>
+    Data Science AMA<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Data Science AMA</h2>

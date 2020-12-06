@@ -1,5 +1,5 @@
 ---
-title       : ECON 6114 - R Programming
+title       : R Programming
 subtitle    : Week 1
 author      : James Lamb
 job         : Engineer | Saturn Cloud
@@ -22,7 +22,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2 class="content_slide">Welcome to Class!</h2>
@@ -33,7 +33,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Contents</h2>
@@ -77,7 +77,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr></hr>
-  <span style="float:right"> ECON 6114 - R Programming </span>
+  <span style="float:right"> R Programming </span>
 </footer>
 
 <h2>Contents</h2>
@@ -116,7 +116,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Introduction<span style="float:right">ECON 6114 - R Programming</span>
+    Introduction<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Personal Introduction</h2>
@@ -140,7 +140,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Introduction<span style="float:right">ECON 6114 - R Programming</span>
+    Introduction<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Syllabus review</h2>
@@ -151,7 +151,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Introduction<span style="float:right">ECON 6114 - R Programming</span>
+    Introduction<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Course Objectives</h2>
@@ -178,7 +178,7 @@ The main objectives for the course are as follows:
 
 <footer>
   <hr>
-  Setting Up Your Environment<span style="float:right">ECON 6114 - R Programming</span>
+  Setting Up Your Environment<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Installing R + RStudio</h2>
@@ -199,7 +199,7 @@ R comes with a command-line client and a default GUI, but most users prefer to u
 
 <footer>
   <hr>
-  Setting Up Your Environment<span style="float:right">ECON 6114 - R Programming</span>
+  Setting Up Your Environment<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Authoring Scripts in RStudio</h2>
@@ -213,7 +213,7 @@ Sequences of R code are typically saved in scripts with the file extension ".R".
 
 <footer>
   <hr>
-  Setting Up Your Environment<span style="float:right">ECON 6114 - R Programming</span>
+  Setting Up Your Environment<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Installing Sublime Text</h2>
@@ -241,7 +241,7 @@ The world of data science is a world of text files...of many types. For working 
 
 <footer>
   <hr>
-  Setting Up Your Environment<span style="float:right">ECON 6114 - R Programming</span>
+  Setting Up Your Environment<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Authoring Scripts in a Text Editor</h2>
@@ -272,7 +272,7 @@ A few common ones you'll want to know for this course:
 
 <footer>
   <hr>
-  Setting Up Your Environment<span style="float:right">ECON 6114 - R Programming</span>
+  Setting Up Your Environment<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Executing R Code: RStudio</h2>
@@ -295,7 +295,7 @@ R is an [interpreted language](https://en.wikipedia.org/wiki/Interpreted_languag
 
 <footer>
   <hr>
-  Setting Up Your Environment<span style="float:right">ECON 6114 - R Programming</span>
+  Setting Up Your Environment<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Executing R Code: The Command Line</h2>
@@ -324,7 +324,7 @@ When R is just one of the tools in your stack, it's often quicker to execute you
 
 <footer>
   <hr>
-  Introduction to R<span style="float:right">ECON 6114 - R Programming</span>
+  Introduction to R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>R is an Interpreted Language</h2>
@@ -342,7 +342,7 @@ To ensure that that process of breaking down ("interpreting") code goes smoothly
 
 <footer>
   <hr>
-  Introduction to R<span style="float:right">ECON 6114 - R Programming</span>
+  Introduction to R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>R is a Dynamically Typed Language</h2>
@@ -360,7 +360,7 @@ To ensure that that process of breaking down ("interpreting") code goes smoothly
 
 <footer>
   <hr>
-  Introduction to R<span style="float:right">ECON 6114 - R Programming</span>
+  Introduction to R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>R has its own File Types</h2>
@@ -394,7 +394,7 @@ someData <- readRDS("my_data.rds")
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Variables and Namespaces</h2>
@@ -415,7 +415,7 @@ ls("package:stats")
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Introduction to Types</h2>
@@ -431,7 +431,7 @@ Languages like Java and C are more verbose than R partially because they require
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Dollarstore Calculator Math (pt 1)</h2>
@@ -448,7 +448,7 @@ Languages like Java and C are more verbose than R partially because they require
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Dollarstore Calculator Math (pt 2)</h2>
@@ -468,7 +468,7 @@ Languages like Java and C are more verbose than R partially because they require
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Dollarstore Calculator Math (pt 3)</h2>
@@ -485,7 +485,7 @@ Languages like Java and C are more verbose than R partially because they require
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: If-Else</h2>
@@ -507,7 +507,7 @@ See the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: If-Else</h2>
@@ -531,7 +531,7 @@ if (4 > 5){
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: For Loops</h2>
@@ -557,7 +557,7 @@ for (some_number in x){
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: While Loops (pt 1)</h2>
@@ -570,7 +570,7 @@ Consult the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/
 
 <footer>
   <hr>
-  Programming Fundamentals<span style="float:right">ECON 6114 - R Programming</span>
+  Programming Fundamentals<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Controlling Program Flow: While Loops (pt 2)</h2>
@@ -588,7 +588,7 @@ The `while` loop implementation can be found in the [Week 1 Code Supplement](jam
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">ECON 6114 - R Programming</span>
+  Functions in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Intro to Functional Programming</h2>
@@ -614,7 +614,7 @@ getEvens(answers)
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">ECON 6114 - R Programming</span>
+  Functions in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Required Arguments</h2>
@@ -636,7 +636,7 @@ sqrt()
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">ECON 6114 - R Programming</span>
+  Functions in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Default Argument Values</h2>
@@ -657,7 +657,7 @@ rand_nums <- rnorm(n = 100, mean = 4.5)
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">ECON 6114 - R Programming</span>
+  Functions in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>User-Defined Functions</h2>
@@ -679,7 +679,7 @@ Head over to the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Vectors (pt 1)</h2>
@@ -705,7 +705,7 @@ c("all", "of", "the", "lights")
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Vectors (pt 2)</h2>
@@ -735,7 +735,7 @@ c(x, y)
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Lists (pt 1)</h2>
@@ -763,7 +763,7 @@ str(myList)
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Lists (pt 2)</h2>
@@ -788,7 +788,7 @@ grades <- lapply(studentList, mean)
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Data Frames (pt 1)</h2>
@@ -814,7 +814,7 @@ str(myDF)
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Data Frames (pt 2)</h2>
@@ -839,7 +839,7 @@ unique(mtcars$cyl)
 
 <footer>
   <hr>
-  Common R Data Structures<span style="float:right">ECON 6114 - R Programming</span>
+  Common R Data Structures<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Data Frames (pt 3)</h2>
@@ -867,7 +867,7 @@ apply(mtcars, MARGIN = 1, FUN = mean)
 
 <footer>
   <hr>
-  Additional Resources<span style="float:right">ECON 6114 - R Programming</span>
+  Additional Resources<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Learning More on Your Own</h2>
