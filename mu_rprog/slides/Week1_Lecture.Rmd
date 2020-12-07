@@ -69,14 +69,6 @@ knit        : slidify::knit2slides
     <li> Dollarstore Calculator Math <span style="float:right"> 22-24 </span></li>
 </ol>
 
-<b class="toc_header"> R Data Structures </b>
-<ol class="toc" type="none">
-    <li> Vectors <span style="float:right"> 26-27 </span></li>
-    <li> Lists <span style="float:right"> 28-29 </span></li>
-    <li> Factors <span style="float:right"> 30 </span></li>
-    <li> Data Frames <span style="float:right"> 31-33 </span></li>
-</ol>
-
 --- .toc_slide &twocol
 
 <footer>
@@ -88,10 +80,21 @@ knit        : slidify::knit2slides
 
 *** =left
 
+
+<b class="toc_header"> R Data Structures </b>
+<ol class="toc" type="none">
+    <li> Vectors <span style="float:right"> 26-27 </span></li>
+    <li> Lists <span style="float:right"> 28-29 </span></li>
+    <li> Factors <span style="float:right"> 30 </span></li>
+    <li> Data Frames <span style="float:right"> 31-33 </span></li>
+</ol>
+
 <b class="toc_header"> Logical Operators </b>
 <ol class="toc" type="none">
     <li> Logical Operators <span style="float:right"> 35-37 </span></li>
 </ol>
+
+*** =right
 
 <b class="toc_header"> Subsetting </b>
 <ol class="toc" type="none">
@@ -108,8 +111,6 @@ knit        : slidify::knit2slides
     <li> For Loops <span style="float:right"> 46 </span></li>
     <li> While Loops <span style="float:right"> 47 </span></li>
 </ol>
-
-*** =right
 
 <b class="toc_header"> Additional Resources </b>
 <ol class = "toc" type="none">
@@ -944,3 +945,5 @@ For the brave and curious, I've included a few online free resources for learnin
 **R**: [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
 
 **RStudio**: [RStudio blog](https://blog.rstudio.org/)
+
+**Subsetting**: [Quick-R](http://www.statmethods.net/management/subset.html) | [R-bloggers](https://www.r-bloggers.com/taking-a-subset-of-a-data-frame-in-r/) | [Advanced R book](http://adv-r.had.co.nz/Subsetting.html)

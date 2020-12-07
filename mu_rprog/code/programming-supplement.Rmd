@@ -745,40 +745,6 @@ rwRanges <- apply(
 )
 ```
 
-## Sourcing Helper Functions
-
-In the examples so far, I've been defining functions and using them in the same breath. As your projects grow in complexity, you will find this really tedious and hard to keep track of.
-
-An alternative that many intermediate R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
-
-Let's create two scripts.
-
-**script 1: helperfuns.R**
-
-```{r helperFun}
-# Define some arbitrary custom function
-myFunction <- function(n){
-    if (n <= 5){
-        return(n^2)
-    } else {
-        return(n^3)
-    }
-}
-```
-
-**script 2: run_script.R**
-
-```{r runScript}
-# uncomment the line below to source in the helper functions file
-#source("helperfuns.R")
-
-# Apply that function over some data
-le_stuff <- sapply(c(1:20), myFunction)
-
-# Plot the result
-plot(x = 1:20, y = le_stuff)
-```
-
 # Debugging
 
 ## Print Debugging
@@ -831,6 +797,14 @@ sumBigNums(some_vector)
 
 # Using External Packages
 
+This example shows some interesting data visualizations you can make using `{data.table}`, `{quantmod}`, and `{rbokeh}`.
+
+Install these packages:
+
+```r
+install.packages(c("data.table", "quantmod", "rbokeh"))
+``
+
 ```{r makePlots, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 # Load dependencies
 library(data.table)
@@ -851,6 +825,40 @@ rbokeh::figure(
     , ylab = "Index (1982-1984 = 100)"
     , xlab = "date"
 ) %>% ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
+```
+
+## Sourcing Helper Functions
+
+In the examples so far, I've been defining functions and using them in the same breath. As your projects grow in complexity, you will find this really tedious and hard to keep track of.
+
+An alternative that many intermediate R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
+
+Let's create two scripts.
+
+**script 1: helperfuns.R**
+
+```{r helperFun}
+# Define some arbitrary custom function
+myFunction <- function(n){
+    if (n <= 5){
+        return(n^2)
+    } else {
+        return(n^3)
+    }
+}
+```
+
+**script 2: run_script.R**
+
+```{r runScript}
+# uncomment the line below to source in the helper functions file
+#source("helperfuns.R")
+
+# Apply that function over some data
+le_stuff <- sapply(c(1:20), myFunction)
+
+# Plot the result
+plot(x = 1:20, y = le_stuff)
 ```
 
 # Working with Files
@@ -917,64 +925,6 @@ download.file(
   url = "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
   , destfile = "iris.csv"
 )
-```
-
-## Semi-Structured: JSON Files
-
-JSON ([JavaScript Object Notation](http://www.json.org/)) is a light-weight format for representing arbitrary data objects in text files. It is used by many applications and most programming languages have functionality to handle and parse it.
-
-Let's try an example with data from the state of Oregon. The following link returns data on boating access sites in the state of Oregon. Try pasting it into your browser.
-
-https://data.oregon.gov/api/views/t6bs-tkn4/rows.json?accessType=DOWNLOAD
-
-We can download the data and parse it into an R list object using the `jsonlite` package:
-
-```{r jsonData}
-library(jsonlite)
-
-# Go get some data
-json_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/tweets.json"
-result <- jsonlite::fromJSON(json_url)
-
-# Check it out. Pass the max.level argument to the list to tell R how deep into it you want to go
-str(result, max.level = 1)
-
-# Check out the URLs in the tweet
-str(result[["entities"]][["urls"]])
-```
-
-## Unstructured: Text files
-
-In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.
-
-Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)(basically just pattern-matching on strings) to extract relevant features like word counts. For example:
-
-```{r unstructuredText}
-# Parameters
-shakespeare_url <- "https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt"
-
-# Read all the text into a vector (one line per element)
-text_vec <- readLines(con = shakespeare_url)
-
-# Examine a few random lines:
-sample(text_vec, 5)
-
-# Coerce everything to lower-case
-text_vec <- tolower(text_vec)
-
-# Grab just the lines with the word "thou" or "twas""
-thou_art_my_vector <- text_vec[grepl(pattern = "thou|twas", text_vec)]
-
-# Print the count of lines w/ those words
-lines_with_fancy_words <- length(thou_art_my_vector)
-thing_to_print <- paste0(
-    "of the "
-    , length(text_vec)
-    , " lines of text in all of Shakespeare's sonnet, "
-    , lines_with_fancy_words
-    , " used thou or twas."
-)
-print(thing_to_print)
 ```
 
 ## CSV
@@ -1117,7 +1067,7 @@ download.file(
 
 Open the file in a text editor and inspect its contents. It contains a sample response from the Twitter API, which is used by developers to build applications that interact with Twitter. Here's a preview:
 
-```
+```javascript
 {
   "created_at": "Mon May 06 20:01:29 +0000 2019",
   "id": 1125490788736032800,
@@ -1141,7 +1091,9 @@ Open the file in a text editor and inspect its contents. It contains a sample re
     "location": "Internet",
     "url": "https://developer.twitter.com/",
     "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https://twittercommunity.com/ ⌨️ #TapIntoTwitter",
-    "translator_type": "null",
+    "translator_type": "null"
+  }
+}
 ```
 
 There are a few packages for reading this type of data in R. The example below uses one of the most popular, `jsonlite`. Read in the file with `jsonlite::fromJSON()` and view its contents with `str()`.
@@ -1163,6 +1115,40 @@ tweetList <- jsonlite::fromJSON(
   , simplifyDataFrame = FALSE
 )
 str(tweetList, max.level = 3)
+```
+
+## Unstructured Text files
+
+In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.
+
+Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)(basically just pattern-matching on strings) to extract relevant features like word counts. For example:
+
+```{r unstructuredText}
+# Parameters
+shakespeare_url <- "https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt"
+
+# Read all the text into a vector (one line per element)
+text_vec <- readLines(con = shakespeare_url)
+
+# Examine a few random lines:
+sample(text_vec, 5)
+
+# Coerce everything to lower-case
+text_vec <- tolower(text_vec)
+
+# Grab just the lines with the word "thou" or "twas""
+thou_art_my_vector <- text_vec[grepl(pattern = "thou|twas", text_vec)]
+
+# Print the count of lines w/ those words
+lines_with_fancy_words <- length(thou_art_my_vector)
+thing_to_print <- paste0(
+    "of the "
+    , length(text_vec)
+    , " lines of text in all of Shakespeare's sonnet, "
+    , lines_with_fancy_words
+    , " used thou or twas."
+)
+print(thing_to_print)
 ```
 
 # Missing Values

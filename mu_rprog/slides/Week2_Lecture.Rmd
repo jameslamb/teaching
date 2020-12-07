@@ -37,45 +37,32 @@ widgets     : bootstrap
 
 *** =left
 
-<b class="toc_header"> I. Review and Catchup </b>
+<b class="toc_header"> Review and Catchup </b>
 <ol class="toc" type="none">
-    <li> Quiz 1 Review                   <span style="float:right"> 6   </span></li>
-    <li> Intro to Functional Programming <span style="float:right"> 32 </span></li>
-    <li> Required and Default Arguments  <span style="float:right"> 33-34 </span></li>
-    <li> User-Defined Functions          <span style="float:right"> 35 </span></li>
+    <li> Quiz 1 Review <span style="float:right"> 6 </span></li>
 </ol>
 
-<b class="toc_header"> II. Subsetting </b>
-<ol class = "toc" type="none">
-    <li> The "apply" family of functions <span style="float:right"> 7-9 </span></li>
+<b class="toc_header"> Functions </b>
+<ol class="toc" type="none">
+    <li> Intro to Functional Programming <span style="float:right"> 8 </span></li>
+    <li> Required and Default Arguments <span style="float:right"> 9-10 </span></li>
+    <li> Functions That Return Stuff <span style="float:right"> 11 </span></li>
+    <li> Functions That Return Nothing <span style="float:right"> 12 </span></li>
+    <li> Scoping <span style="float:right"> 13 </span></li>
+    <li> The "apply" family of functions <span style="float:right"> 14-16 </span></li>
 </ol>
-
-<b class="toc_header"> III. Debugging Strategies </b>
-<ol class = "toc">
-    <li> Print Debugging        <span style="float:right"> 16 </span></li>
-    <li> Googling Around        <span style="float:right"> 17-18 </span></li>
-    <li> Stack Overflow         <span style="float:right"> 19 </span></li>
-</ol>
-
 
 *** =right
 
-<ol class = "toc" type="none">
-    <li> Building an MWE        <span style="float:right"> 20 </span></li>
-    <li> Built-in Docs with "?" <span style="float:right"> 21 </span></li>
-    <li> Package Vignettes      <span style="float:right"> 22 </span></li>
-    <li> Looking at Source Code <span style="float:right"> 23 </span></li>
-</ol>
-
-<b class="toc_header"> IV. Using External Packages </b>
-<ol class="toc" type="none">
-    <li> Loading Installed Packages     <span style="float:right"> 25 </span></li>
-    <li> Installing from CRAN           <span style="float:right"> 26 </span></li>
-    <li> Installing from GitHub         <span style="float:right"> 27 </span></li>
-    <li> Installing Local Code          <span style="float:right"> 28 </span></li>
-    <li> Namespacing Calls              <span style="float:right"> 29 </span></li>
-    <li> library() vs. require()        <span style="float:right"> 30 </span></li>
-    <li> Using Local Code with source() <span style="float:right"> 31 </span></li>
+<b class="toc_header"> Debugging Strategies </b>
+<ol class = "toc">
+    <li> Print Debugging <span style="float:right"> 18 </span></li>
+    <li> Googling Around <span style="float:right"> 19-20 </span></li>
+    <li> Stack Overflow <span style="float:right"> 21 </span></li>
+    <li> Building an MWE  <span style="float:right"> 22 </span></li>
+    <li> Built-in Docs with "?" <span style="float:right"> 23 </span></li>
+    <li> Package Vignettes <span style="float:right"> 24 </span></li>
+    <li> Looking at Source Code <span style="float:right"> 25 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -89,23 +76,34 @@ widgets     : bootstrap
 
 *** =left
 
-<b class="toc_header"> VI. User-defined Functions </b>
-<ol class = "toc" type="none">
-    <li> UDF Example                   <span style="float:right"> 33 </span></li>
-    <li> Functions That Return Stuff   <span style="float:right"> 34 </span></li>
-    <li> Functions That Return Nothing <span style="float:right"> 35 </span></li>
-    <li> Brief Review of Scoping       <span style="float:right"> 36 </span></li>
-    <li> Sourcing Helper Functions     <span style="float:right"> 37 </span></li>
-</ol>
-
-<b class="toc_header"> VII. Working with Files </b>
-<ol class = "toc" type="none">
-    <li> Structured: Delimited files <span style="float:right"> 39-40 </span></li>
-    <li> Semi-structured: JSON files <span style="float:right"> 41 </span></li>
-    <li> Unstructured: Text files    <span style="float:right"> 42 </span></li>
+<b class="toc_header"> Using External Packages </b>
+<ol class="toc" type="none">
+    <li> Loading Installed Packages <span style="float:right"> 27 </span></li>
+    <li> Installing from CRAN <span style="float:right"> 28 </span></li>
+    <li> Installing from GitHub <span style="float:right"> 29 </span></li>
+    <li> Installing Local Code <span style="float:right"> 30 </span></li>
+    <li> Namespacing Calls <span style="float:right"> 31 </span></li>
+    <li> library() vs. require() <span style="float:right"> 32 </span></li>
+    <li> Using Local Code with source() <span style="float:right"> 33 </span></li>
 </ol>
 
 *** =right
+
+<b class="toc_header"> Working with Files </b>
+<ol class = "toc" type="none">
+    <li> File Paths <span style="float:right"> 35-36 </span></li>
+    <li> Downloading files from the internet <span style="float:right"> 37 </span></li>
+    <li> Delimited Files <span style="float:right"> 38 </span></li>
+    <li> CSV <span style="float:right"> 39 </span></li>
+    <li> Excel <span style="float:right"> 40 </span></li>
+    <li> JSON <span style="float:right"> 41 </span></li>
+    <li> Unstructured Text Files <span style="float:right"> 42 </span></li>
+</ol>
+
+<b class="toc_header"> Additional Resources </b>
+<ol class="toc" type="none">
+    <li> Learning More on Your Own <span style="float:right"> 44 </span></li>
+</ol>
 
 --- .section_slide
 
@@ -121,20 +119,20 @@ widgets     : bootstrap
 
 <h2>Quiz 1 Review</h2>
 
-I will show the questions from quiz 1 that a lot of students struggled with. Not including them in these slides in case I teach the course again in the future.
+I will show the questions from quiz 1 that some students struggled with. Not including them in these slides in case I teach the course again in the future.
 
 If you're arriving at this slide and are disappointed not to find quiz answers, I'm sorry but I'll at least give you this bit of entertainment. Go check out [A Day in the Life of Americans](https://flowingdata.com/2015/12/15/a-day-in-the-life-of-americans/)
 
 --- .section_slide
 
 </br></br></br>
-<h2>Functions in R</h2>
+<h2>Functions</h2>
 
 --- .content_slide
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">R Programming</span>
+  Functions<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Intro to Functional Programming</h2>
@@ -160,14 +158,14 @@ getEvens(answers)
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">R Programming</span>
+  Functions<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Required Arguments</h2>
 
 - R functions take 0 or more arguments...basically named variables that the function uses to do it's work
-- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt` will return the square root of each element
-- In this case, we'd say `x` is a *required argument* of `sqrt`
+- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt()` will return the square root of each element
+- In this case, we'd say `x` is a *required argument* of `sqrt()`
 
 ```{r requiredArgs, eval = FALSE}
 # Take the square root of a vector of numbers
@@ -182,7 +180,7 @@ sqrt()
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">R Programming</span>
+  Functions<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Default Argument Values</h2>
@@ -203,27 +201,72 @@ rand_nums <- rnorm(n = 100, mean = 4.5)
 
 <footer>
   <hr>
-  Functions in R<span style="float:right">R Programming</span>
+    Functions<span style="float:right">R Programming</span>
 </footer>
 
-<h2>User-Defined Functions</h2>
+<h2>Functions That Return Stuff</h2>
 
-As you saw in the last example, R gives you the ability to define your own functions on the fly for an added level of flexibility. Mastering this technique takes time, but if you can get it you'll be able to do some really powerful stuff. We'll spend more time on functions in the following weeks, but here's a sneak peak of what is possible:
+As you've seen in previous examples, the R special word `return` tells a function to "give back" some value. When you execute an expression like `x <- someFunction()`, that function's return value (an R object) is stored in a variable called "x".
+
+Unlike in some other programming languages, R allows you to use multiple `return` values inside the body of a function. The first time that the code inside the function reaches a `return` value, it will pass that value back out of the function and immediately stop executing the function.
 
 <br>
 
-Head over to the [Week 1 Code Supplement](jameslamb.github.io/teaching/mu_rprog/code/Week1_Supplement.html) to see an example of this.
+See ["Functions That Return Stuff"](../code/programming-supplement.html#Functions_That_Return_Stuff) in the programming supplement.
 
 --- .content_slide
 
 <footer>
   <hr>
-    Review and Catchup<span style="float:right">R Programming</span>
+    Functions<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Looping with lapply</h2>
+<h2>Functions That Return Nothing</h2>
 
-R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
+Not all functions have to return something! Sometimes you may want to create a function that just has some side effect like creating a plot, writing to a file, or print to the console.
+
+These are called "null functions" and they're common in scripting languages like R. By default, these functions return the R special value `NULL`.
+
+```{r nullFunc, eval = FALSE}
+printSentence <- function(theSentence){
+    words <- strsplit(x = theSentence, split = " ")
+    for (word in words){
+        print(word)
+    }
+}
+
+# Assigning to an object is irrelevant...this function doesn't return anything
+x <- printSentence("Hip means to know, it's a form of intelligence")
+x
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Functions<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Scoping</h2>
+
+Remember when we talked about namespaces and how R searches for objects? It's time to extend that logic to functions...which is where things get a bit weird and hard to understand.
+
+R uses a search technique called [lexical scoping](http://bit.ly/2DlfkDi)
+
+<br>
+
+See ["Scoping"](../code/programming-supplement.html#Scoping) in the programming supplement.
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Functions<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Looping with lapply()</h2>
+
+R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply()` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
 ```{r lapplyExample, eval = FALSE}
 data("ChickWeight")
@@ -243,10 +286,10 @@ check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <footer>
   <hr>
-    Review and Catchup<span style="float:right">R Programming</span>
+    Functions<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Looping with sapply</h2>
+<h2>Looping with sapply()</h2>
 
 On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean()` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply()` ("simplified apply") comes in. `sapply()` works the same way that `lapply()` does but returns a vector. Try it for yourself:
 
@@ -268,10 +311,10 @@ check_vec <- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <footer>
   <hr>
-    Review and Catchup<span style="float:right">R Programming</span>
+    Functions<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Looping with apply</h2>
+<h2>Looping with apply()</h2>
 
 When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply()` function comes in! Check it out
 
@@ -303,7 +346,7 @@ As you've probably already learned, writing code involves a never-ending process
 
 The simplest way to debug an issue in your code is to use **print debugging**. This approach involves forming expectations about the state of the objects in your environment at each point in your code, then printing those states at each point to find where things broke.
 
-Please see the [Week 2 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an example of this approach.
+Please see ["Print Debugging"](../code/programming-supplement.html#Print_Debugging) in the programming supplement for an example of this approach.
 
 --- .content_slide
 
@@ -400,6 +443,8 @@ Many IDEs (including RStudio) offer automatic [code completion](https://support.
 
 So far, we've talked about cases where you know exactly which functions are behaving strangely and want to just learn more about their behavior. But what about fuzzier cases where you just want to figure out what other functionality a package has? At least one source for this information is the package vignettes.
 
+<br>
+
 Let's take a look at the online documentation for the `stringr` package:
 
 - CRAN docs: https://cran.r-project.org/web/packages/stringr/index.html
@@ -419,9 +464,9 @@ If you try all the strategies we just discussed and STILL don't know why your co
 - R is open-source, which means that all R source code can be found online (typically on GitHub) and visually inspected
 - Errors thrown by programs are not magical...they had to be written into the source code by a developer
 
-For example, let's search for the error: `ggplot2 doesn't know how to deal with data of class integer` in the ggplot2 source code. Please visit:
+For example, let's search for the error: `each element of valids must have a name` in the `{lightgbm}` source code. Please visit:
 
-https://github.com/tidyverse/ggplot2
+https://github.com/microsoft/LightGBM
 
 --- .section_slide
 
@@ -437,14 +482,14 @@ https://github.com/tidyverse/ggplot2
 
 <h2>Loading Installed Packages</h2>
 
-In week 1, we discussed R functions, packages, and namespaces. As you advance in R, you will find that the functions provided by packages like `base`, `stats`, and `utils` are not sufficient. For example, you may want to use `rbokeh` to make interactive plots.
+As you advance in R, you will find that the functions provided by packages like `{base}`, `{stats}`, and `{utils}` are not sufficient. For example, you may want to use `{rbokeh}` to make interactive plots.
 
 ```{r makePlots, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}
 # Load dependencies
 library(data.table); library(quantmod); library(rbokeh);
 
 # Get data and plot it
-quantmod::getSymbols('CPIAUCSL', src = 'FRED')
+quantmod::getSymbols('CPIAUCSL', src = 'FRED', auto.assign = TRUE)
 cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
 
 # Plot it!
@@ -581,137 +626,20 @@ my_func <- function(n){
 
 There is one other option we have not discussed yet, in part because it doesn't technically involve the use of packages. Many analysts working in R prefer to define a file with their function and use `source()` to make those functions available to other scripts.
 
-*** =left
+<br>
 
 **my_script.R**
 
 ```{r echo = TRUE, eval = FALSE}
-# Load in your functions
-soure_file <- file.path("my_helper_functions.R")
-source(source_file)
+# load function
+source("helper_functions.R")
 
-# Run pipeline
 myData <- createRandomData(100, "norm")
+
 head(myData)
 ```
 
-*** =right
-
-**my_helper_functions.R**
-
-```{r echo = TRUE, eval = FALSE}
-# Function returning random nums
-createRandomData <- function(n, dist){
-    if (dist == "norm"){
-        RAND_FUN <- rnorm
-    } else {
-        RAND_FUN <- rexp
-    }
-    return(RAND_FUN(n))
-}
-```
-
---- .section_slide
-
-</br></br></br>
-<h2>User-defined Functions</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    User-defined Functions<span style="float:right">R Programming</span>
-</footer>
-
-<h2>UDF Example</h2>
-
-You can you user-defined functions to wrap arbitrarily complicated logic into concise statements. As mentioned in week 1, a good rule of thumb is to say "any time your find yourself copying and pasting the same code more than twice, write a function".
-
-```{r udfExample, eval = FALSE}
-# Given a number between 0 and 1, multiply by a random number
-# between 0 and 1, then return an action based on quantile
-weirdFunction <- function(num){
-    rand_num    <- runif(n = 1, min = 0, max = 1)
-    action_val  <- num*rand_num
-    if (action_val <= 0.25){return("left")}
-    if (action_val <= 0.5){return("right")}
-    if (action_val <= 0.75){return("up")}
-    return("down")
-}
-action_sequence <- sapply(runif(n = 100, min = 0, max = 1), weirdFunction)
-action_sequence[1:20]
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    User-defined Functions<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Functions That Return Stuff</h2>
-
-As you've seen in previous examples, the R special word `return` tells a function to "give back" some value. When you execute an expression like `x <- someFunction()`, that function's return value (an R object) is stored in a variable called "x".
-
-Unlike in some other programming languages, R allows you to use multiple `return` values inside the body of a function. The first time that the code inside the function reaches a `return` value, it will pass that value back out of the function and immediately stop executing the function.
-
-Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    User-defined Functions<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Functions That Return Nothing</h2>
-
-Not all functions have to return something! Sometimes you may want to create a function that just has some side effect like creating a plot, writing to a file, or print to the console.
-
-These are called "null functions" and they're common in scripting languages like R. By default, these functions return the R special value `NULL`.
-
-```{r nullFunc, eval = FALSE}
-printSentence <- function(theSentence){
-    words <- strsplit(x = theSentence, split = " ")
-    for (word in words){
-        print(word)
-    }
-}
-
-# Assigning to an object is irrelevant...this function doesn't return anything
-x <- printSentence("Hip means to know, it's a form of intelligence")
-x
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    User-defined Functions<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Brief Review of Scoping</h2>
-
-Remember when we talked about namespaces and how R searches for objects? It's time to extend that logic to functions...which is where things get a bit weird and hard to understand.
-
-R uses a search technique called [lexical scoping](http://bit.ly/2DlfkDi)
-
-Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    User-defined Functions<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Sourcing Helper Functions</h2>
-
-In the examples so far, I've been defining functions and using them in the same breath. As your projects grow in complexity, you will find this really tedious and hard to keep track of.
-
-An alternative that many intermediate R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
-
-Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an examples.
+See ["Sourcing Helper Functions"](../code/programming-supplement.html#Sourcing_Helper_Functions) in the programming supplement for an example.
 
 --- .section_slide
 
@@ -725,15 +653,23 @@ Head over to the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rpr
     Working with Files<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Structured: Delimited Files</h2>
+<h2>File Paths</h2>
 
-Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character ("delimiter"). Common types include comma separated values (CSV), tab-separated values, and space-delimited. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimiter is and use it to split data into columns.
+Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses).
 
-Let's look at an example: 
+All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
 
-- Download some stock data from Quandl: https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv
-- Navigate to wherever you stored the file
-- Right click on the file, and use "Open With" to open it with a text editor like Sublime or Notepad
+<br>
+
+**relative path**: `"file.txt"`
+
+**absolute path**: `"/Users/jlamb/repos/some-project/data/file.txt"`
+
+<br>
+
+<br>
+
+See ["File Paths"](../code/programming-supplement.html#Working_with_Files) in the programming supplement.
 
 --- .content_slide
 
@@ -742,21 +678,46 @@ Let's look at an example:
     Working with Files<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Structured: Delimited Files</h2>
+<h2>File Paths</h2>
 
-There are lots of options to read these types of files into R, but for the purposes of this class we will stick with `read.delim()`.
+R provides a few other utilities for working with file paths and directory structures.
 
-```{r, eval = FALSE}
-# Store the path to your file in an object
-dataPath <- file.path(
-  Sys.getenv("HOME"), "repos", "my_project", "data", "project_data.csv"
+<br>
+
+* `file.path()`: create a filepath from multiple parts
+* `file.exists()`: returns `TRUE` is a file exists and  `FALSE` if it doesn't
+* `list.files()`: get a character vector with names of all files found in a directory
+* `dir.exists()`: returns `TRUE` is a directory exists and  `FALSE` if it doesn't
+* `dir.create()`: create a new directory
+
+<br>
+
+See ["File Paths"](../code/programming-supplement.html#Working_with_Files) in the programming supplement.
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Working with Files<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Downloading files from the internet</h2>
+
+To download files hosted on the internet, you can use `download.file()`.
+
+```{r, eval = FALSE, echo = TRUE}
+iris_url <- paste(
+    c(
+         "https://raw.githubusercontent.com/jameslamb"
+        , "teaching/main/mu_rprog/sample-data"
+        , "iris.csv"
+    )
+    , collapse = "/"
 )
 
-# Read the file into a data.frame
-dataDF <- read.delim(
-    file = dataPath,
-    header = TRUE,
-    sep = ","
+download.file(
+  url = iris_url
+  , destfile = "iris.csv"
 )
 ```
 
@@ -767,17 +728,14 @@ dataDF <- read.delim(
     Working with Files<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Semi-Structured: JSON Files</h2>
+<h2>Delimited Files</h2>
 
-JSON ([JavaScript Object Notation](http://www.json.org/)) is a light-weight format for representing arbitrary data objects in text files. It is used by many applications and most programming languages have functionality to handle and parse it.
+Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character ("delimiter"). Common types include comma separated values (CSV), tab-separated values, and space-delimited. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimiter is and use it to split data into columns.
 
-<br>
-
-See the Elasticsearch documentation for an example (and a cool lesson on search technology!): https://www.elastic.co/blog/significant-terms-aggregation
-
-<br>
-
-See the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for an example using data from the State of Oregon's open data platform.
+* Download some stock data from Quandl
+  - https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv
+* Navigate to wherever you stored the file
+* Right click on the file, and use "Open With" to open it with a text editor like Sublime or Notepad
 
 --- .content_slide
 
@@ -786,13 +744,82 @@ See the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/W
     Working with Files<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Unstructured: Text files</h2>
+<h2>CSV</h2>
 
-In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.
+CSV ("comma-separated values") is a really common format to share small datasets because it is just a text file, and can be ready by many different types of programs. R has several options for reading this type of file.
+
+* `read.csv()`: base R function for reading CSVs into a `data.frame`
+* `read.delim()`: similar to `read.csv()`, but can read files with any delimiter
+* `arrow::read_csv_arrow()`: fast CSV reader using a high-performance data frame library called Apache Arrow
+* `data.table::fread()`: super-fast CSV reader that creates a special type of `data.frame` called a `data.table`
+* `readr::read_csv()`: CSV reader from RStudio
+
+<br>
+
+See ["CSV"](../code/programming-supplement.html#CSV) in the programming supplement for an example of working with CSVs.
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Working with Files<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Excel</h2>
+
+In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You'll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R.
+
+There are a few packages for reading (and writing!) Excel files.
+
+* `{openxlsx}`
+* `{readxl}`
+* `{xlsx}`
+
+<br>
+
+See ["Excel"](../code/programming-supplement.html#Excel) in the programming supplement for an example with `{openxlsx}`.
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Working with Files<span style="float:right">R Programming</span>
+</footer>
+
+<h2>JSON</h2>
+
+JSON ("Javascript Object Notation") is a standard format for "semi-structured" or "nested" data. It's a plain-text format that can be used by many programs and programming languages.
+
+<br>
+
+```json
+{
+  "status": 200,
+  "data": [
+    {"customer_name": "Lupe", "purchases": 10},
+    {"customer_name": "Wale", "purchases": 30}
+  ]
+}
+```
+
+<br>
+
+This type of data is commonly represented as an R `list`. See the ["JSON"](../code/programming-supplement.html#JSON) in the programming supplement for an example using some JSON data describing a tweet.
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Working with Files<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Unstructured Text Files</h2>
+
+Text files that are "unstructured" don't cleanly map to an R data structure like a data frame, matrix, or list. An example might be a collection of court transcripts.
 
 Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html) (basically just pattern-matching on strings) to extract relevant features like word counts. For example:
 
-See the Shakespeare example in the [Week 2 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week2_Supplement.html) for some hands-on experience with this approach.
+See ["Unstructured Text Files"](../code/programming-supplement.html##Unstructured_Text_files) in the programming supplement for some hands-on experience with this approach.
 
 --- .section_slide
 
@@ -809,8 +836,6 @@ See the Shakespeare example in the [Week 2 Supplement](https://jameslamb.github.
 <h2>Learning More on Your Own</h2>
 
 See the links below to learn more about some of the topics we covered this week
-
-**Subsetting**: [Quick-R](http://www.statmethods.net/management/subset.html) | [R-bloggers](https://www.r-bloggers.com/taking-a-subset-of-a-data-frame-in-r/) | [Advanced R book](http://adv-r.had.co.nz/Subsetting.html)
 
 **Debugging R code**: [RStudio debug mode](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio) | [R-bloggers](https://www.r-bloggers.com/debugging-in-r/) | [Stack Overflow](http://stackoverflow.com/questions/4442518/general-suggestions-for-debugging-in-r)
 

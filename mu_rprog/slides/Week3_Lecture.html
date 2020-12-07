@@ -88,23 +88,6 @@
     <li> In-class Walkthrough <span style="float:right"> 6 </span></li>
 </ol>
 
-<p><b class="toc_header"> II. Intro Topic Grab Bag </b></p>
-
-<ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 8-10 </span></li>
-    <li> Factors <span style="float:right"> 11-12 </span></li>
-</ol>
-
-<p><b class="toc_header"> III. Getting Data </b></p>
-
-<ol class="toc" type="none">
-    <li> File Paths <span style="float:right"> 13-14 </span></li>
-    <li> Downloading files from the internet <span style="float:right"> 15 </span></li>
-    <li> CSV <span style="float:right"> 16 </span></li>
-    <li> Excel <span style="float:right"> 17-18 </span></li>
-    <li> JSON <span style="float:right"> 19 </span></li>
-</ol>
-
 </div>
 <div style='float:right;width:48%;'>
   <p><b class="toc_header"> IV. Dealing with Missing Data </b></p>
@@ -194,187 +177,6 @@
   <article data-timings="">
     <p></br></br></br></p>
 
-<h2>Getting Data</h2>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-7" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Data<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>File Paths</h2>
-
-<p>Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer&#39;s file system. These paths can either be <em>relative</em> (expressed as steps above/below your current location) or <em>absolute</em> (full addresses).</p>
-
-<p>All relative paths in R are relative to your <strong>working directory</strong>, a single location that you can set and reset any time in your session.</p>
-
-<p><strong>relative path</strong>: <code>&quot;file.txt&quot;</code></p>
-
-<p><strong>absolute path</strong>: <code>&quot;/Users/jlamb/repos/some-project/data/file.txt&quot;</code></p>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-8" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Data<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>File Paths</h2>
-
-<p>R provides a few other utilities for working with file paths and directory structures.</p>
-
-<ul>
-<li><code>file.path()</code>: create a filepath from multiple parts</li>
-<li><code>file.exists()</code>: returns <code>TRUE</code> is a file exists and  <code>FALSE</code> if it doesn&#39;t</li>
-<li><code>list.files()</code>: get a character vector with names of all files found in a directory</li>
-<li><code>dir.exists()</code>: returns <code>TRUE</code> is a directory exists and  <code>FALSE</code> if it doesn&#39;t</li>
-<li><code>dir.create()</code>: create a new directory</li>
-</ul>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for more examples.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-9" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Data<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Downloading files from the internet</h2>
-
-<p>To download files hosted on the internet, you can use <code>download.file()</code>.</p>
-
-<pre><code class="r">download.file(
-  url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv&quot;
-  , destfile = &quot;iris.csv&quot;
-)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-10" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Data<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>CSV</h2>
-
-<p>CSV (&quot;comma-separated values&quot;) is a really common format to share small datasets because it is just a text file, and can be ready by many different types of programs. R has several options for reading this type of file.</p>
-
-<ul>
-<li><code>read.csv()</code>: base R function for reading CSVs into a <code>data.frame</code></li>
-<li><code>data.table::fread()</code>: super-fast CSV reader that creates a special type of <code>data.frame</code> called a <code>data.table</code></li>
-<li><code>read.delim()</code>: similar to <code>read.csv()</code>, but can read files with any delimiter</li>
-<li><code>readr::read_csv()</code>: CSV reader from RStudio</li>
-</ul>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for more examples.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-11" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Data<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>Excel</h2>
-
-<p>In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You&#39;ll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we&#39;ll focus on <a href="https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf">openxlsx</a>.</p>
-
-<p>NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE</a> or 2) exploring other packages like <a href="https://cran.r-project.org/web/packages/xlsx/xlsx.pdf">xlsx</a> or <a href="https://cran.r-project.org/web/packages/readxl/readxl.pdf">readxl</a>.</p>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-12" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Dataspan style=&quot;float:right&quot;&gt;R Programming</span>
-</footer></p>
-
-<h2>Excel</h2>
-
-<p>You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It&#39;s tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.</p>
-
-<p>See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-13" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    III. Getting Data<span style="float:right">R Programming</span>
-</footer></p>
-
-<h2>JSON</h2>
-
-<p>JSON (&quot;Javascript Object Notation&quot;) is a standard format for &quot;semi-structured&quot; or &quot;nested&quot; data. It&#39;s a plain-text format that can be used by many programs and programming languages.</p>
-
-<pre><code class="json">{
-  &quot;status&quot;: 200,
-  &quot;data&quot;: [
-    {&quot;customer_name&quot;: &quot;Lupe&quot;, &quot;purchases&quot;: 10},
-    {&quot;customer_name&quot;: &quot;Wale&quot;, &quot;purchases&quot;: 30}
-  ]
-}
-</code></pre>
-
-<p>This type of data is commonly represented as an R <code>list</code>. See the <a href="https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html">Week 3 Supplement</a> for an example.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="section_slide" id="slide-14" style="background:;">
-  
-  <article data-timings="">
-    <p></br></br></br></p>
-
 <h2>Dealing with Missing Data</h2>
 
   </article>
@@ -382,7 +184,7 @@
   
 </slide>
 
-<slide class="content_slide" id="slide-15" style="background:;">
+<slide class="content_slide" id="slide-7" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -423,7 +225,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-16" style="background:;">
+<slide class="content_slide" id="slide-8" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -444,7 +246,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-17" style="background:;">
+<slide class="content_slide" id="slide-9" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -473,7 +275,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
   
 </slide>
 
-<slide class="content_slide" id="slide-18" style="background:;">
+<slide class="content_slide" id="slide-10" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -504,7 +306,7 @@ cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
   
 </slide>
 
-<slide class="content_slide" id="slide-19" style="background:;">
+<slide class="content_slide" id="slide-11" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -536,7 +338,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="section_slide" id="slide-20" style="background:;">
+<slide class="section_slide" id="slide-12" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -548,7 +350,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-21" style="background:;">
+<slide class="content_slide" id="slide-13" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -574,7 +376,7 @@ head(iris, n = 10)
   
 </slide>
 
-<slide class="content_slide" id="slide-22" style="background:;">
+<slide class="content_slide" id="slide-14" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -605,7 +407,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
   
 </slide>
 
-<slide class="content_slide" id="slide-23" style="background:;">
+<slide class="content_slide" id="slide-15" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -633,7 +435,7 @@ plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&
   
 </slide>
 
-<slide class="content_slide" id="slide-24" style="background:;">
+<slide class="content_slide" id="slide-16" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -661,7 +463,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;r
   
 </slide>
 
-<slide class="content_slide" id="slide-25" style="background:;">
+<slide class="content_slide" id="slide-17" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -691,7 +493,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-26" style="background:;">
+<slide class="content_slide" id="slide-18" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -714,7 +516,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-19" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -746,7 +548,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-28" style="background:;">
+<slide class="section_slide" id="slide-20" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -758,7 +560,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-29" style="background:;">
+<slide class="content_slide" id="slide-21" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -794,7 +596,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-30" style="background:;">
+<slide class="content_slide" id="slide-22" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -815,7 +617,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-31" style="background:;">
+<slide class="section_slide" id="slide-23" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -827,7 +629,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-32" style="background:;">
+<slide class="content_slide" id="slide-24" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1016,62 +818,6 @@ for (i in 1:10){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=24 title='NA'>
          24
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='NA'>
-         25
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='NA'>
-         26
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='NA'>
-         27
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='NA'>
-         28
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='NA'>
-         29
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='NA'>
-         30
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='NA'>
-         31
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='NA'>
-         32
       </a>
     </li>
     
