@@ -38,17 +38,17 @@ knit        : slidify::knit2slides
 
 *** =left
 
-<b class="toc_header"> I. Final Project Code Reviews</b>
+<b class="toc_header"> Final Project Code Reviews</b>
 <ol class="toc" type="none">
     <li> Code Reviews Today! <span style="float:right"> 5 </span></li>
 </ol>
 
-<b class="toc_header"> II. Wrapping Your Code in a Package </b>
+<b class="toc_header"> Wrapping Your Code in a Package </b>
 <ol class = "toc" type="none">
     <li> In-Class Exercise: RquetteBB<span style="float:right"> 7 </span></li>
 </ol>
 
-<b class="toc_header"> III. R/Data Science AMA </b>
+<b class="toc_header"> R/Data Science AMA </b>
 <ol class = "toc" type="none">
     <li> Ask Me Anything <span style="float:right"> 9 </span></li>
 </ol>
@@ -87,9 +87,9 @@ knit        : slidify::knit2slides
 
 <h2>In-Class Exercise: RquetteBB</h2>
 
-As a final exercise, we're going to talk through the process of creating an R package from scratch! In this class, we're going to create a package called `RquetteBB` for getting and visualizing Marquette Men's basketball statistics!
+As a final exercise, we're going to talk through the process of creating an R package from scratch! In this class, we're going to create a package called `{RquetteBB}` for getting and visualizing Marquette Men's basketball statistics!
 
-Given the complexity of this exercise, slides are really not an appropriate medium. Head over to the [Week 5 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week5_Supplement.html)
+See ["Creating R Packages"](../code/programming-supplement.html#Creating_R_Packages) in the programming supplement.
 
 --- .section_slide
 

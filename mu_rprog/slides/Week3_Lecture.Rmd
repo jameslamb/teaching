@@ -27,7 +27,6 @@ knit        : slidify::knit2slides
 
 <center><img src="assets/img/programming.png" height=350px width = 650px></center>
 
-
 --- .toc_slide &twocol
 
 <footer>
@@ -39,20 +38,20 @@ knit        : slidify::knit2slides
 
 *** =left
 
-<b class="toc_header"> I. Programming Assignment 1 Review</b>
+<b class="toc_header"> Programming Assignment 1 Review</b>
 <ol class="toc" type="none">
     <li> In-class Walkthrough <span style="float:right"> 6 </span></li>
 </ol>
 
 *** =right
 
-<b class="toc_header"> IV. Dealing with Missing Data </b>
+<b class="toc_header"> Dealing with Missing Data </b>
 <ol class = "toc" type="none">
-    <li> Specialness of NAs<span style="float:right"> 21 </span></li>
-    <li> You Should Care About NAs<span style="float:right"> 22 </span></li>
-    <li> Strategy 1: Total Eradication<span style="float:right"> 23 </span></li>
-    <li> Strategy 2: Handle on Subsets<span style="float:right"> 24 </span></li>
-    <li> Strategy 3: Imputation<span style="float:right"> 25 </span></li>
+    <li> Specialness of NAs <span style="float:right"> 21 </span></li>
+    <li> You Should Care About NA s<span style="float:right"> 22 </span></li>
+    <li> Strategy 1: Total Eradication <span style="float:right"> 23 </span></li>
+    <li> Strategy 2: Handle on Subsets <span style="float:right"> 24 </span></li>
+    <li> Strategy 3: Imputation <span style="float:right"> 25 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -66,14 +65,14 @@ knit        : slidify::knit2slides
 
 *** =left
 
-<b class="toc_header"> V. Visualizing Data </b>
+<b class="toc_header"> Visualizing Data </b>
 <ol class = "toc" type="none">
-    <li> Base Plotting System<span style="float:right"> 27-31</span></li>
-    <li> Other Plotting Systems in R<span style="float:right"> 32</span></li>
-    <li> Graphics Devices<span style="float:right"> 33 </span></li>
+    <li> Base Plotting System <span style="float:right"> 27-31 </span></li>
+    <li> Other Plotting Systems in R <span style="float:right"> 32 </span></li>
+    <li> Graphics Devices <span style="float:right"> 33 </span></li>
 </ol>
 
-<b class="toc_header"> VI. Final Project Discussion </b>
+<b class="toc_header"> Final Project Discussion </b>
 <ol class = "toc" type="none">
     <li> Project Proposal Guidelines <span style="float:right"> 36 </span></li>
     <li> Final Project Outline <span style="float:right"> 37 </span></li>
@@ -90,7 +89,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    Programming Assignment 1 Review<span style="float:right">R Programming</span>
+    Programming Assignment 1 Review <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Assignment 1 Discussion</h2>
@@ -108,7 +107,7 @@ IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Specialness of NAs</h2>
@@ -133,7 +132,7 @@ class(some_nums)
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>You Should Care About NAs</h2>
@@ -148,7 +147,7 @@ Depending on how the system was set up, `date_of_second_contact1` may have dates
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 1: Total Eradication</h2>
@@ -172,7 +171,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 2: Handle on Subsets</h2>
@@ -198,7 +197,7 @@ cleanDF <- cleanDF[complete.cases(cleanDF),]
 
 <footer>
   <hr>
-    IV. Dealing with Missing Data<span style="float:right">R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 3: Imputation</h2>
@@ -227,7 +226,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Intro to the Base Plotting System</h2>
@@ -248,7 +247,7 @@ head(iris, n = 10)
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Creating a Line Plot</h2>
@@ -274,7 +273,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Histograms and Densities</h2>
@@ -297,7 +296,7 @@ plot(density(iris$Petal.Length), main = "Empirical density of petal length", col
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Multi-variable line charts</h2>
@@ -320,7 +319,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), 
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Creating a Grid of plots</h2>
@@ -345,7 +344,7 @@ par(mfrow = c(1,1))
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Other Plotting Systems in R</h2>
@@ -360,7 +359,7 @@ We don't have time in this short class to go into great depth on data visualizat
 
 <footer>
   <hr>
-    V. Visualizing Data<span style="float:right">R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>A Note On Graphics Devices</h2>
@@ -392,7 +391,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    VI. Final Project Discussion<span style="float:right">R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Your Final Project Proposal is Due in Week 4</h2>
@@ -414,7 +413,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    VI. Final Project Discussion<span style="float:right">R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Your Final Project is Due in Week 5</h2>
@@ -432,7 +431,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    VII. Additional Resources<span style="float:right">R Programming</span>
+    Additional Resources<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Additional Resources</h2>
