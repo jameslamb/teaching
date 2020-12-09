@@ -445,7 +445,7 @@ So far, we've talked about cases where you know exactly which functions are beha
 
 <br>
 
-Let's take a look at the online documentation for the `stringr` package:
+Let's take a look at the online documentation for the `{stringr}` package:
 
 - CRAN docs: https://cran.r-project.org/web/packages/stringr/index.html
 - package vignette: https://cran.r-project.org/web/packages/stringr/stringr.pdf

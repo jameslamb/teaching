@@ -40,45 +40,32 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> Programming Assignment 1 Review</b>
 <ol class="toc" type="none">
-    <li> In-class Walkthrough <span style="float:right"> 6 </span></li>
+    <li> In-class Walkthrough <span style="float:right"> 5 </span></li>
+</ol>
+
+<b class="toc_header"> Dealing with Missing Data </b>
+<ol class = "toc" type="none">
+    <li> Specialness of NAs <span style="float:right"> 7 </span></li>
+    <li> You Should Care About NA s<span style="float:right"> 8 </span></li>
+    <li> Strategy 1: Total Eradication <span style="float:right"> 9 </span></li>
+    <li> Strategy 2: Handle on Subsets <span style="float:right"> 10 </span></li>
+    <li> Strategy 3: Imputation <span style="float:right"> 12 </span></li>
 </ol>
 
 *** =right
 
-<b class="toc_header"> Dealing with Missing Data </b>
-<ol class = "toc" type="none">
-    <li> Specialness of NAs <span style="float:right"> 21 </span></li>
-    <li> You Should Care About NA s<span style="float:right"> 22 </span></li>
-    <li> Strategy 1: Total Eradication <span style="float:right"> 23 </span></li>
-    <li> Strategy 2: Handle on Subsets <span style="float:right"> 24 </span></li>
-    <li> Strategy 3: Imputation <span style="float:right"> 25 </span></li>
-</ol>
-
---- .toc_slide &twocol
-
-<footer>
-  <hr></hr>
-  <span style="float:right"> R Programming </span>
-</footer>
-
-<h2>Contents</h2>
-
-*** =left
-
 <b class="toc_header"> Visualizing Data </b>
 <ol class = "toc" type="none">
-    <li> Base Plotting System <span style="float:right"> 27-31 </span></li>
-    <li> Other Plotting Systems in R <span style="float:right"> 32 </span></li>
-    <li> Graphics Devices <span style="float:right"> 33 </span></li>
+    <li> Base Plotting System <span style="float:right"> 14-18 </span></li>
+    <li> Other Plotting Systems in R <span style="float:right"> 19 </span></li>
+    <li> Graphics Devices <span style="float:right"> 20 </span></li>
 </ol>
 
 <b class="toc_header"> Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Project Proposal Guidelines <span style="float:right"> 36 </span></li>
-    <li> Final Project Outline <span style="float:right"> 37 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 22 </span></li>
+    <li> Final Project Outline <span style="float:right"> 23 </span></li>
 </ol>
-
-*** =right
 
 --- .section_slide
 
@@ -231,7 +218,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 <h2>Intro to the Base Plotting System</h2>
 
-R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as "the base plotting system", and we're going to walk through a few examples of it this week.
+R's built-in plotting tools, called "the base plotting system", is one of its most popular features.
 
 <br>
 

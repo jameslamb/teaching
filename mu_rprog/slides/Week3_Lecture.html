@@ -85,63 +85,43 @@
   <p><b class="toc_header"> Programming Assignment 1 Review</b></p>
 
 <ol class="toc" type="none">
-    <li> In-class Walkthrough <span style="float:right"> 6 </span></li>
+    <li> In-class Walkthrough <span style="float:right"> 5 </span></li>
+</ol>
+
+<p><b class="toc_header"> Dealing with Missing Data </b></p>
+
+<ol class = "toc" type="none">
+    <li> Specialness of NAs <span style="float:right"> 7 </span></li>
+    <li> You Should Care About NA s<span style="float:right"> 8 </span></li>
+    <li> Strategy 1: Total Eradication <span style="float:right"> 9 </span></li>
+    <li> Strategy 2: Handle on Subsets <span style="float:right"> 10 </span></li>
+    <li> Strategy 3: Imputation <span style="float:right"> 12 </span></li>
 </ol>
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><b class="toc_header"> Dealing with Missing Data </b></p>
-
-<ol class = "toc" type="none">
-    <li> Specialness of NAs <span style="float:right"> 21 </span></li>
-    <li> You Should Care About NA s<span style="float:right"> 22 </span></li>
-    <li> Strategy 1: Total Eradication <span style="float:right"> 23 </span></li>
-    <li> Strategy 2: Handle on Subsets <span style="float:right"> 24 </span></li>
-    <li> Strategy 3: Imputation <span style="float:right"> 25 </span></li>
-</ol>
-
-</div>
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="toc_slide" id="slide-3" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr></hr>
-  <span style="float:right"> R Programming </span>
-</footer></p>
-
-<h2>Contents</h2>
-
-<div style='float:left;width:48%;' class='centered'>
   <p><b class="toc_header"> Visualizing Data </b></p>
 
 <ol class = "toc" type="none">
-    <li> Base Plotting System <span style="float:right"> 27-31 </span></li>
-    <li> Other Plotting Systems in R <span style="float:right"> 32 </span></li>
-    <li> Graphics Devices <span style="float:right"> 33 </span></li>
+    <li> Base Plotting System <span style="float:right"> 14-18 </span></li>
+    <li> Other Plotting Systems in R <span style="float:right"> 19 </span></li>
+    <li> Graphics Devices <span style="float:right"> 20 </span></li>
 </ol>
 
 <p><b class="toc_header"> Final Project Discussion </b></p>
 
 <ol class = "toc" type="none">
-    <li> Project Proposal Guidelines <span style="float:right"> 36 </span></li>
-    <li> Final Project Outline <span style="float:right"> 37 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 22 </span></li>
+    <li> Final Project Outline <span style="float:right"> 23 </span></li>
 </ol>
 
-</div>
-<div style='float:right;width:48%;'>
-  
 </div>
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="section_slide" id="slide-4" style="background:;">
+<slide class="section_slide" id="slide-3" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -153,7 +133,7 @@
   
 </slide>
 
-<slide class="content_slide" id="slide-5" style="background:;">
+<slide class="content_slide" id="slide-4" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -172,7 +152,7 @@
   
 </slide>
 
-<slide class="section_slide" id="slide-6" style="background:;">
+<slide class="section_slide" id="slide-5" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -184,7 +164,7 @@
   
 </slide>
 
-<slide class="content_slide" id="slide-7" style="background:;">
+<slide class="content_slide" id="slide-6" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -225,7 +205,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-8" style="background:;">
+<slide class="content_slide" id="slide-7" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -246,7 +226,7 @@ class(some_nums)
   
 </slide>
 
-<slide class="content_slide" id="slide-9" style="background:;">
+<slide class="content_slide" id="slide-8" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -275,7 +255,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
   
 </slide>
 
-<slide class="content_slide" id="slide-10" style="background:;">
+<slide class="content_slide" id="slide-9" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -306,7 +286,7 @@ cleanDF &lt;- cleanDF[complete.cases(cleanDF),]
   
 </slide>
 
-<slide class="content_slide" id="slide-11" style="background:;">
+<slide class="content_slide" id="slide-10" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -338,7 +318,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="section_slide" id="slide-12" style="background:;">
+<slide class="section_slide" id="slide-11" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -350,7 +330,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
   
 </slide>
 
-<slide class="content_slide" id="slide-13" style="background:;">
+<slide class="content_slide" id="slide-12" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -360,7 +340,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
 
 <h2>Intro to the Base Plotting System</h2>
 
-<p>R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as &quot;the base plotting system&quot;, and we&#39;re going to walk through a few examples of it this week.</p>
+<p>R&#39;s built-in plotting tools, called &quot;the base plotting system&quot;, is one of its most popular features.</p>
 
 <p><br></p>
 
@@ -376,7 +356,7 @@ head(iris, n = 10)
   
 </slide>
 
-<slide class="content_slide" id="slide-14" style="background:;">
+<slide class="content_slide" id="slide-13" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -407,7 +387,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
   
 </slide>
 
-<slide class="content_slide" id="slide-15" style="background:;">
+<slide class="content_slide" id="slide-14" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -435,7 +415,7 @@ plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&
   
 </slide>
 
-<slide class="content_slide" id="slide-16" style="background:;">
+<slide class="content_slide" id="slide-15" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -463,7 +443,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;r
   
 </slide>
 
-<slide class="content_slide" id="slide-17" style="background:;">
+<slide class="content_slide" id="slide-16" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -493,7 +473,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-18" style="background:;">
+<slide class="content_slide" id="slide-17" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -516,7 +496,7 @@ par(mfrow = c(1,1))
   
 </slide>
 
-<slide class="content_slide" id="slide-19" style="background:;">
+<slide class="content_slide" id="slide-18" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -548,7 +528,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-20" style="background:;">
+<slide class="section_slide" id="slide-19" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -560,7 +540,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-21" style="background:;">
+<slide class="content_slide" id="slide-20" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -596,7 +576,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-22" style="background:;">
+<slide class="content_slide" id="slide-21" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -617,7 +597,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-23" style="background:;">
+<slide class="section_slide" id="slide-22" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -629,7 +609,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-24" style="background:;">
+<slide class="content_slide" id="slide-23" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -811,13 +791,6 @@ for (i in 1:10){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=23 title='NA'>
          23
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='NA'>
-         24
       </a>
     </li>
     
