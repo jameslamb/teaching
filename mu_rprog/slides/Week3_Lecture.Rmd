@@ -163,7 +163,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 <h2>Strategy 2: Handle on Subsets</h2>
 
-You may find the "remove all the NAs everywhere" strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases` to remove rows.
+You may find the "remove all the NAs everywhere" strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
 ```{r subsetNAwisely, echo = TRUE, eval = FALSE}
 # Create a data frame where some variable have more NAs than others

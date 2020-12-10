@@ -33,7 +33,7 @@ Your task for the final project is construct a small analysis of a real-world da
 4. **Create at Least Two Visualizations to Communicate Results** Examples:
     - Histograms/densities to compare probability distributions
     - Line plots to compare progression of variables over time
-    - Tables of regression results (formatted with `stargazer`, perhaps) showing comparisons across models
+    - Tables of regression results (formatted with `{stargazer}`, perhaps) showing comparisons across models
 
 While it is certainly possible to complete the tasks listed above with the base functionality of R, you will likely find that using external libraries will make your code more powerful and expressive. The ability to use external packages is another key learning outcome for the course. For the remainder of this assignment, I'll refer to **the package list**, [this package list I've hosted on GitHub](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/final_project_packages.md). In this assignment, you must use **at least one** external package from each of the three sections in **the package list**: "Data Retrieval and Munging", "Math and Statistics", and "Visualization, Presentation, and Reporting". You are, of course, welcome to use any other packages you deem appropriate *in addition to this minimum requirement*.
 

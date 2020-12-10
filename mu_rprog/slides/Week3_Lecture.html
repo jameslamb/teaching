@@ -265,7 +265,7 @@ cleanDF &lt;- myDF[complete.cases(myDF), ]
 
 <h2>Strategy 2: Handle on Subsets</h2>
 
-<p>You may find the &quot;remove all the NAs everywhere&quot; strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases</code> to remove rows.</p>
+<p>You may find the &quot;remove all the NAs everywhere&quot; strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using <code>complete.cases()</code> to remove rows.</p>
 
 <pre><code class="r"># Create a data frame where some variable have more NAs than others
 testDF &lt;- data.frame(var1 = sample(c(rnorm(99), NA), 200, replace = TRUE),

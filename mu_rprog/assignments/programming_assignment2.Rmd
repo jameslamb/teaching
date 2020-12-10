@@ -20,10 +20,10 @@ As we learned in the first week of class, you can access R function documentatio
 
 In this part of the assignment, I'd like you to practice reading and running these examples. Please copy one example of each of the following functions from its documentation. I encourage you to try running these yourself, but you do not need to include the output in your submission.
 
-- `ymd_hms()` from the `lubridate` package
-- `str_extract()` from the `stringr` package
-- `setnames()` from the `data.table` package
-- `map_dbl()` from the `purrr` package
+- `ymd_hms()` from the `{lubridate}` package
+- `str_extract()` from the `{stringr}` package
+- `setnames()` from the `{data.table}` package
+- `map_dbl()` from the `{purrr}` package
 - Two functions from the "Data Retrieval and Munging" section of **the package list**
     - NOTE: must be from two different packages
 - Two functions from the "Math and Statistics" section of **the package list**

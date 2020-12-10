@@ -40,44 +40,57 @@ knit        : slidify::knit2slides
 
 <b class="toc_header"> Statistical Analysis in R </b>
 <ol class = "toc" type="none">
-    <li> R Was Made for Statistics!<span style="float:right"> 5 </span></li>
-    <li> Exploring the Data <span style="float:right"> 6-8 </span></li>
-    <li> Simple OLS Model <span style="float:right"> 9 </span></li>
-    <li> Functionalizing Your Pipeline <span style="float:right"> 10 </span></li>
-    <li> OLS With Multiple RHS Variables <span style="float:right"> 11 </span></li>
-    <li> Tree-Based Methods <span style="float:right"> 12-13 </span></li>
-    <li> Model Evaluation <span style="float:right"> 14 </span></li>
+    <li> R Was Made for Statistics!<span style="float:right"> 6 </span></li>
+    <li> Exploring the Data <span style="float:right"> 7-9 </span></li>
+    <li> Simple OLS Model <span style="float:right"> 10 </span></li>
+    <li> Functionalizing Your Pipeline <span style="float:right"> 11 </span></li>
+    <li> OLS With Multiple RHS Variables <span style="float:right"> 13 </span></li>
+    <li> Tree-Based Methods <span style="float:right"> 13-14 </span></li>
+    <li> Model Evaluation <span style="float:right"> 15 </span></li>
 </ol>
 
 <b class="toc_header"> Combining and Transforming Data Frames</b>
 <ol class = "toc" type="none">
-    <li> Columnwise Combination <span style="float:right"> 16-17 </span></li>
-    <li> Rowwise Combination <span style="float:right"> 18-19 </span></li>
+    <li> Columnwise Combination <span style="float:right"> 17-18 </span></li>
+    <li> Rowwise Combination <span style="float:right"> 19-20 </span></li>
 </ol>
 
 *** =right
 
-<b class="toc_header"> How to Write Statistical Software</b>
-<ol class = "toc" type="none">
-    <li> Getting Your Project Off the Ground <span style="float:right"> 21 </span></li>
-    <li> Step 1: Build a Comment Skeleton <span style="float:right"> 22 </span></li>
-    <li> Step 2: Define Functions <span style="float:right"> 23 </span></li>
-    <li> Step 3: Fill in Your Code! <span style="float:right"> 24 </span></li>
-</ol>
-
 <b class="toc_header"> Working with Strings </b>
 <ol class = "toc" type="none">
-    <li> Common Preprocessing Steps <span style="float:right"> 26 </span></li>
-    <li> Intro to Regular Expressions <span style="float:right"> 27-28 </span></li>
-    <li> Tokenization <span style="float:right"> 29 </span></li>
-    <li> Counting Words in Text <span style="float:right"> 30 </span></li>
+    <li> Common Preprocessing Steps <span style="float:right"> 22 </span></li>
+    <li> Intro to Regular Expressions <span style="float:right"> 23-24 </span></li>
+    <li> Tokenization <span style="float:right"> 25 </span></li>
+    <li> Counting Words in Text <span style="float:right"> 26 </span></li>
 </ol>
+
+--- .toc_slide &twocol
+
+<footer>
+  <hr></hr>
+  <span style="float:right">R Programming</span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> How to Build Software</b>
+<ol class = "toc" type="none">
+    <li> Getting Your Project Off the Ground <span style="float:right"> 28 </span></li>
+    <li> Step 1: Build a Comment Skeleton <span style="float:right"> 29 </span></li>
+    <li> Step 2: Define Functions <span style="float:right"> 30 </span></li>
+    <li> Step 3: Fill in Your Code! <span style="float:right"> 31 </span></li>
+</ol>
+
+*** =right
 
 <b class="toc_header"> Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Code Review Tips <span style="float:right"> 32 </span></li>
-    <li> Scripting: Style Notes <span style="float:right"> 33 </span></li>
-    <li> Lingering Questions <span style="float:right"> 34 </span></li>
+    <li> Code Review Tips <span style="float:right"> 33 </span></li>
+    <li> Scripting: Style Notes <span style="float:right"> 34 </span></li>
+    <li> Lingering Questions <span style="float:right"> 35 </span></li>
 </ol>
 
 --- .section_slide
@@ -307,27 +320,11 @@ print(compDF)
 
 <h2>Columnwise Combination With cbind</h2>
 
-In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R's `cbind` command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.
+In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R's `cbind()` command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.
 
 **cbind = "column-wise bind"**
 
-```{r cbindExample}
-dealerDF1 <- data.frame(
-  dealer_id = c(1:20)
-  , avg_price = runif(20, min = 15, max = 75)
-  , avg_margin = runif(20, min = -0.1, max = 0.45)
-)
-
-dealerDF2 <- data.frame(
-    dealer_id = c(1:20)
-    , industry = sample(
-        c("Mining", "Healthcare", "Robot Stuff")
-        , size = 20
-        , replace = TRUE
-    )
-)
-fullDF <- cbind(dealerDF1, dealerDF2)
-```
+<center><img src="assets/img/cbind.png" style="max-width:70%;"></center>
 
 --- .content_slide
 
@@ -338,30 +335,9 @@ fullDF <- cbind(dealerDF1, dealerDF2)
 
 <h2>Column Matching with merge</h2>
 
-`cbind` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge` command.
+`cbind()` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge()` command.
 
-```{r mergeExample}
-dealerDF1 <- data.frame(
-    dealer_id = c(20:1)
-    , avg_price = runif(20, min = 15, max = 75)
-    , avg_margin = runif(20, min = -0.1, max = 0.45)
-)
-
-dealerDF2 <- data.frame(
-    dealer_id = c(1:20)
-    , industry = sample(
-        c("Mining", "Healthcare", "Robot Stuff")
-        , size = 20
-        , replace = TRUE
-    )
-)
-
-fullDF2 <- merge(
-    dealerDF1
-    , dealerDF2
-    , by = "dealer_id"
-)
-```
+<center><img src="assets/img/merge.png" style="max-width:70%;"></center>
 
 --- .content_slide
 
@@ -372,33 +348,11 @@ fullDF2 <- merge(
 
 <h2>Rowwise Combination With rbind</h2>
 
-So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind` function.
+So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind()` function.
 
 **rbind = "row-wise bind"**
 
-```{r rbindExample}
-sample1 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-01-01")
-        , to = as.Date("2016-06-30")
-        , length.out = 180
-    )
-    , value = rnorm(180, 5, 2.5)
-    , sampleId = rep("sample1", 180)
-)
-
-sample2 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-07-01")
-        , to = as.Date("2017-03-31")
-        , length.out = 210
-    )
-    , value = rnorm(210, 5, 2.5)
-    , sampleId = rep("sample2", 210)
-)
-
-fullDF <- rbind(sample1, sample2)
-```
+<center><img src="assets/img/rbind.png" style="max-width:70%;"></center>
 
 --- .content_slide
 
@@ -409,113 +363,11 @@ fullDF <- rbind(sample1, sample2)
 
 <h2>Rowwise Combination of Many Tables with rbindlist</h2>
 
-`rbind` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist` from the `data.table` package.
+`rbind()` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist()` from the `{data.table}` package.
 
-```{r rbindlistExample, eval = FALSE}
-sample1 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-01-01")
-        , to = as.Date("2016-06-30")
-        , length.out = 180
-    )
-    , value = rnorm(180, 5, 2.5)
-)
+**rbindlist = "row bind list"**
 
-sample2 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-07-01")
-        , to = as.Date("2017-03-31")
-        , length.out = 210
-    )
-    , value = rnorm(210, 5, 2.5)
-)
-
-sample3 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2017-05-01")
-        , to = as.Date("2017-12-31")
-        , length.out = 240
-    )
-    , value = rnorm(240, 5, 2.5)
-)
-
-fullDF <- data.table::rbindlist(
-    list(sample1, sample2, sample3)
-)
-```
-
---- .section_slide
-
-</br></br></br>
-<h2>How to Write Statistical Software</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    How to Write Statistical Software<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Getting Your Project Off the Ground</h2>
-
-OK so you have a business question, you've chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...
-
-<center><img src="assets/img/spongebob.gif"></center>
-
-<br>
-In this section, we'll to walk through the process of building a non-trivial script from scratch.
-
---- .content_slide
-
-<footer>
-  <hr>
-    How to Write Statistical Software<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Step 1: Build a Comment Skeleton</h2>
-
-Resist the urge to just start writing code. Investing a few minutes upfront in thinking through the structure of your code will pay off in a big way as the project evolves and grows more complicated. Trust me.
-
-First, just write down the main things you want to do. In this exercise, we're going to write some R code that can generate n-page "books" or random sentences in English.
-
-```{r fromScratch}
-#=== Write an R script that writes a book! ===#
-
-# Function to create random sentences
-
-# Function to create a "page" with n sentences
-
-# Function to create a "book" with m pages
-
-# Call the book function and create a 5-page book
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    How to Write Statistical Software<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Step 2: Define Functions</h2>
-
-Next, fill in the high-level outline with slightly more specifics. Try to strategize about the functions you'll need to implement and the individual steps that will have to happen inside each of those functions. This will probably change once you start writing code, but in my experience it's always easier to have a plan and change it.
-
-<center><img src="assets/img/functions.jpg"></center>
-
---- .content_slide
-
-<footer>
-  <hr>
-    How to Write Statistical Software<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Step 3: Fill in Your Code!</h2>
-
-You'll spend the most time on this and you will have to go through it many times before you're feeling comfortable with the code. I've given one implementation below. The point here is not to show you how to create a book-writing app, but rather to demonstrate that this somewhat complicated task was made easier by breaking it into smaller, more manageable pieces.
-
-<br>
-For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
+<center><img src="assets/img/rbindlist.png" style="max-width:70%;"></center>
 
 --- .section_slide
 
@@ -624,7 +476,7 @@ wordDT
 
 Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
 
-The `data.table` package makes this operation easy to carry out.
+The `{data.table}` package makes this operation easy to carry out.
 
 ```{r countTheWords, eval = FALSE, echo = TRUE}
 # 9 - Get Word counts and sort by those counts
@@ -635,6 +487,79 @@ wordCountDT
 
 key_words <- wordCountDT[21:40]
 ```
+
+--- .section_slide
+
+</br></br></br>
+<h2>How to Build Software</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    How to Build Software<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Getting Your Project Off the Ground</h2>
+
+OK so you have a business question, you've chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...
+
+<center><img src="assets/img/spongebob.gif"></center>
+
+<br>
+In this section, we'll to walk through the process of building a non-trivial script from scratch.
+
+--- .content_slide
+
+<footer>
+  <hr>
+    How to Build Software<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Step 1: Build a Comment Skeleton</h2>
+
+Resist the urge to just start writing code. Investing a few minutes upfront in thinking through the structure of your code will pay off in a big way as the project evolves and grows more complicated. Trust me.
+
+First, just write down the main things you want to do. In this exercise, we're going to write some R code that can generate n-page "books" or random sentences in English.
+
+```{r fromScratch}
+#=== Write an R script that writes a book! ===#
+
+# Function to create random sentences
+
+# Function to create a "page" with n sentences
+
+# Function to create a "book" with m pages
+
+# Call the book function and create a 5-page book
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+    How to Build Software<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Step 2: Define Functions</h2>
+
+Next, fill in the high-level outline with slightly more specifics. Try to strategize about the functions you'll need to implement and the individual steps that will have to happen inside each of those functions. This will probably change once you start writing code, but in my experience it's always easier to have a plan and change it.
+
+<center><img src="assets/img/functions.jpg"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    How to Build Software<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Step 3: Fill in Your Code!</h2>
+
+You'll spend the most time on this and you will have to go through it many times before you're feeling comfortable with the code. I've given one implementation below. The point here is not to show you how to create a book-writing app, but rather to demonstrate that this somewhat complicated task was made easier by breaking it into smaller, more manageable pieces.
+
+<br>
+For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
 
 --- .section_slide
 
