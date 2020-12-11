@@ -1,8 +1,6 @@
 ---
-title       : ECON 6114 - R Programming
+title       : R Programming
 subtitle    : Week 3
-author      : James Lamb
-job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -12,99 +10,71 @@ lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libr
 knit        : slidify::knit2slides
 ---
 
-<!--Read in JavaScript function that prints footer bubbles-->
-<script src="assets/js/footer_bubbles.js"></script>
-
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/week3_statler_waldorf.jpeg");
+  background-image:url("assets/img/statler-waldorf.jpeg");
   background-size: cover;
 }
 </style>
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Welcome back!</h2>
 
-<center><img src="assets/img/week3_programming.png" height=350px width = 650px></center>
-
+<center><img src="assets/img/programming.png" height=350px width = 650px></center>
 
 --- .toc_slide &twocol
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Contents</h2>
 
 *** =left
 
-<b class="toc_header"> I. Programming Assignment 1 Review</b>
+<b class="toc_header"> Programming Assignment 1 Review</b>
 <ol class="toc" type="none">
-    <li> In-class Walkthrough <span style="float:right"> 6 </span></li>
+    <li> In-class Walkthrough <span style="float:right"> 5 </span></li>
 </ol>
 
-<b class="toc_header"> II. Intro Topic Grab Bag </b>
-<ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 8-10 </span></li>
-    <li> Factors <span style="float:right"> 11-12 </span></li>
-</ol>
-
-<b class="toc_header"> III. Getting Data </b>
-<ol class="toc" type="none">
-    <li> File Paths <span style="float:right"> 13-14 </span></li>
-    <li> Downloading files from the internet <span style="float:right"> 15 </span></li>
-    <li> CSV <span style="float:right"> 16 </span></li>
-    <li> Excel <span style="float:right"> 17-18 </span></li>
-    <li> JSON <span style="float:right"> 19 </span></li>
+<b class="toc_header"> Dealing with Missing Data </b>
+<ol class = "toc" type="none">
+    <li> Specialness of NAs <span style="float:right"> 7 </span></li>
+    <li> You Should Care About NA s<span style="float:right"> 8 </span></li>
+    <li> Strategy 1: Total Eradication <span style="float:right"> 9 </span></li>
+    <li> Strategy 2: Handle on Subsets <span style="float:right"> 10 </span></li>
+    <li> Strategy 3: Imputation <span style="float:right"> 11 </span></li>
 </ol>
 
 *** =right
 
-<b class="toc_header"> IV. Dealing with Missing Data </b>
+<b class="toc_header"> Visualizing Data </b>
 <ol class = "toc" type="none">
-    <li> Specialness of NAs<span style="float:right"> 21 </span></li>
-    <li> You Should Care About NAs<span style="float:right"> 22 </span></li>
-    <li> Strategy 1: Total Eradication<span style="float:right"> 23 </span></li>
-    <li> Strategy 2: Handle on Subsets<span style="float:right"> 24 </span></li>
-    <li> Strategy 3: Imputation<span style="float:right"> 25 </span></li>
+    <li> Base Plotting System <span style="float:right"> 13-17 </span></li>
+    <li> Other Plotting Systems in R <span style="float:right"> 18 </span></li>
+    <li> Graphics Devices <span style="float:right"> 19 </span></li>
 </ol>
 
---- .toc_slide &twocol
-
-<footer>
-  <hr></hr>
-  <span style="float:right"> ECON 6114 - R Programming </span>
-</footer>
-
-<h2>Contents</h2>
-
-*** =left
-
-<b class="toc_header"> V. Visualizing Data </b>
+<b class="toc_header"> Combining and Transforming Data Frames</b>
 <ol class = "toc" type="none">
-    <li> Base Plotting System<span style="float:right"> 27-31</span></li>
-    <li> Other Plotting Systems in R<span style="float:right"> 32</span></li>
-    <li> Graphics Devices<span style="float:right"> 33 </span></li>
+    <li> Columnwise Combination <span style="float:right"> 21-22 </span></li>
+    <li> Rowwise Combination <span style="float:right"> 23-24 </span></li>
 </ol>
 
-<b class="toc_header"> VI. Final Project Discussion </b>
+<b class="toc_header"> Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Project Proposal Guidelines <span style="float:right"> 36 </span></li>
-    <li> Final Project Outline <span style="float:right"> 37 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 26 </span></li>
+    <li> Final Project Outline <span style="float:right"> 27 </span></li>
 </ol>
-
-*** =right
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Programming Assignment 1 Review</h2>
 
@@ -112,265 +82,17 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>I. Programming Assignment 1 Review<span style="float:right">ECON 6114 - R Programming</span>
+    Programming Assignment 1 Review <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Assignment 1 Discussion</h2>
 
 IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
 
-<center><img src="assets/img/week3_aliens.jpg" height=200px width = 500px></center>
+<center><img src="assets/img/aliens.jpg" height=200px width = 500px></center>
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
-</br></br></br>
-<h2>Intro Topic Grab Bag</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(1,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Logical Operators</h2>
-
-Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.
-
-```{r logicalCond1, echo = TRUE, eval = FALSE}
-# "and" logic is expressed with "&"
-TRUE & TRUE   # TRUE
-TRUE & FALSE  # FALSE
-FALSE & FALSE # FALSE
--5 < 5 & 3 > 2 # TRUE
-
-# "or" logic is expressed with "|"
-TRUE | TRUE    # TRUE
-TRUE | FALSE   # TRUE
-FALSE | FALSE  # FALSE
-3 < 8 | 8 > 19 # TRUE
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(2,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Logical Operators (continued)</h2>
-
-The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
-
-```{r logicalCond2, echo = TRUE, eval = FALSE}
-# "equality" logic is specified with "=="
-3 == 3   # TRUE
-4 == 4.1 # FALSE
-
-# "not" logic is specified with !. In a special case, != signifies "not equal"
-!TRUE            # FALSE
-!FALSE           # TRUE
-! (TRUE | FALSE) # FALSE
-4 != 5           # TRUE
-
-# "greater than" and "less than" logic are specified in the way you might expect
-5 < 5  # FALSE
-6 <= 6 # TRUE
-4 > 2  # TRUE
-3 >= 3 # TRUE
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(3,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Logical Operators (continued)</h2>
-
-As we learned in week 2, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
-
-```{r logicalCond3, eval = FALSE, echo = TRUE}
-# Load some data
-data("mtcars")
-
-# Create a logical index. Note that we get a VECTOR of logicals back
-bigCarIndex <- mtcars$wt > 4
-
-# Taking the SUM of a logical vector tells you the number of TRUEs.
-# Taking the MEAN of a logical vector tells you the proportion of TRUEs
-sum(bigCarIndex)
-mean(bigCarIndex)
-
-# You can use this for subsetting
-mtcars[bigCarIndex,]
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(4,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Factors</h2>
-
-Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America". How can you use this variable in a model or for generating region-by-region summary stats? This is where R's **factor type** comes in.
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(5,9)</script>II. Intro Topic Grab Bag<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Factors</h2>
-
- Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .section_slide
-
-<h2>Section III.</h2>
-<hr></hr>
-</br></br></br>
-<h2>Getting Data</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(1,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>File Paths</h2>
-
-Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses).
-
-All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
-
-**relative path**: `"file.txt"`
-
-**absolute path**: `"/Users/jlamb/repos/some-project/data/file.txt"`
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(2,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>File Paths</h2>
-
-R provides a few other utilities for working with file paths and directory structures.
-
-* `file.path()`: create a filepath from multiple parts
-* `file.exists()`: returns `TRUE` is a file exists and  `FALSE` if it doesn't
-* `list.files()`: get a character vector with names of all files found in a directory
-* `dir.exists()`: returns `TRUE` is a directory exists and  `FALSE` if it doesn't
-* `dir.create()`: create a new directory
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for more examples.
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(3,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Downloading files from the internet</h2>
-
-To download files hosted on the internet, you can use `download.file()`.
-
-```{r, eval = FALSE, echo = TRUE}
-download.file(
-  url = "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
-  , destfile = "iris.csv"
-)
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(4,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>CSV</h2>
-
-CSV ("comma-separated values") is a really common format to share small datasets because it is just a text file, and can be ready by many different types of programs. R has several options for reading this type of file.
-
-* `read.csv()`: base R function for reading CSVs into a `data.frame`
-* `data.table::fread()`: super-fast CSV reader that creates a special type of `data.frame` called a `data.table`
-* `read.delim()`: similar to `read.csv()`, but can read files with any delimiter
-* `readr::read_csv()`: CSV reader from RStudio
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for more examples.
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(5,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Excel</h2>
-
-In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You'll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we'll focus on [openxlsx](https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf).
-
-NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or 2) exploring other packages like [xlsx](https://cran.r-project.org/web/packages/xlsx/xlsx.pdf) or [readxl](https://cran.r-project.org/web/packages/readxl/readxl.pdf).
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(6,7)</script>III. Getting Dataspan style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Excel</h2>
-
-You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
-
-See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(7,7)</script>III. Getting Data<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>JSON</h2>
-
-JSON ("Javascript Object Notation") is a standard format for "semi-structured" or "nested" data. It's a plain-text format that can be used by many programs and programming languages.
-
-```json
-{
-  "status": 200,
-  "data": [
-    {"customer_name": "Lupe", "purchases": 10},
-    {"customer_name": "Wale", "purchases": 30}
-  ]
-}
-```
-
-This type of data is commonly represented as an R `list`. See the [Week 3 Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week3_Supplement.html) for an example.
-
---- .section_slide
-
-<h2>Section IV.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Dealing with Missing Data</h2>
 
@@ -378,12 +100,12 @@ This type of data is commonly represented as an R `list`. See the [Week 3 Supple
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Specialness of NAs</h2>
 
-`NA` is a special object in R, used to capture the idea of "a value whose value is unknown". Confusing, right? We're going to go through a few examples to get you feeling comfortable with missing values. They're an inevitability in real-world data.
+`NA` is a special object in R, used to capture the idea of "a value whose value is unknown". Confusing, right? They're an inevitability in real-world data.
 
 **PRO TIP**: See `?NA` for R's documentation on the nuances of `NA`
 
@@ -403,7 +125,7 @@ class(some_nums)
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>You Should Care About NAs</h2>
@@ -418,7 +140,7 @@ Depending on how the system was set up, `date_of_second_contact1` may have dates
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 1: Total Eradication</h2>
@@ -442,12 +164,12 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 2: Handle on Subsets</h2>
 
-You may find the "remove all the NAs everywhere" strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases` to remove rows.
+You may find the "remove all the NAs everywhere" strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
 ```{r subsetNAwisely, echo = TRUE, eval = FALSE}
 # Create a data frame where some variable have more NAs than others
@@ -468,7 +190,7 @@ cleanDF <- cleanDF[complete.cases(cleanDF),]
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,5)</script>IV. Dealing with Missing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Strategy 3: Imputation</h2>
@@ -490,8 +212,6 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 --- .section_slide
 
-<h2>Section V.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Visualizing Data</h2>
 
@@ -499,12 +219,12 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Intro to the Base Plotting System</h2>
+<h2>Base Plotting System</h2>
 
-R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as "the base plotting system", and we're going to walk through a few examples of it this week.
+R's built-in plotting tools, called "the base plotting system", is one of its most popular features.
 
 <br>
 
@@ -520,7 +240,7 @@ head(iris, n = 10)
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Creating a Line Plot</h2>
@@ -546,7 +266,7 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Histograms and Densities</h2>
@@ -569,7 +289,7 @@ plot(density(iris$Petal.Length), main = "Empirical density of petal length", col
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Multi-variable line charts</h2>
@@ -592,7 +312,7 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), 
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Creating a Grid of plots</h2>
@@ -617,7 +337,7 @@ par(mfrow = c(1,1))
 
 <footer>
   <hr>
-    <script>FooterBubbles(6,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Other Plotting Systems in R</h2>
@@ -632,7 +352,7 @@ We don't have time in this short class to go into great depth on data visualizat
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,7)</script>V. Visualizing Data<span style="float:right">ECON 6114 - R Programming</span>
+    Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
 <h2>A Note On Graphics Devices</h2>
@@ -657,8 +377,67 @@ for (i in 1:10){
 
 --- .section_slide
 
-<h2>Section VI.</h2>
-<hr></hr>
+</br></br></br>
+<h2>Combining and Transforming Data Frames</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Columnwise Combination With cbind</h2>
+
+In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R's `cbind()` command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.
+
+**cbind = "column-wise bind"**
+
+<center><img src="assets/img/cbind.png" style="max-width:70%;"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Column Matching with merge</h2>
+
+It's common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge()` command.
+
+<center><img src="assets/img/merge.png" style="max-width:70%;"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Rowwise Combination With rbind</h2>
+
+So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind()` function.
+
+**rbind = "row-wise bind"**
+
+<center><img src="assets/img/rbind.png" style="max-width:70%;"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Rowwise Combination of Many Tables with rbindlist</h2>
+
+What if you have 5 tables? 10? 1000? Use `data.table::rbindlist()`.
+
+<center><img src="assets/img/rbindlist.png" style="max-width:70%;"></center>
+
+--- .section_slide
+
 </br></br></br>
 <h2>Final Project Discussion</h2>
 
@@ -666,7 +445,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,2)</script>VI. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Your Final Project Proposal is Due in Week 4</h2>
@@ -688,19 +467,17 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,2)</script>VI. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Your Final Project is Due in Week 5</h2>
 
 - let's go through the [Final Project description](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html)
 
-<center><img src="assets/img/final_project_ski.jpg" height=350px width = 650px></center>
+<center><img src="assets/img/final-project-ski.jpg" height=350px width = 650px></center>
 
 --- .section_slide
 
-<h2>Section VII.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Additional Resources</h2>
 
@@ -708,7 +485,7 @@ for (i in 1:10){
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>VII. Additional Resources<span style="float:right">ECON 6114 - R Programming</span>
+    Additional Resources<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Additional Resources</h2>

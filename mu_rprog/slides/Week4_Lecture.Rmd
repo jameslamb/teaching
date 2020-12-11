@@ -1,8 +1,6 @@
 ---
-title       : ECON 6114 - R Programming
+title       : R Programming
 subtitle    : Week 4
-author      : James Lamb
-job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -12,83 +10,84 @@ lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libr
 knit        : slidify::knit2slides
 ---
 
-<!--Read in JavaScript function that prints footer bubbles-->
-<script src="assets/js/footer_bubbles.js"></script>
-
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/Week4_gonzo.png");
+  background-image:url("assets/img/gonzo.png");
   background-size: cover;
 }
 </style>
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
-<h2>R + Statistics = Besties 5 evah</h2>
+<h2>R + Statistics = Best Friends</h2>
 
-<center><img src="assets/img/Week4_nice_guys.gif" height=350px width = 650px></center>
+<center><img src="assets/img/nice-guys.gif" height=350px width = 650px></center>
 
 --- .toc_slide &twocol
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Contents</h2>
 
 *** =left
 
-<b class="toc_header"> I. Statistical Analysis in R </b>
+<b class="toc_header"> Statistical Analysis in R </b>
 <ol class = "toc" type="none">
-    <li> R Was Made for Statistics!<span style="float:right">                  5 </span></li>
-    <li> Exploring the Data <span style="float:right">                       6-8 </span></li>
-    <li> Simple OLS Model <span style="float:right">                           9 </span></li>
-    <li> Functionalizing Your Pipeline <span style="float:right">             10 </span></li>
-    <li> OLS With Multiple RHS Variables <span style="float:right">            11 </span></li>
-    <li> Tree-Based Methods <span style="float:right">                     12-13 </span></li>
-    <li> Model Evaluation                      <span style="float:right">    14 </span></li>
-</ol>
-
-<b class="toc_header"> II. Combining and Transforming Data Frames</b>
-<ol class = "toc" type="none">
-    <li> Columnwise Combination<span style="float:right"> 16-17 </span></li>
-    <li> Rowwise Combination<span style="float:right">    18-19 </span></li>
+    <li> R Was Made for Statistics!<span style="float:right"> 6 </span></li>
+    <li> Exploring the Data <span style="float:right"> 7-9 </span></li>
+    <li> Simple OLS Model <span style="float:right"> 10 </span></li>
+    <li> Functionalizing Your Pipeline <span style="float:right"> 11 </span></li>
+    <li> OLS With Multiple RHS Variables <span style="float:right"> 12 </span></li>
+    <li> Tree-Based Methods <span style="float:right"> 13-14 </span></li>
+    <li> Model Evaluation <span style="float:right"> 15 </span></li>
 </ol>
 
 *** =right
 
-<b class="toc_header"> III. How to Write Statistical Software</b>
+<b class="toc_header"> Working with Strings </b>
 <ol class = "toc" type="none">
-    <li> Getting Your Project Off the Ground<span style="float:right"> 21 </span></li>
-    <li> Step 1: Build a Comment Skeleton<span style="float:right">    22 </span></li>
-    <li> Step 2: Define Functions <span style="float:right">           23 </span></li>
-    <li> Step 3: Fill in Your Code! <span style="float:right">         24 </span></li>
+    <li> Common Preprocessing Steps <span style="float:right"> 17 </span></li>
+    <li> Regular Expressions <span style="float:right"> 18 </span></li>
+    <li> Tokenization <span style="float:right"> 19 </span></li>
 </ol>
 
-<b class="toc_header"> IV. Working with Strings </b>
+--- .toc_slide &twocol
+
+<footer>
+  <hr></hr>
+  <span style="float:right">R Programming</span>
+</footer>
+
+<h2>Contents</h2>
+
+*** =left
+
+<b class="toc_header"> How to Build Software</b>
 <ol class = "toc" type="none">
-    <li> Common Preprocessing Steps <span style="float:right"> 26 </span></li>
-    <li> Intro to Regular Expressions <span style="float:right"> 27-28 </span></li>
-    <li> Tokenization <span style="float:right"> 29 </span></li>
-    <li> Counting Words in Text <span style="float:right"> 30 </span></li>
+    <li> Getting Your Project Off the Ground <span style="float:right"> 21 </span></li>
+    <li> Step 1: Build a Comment Skeleton <span style="float:right"> 22 </span></li>
+    <li> Step 2: Define Functions <span style="float:right"> 23 </span></li>
+    <li> Step 3: Fill in Your Code! <span style="float:right"> 24 </span></li>
 </ol>
 
-<b class="toc_header"> V. Final Project Discussion </b>
+*** =right
+
+<b class="toc_header"> Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Code Review Tips <span style="float:right">       32 </span></li>
-    <li> Scripting: Style Notes <span style="float:right"> 33 </span></li>
-    <li> Lingering Questions <span style="float:right">    34 </span></li>
+    <li> Code Review Tips <span style="float:right"> 26 </span></li>
+    <li> Scripting: Style Notes <span style="float:right"> 27 </span></li>
+    <li> Lingering Questions <span style="float:right"> 28 </span></li>
 </ol>
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Statistical Analysis in R</h2>
 
@@ -96,7 +95,7 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>R Was Made for Statistics!</h2>
@@ -109,7 +108,7 @@ In this section, we're going to walk through all the steps of basic statistical 
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Getting and Splitting the Data</h2>
@@ -119,13 +118,13 @@ We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/libra
 In this exercise, we're going to evaluate the following question: **Can we predict fertility based on regional socioeconomic characteristics?**
 
 <br>
-Please follow along with the code in the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
+Please follow along in ["Statistical Analysis"](../code/programming-supplement.html#Statistical_Analysis), in the programming supplement.
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Examine Your Training Data</h2>
@@ -141,7 +140,7 @@ str(swiss)
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Hypothesis Testing</h2>
@@ -160,13 +159,13 @@ t.test(
 ```
 
 <br>
-For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
+For more, see ["Hypothesis Testing"](../code/programming-supplement.html#Hypothesis_Testing) in the programming supplement.
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(5,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Simple OLS Model</h2>
@@ -186,13 +185,11 @@ Once you have the fitted model, you can pass it and some new data to `predict()`
 - [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error)
 - [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
 
-**shameless plug:** If you want to go deep into the world of error metrics, you can check out the [documentation in this EViews Add-in](https://github.com/jameslamb/ML4EVIEWS/blob/main/tscval/Docs/tscval.pdf) my friend Rita and I wrote.
-
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(6, 10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Wrap Parts of Your Pipeline in Functions</h2>
@@ -205,13 +202,13 @@ Wrapping your analytics pipeline in a function has a few other benefits:
 - Code is expressive, understandable
 
 <br>
-For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
+For more, see the ["Wrap Parts of Your Pipeline in Functions"](../code/programming-supplement.html#Wrap_Parts_of_Your_Pipeline_in_Functions) in the programming supplement.
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(7,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>OLS With Multiple RHS Variables</h2>
@@ -237,7 +234,7 @@ regPreds2 <- EvaluateModel(
 
 <footer>
   <hr>
-    <script>FooterBubbles(8,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Regression Trees</h2>
@@ -252,14 +249,12 @@ The details of tree-based learning are outside the scope of this class, but I en
 
 <footer>
   <hr>
-    <script>FooterBubbles(9,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Random Forests</h2>
 
-For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation details are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
-
-I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
+For larger datasets, you may find that a single decision tree does not perform well. It's common to use a "forest" of decision trees.
 
 ```{r randomForest, eval = FALSE}
 # Fit
@@ -282,10 +277,10 @@ rfPreds <- EvaluateModel(
 
 <footer>
   <hr>
-    <script>FooterBubbles(10,10)</script>I. Statistical Analysis in R<span style="float:right">ECON 6114 - R Programming</span>
+    Statistical Analysis in R<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Accuracy Comparison</h2>
+<h2>Model Evaluation</h2>
 
 In a real project, at some point you will find yourself saying "OK, I have all these models. What should I actually use to generate predictions?". This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
 
@@ -304,185 +299,83 @@ print(compDF)
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
-<h2>Combining and Transforming Data Frames</h2>
+<h2>Working With Strings</h2>
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
+    Working with Strings<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Columnwise Combination With cbind</h2>
+<h2>Common Preprocessing Steps</h2>
 
-In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R's `cbind` command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.
+In this section, we'll combine many of the techniques you've learned so far to show how R can be used to explore text data.
 
-**cbind = "column-wise bind"**
-
-```{r cbindExample}
-dealerDF1 <- data.frame(
-  dealer_id = c(1:20)
-  , avg_price = runif(20, min = 15, max = 75)
-  , avg_margin = runif(20, min = -0.1, max = 0.45)
-)
-
-dealerDF2 <- data.frame(
-    dealer_id = c(1:20)
-    , industry = sample(
-        c("Mining", "Healthcare", "Robot Stuff")
-        , size = 20
-        , replace = TRUE
-    )
-)
-fullDF <- cbind(dealerDF1, dealerDF2)
-```
+See ["Text Processing"](../code/programming-supplement.html#Text_Processing)  in the programming supplement.
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
+    Working with Strings<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Column Matching with merge</h2>
+<h2>Regular Expressions</h2>
 
-`cbind` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge` command.
+Working with text often involves searching for patterns. Many programming languages can understand "regular expressions", a special format for expressing the pattern you want to find.
 
-```{r mergeExample}
-dealerDF1 <- data.frame(
-    dealer_id = c(20:1)
-    , avg_price = runif(20, min = 15, max = 75)
-    , avg_margin = runif(20, min = -0.1, max = 0.45)
-)
+<center><img src="assets/img/regular-expressions.png" style="max-width:60%;"></center>
 
-dealerDF2 <- data.frame(
-    dealer_id = c(1:20)
-    , industry = sample(
-        c("Mining", "Healthcare", "Robot Stuff")
-        , size = 20
-        , replace = TRUE
-    )
-)
+See ["Regular Expressions"](../code/programming-supplement.html#Regular_Expressions) in the programming supplement.
 
-fullDF2 <- merge(
-    dealerDF1
-    , dealerDF2
-    , by = "dealer_id"
-)
-```
+<!-- created with https://pythex.org/ -->
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
+    Working with Strings<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Rowwise Combination With rbind</h2>
+<h2>Tokenization</h2>
 
-So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind` function.
+The next task we need to accomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to build a language model and identify key terms.
 
-**rbind = "row-wise bind"**
+<br><br>
 
-```{r rbindExample}
-sample1 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-01-01")
-        , to = as.Date("2016-06-30")
-        , length.out = 180
-    )
-    , value = rnorm(180, 5, 2.5)
-    , sampleId = rep("sample1", 180)
-)
+<center><img src="assets/img/tokenization.jpg" style="max-width:60%;"></center>
 
-sample2 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-07-01")
-        , to = as.Date("2017-03-31")
-        , length.out = 210
-    )
-    , value = rnorm(210, 5, 2.5)
-    , sampleId = rep("sample2", 210)
-)
+<br><br>
 
-fullDF <- rbind(sample1, sample2)
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(4,4)</script>II. Combining and Transforming Data Frames<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Rowwise Combination of Many Tables with rbindlist</h2>
-
-`rbind` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist` from the `data.table` package.
-
-```{r rbindlistExample, eval = FALSE}
-sample1 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-01-01")
-        , to = as.Date("2016-06-30")
-        , length.out = 180
-    )
-    , value = rnorm(180, 5, 2.5)
-)
-
-sample2 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-07-01")
-        , to = as.Date("2017-03-31")
-        , length.out = 210
-    )
-    , value = rnorm(210, 5, 2.5)
-)
-
-sample3 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2017-05-01")
-        , to = as.Date("2017-12-31")
-        , length.out = 240
-    )
-    , value = rnorm(240, 5, 2.5)
-)
-
-fullDF <- data.table::rbindlist(
-    list(sample1, sample2, sample3)
-)
-```
+See ["Tokenization"](../code/programming-supplement.html#Regular_Expressions) in the programming supplement.
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
-<h2>How to Write Statistical Software</h2>
+<h2>How to Build Software</h2>
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
+    How to Build Software<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Getting Your Project Off the Ground</h2>
 
 OK so you have a business question, you've chosen your toolchain (presumably with R), and you have some data in hand. You sit down to write code and, well...
 
-<center><img src="assets/img/spongebob.gif"></center>
+<center><img src="assets/img/spongebob.gif" style="max-width:80%;"></center>
 
-<br>
 In this section, we'll to walk through the process of building a non-trivial script from scratch.
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
+    How to Build Software<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Step 1: Build a Comment Skeleton</h2>
@@ -507,7 +400,7 @@ First, just write down the main things you want to do. In this exercise, we're g
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
+    How to Build Software<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Step 2: Define Functions</h2>
@@ -520,141 +413,19 @@ Next, fill in the high-level outline with slightly more specifics. Try to strate
 
 <footer>
   <hr>
-    <script>FooterBubbles(4,4)</script>III. How to Write Statistical Software<span style="float:right">ECON 6114 - R Programming</span>
+    How to Build Software<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Step 3: Fill in Your Code!</h2>
 
-You'll spend the most time on this and you will have to go through it many times before you're feeling comfortable with the code. I've given one implementation below. The point here is not to show you how to create a book-writing app, but rather to demonstrate that this somewhat complicated task was made easier by breaking it into smaller, more manageable pieces.
+You'll spend the most time on this and you will have to go through it many times before you're feeling comfortable with the code.
 
-<br>
-For more, see the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
+<br><br><br>
 
---- .section_slide
-
-<h2>Section IV.</h2>
-<hr></hr>
-</br></br></br>
-<h2>Working With Strings</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(1,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Common Preprocessing Steps</h2>
-
-In this section, we're going to revisit the [Shakespeare corpus](https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt) we looked at in Week 2 and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
-
-```{r startTextAnalysis, echo = TRUE, eval = FALSE}
-# Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
-shakespeareFile <- "https://ocw.mit.edu/ans7870/6/6.006/s08/lecturenotes/files/t8.shakespeare.txt"
-bsText <- readLines(con = shakespeareFile, n = 10000)[5001:10000]
-
-# 1 - Convert everything to lowercase
-bsText <- tolower(bsText)
-
-# 2 - Trim leading and trailing whitespace (e.g. change "   a" to "a")
-bsText <- trimws(bsText)
-
-# 3 - Remove empty lines
-bsText <- bsText[sapply(bsText, nchar)>0]
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(2,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Intro to Regular Expressions</h2>
-
-After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
-
-Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let's work through some examples to demonstrate the properties.
-
-```{r regex1, eval = FALSE, echo = TRUE}
-# 4 - Remove punctuation
-bsText <- gsub(pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\[", replacement = "", bsText)
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(3,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Intro to Regular Expressions</h2>
-
-You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
-
-```{r moreRegex, echo = TRUE, eval = FALSE}
-# 5 - split some common contractions into two words
-bsText <- gsub("he('s)", "he is", bsText)
-bsText <- gsub("'ll", " will", bsText)
-
-# 6 - Change any numbers to __number__
-bsText <- gsub("[:digit:]*", "__number__")
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(4,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Tokenization</h2>
-
-The next task we need to accomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
-
-```{r tokenization, eval = FALSE, echo = TRUE}
-# 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
-library(stringr)
-library(data.table)
-allWords <- lapply(
-    bsText
-    , FUN = function(thisLine){
-        return(data.frame(words = str_split(thisLine, " ")[[1]]))
-    }
-)
-
-# 8 - Put into a data.table and print that just to make sure it worked
-wordDT <- data.table::rbindlist(allWords)
-wordDT
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    <script>FooterBubbles(5,5)</script>IV. Working with Strings<span style="float:right">ECON 6114 - R Programming</span>
-</footer>
-
-<h2>Counting Words in Text</h2>
-
-Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
-
-The `data.table` package makes this operation easy to carry out.
-
-```{r countTheWords, eval = FALSE, echo = TRUE}
-# 9 - Get Word counts and sort by those counts
-wordCountDT <- wordDT[, .N, by = words]
-data.table::setnames(wordCountDT, old = "N", new = "word_count")
-data.table::setorder(wordCountDT, -word_count)
-wordCountDT
-
-key_words <- wordCountDT[21:40]
-```
+See ["Pirate Book Example"](../code/code/programming-supplement.html#Pirate_Book_Example) in the programming supplement for an example.
 
 --- .section_slide
 
-<h2>Section V.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Final Project Discussion</h2>
 
@@ -662,7 +433,7 @@ key_words <- wordCountDT[21:40]
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,3)</script>V. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Code Review Tips</h2>
@@ -682,7 +453,7 @@ Try to hit these main points:
 
 <footer>
   <hr>
-    <script>FooterBubbles(2,3)</script>V. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Scripting: Style Notes</h2>
@@ -694,13 +465,13 @@ Use this slide as a general reference of coding best practices.
 - Use comments like `#===== Section 1 - Do Stuff =====#` to separate major sections of the code
 - Namespace any calls to external functions with `::` (e.g. `lubridate::ymd_hms()`)
 
-A sample script following these prescriptions is provided in the [Week 4 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week4_Supplement.html).
+A sample script following these prescriptions is provided in ["R Programming Best Practices"](../code/programming-supplement.html#R_Programming_Best_Practices), in the programming supplement.
 
 --- .content_slide
 
 <footer>
   <hr>
-    <script>FooterBubbles(3,3)</script>V. Final Project Discussion<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Discussion<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Project Q&A</h2>

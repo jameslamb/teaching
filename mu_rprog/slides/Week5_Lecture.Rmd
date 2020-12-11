@@ -1,8 +1,6 @@
 ---
-title       : ECON 6114 - R Programming
+title       : R Programming
 subtitle    : Week 5
-author      : James Lamb
-job         : Engineer | Saturn Cloud
 framework   : io2012
 highlighter : highlight.js
 hitheme     : tomorrow
@@ -12,48 +10,45 @@ lib_cdn     : "https://cdn.rawgit.com/ramnathv/slidifyLibraries/master/inst/libr
 knit        : slidify::knit2slides
 ---
 
-<!--Read in JavaScript function that prints footer bubbles-->
-<script src="assets/js/footer_bubbles.js"></script>
-
 <!--Define background image for title slide-->
 <style>
 .title-slide {
-  background-image:url("assets/img/week5_kermit.png");
+  background-image:url("assets/img/kermit.png");
   background-size: cover;
 }
 </style>
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>The Final Week is Upon Us!</h2>
 
-<center><img src="assets/img/week5_almost_done.jpg" height=350px width = 650px></center>
+<center><img src="assets/img/almost-done.jpg" height=350px width = 650px></center>
 
 --- .toc_slide &twocol
 
 <footer>
   <hr></hr>
-  <span style="float:right">ECON 6114 - R Programming</span>
+  <span style="float:right">R Programming</span>
 </footer>
 
 <h2>Contents</h2>
 
 *** =left
 
-<b class="toc_header"> I. Final Project Code Reviews</b>
+<b class="toc_header"> Final Project Code Reviews</b>
 <ol class="toc" type="none">
     <li> Code Reviews Today! <span style="float:right"> 5 </span></li>
 </ol>
 
-<b class="toc_header"> II. Wrapping Your Code in a Package </b>
+<b class="toc_header"> Wrapping Your Code in a Package </b>
 <ol class = "toc" type="none">
     <li> In-Class Exercise: RquetteBB<span style="float:right"> 7 </span></li>
 </ol>
 
-<b class="toc_header"> III. R/Data Science AMA </b>
+<b class="toc_header"> R/Data Science AMA </b>
 <ol class = "toc" type="none">
     <li> Ask Me Anything <span style="float:right"> 9 </span></li>
 </ol>
@@ -62,8 +57,6 @@ knit        : slidify::knit2slides
 
 --- .section_slide
 
-<h2>Section I.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Final Project Code Reviews</h2>
 
@@ -71,19 +64,17 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>I. Final Project Code Reviews<span style="float:right">ECON 6114 - R Programming</span>
+    Final Project Code Reviews<span style="float:right">R Programming</span>
 </footer>
 
 <h2>It is Time.</h2>
 
 <br>
 
-<center><img src="assets/img/Week5_rafiki.jpg"></center>
+<center><img src="assets/img/rafiki.jpg"></center>
 
 --- .section_slide
 
-<h2>Section II.</h2>
-<hr></hr>
 </br></br></br>
 <h2>Wrapping Your Code in a Package</h2>
 
@@ -91,19 +82,17 @@ knit        : slidify::knit2slides
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>II. Wrapping Your Code in A Package<span style="float:right">ECON 6114 - R Programming</span>
+    Wrapping Your Code in A Package<span style="float:right">R Programming</span>
 </footer>
 
 <h2>In-Class Exercise: RquetteBB</h2>
 
-As a final exercise, we're going to talk through the process of creating an R package from scratch! In this class, we're going to create a package called `RquetteBB` for getting and visualizing Marquette Men's basketball statistics!
+As a final exercise, we're going to talk through the process of creating an R package from scratch! In this class, we're going to create a package called `{RquetteBB}` for getting and visualizing Marquette Men's basketball statistics!
 
-Given the complexity of this exercise, slides are really not an appropriate medium. Head over to the [Week 5 Programming Supplement](https://jameslamb.github.io/teaching/mu_rprog/code/Week5_Supplement.html)
+See ["Creating R Packages"](../code/programming-supplement.html#Creating_R_Packages) in the programming supplement.
 
 --- .section_slide
 
-<h2>Section III.</h2>
-<hr></hr>
 </br></br></br>
 <h2>R/Data Science AMA</h2>
 
@@ -111,11 +100,11 @@ Given the complexity of this exercise, slides are really not an appropriate medi
 
 <footer>
   <hr>
-    <script>FooterBubbles(1,1)</script>III. Data Science AMA<span style="float:right">ECON 6114 - R Programming</span>
+    Data Science AMA<span style="float:right">R Programming</span>
 </footer>
 
 <h2>Data Science AMA</h2>
 
 <br>
 
-<center><img src="assets/img/week5_ama.jpg" width = 500px height=750px></center>
+<center><img src="assets/img/ama.jpg" width = 500px height=750px></center>

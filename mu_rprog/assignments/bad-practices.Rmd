@@ -91,7 +91,7 @@ for (i in seq_along(cost)){
 
 ### Never use `require()`, use `library()` instead
 
-In R, "packages" are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded `data.table`. 
+In R, "packages" are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded `{data.table}`. 
 
 ```{r, error = TRUE}
 set.seed(708)

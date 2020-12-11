@@ -12,5 +12,5 @@ The list below is not exhaustive, but should give a good idea of the types of da
 - [Google Trends](https://www.google.com/trends/correlate)
 - [Penn World Tables in R](https://cran.r-project.org/web/packages/pwt8/pwt8.pdf)
 - some lists of lists:
-	 - [a bunch of web APIs](https://github.com/toddmotto/public-apis)
-	 - [list of publicly available ML datasets](http://homepages.inf.ed.ac.uk/rbf/IAPR/researchers/MLPAGES/mldat.htm)
+    - [a bunch of web APIs](https://github.com/toddmotto/public-apis)
+    - [list of publicly available ML datasets](http://homepages.inf.ed.ac.uk/rbf/IAPR/researchers/MLPAGES/mldat.htm)

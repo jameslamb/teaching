@@ -501,7 +501,7 @@ for (i in seq_along(cost)){
 </div>
 <div id="never-use-require-use-library-instead" class="section level3">
 <h3>Never use <code>require()</code>, use <code>library()</code> instead</h3>
-<p>In R, “packages” are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (<code>getOption(&quot;defaultPackages&quot;)</code>), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded <code>data.table</code>.</p>
+<p>In R, “packages” are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (<code>getOption(&quot;defaultPackages&quot;)</code>), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded <code>{data.table}</code>.</p>
 <pre class="r"><code>set.seed(708)
 data.table(
     x = rnorm(10)

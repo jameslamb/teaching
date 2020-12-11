@@ -3,26 +3,22 @@
 
 install.packages(
     pkgs = c(
-        "devtools"
-        , "gaussfacts"
+        "gaussfacts"
         , "htmltab"
-        , "ineq"
         , "jsonlite"
         , "lubridate"
         , "openxlsx"
-        , "purrr"
         , "Quandl"
         , "quantmod"
         , "randomForest"
         , "rattle"
         , "rbokeh"
-        , "roxygen2"
-        , "stargazer"
+        , "remotes"
         , "stringr"
-        , "testthat"
     )
     , repos = "http://cran.r-project.org"
     , dependencies = c("Depends", "Imports")
     , verbose = TRUE
     , quiet = FALSE
+    , type = "binary"
 )
