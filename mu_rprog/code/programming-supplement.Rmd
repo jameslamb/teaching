@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This document contains code that is long to display in the week's slides. Unlike code in [the slides](jameslamb.github.io/teaching/mu_rprog/slides/Week2_Lecture.html), all examples below are executed so you can see the values.
+This document contains code that is long to display in the week's slides. Unlike code in [the slides](../slides/Week2_Lecture.html), all examples below are executed so you can see the values.
 
 You should use these programming supplements to follow along and try executing the example code yourself.
 

@@ -8,11 +8,11 @@
 
 ## Slides:
 
-[Week1](https://jameslamb.github.io/teaching/mu_rprog/slides/Week1_Lecture.html#1) | 
-[Week2](https://jameslamb.github.io/teaching/mu_rprog/slides/Week2_Lecture.html#1) |
-[Week3](https://jameslamb.github.io/teaching/mu_rprog/slides/Week3_Lecture.html#1) |
-[Week4](https://jameslamb.github.io/teaching/mu_rprog/slides/Week4_Lecture.html#1) |
-[Week5](https://jameslamb.github.io/teaching/mu_rprog/slides/Week5_Lecture.html#1)
+[Week1](./slides/Week1_Lecture.html#1) | 
+[Week2](./slides/Week2_Lecture.html#1) |
+[Week3](./slides/Week3_Lecture.html#1) |
+[Week4](./slides/Week4_Lecture.html#1) |
+[Week5](./slides/Week5_Lecture.html#1)
 
 ## Code:
 
@@ -20,23 +20,23 @@
 
 ## Assignments:
 
-* [Programming Assignment 1](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R)
-* [Programming Assignment 2](https://jameslamb.github.io/teaching/mu_rprog/assignments/programming_assignment2.html)
-* [Final Project](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html)
-    - [example data sources](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/some_data_sources.md)
-    - [package list](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/final_project_packages.md)
-    - [R bad practices](https://jameslamb.github.io/teaching/mu_rprog/assignments/bad-practices.html)
+* [Programming Assignment 1](./assignments/programming_assignment1.R)
+* [Programming Assignment 2](./assignments/programming_assignment2.html)
+* [Final Project](./assignments/final_project.html)
+    - [example data sources](./assignments/some_data_sources.md)
+    - [package list](./assignments/final_project_packages.md)
+    - [R bad practices](./assignments/bad-practices.html)
 
 ## Other Resources:
 
-[RquetteBB: Example R Package](https://github.com/jameslamb/teaching/tree/main/mu_rprog/code/RquetteBB)
+[RquetteBB: Example R Package](./code/RquetteBB)
 
 ## Installing R Dependencies
 
 Throughout the course, students are asked to follow along with example code in slides and coding supplements. Those who want to install all the dependencies needed for this upfront (instead of as they go, week-by-week) can run the provided script in this repo.
 
 ```
-Rscript install_deps.R
+Rscript install-deps.R
 ```
 
 ## Building Locally
