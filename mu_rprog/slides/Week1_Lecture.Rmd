@@ -132,19 +132,16 @@ knit        : slidify::knit2slides
 <h2>Personal Introduction</h2>
 
 >- <b>My Marquette Experience:</b>
-    - B.S., Economics & Marketing (2013)
-    - M.S.A.E. (2014)
+    - B.S., Economics & Marketing (2013), M.S.A.E. (2014)
 
 >- <b>Since Marquette:</b>
     - Engineer @ [Saturn Cloud](https://www.saturncloud.io/s/), 2020-present
     - Data Scientist @ [Uptake](https://uptake.com/) then [AWS](https://aws.amazon.com/), 2016-2020
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
-    - Co-author and maintainer of [uptasticsearch](https://github.com/UptakeOpenSource/uptasticsearch) and [pkgnet](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
-    - Maintainer on [LightGBM](https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues)
+    - Co-author and maintainer of [`{uptasticsearch}`](https://github.com/UptakeOpenSource/uptasticsearch) and [`{pkgnet}`](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
+    - Maintainer on [`LightGBM`](https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues)
     - Created ["Timeseries with data.table in R"](https://www.datacamp.com/courses/time-series-with-datatable-in-r) DataCamp course
     - Analyst/Economist @ [IHS Economics](https://www.ihs.com/industry/economics-country-risk.html), [Abbott Laboratories](http://www.abbott.com/), 2014-2015
-    - Finished 20+ data science and computer science MOOCs (incl. [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science))
-    - Co-wrote an EViews add-in to perform time-series cross validation. [code](https://github.com/jameslamb/ML4EVIEWS) | [blog](http://blog.eviews.com/2016/04/add-in-round-up-for-2016-q1.html)
 
 --- .content_slide
 
@@ -828,6 +825,13 @@ Using these methods (especially numeric indices like saying *give me columns 2-4
 
 Please see ["Using Logical Vectors"](../code/programming-supplement.html#Using_Logical_Vectors) in the programming supplement for an example.
 
+--- .section_slide
+
+</br></br></br>
+<h2>Controlling Program Flow</h2>
+
+--- .content_slide
+
 <footer>
   <hr>
   Programming Fundamentals<span style="float:right">R Programming</span>
@@ -848,11 +852,6 @@ if (x > 5){
 
 See ["If-Else"](../code/programming-supplement.html#Controlling_Program_Flow) in the programming supplement for more examples.
 
---- .section_slide
-
-</br></br></br>
-<h2>Controlling Program Flow</h2>
-
 --- .content_slide
 
 <footer>
@@ -860,7 +859,7 @@ See ["If-Else"](../code/programming-supplement.html#Controlling_Program_Flow) in
   Controlling Program Flow<span style="float:right">R Programming</span>
 </footer>
 
-<h2>If-Else</h2>
+<h2>If-Else (continued)</h2>
 
 What if you want to express more than two possible outcomes? For this, we could use R's `else if` construct to nest conditions. Note that conditional blocks can have any number of "else if" statements, but only one "else" block.
 

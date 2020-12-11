@@ -49,22 +49,28 @@ knit        : slidify::knit2slides
     <li> You Should Care About NA s<span style="float:right"> 8 </span></li>
     <li> Strategy 1: Total Eradication <span style="float:right"> 9 </span></li>
     <li> Strategy 2: Handle on Subsets <span style="float:right"> 10 </span></li>
-    <li> Strategy 3: Imputation <span style="float:right"> 12 </span></li>
+    <li> Strategy 3: Imputation <span style="float:right"> 11 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Visualizing Data </b>
 <ol class = "toc" type="none">
-    <li> Base Plotting System <span style="float:right"> 14-18 </span></li>
-    <li> Other Plotting Systems in R <span style="float:right"> 19 </span></li>
-    <li> Graphics Devices <span style="float:right"> 20 </span></li>
+    <li> Base Plotting System <span style="float:right"> 13-17 </span></li>
+    <li> Other Plotting Systems in R <span style="float:right"> 18 </span></li>
+    <li> Graphics Devices <span style="float:right"> 19 </span></li>
+</ol>
+
+<b class="toc_header"> Combining and Transforming Data Frames</b>
+<ol class = "toc" type="none">
+    <li> Columnwise Combination <span style="float:right"> 21-22 </span></li>
+    <li> Rowwise Combination <span style="float:right"> 23-24 </span></li>
 </ol>
 
 <b class="toc_header"> Final Project Discussion </b>
 <ol class = "toc" type="none">
-    <li> Project Proposal Guidelines <span style="float:right"> 22 </span></li>
-    <li> Final Project Outline <span style="float:right"> 23 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 26 </span></li>
+    <li> Final Project Outline <span style="float:right"> 27 </span></li>
 </ol>
 
 --- .section_slide
@@ -99,7 +105,7 @@ IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog
 
 <h2>Specialness of NAs</h2>
 
-`NA` is a special object in R, used to capture the idea of "a value whose value is unknown". Confusing, right? We're going to go through a few examples to get you feeling comfortable with missing values. They're an inevitability in real-world data.
+`NA` is a special object in R, used to capture the idea of "a value whose value is unknown". Confusing, right? They're an inevitability in real-world data.
 
 **PRO TIP**: See `?NA` for R's documentation on the nuances of `NA`
 
@@ -216,7 +222,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
     Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Intro to the Base Plotting System</h2>
+<h2>Base Plotting System</h2>
 
 R's built-in plotting tools, called "the base plotting system", is one of its most popular features.
 
@@ -368,6 +374,67 @@ for (i in 1:10){
     dev.off()
 }
 ```
+
+--- .section_slide
+
+</br></br></br>
+<h2>Combining and Transforming Data Frames</h2>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Columnwise Combination With cbind</h2>
+
+In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R's `cbind()` command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.
+
+**cbind = "column-wise bind"**
+
+<center><img src="assets/img/cbind.png" style="max-width:70%;"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Column Matching with merge</h2>
+
+It's common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge()` command.
+
+<center><img src="assets/img/merge.png" style="max-width:70%;"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Rowwise Combination With rbind</h2>
+
+So far we've talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R's `rbind()` function.
+
+**rbind = "row-wise bind"**
+
+<center><img src="assets/img/rbind.png" style="max-width:70%;"></center>
+
+--- .content_slide
+
+<footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Rowwise Combination of Many Tables with rbindlist</h2>
+
+What if you have 5 tables? 10? 1000? Use `data.table::rbindlist()`.
+
+<center><img src="assets/img/rbindlist.png" style="max-width:70%;"></center>
 
 --- .section_slide
 

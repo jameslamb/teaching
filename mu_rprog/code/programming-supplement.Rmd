@@ -1658,7 +1658,7 @@ rfMod <- randomForest::randomForest(
 rfPreds <- EvaluateModel(rfMod, swissTestDF, "Random Forest (ntree=100)")
 ```
 
-## Accuracy Comparison
+## Model Evaluation
 
 In a real project, at some point you will find yourself saying "ok, I have all these models. What should I actually use to generate predictions?". This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
 
@@ -1910,7 +1910,7 @@ createBook <- function(n_pages, sentences_per_page){
 
 ```
 
-## Step 3: Fill in Your Code!
+## Pirate Book Example
 
 You'll spend the most time on this and you will have to go through it many times before you're feeling comfortable with the code. I've given one implementation below. The point here is not to show you how to create a book-writing app, but rather to demonstrate that this somewhat complicated task was made easier by breaking it into smaller, more manageable pieces.
 
@@ -2009,7 +2009,7 @@ bsText <- trimws(bsText)
 bsText <- bsText[sapply(bsText, nchar)>0]
 ```
 
-## Intro to Regular Expressions
+## Regular Expressions
 
 After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
 
@@ -2023,8 +2023,6 @@ bsText <- gsub(
     , x =  bsText
 )
 ```
-
-## Intro to Regular Expressions
 
 You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
 

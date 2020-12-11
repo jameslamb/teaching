@@ -95,7 +95,7 @@
     <li> You Should Care About NA s<span style="float:right"> 8 </span></li>
     <li> Strategy 1: Total Eradication <span style="float:right"> 9 </span></li>
     <li> Strategy 2: Handle on Subsets <span style="float:right"> 10 </span></li>
-    <li> Strategy 3: Imputation <span style="float:right"> 12 </span></li>
+    <li> Strategy 3: Imputation <span style="float:right"> 11 </span></li>
 </ol>
 
 </div>
@@ -103,16 +103,23 @@
   <p><b class="toc_header"> Visualizing Data </b></p>
 
 <ol class = "toc" type="none">
-    <li> Base Plotting System <span style="float:right"> 14-18 </span></li>
-    <li> Other Plotting Systems in R <span style="float:right"> 19 </span></li>
-    <li> Graphics Devices <span style="float:right"> 20 </span></li>
+    <li> Base Plotting System <span style="float:right"> 13-17 </span></li>
+    <li> Other Plotting Systems in R <span style="float:right"> 18 </span></li>
+    <li> Graphics Devices <span style="float:right"> 19 </span></li>
+</ol>
+
+<p><b class="toc_header"> Combining and Transforming Data Frames</b></p>
+
+<ol class = "toc" type="none">
+    <li> Columnwise Combination <span style="float:right"> 21-22 </span></li>
+    <li> Rowwise Combination <span style="float:right"> 23-24 </span></li>
 </ol>
 
 <p><b class="toc_header"> Final Project Discussion </b></p>
 
 <ol class = "toc" type="none">
-    <li> Project Proposal Guidelines <span style="float:right"> 22 </span></li>
-    <li> Final Project Outline <span style="float:right"> 23 </span></li>
+    <li> Project Proposal Guidelines <span style="float:right"> 26 </span></li>
+    <li> Final Project Outline <span style="float:right"> 27 </span></li>
 </ol>
 
 </div>
@@ -174,7 +181,7 @@
 
 <h2>Specialness of NAs</h2>
 
-<p><code>NA</code> is a special object in R, used to capture the idea of &quot;a value whose value is unknown&quot;. Confusing, right? We&#39;re going to go through a few examples to get you feeling comfortable with missing values. They&#39;re an inevitability in real-world data.</p>
+<p><code>NA</code> is a special object in R, used to capture the idea of &quot;a value whose value is unknown&quot;. Confusing, right? They&#39;re an inevitability in real-world data.</p>
 
 <p><strong>PRO TIP</strong>: See <code>?NA</code> for R&#39;s documentation on the nuances of <code>NA</code></p>
 
@@ -338,7 +345,7 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
     Visualizing Data<span style="float:right">R Programming</span>
 </footer></p>
 
-<h2>Intro to the Base Plotting System</h2>
+<h2>Base Plotting System</h2>
 
 <p>R&#39;s built-in plotting tools, called &quot;the base plotting system&quot;, is one of its most popular features.</p>
 
@@ -533,7 +540,7 @@ for (i in 1:10){
   <article data-timings="">
     <p></br></br></br></p>
 
-<h2>Final Project Discussion</h2>
+<h2>Combining and Transforming Data Frames</h2>
 
   </article>
   <!-- Presenter Notes -->
@@ -541,6 +548,98 @@ for (i in 1:10){
 </slide>
 
 <slide class="content_slide" id="slide-20" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Columnwise Combination With cbind</h2>
+
+<p>In situations where you have multiple data frames with the same rows but different columns, you can combine them column-wise with R&#39;s <code>cbind()</code> command. Note that this command will only work if the two data frames to be joined have the same number of rows AND those rows refer to the same observation.</p>
+
+<p><strong>cbind = &quot;column-wise bind&quot;</strong></p>
+
+<p><center><img src="assets/img/cbind.png" style="max-width:70%;"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-21" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Column Matching with merge</h2>
+
+<p>It&#39;s common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think <code>JOIN</code> in SQL or <code>VLOOKUP</code> in Excel. To perform this operation in R, you can use the <code>merge()</code> command.</p>
+
+<p><center><img src="assets/img/merge.png" style="max-width:70%;"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-22" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Rowwise Combination With rbind</h2>
+
+<p>So far we&#39;ve talked about merging columns from different tables. But what if you want to merge rows? For example, imagine that you are a researcher in a lab studying some natural phenomenon. You may take multiple samples (measuring the same variables) and then want to put them together into a single data frame to build a model. For this case, we can use R&#39;s <code>rbind()</code> function.</p>
+
+<p><strong>rbind = &quot;row-wise bind&quot;</strong></p>
+
+<p><center><img src="assets/img/rbind.png" style="max-width:70%;"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-23" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+    Combining and Transforming Data Frames<span style="float:right">R Programming</span>
+</footer></p>
+
+<h2>Rowwise Combination of Many Tables with rbindlist</h2>
+
+<p>What if you have 5 tables? 10? 1000? Use <code>data.table::rbindlist()</code>.</p>
+
+<p><center><img src="assets/img/rbindlist.png" style="max-width:70%;"></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="section_slide" id="slide-24" style="background:;">
+  
+  <article data-timings="">
+    <p></br></br></br></p>
+
+<h2>Final Project Discussion</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-25" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -576,7 +675,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-21" style="background:;">
+<slide class="content_slide" id="slide-26" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -597,7 +696,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="section_slide" id="slide-22" style="background:;">
+<slide class="section_slide" id="slide-27" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -609,7 +708,7 @@ for (i in 1:10){
   
 </slide>
 
-<slide class="content_slide" id="slide-23" style="background:;">
+<slide class="content_slide" id="slide-28" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -791,6 +890,41 @@ for (i in 1:10){
       <a href="#" target="_self" rel='tooltip' 
         data-slide=23 title='NA'>
          23
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='NA'>
+         24
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='NA'>
+         25
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='NA'>
+         26
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='NA'>
+         27
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=28 title='NA'>
+         28
       </a>
     </li>
     
