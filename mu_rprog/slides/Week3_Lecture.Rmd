@@ -87,7 +87,7 @@ knit        : slidify::knit2slides
 
 <h2>Assignment 1 Discussion</h2>
 
-IMHO, [this assignment](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
+IMHO, [this assignment](../assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
 
 <center><img src="assets/img/aliens.jpg" height=200px width = 500px></center>
 
@@ -452,7 +452,7 @@ What if you have 5 tables? 10? 1000? Use `data.table::rbindlist()`.
 
 **Choosing External Packages**
 
-- You need to choose one data munging package, one statistics package, and one visualization package from [this list](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/final_project_packages.md)
+- You need to choose one data munging package, one statistics package, and one visualization package from [this list](../assignments/final_project_packages.md)
 - Don't stress! You can do all of the following:
     - Change which packages you actually use in the final project
     - Use a package that isn't on the list (as long as you clear it with me)
@@ -472,7 +472,7 @@ What if you have 5 tables? 10? 1000? Use `data.table::rbindlist()`.
 
 <h2>Your Final Project is Due in Week 5</h2>
 
-- let's go through the [Final Project description](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html)
+- let's go through the [Final Project description](../assignments/final_project.html)
 
 <center><img src="assets/img/final-project-ski.jpg" height=350px width = 650px></center>
 

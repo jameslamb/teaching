@@ -18,7 +18,7 @@ Your task for the final project is construct a small analysis of a real-world da
 
 1. **Read in data from the internet**
     - Anyone should be able to run your code to load the data, without needing any data files you provide. If you have manually-collected data, I can show you how to host it publicly.
-    - Please see this [list of example data sources](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/some_data_sources.md) for some ideas to get you started
+    - Please see this [list of example data sources](./some_data_sources.md) for some ideas to get you started
 2. **Preprocess those data so they are ready for analysis**
     - Put the data into a data.frame, data.table, or matrix
     - Ensure that all column types are correct
@@ -35,7 +35,7 @@ Your task for the final project is construct a small analysis of a real-world da
     - Line plots to compare progression of variables over time
     - Tables of regression results (formatted with `{stargazer}`, perhaps) showing comparisons across models
 
-While it is certainly possible to complete the tasks listed above with the base functionality of R, you will likely find that using external libraries will make your code more powerful and expressive. The ability to use external packages is another key learning outcome for the course. For the remainder of this assignment, I'll refer to **the package list**, [this package list I've hosted on GitHub](https://github.com/jameslamb/teaching/blob/main/mu_rprog/assignments/final_project_packages.md). In this assignment, you must use **at least one** external package from each of the three sections in **the package list**: "Data Retrieval and Munging", "Math and Statistics", and "Visualization, Presentation, and Reporting". You are, of course, welcome to use any other packages you deem appropriate *in addition to this minimum requirement*.
+While it is certainly possible to complete the tasks listed above with the base functionality of R, you will likely find that using external libraries will make your code more powerful and expressive. The ability to use external packages is another key learning outcome for the course. For the remainder of this assignment, I'll refer to **the package list**, [this package list I've hosted on GitHub](./final_project_packages.md). In this assignment, you must use **at least one** external package from each of the three sections in **the package list**: "Data Retrieval and Munging", "Math and Statistics", and "Visualization, Presentation, and Reporting". You are, of course, welcome to use any other packages you deem appropriate *in addition to this minimum requirement*.
 
 See the following sections for submission details on each of the four parts of this assignment
 
