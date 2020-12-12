@@ -161,7 +161,9 @@ levels(region_fac)
 
 Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.
 
-Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type. 
+Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type.
+
+<center><img src="../slides/assets/img/data-frame.png"></center>
 
 ```{r dataFrame}
 # Create a data frame!
@@ -186,10 +188,10 @@ data("mtcars")
 str(mtcars)
 
 # View the top 10 rows
-head(mtcars, n = 10) # could use "tail" for the bottom 10
+head(mtcars, n = 10)
 
-# Find all the unique values of "cyl" (the number of engine cylinders)
-unique(mtcars$cyl)
+# View the bottom 10 rows
+tail(mtcars, n = 10)
 ```
 
 # Logical Operators
@@ -1623,51 +1625,52 @@ In situations where you have multiple data frames with the same rows but differe
 
 **cbind = "column-wise bind"**
 
+<center><img src="../slides/assets/img/cbind.png"></center>
+
 ```{r cbindExample}
-# Consider the following examples:
-dealerDF1 <- data.frame(
-    dealer_id = c(1:20)
-    , avg_price = runif(20, min = 15, max = 75)
-    , avg_margin = runif(20, min = -0.1, max = 0.45)
+x <- data.frame(
+    person = c(
+        "Emily", "Stephanie", "Chizom", "Corey",
+        "Vicki", "Victor", "Swift"
+    )
+    , followers = c(200, 1200, 800, 18000, 21775, 1123, 28965)
 )
 
-dealerDF2 <- data.frame(
-    dealer_id = c(1:20)
-    , industry = sample(
-        c("Mining", "Healthcare", "Robot Stuff")
-        , size = 20
-        , replace = TRUE
+y <- data.frame(
+    type = c(
+        "personal", "tech", "personal", "tech",
+        "tech", "news", "tech"
     )
 )
 
-# How can we combine the commercial info with dealer characteristics?
-# One approach (if you know the rows represent the same customers) is to use
-# cbind()
-fullDF <- cbind(dealerDF1, dealerDF2)
+cbind(x, y)
 ```
 
 ## Column Matching with merge
 
 `cbind()` works in the limited situation where you have two data frames that can just be jammed together (same number of rows + rows line up). This doesn't happen too often. However, it is VERY common in data science workflows to have two mismatched tables of data from different sources and to want to combine them by matching on one or more keys. Think `JOIN` in SQL or `VLOOKUP` in Excel. To perform this operation in R, you can use the `merge()` command.
 
+<center><img src="../slides/assets/img/merge.png"></center>
+
 ```{r mergeExample}
-# If you can't trust that things are identically ordered, use merge()
-dealerDF1 <- data.frame(
-    dealer_id = c(20:1)
-    , avg_price = runif(20, min = 15, max = 75)
-    , avg_margin = runif(20, min = -0.1, max = 0.45)
-)
-
-dealerDF2 <- data.frame(
-    dealer_id = c(1:20)
-    , industry = sample(
-        c("Mining", "Healthcare", "Robot Stuff")
-        , size = 20
-        , replace = TRUE
+x <- data.frame(
+    person = c(
+        "Emily", "Stephanie", "Chizom", "Corey",
+        "Vicki", "Victor", "Swift"
     )
+    , followers = c(200, 1200, 800, 18000, 21775, 1123, 28965)
+    , type = c(
+        "personal", "tech", "personal", "tech",
+        "tech", "news", "tech"
+    ) 
 )
 
-fullDF2 <- merge(dealerDF1, dealerDF2, by = "dealer_id")
+y <- data.frame(
+    type = c("news", "personal", "tech")
+    , avg_followers = c(900, 55, 1300)
+)
+
+merge(x, y)
 ```
 
 ## Rowwise combination with rbind
@@ -1676,101 +1679,65 @@ So far we've talked about merging columns from different tables. But what if you
 
 **rbind = "row-wise bind"**
 
+<center><img src="../slides/assets/img/rbind.png"></center>
+
 ```{r rbindExample}
-# What if you have the same data for different observations?
-sample1 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-01-01")
-        , to = as.Date("2016-06-30")
-        , length.out = 180
-    )
-    , value = rnorm(180, 5, 2.5)
-    , sampleId = rep("sample1", 180)
+x <- data.frame(
+    grade = c("A", "B", "A")
+    , pct = c(95.1, 86.5, 98.3)
+    , col3 = rep(FALSE, 3)
 )
 
-
-sample2 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-07-01")
-        , to = as.Date("2017-03-31")
-        , length.out = 210
-    )
-    , value = rnorm(210, 5, 2.5)
-    , sampleId = rep("sample2", 210)
+y <- data.frame(
+    grade = c("B", "A", "A")
+    , pct = c(88.4, 99.9, 97.6)
+    , col3 = rep(TRUE, 3)
 )
 
-fullDF <- rbind(sample1, sample2)
+fullDF <- rbind(x, y)
+print(fullDF)
 
-# Compare
-dim(sample1)
-dim(sample2)
+# compare
+dim(x)
+dim(y)
 dim(fullDF)
 ```
 
 ## Rowwise Combination of Many Tables with rbindlist
 
-`rbind()` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist()` from the `{data.table}` package. 
+`rbind()` works as a strategy for combining two tables, but what if you have 5 tables? 10? 1000? For those situations, you should checkout `rbindlist()` from the `{data.table}` package.
+
+<center><img src="../slides/assets/img/rbindlist.png"></center>
 
 ```{r rbindlistExample}
-# Define some data frames
-sample1 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-01-01")
-        , to = as.Date("2016-06-30")
-        , length.out = 180
-    )
-    , value = rnorm(180, 5, 2.5)
-)
-
-sample2 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2016-07-01")
-        , to = as.Date("2017-03-31")
-        , length.out = 210
-    )
-    , value = rnorm(210, 5, 2.5)
-)
-
-sample3 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2017-04-01")
-        , to = as.Date("2017-04-30")
-        , length.out = 30
-    )
-    , value = rnorm(30, 5, 2.5)
-)
-
-sample4 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2017-05-01")
-        , to = as.Date("2017-12-31")
-        , length.out = 240
-    )
-    , value = rnorm(240, 5, 2.5)
-)
-
-# Load up data.table and rbind all the tables together into one
 library(data.table)
-fullDF <- data.table::rbindlist(
-    list(sample1, sample2, sample3, sample4)
-)
-head(fullDF)
 
-# What if we had one more table with a column none of the others have?
-sample5 <- data.frame(
-    startTime = seq.Date(
-        from = as.Date("2013-05-01")
-        , to = as.Date("2013-12-31")
-        , length.out = 240
-    )
-    , value = rnorm(240, 5, 2.5)
-    , temperature = runif(240, min = -20, max = 95)
+df1 <- data.frame(
+    grade = c("A", "B", "A")
+    , pct = c(95.1, 86.5, 98.3)
 )
-fullDF2 <- data.table::rbindlist(
-    list(sample1, sample2, sample3, sample4, sample5)
+
+df2 <- data.frame(
+    grade = c("B", "A", "A")
+    , pct = c(88.4, 99.9, 97.6)
+)
+
+df3 <- data.frame(
+  grade = c("C", "D", "F")
+  , pct = c(71.5, 68.7, 66.4)
+  , appeal = c(FALSE, FALSE, TRUE)
+)
+
+# put all the data frames in a list
+df_list <- list(df1, df2, df3)
+print(str(df_list, max.level = 1))
+
+# get one new big dataframe
+fullDF <- data.table::rbindlist(
+    l = df_list
     , fill = TRUE
 )
-head(fullDF2)
+print(fullDF)
 ```
 
 # Software Principles
