@@ -84,37 +84,37 @@ knit        : slidify::knit2slides
 <b class="toc_header"> R Data Structures </b>
 <ol class="toc" type="none">
     <li> Vectors <span style="float:right"> 26-27 </span></li>
-    <li> Lists <span style="float:right"> 28-29 </span></li>
-    <li> Factors <span style="float:right"> 30 </span></li>
-    <li> Data Frames <span style="float:right"> 31-33 </span></li>
+    <li> Lists <span style="float:right"> 28 </span></li>
+    <li> Factors <span style="float:right"> 29 </span></li>
+    <li> Data Frames <span style="float:right"> 30-32 </span></li>
 </ol>
 
 <b class="toc_header"> Logical Operators </b>
 <ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 35-37 </span></li>
+    <li> Logical Operators <span style="float:right"> 34-36 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Subsetting </b>
 <ol class="toc" type="none">
-    <li> Subsetting Vectors <span style="float:right"> 39 </span></li>
-    <li> Subsetting Lists <span style="float:right"> 40 </span></li>
-    <li> Subsetting Data Frames <span style="float:right"> 41 </span></li>
-    <li> Using Logical Vectors <span style="float:right"> 42 </span></li>
+    <li> Subsetting Vectors <span style="float:right"> 38 </span></li>
+    <li> Subsetting Lists <span style="float:right"> 39 </span></li>
+    <li> Subsetting Data Frames <span style="float:right"> 40 </span></li>
+    <li> Using Logical Vectors <span style="float:right"> 41 </span></li>
 </ol>
 
 <b class="toc_header"> Controlling Program Flow </b>
 
 <ol class = "toc" type="none">
-    <li> If-Else <span style="float:right"> 44-45 </span></li>
-    <li> For Loops <span style="float:right"> 46 </span></li>
-    <li> While Loops <span style="float:right"> 47 </span></li>
+    <li> If-Else <span style="float:right"> 42-44 </span></li>
+    <li> For Loops <span style="float:right"> 45 </span></li>
+    <li> While Loops <span style="float:right"> 46 </span></li>
 </ol>
 
 <b class="toc_header"> Additional Resources </b>
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right"> 49 </span></li>
+    <li> Learning More on Your Own<span style="float:right"> 48 </span></li>
 </ol>
 
 --- .section_slide
@@ -519,7 +519,7 @@ c(x, y)
   Data Structures<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Lists (pt 1)</h2>
+<h2>Lists</h2>
 
 Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle cases where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
 
@@ -537,32 +537,6 @@ myList <- list(a = 1, b = rep(TRUE, 10), x = c("shakezoola", "mic", "rulah"))
 
 # Examine it with str()
 str(myList)
-```
-
-
---- .content_slide
-
-<footer>
-  <hr>
-  Data Structures<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Lists (pt 2)</h2>
-
-We saw earlier how you can use `for` loops to walk over a vector and do something with each element. You can certainly do the same thing with a list, but it can be a bit tedious.
-```{r listLoop}
-# Create a list
-studentList <- list(kanye = c(80, 90, 100), talib = c(95, 85, 99), common = c(100, 100, 99))
-
-# Get average grades with a for loop
-grades <- vector(mode = "list", length = 3)
-for (i in 1:length(studentList)){
-    grades[[i]] <- mean(studentList[[i]])
-}
-```
-Luckily, R provides a built-in function called `lapply()` to handle this more expressively. We'll cover R's [apply family of functions](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/) later in the course. Here's a sneak peek:
-```{r listLapply}
-grades <- lapply(studentList, mean)
 ```
 
 --- .content_slide
