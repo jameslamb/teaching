@@ -86,35 +86,35 @@ knit        : slidify::knit2slides
     <li> Vectors <span style="float:right"> 26-27 </span></li>
     <li> Lists <span style="float:right"> 28 </span></li>
     <li> Factors <span style="float:right"> 29 </span></li>
-    <li> Data Frames <span style="float:right"> 30-31 </span></li>
+    <li> Data Frames <span style="float:right"> 30 </span></li>
 </ol>
 
 <b class="toc_header"> Logical Operators </b>
 <ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 33-35 </span></li>
+    <li> Logical Operators <span style="float:right"> 32-34 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Subsetting </b>
 <ol class="toc" type="none">
-    <li> Subsetting Vectors <span style="float:right"> 37 </span></li>
-    <li> Subsetting Lists <span style="float:right"> 38 </span></li>
-    <li> Subsetting Data Frames <span style="float:right"> 39 </span></li>
-    <li> Using Logical Vectors <span style="float:right"> 40 </span></li>
+    <li> Subsetting Vectors <span style="float:right"> 36 </span></li>
+    <li> Subsetting Lists <span style="float:right"> 37 </span></li>
+    <li> Subsetting Data Frames <span style="float:right"> 38 </span></li>
+    <li> Using Logical Vectors <span style="float:right"> 39 </span></li>
 </ol>
 
 <b class="toc_header"> Controlling Program Flow </b>
 
 <ol class = "toc" type="none">
-    <li> If-Else <span style="float:right"> 41-43 </span></li>
-    <li> For Loops <span style="float:right"> 44 </span></li>
-    <li> While Loops <span style="float:right"> 45 </span></li>
+    <li> If-Else <span style="float:right"> 40-42 </span></li>
+    <li> For Loops <span style="float:right"> 43 </span></li>
+    <li> While Loops <span style="float:right"> 44 </span></li>
 </ol>
 
 <b class="toc_header"> Additional Resources </b>
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right"> 47 </span></li>
+    <li> Learning More on Your Own<span style="float:right"> 46 </span></li>
 </ol>
 
 --- .section_slide
@@ -566,49 +566,13 @@ See ["Factors"](../code/programming-supplement.html#Factors) in the programming 
   Data Structures<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Data Frames (pt 1)</h2>
-
-Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks. It is now time to introduce a third foundational data structure: the data frame.
+<h2>Data Frames</h2>
 
 Data frames are tables of data. Each column of a data frame can be a different type, but all values within a column must be the same type.
 
-```{r dataFrame, eval = FALSE}
-# Create a data frame!
-myDF <- data.frame(
-    time_period  = c(1, 2, 3, 4, 5)
-    , temperature  = c(25.6, 38.7, 31.4, 40.0, 29.20)
-    , station      = c("A", "B", "A", "A", "B")
-    , is_gov_owned = c(TRUE, FALSE, TRUE, TRUE, FALSE)
-)
+<center><img src="./assets/img/data-frame.png"></center>
 
-# Check out the structure of this thing
-str(myDF)
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-  Data Structures<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Data Frames (pt 2)</h2>
-
-R comes with some sample data sets you can experiment with. Let's load the `mtcars` data.frame and test out some new commands!
-
-```{r dateFrame2, eval = FALSE}
-# Load the mtcars data frame
-data("mtcars")
-
-# Check out its structure
-str(mtcars)
-
-# View the top 10 rows
-head(mtcars, n = 10) # could use "tail" for the bottom 10
-
-# Find all the unique values of "cyl" (the number of engine cylinders)
-unique(mtcars$cyl)
-```
+See ["Data Frames"](../code/programming-supplement.html#Data_Frames) in the programming supplement for some examples.
 
 --- .section_slide
 
