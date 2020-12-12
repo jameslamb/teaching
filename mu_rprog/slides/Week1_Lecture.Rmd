@@ -86,35 +86,35 @@ knit        : slidify::knit2slides
     <li> Vectors <span style="float:right"> 26-27 </span></li>
     <li> Lists <span style="float:right"> 28 </span></li>
     <li> Factors <span style="float:right"> 29 </span></li>
-    <li> Data Frames <span style="float:right"> 30-32 </span></li>
+    <li> Data Frames <span style="float:right"> 30-31 </span></li>
 </ol>
 
 <b class="toc_header"> Logical Operators </b>
 <ol class="toc" type="none">
-    <li> Logical Operators <span style="float:right"> 34-36 </span></li>
+    <li> Logical Operators <span style="float:right"> 33-35 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Subsetting </b>
 <ol class="toc" type="none">
-    <li> Subsetting Vectors <span style="float:right"> 38 </span></li>
-    <li> Subsetting Lists <span style="float:right"> 39 </span></li>
-    <li> Subsetting Data Frames <span style="float:right"> 40 </span></li>
-    <li> Using Logical Vectors <span style="float:right"> 41 </span></li>
+    <li> Subsetting Vectors <span style="float:right"> 37 </span></li>
+    <li> Subsetting Lists <span style="float:right"> 38 </span></li>
+    <li> Subsetting Data Frames <span style="float:right"> 39 </span></li>
+    <li> Using Logical Vectors <span style="float:right"> 40 </span></li>
 </ol>
 
 <b class="toc_header"> Controlling Program Flow </b>
 
 <ol class = "toc" type="none">
-    <li> If-Else <span style="float:right"> 42-44 </span></li>
-    <li> For Loops <span style="float:right"> 45 </span></li>
-    <li> While Loops <span style="float:right"> 46 </span></li>
+    <li> If-Else <span style="float:right"> 41-43 </span></li>
+    <li> For Loops <span style="float:right"> 44 </span></li>
+    <li> While Loops <span style="float:right"> 45 </span></li>
 </ol>
 
 <b class="toc_header"> Additional Resources </b>
 <ol class = "toc" type="none">
-    <li> Learning More on Your Own<span style="float:right"> 48 </span></li>
+    <li> Learning More on Your Own<span style="float:right"> 47 </span></li>
 </ol>
 
 --- .section_slide
@@ -608,27 +608,6 @@ head(mtcars, n = 10) # could use "tail" for the bottom 10
 
 # Find all the unique values of "cyl" (the number of engine cylinders)
 unique(mtcars$cyl)
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-  Data Structures<span style="float:right">R Programming</span>
-</footer>
-
-<h2>Data Frames (pt 3)</h2>
-
-We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in later sections. For now, I'd like to introduce you to one more looping function: `apply()`.
-
-`apply()` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply()`.
-
-```{r apply_on_a_DF, eval = FALSE}
-# Get the mean of each column
-apply(mtcars, MARGIN = 2, FUN = mean)
-
-# Get the mean of each row (nonsensical, just illustrating
-apply(mtcars, MARGIN = 1, FUN = mean)
 ```
 
 --- .section_slide

@@ -192,26 +192,6 @@ head(mtcars, n = 10) # could use "tail" for the bottom 10
 unique(mtcars$cyl)
 ```
 
-We will be working with data frames throughout this class, given their importance to data science and statistics. A more thorough treatment of this data structure will be given in Week 2. For now, I'd like to introduce you to one more looping function: `apply()`.
-
-`apply()` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply()`.
-
-```{r apply_on_a_DF}
-# Get the mean of each column
-apply(
-  mtcars
-  , MARGIN = 2
-  , FUN = mean
-)
-
-# Get the mean of each row (nonsensical, just illustrating)
-apply(
-  mtcars
-  , MARGIN = 1
-  , FUN = mean
-)
-```
-
 # Logical Operators
 
 Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE). Here are some examples of how to construct these statements in R.
@@ -678,7 +658,9 @@ check_vec <- sapply(
 
 ## Looping with apply
 
-When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply()` function comes in! Check it out
+When analyzing real-world datasets, you may want to use the same looping convention we've been discussing, but apply it over many items and the get some summary (such as the median) of the results. This is where R's `apply()` function comes in!
+
+`apply()` allows you to loop over the rows or columns of a data frame and execute an arbitrary function. The code below holds some examples of what can be accomplished with `apply()`.
 
 ```{r applyExample}
 # Get some data
