@@ -136,29 +136,25 @@ str(myList)
 Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy. You got out to the World Bank to grab some data, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America". How can you use this variable in a model or for generating region-by-region summary stats? This is where R's **factor type** comes in.
 
 ```{r factorVar1}
-# Sample Data
-wbDF <- data.frame(
-    country = c("Egypt", "Cyprus", "Nicaragua", "Colombia", "Germany")
-    , region  = c("Africa", "European Union", "South America", "South America", "European Union")
-    , lifeexp = c(74.5, 78.0, 75.6, 72.3, 81.9)
-)
+regions <- c("Africa", "European Union", "South America", "South America", "European Union")
+region_fac <- as.factor(regions)
 
-# Check classes...see that "region" is a "Factor" by default!
-str(wbDF)
+str(regions)
+str(region_fac)
 ```
 
 What does it mean for `region` to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep aroudn a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
 
 ```{r factorVar2}
-# Check it out! R has assigned integer values to the "region" variable
-as.integer(wbDF$region)
+# Check it out! R has assigned integer values to the "region_fac" variable
+as.integer(region_fac)
 
 # But you can also access the character values if you want
-as.character(wbDF$region)
+as.character(region_fac)
 
 # For more, see:
-str(wbDF$region)
-levels(wbDF$regions)
+str(region_fac)
+levels(region_fac)
 ```
 
 ## Data Frames
