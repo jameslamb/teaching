@@ -511,6 +511,41 @@ getLittleNumbers <- function(some_numbahs){
 getLittleNumbers(nums)
 ```
 
+## Positional and Keyword Arguments
+
+When you call a function with arguments in R, you can provide those arguments two ways:
+
+* "positional" = based on the order
+* "keyword" = matching a specific argument by name
+
+```{r exampleFunction}
+someFunction <- function(x, y, z){
+  print(paste0("x: ", x))
+  print(paste0("y: ", y))
+  print(paste0("z: ", z))
+}
+```
+
+If you don't use the `=` sign in the function call, all argument values are matched positionally. The first value is assigned to the first argument, the second to the second, and so on.
+
+```{r allPositional}
+someFunction(4, 8, 10)
+```
+
+If you pass all keyword arguments, you can pass them in any order. All of the function calls below have the same result.
+
+```{r allKeyword}
+someFunction(x = 1, y = -1, z = 3)
+someFunction(x = 1, z = 3, y = -1)
+someFunction(z = 3, y = -1, x = 1)
+```
+
+If you pass a mix of positional and keyword, all of the keyword arguments are matched first. Once they've all been matched, the positional values are assigned to the remaining unmatched arguments in order. 
+
+```{r mixArgs}
+someFunction(10, 100, x = -5)
+```
+
 ## Required Arguments
 
 - R functions take 0 or more arguments...basically named variables that the function uses to do it's work

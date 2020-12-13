@@ -92,11 +92,12 @@
 
 <ol class="toc" type="none">
     <li> Intro to Functional Programming <span style="float:right"> 8 </span></li>
-    <li> Required and Default Arguments <span style="float:right"> 9-10 </span></li>
-    <li> Functions That Return Stuff <span style="float:right"> 11 </span></li>
-    <li> Functions That Return Nothing <span style="float:right"> 12 </span></li>
-    <li> Scoping <span style="float:right"> 13 </span></li>
-    <li> The "apply" family of functions <span style="float:right"> 14-16 </span></li>
+    <li> Intro to Functional Positional and Keyword Arguments <span style="float:right"> 9 </span></li>
+    <li> Required and Default Arguments <span style="float:right"> 10-11 </span></li>
+    <li> Functions That Return Stuff <span style="float:right"> 12 </span></li>
+    <li> Functions That Return Nothing <span style="float:right"> 13 </span></li>
+    <li> Scoping <span style="float:right"> 14 </span></li>
+    <li> The "apply" family of functions <span style="float:right"> 15-17 </span></li>
 </ol>
 
 </div>
@@ -104,13 +105,13 @@
   <p><b class="toc_header"> Debugging Strategies </b></p>
 
 <ol class = "toc">
-    <li> Print Debugging <span style="float:right"> 18 </span></li>
-    <li> Googling Around <span style="float:right"> 19-20 </span></li>
-    <li> Stack Overflow <span style="float:right"> 21 </span></li>
-    <li> Building an MWE  <span style="float:right"> 22 </span></li>
-    <li> Built-in Docs with "?" <span style="float:right"> 23 </span></li>
-    <li> Package Vignettes <span style="float:right"> 24 </span></li>
-    <li> Looking at Source Code <span style="float:right"> 25 </span></li>
+    <li> Print Debugging <span style="float:right"> 19 </span></li>
+    <li> Googling Around <span style="float:right"> 20-21 </span></li>
+    <li> Stack Overflow <span style="float:right"> 22 </span></li>
+    <li> Building an MWE  <span style="float:right"> 23 </span></li>
+    <li> Built-in Docs with "?" <span style="float:right"> 24 </span></li>
+    <li> Package Vignettes <span style="float:right"> 25 </span></li>
+    <li> Looking at Source Code <span style="float:right"> 26 </span></li>
 </ol>
 
 </div>
@@ -133,13 +134,13 @@
   <p><b class="toc_header"> Using External Packages </b></p>
 
 <ol class="toc" type="none">
-    <li> Loading Installed Packages <span style="float:right"> 27 </span></li>
-    <li> Installing from CRAN <span style="float:right"> 28 </span></li>
-    <li> Installing from GitHub <span style="float:right"> 29 </span></li>
-    <li> Installing Local Code <span style="float:right"> 30 </span></li>
-    <li> Namespacing Calls <span style="float:right"> 31 </span></li>
-    <li> library() vs. require() <span style="float:right"> 32 </span></li>
-    <li> Using Local Code with source() <span style="float:right"> 33 </span></li>
+    <li> Loading Installed Packages <span style="float:right"> 28 </span></li>
+    <li> Installing from CRAN <span style="float:right"> 29 </span></li>
+    <li> Installing from GitHub <span style="float:right"> 30 </span></li>
+    <li> Installing Local Code <span style="float:right"> 31 </span></li>
+    <li> Namespacing Calls <span style="float:right"> 32 </span></li>
+    <li> library() vs. require() <span style="float:right"> 33 </span></li>
+    <li> Using Local Code with source() <span style="float:right"> 34 </span></li>
 </ol>
 
 </div>
@@ -147,19 +148,19 @@
   <p><b class="toc_header"> Working with Files </b></p>
 
 <ol class = "toc" type="none">
-    <li> File Paths <span style="float:right"> 35-36 </span></li>
-    <li> Downloading files from the internet <span style="float:right"> 37 </span></li>
-    <li> Delimited Files <span style="float:right"> 38 </span></li>
-    <li> CSV <span style="float:right"> 39 </span></li>
-    <li> Excel <span style="float:right"> 40 </span></li>
-    <li> JSON <span style="float:right"> 41 </span></li>
-    <li> Unstructured Text Files <span style="float:right"> 42 </span></li>
+    <li> File Paths <span style="float:right"> 36-37 </span></li>
+    <li> Downloading files from the internet <span style="float:right"> 38 </span></li>
+    <li> Delimited Files <span style="float:right"> 39 </span></li>
+    <li> CSV <span style="float:right"> 40 </span></li>
+    <li> Excel <span style="float:right"> 41 </span></li>
+    <li> JSON <span style="float:right"> 42 </span></li>
+    <li> Unstructured Text Files <span style="float:right"> 43 </span></li>
 </ol>
 
 <p><b class="toc_header"> Additional Resources </b></p>
 
 <ol class="toc" type="none">
-    <li> Learning More on Your Own <span style="float:right"> 44 </span></li>
+    <li> Learning More on Your Own <span style="float:right"> 45 </span></li>
 </ol>
 
 </div>
@@ -251,6 +252,38 @@ getEvens(answers)
   Functions<span style="float:right">R Programming</span>
 </footer></p>
 
+<h2>Positional and Keyword Arguments</h2>
+
+<p>When you call a function with arguments in R, you can provide those arguments two ways:</p>
+
+<ul>
+<li>&quot;positional&quot; = based on the order</li>
+<li>&quot;keyword&quot; = matching a specific argument by name</li>
+</ul>
+
+<pre><code class="r"># all positional
+rnorm(10, 0, 0.5)
+
+# all keyword
+rnorm(n = 10, mean = 0, sd = 0.5)
+
+# mix
+rnorm(10, mean = 0, sd = 0.5)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="content_slide" id="slide-9" style="background:;">
+  
+  <article data-timings="">
+    <p><footer>
+  <hr>
+  Functions<span style="float:right">R Programming</span>
+</footer></p>
+
 <h2>Required Arguments</h2>
 
 <ul>
@@ -272,7 +305,7 @@ sqrt()
   
 </slide>
 
-<slide class="content_slide" id="slide-9" style="background:;">
+<slide class="content_slide" id="slide-10" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -300,7 +333,7 @@ rand_nums &lt;- rnorm(n = 100, mean = 4.5)
   
 </slide>
 
-<slide class="content_slide" id="slide-10" style="background:;">
+<slide class="content_slide" id="slide-11" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -323,7 +356,7 @@ rand_nums &lt;- rnorm(n = 100, mean = 4.5)
   
 </slide>
 
-<slide class="content_slide" id="slide-11" style="background:;">
+<slide class="content_slide" id="slide-12" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -354,7 +387,7 @@ x
   
 </slide>
 
-<slide class="content_slide" id="slide-12" style="background:;">
+<slide class="content_slide" id="slide-13" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -377,7 +410,7 @@ x
   
 </slide>
 
-<slide class="content_slide" id="slide-13" style="background:;">
+<slide class="content_slide" id="slide-14" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -407,7 +440,7 @@ check_vec &lt;- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
   
 </slide>
 
-<slide class="content_slide" id="slide-14" style="background:;">
+<slide class="content_slide" id="slide-15" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -437,7 +470,7 @@ check_vec &lt;- sapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
   
 </slide>
 
-<slide class="content_slide" id="slide-15" style="background:;">
+<slide class="content_slide" id="slide-16" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -463,7 +496,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="section_slide" id="slide-16" style="background:;">
+<slide class="section_slide" id="slide-17" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -475,7 +508,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-17" style="background:;">
+<slide class="content_slide" id="slide-18" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -496,7 +529,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-18" style="background:;">
+<slide class="content_slide" id="slide-19" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -515,7 +548,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-19" style="background:;">
+<slide class="content_slide" id="slide-20" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -542,7 +575,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-20" style="background:;">
+<slide class="content_slide" id="slide-21" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -561,7 +594,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-21" style="background:;">
+<slide class="content_slide" id="slide-22" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -591,7 +624,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-22" style="background:;">
+<slide class="content_slide" id="slide-23" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -612,7 +645,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-23" style="background:;">
+<slide class="content_slide" id="slide-24" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -638,7 +671,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-24" style="background:;">
+<slide class="content_slide" id="slide-25" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -664,7 +697,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="section_slide" id="slide-25" style="background:;">
+<slide class="section_slide" id="slide-26" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -676,7 +709,7 @@ apply(ChickWeight, MARGIN = 1, FUN = function(blah){range(as.numeric(blah))})
   
 </slide>
 
-<slide class="content_slide" id="slide-26" style="background:;">
+<slide class="content_slide" id="slide-27" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -706,7 +739,7 @@ rbokeh::figure(data = cpiDT, title = &quot;U.S. CPI&quot;,
   
 </slide>
 
-<slide class="content_slide" id="slide-27" style="background:;">
+<slide class="content_slide" id="slide-28" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -736,7 +769,7 @@ utils::update.packages()
   
 </slide>
 
-<slide class="content_slide" id="slide-28" style="background:;">
+<slide class="content_slide" id="slide-29" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -763,7 +796,7 @@ find.package(&quot;dml&quot;)
   
 </slide>
 
-<slide class="content_slide" id="slide-29" style="background:;">
+<slide class="content_slide" id="slide-30" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -788,7 +821,7 @@ find.package(&quot;dml&quot;)
   
 </slide>
 
-<slide class="content_slide" id="slide-30" style="background:;">
+<slide class="content_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -817,7 +850,7 @@ The following object is masked from &#39;package:base&#39;:
   
 </slide>
 
-<slide class="content_slide" id="slide-31" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -850,7 +883,7 @@ my_func &lt;- function(n){
   
 </slide>
 
-<slide class="content_slide" id="slide-32" style="background:;">
+<slide class="content_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -887,7 +920,7 @@ head(myData)
   
 </slide>
 
-<slide class="section_slide" id="slide-33" style="background:;">
+<slide class="section_slide" id="slide-34" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -899,7 +932,7 @@ head(myData)
   
 </slide>
 
-<slide class="content_slide" id="slide-34" style="background:;">
+<slide class="content_slide" id="slide-35" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -930,7 +963,7 @@ head(myData)
   
 </slide>
 
-<slide class="content_slide" id="slide-35" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -961,7 +994,7 @@ head(myData)
   
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-37" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -993,7 +1026,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-37" style="background:;">
+<slide class="content_slide" id="slide-38" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1020,7 +1053,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-38" style="background:;">
+<slide class="content_slide" id="slide-39" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1049,7 +1082,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-39" style="background:;">
+<slide class="content_slide" id="slide-40" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1078,7 +1111,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-41" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1110,7 +1143,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-41" style="background:;">
+<slide class="content_slide" id="slide-42" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1131,7 +1164,7 @@ download.file(
   
 </slide>
 
-<slide class="section_slide" id="slide-42" style="background:;">
+<slide class="section_slide" id="slide-43" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1143,7 +1176,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-43" style="background:;">
+<slide class="content_slide" id="slide-44" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1475,6 +1508,13 @@ download.file(
       <a href="#" target="_self" rel='tooltip' 
         data-slide=43 title='NA'>
          43
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=44 title='NA'>
+         44
       </a>
     </li>
     
