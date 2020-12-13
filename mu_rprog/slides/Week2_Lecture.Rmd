@@ -821,7 +821,7 @@ This type of data is commonly represented as an R `list`. See the ["JSON"](../co
 
 Text files that are "unstructured" don't cleanly map to an R data structure like a data frame, matrix, or list. An example might be a collection of court transcripts.
 
-Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html) (basically just pattern-matching on strings) to extract relevant features like word counts. For example:
+The best we can do with these is read them into character vectors, where each element in the vector corresponds to one line in the file.
 
 See ["Unstructured Text Files"](../code/programming-supplement.html##Unstructured_Text_files) in the programming supplement for some hands-on experience with this approach.
 

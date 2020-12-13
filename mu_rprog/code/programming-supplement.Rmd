@@ -981,6 +981,7 @@ Then read it in with `read.csv()` and inspect it with `head()`.
 irisDF <- read.csv(
   file = iris_file
   , header = TRUE
+  , row.names = 1
 )
 print(head(irisDF))
 ```
@@ -991,6 +992,7 @@ This function can also read CSV data directly from files on the internet.
 irisDF <- read.csv(
   file = iris_url
   , header = TRUE
+  , row.names = 1
 )
 print(head(irisDF))
 ```
@@ -1035,6 +1037,8 @@ print(head(gdpDF))
 You can also use this package to write Excel files. You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R. It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
 
 ```{r writingExcel, eval = FALSE, echo = TRUE}
+library(openxlsx)
+
 # load mtcars
 data("mtcars")
 
@@ -1119,6 +1123,8 @@ Open the file in a text editor and inspect its contents. It contains a sample re
 There are a few packages for reading this type of data in R. The example below uses one of the most popular, `{jsonlite}`. Read in the file with `jsonlite::fromJSON()` and view its contents with `str()`.
 
 ```{r, eval=FALSE, echo=TRUE}
+library(jsonlite)
+
 tweetList <- jsonlite::fromJSON(
   txt  = tweet_file
   , simplifyDataFrame = FALSE
@@ -1141,7 +1147,7 @@ str(tweetList, max.level = 3)
 
 In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store. An example might be a large archive of tweets or a collection of court transcripts.
 
-Working with these types of files typically involves reading them into R line-by line and then using something called [regular expression](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html)(basically just pattern-matching on strings) to extract relevant features like word counts. For example:
+The code below examines a text file with all of Shakespeare's sonnets.
 
 ```{r unstructuredText}
 # Parameters
@@ -1152,23 +1158,6 @@ text_vec <- readLines(con = shakespeare_url)
 
 # Examine a few random lines:
 sample(text_vec, 5)
-
-# Coerce everything to lower-case
-text_vec <- tolower(text_vec)
-
-# Grab just the lines with the word "thou" or "twas""
-thou_art_my_vector <- text_vec[grepl(pattern = "thou|twas", text_vec)]
-
-# Print the count of lines w/ those words
-lines_with_fancy_words <- length(thou_art_my_vector)
-thing_to_print <- paste0(
-    "of the "
-    , length(text_vec)
-    , " lines of text in all of Shakespeare's sonnet, "
-    , lines_with_fancy_words
-    , " used thou or twas."
-)
-print(thing_to_print)
 ```
 
 # Missing Values
