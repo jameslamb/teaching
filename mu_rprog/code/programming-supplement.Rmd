@@ -765,56 +765,6 @@ rwRanges <- apply(
 )
 ```
 
-# Debugging
-
-## Print Debugging
-
-As you've probably already learned, writing code involves a never-ending process of trying this, fixing errors, trying other things, fixing new errors, etc. The process of identifying and fixing errors/bugs is called **debugging**.
-
-The simplest way to debug an issue in your code is to use **print debugging**. This approach involves forming expectations about the state of the objects in your environment at each point in your code, then printing those states at each point to find where things broke.
-
-```{r printDebugging}
-# This function is supposed to sum all the numbers in a vector that are greater than 10
-# but it's breaking with a weird error. Let's use print debugging to dig into it
-sumBigNums <- function(aVector){
-    running_sum <- 0
-    for (num in aVector){
-        if (num >= 10){
-            running_sum <- running_sum + num
-        }
-    }
-    return(running_sum)
-}
-
-# This should return 45...hmmmmmm
-some_vector <- c(11, 20, 5, 9.5, 10, 14)
-sumBigNums(some_vector)
-
-# Let's refactor this function (change the code) and print the status at each stage
-sumBigNums <- function(aVector){
-    running_sum <- 0
-    for (num in aVector){
-        # Grab the sum before we hit this number
-        sum_before <- running_sum
-        
-        # If the number if greater than 10, increase the sum
-        if (num >= 10){
-            running_sum <- running_sum + num
-        }
-        
-        # print new state of the environment
-        msg <- paste0("num: ", num, " | before: ", sum_before, " | after: ", running_sum)
-        print(msg)
-    }
-    return(running_sum)
-}
-
-# Run the code again and look at the output...it looks like we added the number
-# 10 to the count even though it isn't greater than 10! We need to change
-# the code to say "num > 10", not ">="
-sumBigNums(some_vector)
-```
-
 # Using External Packages
 
 This example shows some interesting data visualizations you can make using `{data.table}`, `{quantmod}`, and `{rbokeh}`.
@@ -879,6 +829,56 @@ le_stuff <- sapply(c(1:20), myFunction)
 
 # Plot the result
 plot(x = 1:20, y = le_stuff)
+```
+
+# Debugging
+
+## Print Debugging
+
+As you've probably already learned, writing code involves a never-ending process of trying this, fixing errors, trying other things, fixing new errors, etc. The process of identifying and fixing errors/bugs is called **debugging**.
+
+The simplest way to debug an issue in your code is to use **print debugging**. This approach involves forming expectations about the state of the objects in your environment at each point in your code, then printing those states at each point to find where things broke.
+
+```{r printDebugging}
+# This function is supposed to sum all the numbers in a vector that are greater than 10
+# but it's breaking with a weird error. Let's use print debugging to dig into it
+sumBigNums <- function(aVector){
+    running_sum <- 0
+    for (num in aVector){
+        if (num >= 10){
+            running_sum <- running_sum + num
+        }
+    }
+    return(running_sum)
+}
+
+# This should return 45...hmmmmmm
+some_vector <- c(11, 20, 5, 9.5, 10, 14)
+sumBigNums(some_vector)
+
+# Let's refactor this function (change the code) and print the status at each stage
+sumBigNums <- function(aVector){
+    running_sum <- 0
+    for (num in aVector){
+        # Grab the sum before we hit this number
+        sum_before <- running_sum
+        
+        # If the number if greater than 10, increase the sum
+        if (num >= 10){
+            running_sum <- running_sum + num
+        }
+        
+        # print new state of the environment
+        msg <- paste0("num: ", num, " | before: ", sum_before, " | after: ", running_sum)
+        print(msg)
+    }
+    return(running_sum)
+}
+
+# Run the code again and look at the output...it looks like we added the number
+# 10 to the count even though it isn't greater than 10! We need to change
+# the code to say "num > 10", not ">="
+sumBigNums(some_vector)
 ```
 
 # Working with Files
