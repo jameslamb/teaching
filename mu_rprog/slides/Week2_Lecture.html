@@ -422,17 +422,15 @@ x
 
 <p>R&#39;s <code>*apply</code> family of functions are a bit difficult to understand at first, but soon you&#39;ll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is <code>lapply()</code> (&quot;list apply&quot;), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let&#39;s try it out:</p>
 
-<pre><code class="r">data(&quot;ChickWeight&quot;)
-weights &lt;- ChickWeight$weight
+<pre><code class="r"># Create a list
+studentList &lt;- list(
+  kanye = c(80, 90, 100)
+  , talib = c(95, 85, 99)
+  , common = c(100, 100, 99)
+)
 
-# Loop over and encode &quot;above mean&quot; and &quot;below mean&quot;
-the_mean &lt;- mean(weights)
-meanCheck &lt;- function(val, ref_mean){
-    if (val &gt; ref_mean){return(&quot;above mean&quot;)}
-    if (val &lt; ref_mean){return(&quot;below mean&quot;)}
-    return(&quot;equal to the mean&quot;)
-}
-check_vec &lt;- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the_mean)})
+# Better way with lapply
+grades &lt;- lapply(studentList, mean)
 </code></pre>
 
   </article>
@@ -450,7 +448,7 @@ check_vec &lt;- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = 
 
 <h2>Looping with sapply()</h2>
 
-<p>On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like <code>mean()</code> over a list. For that, we&#39;d probably prefer to have a <em>vector</em> of results. This is where R&#39;s <code>sapply()</code> (&quot;simplified apply&quot;) comes in. <code>sapply()</code> works the same way that <code>lapply()</code> does but returns a vector. Try it for yourself:</p>
+<p>Remember that you cannot execute statistical operations like <code>mean()</code> over a list. For that, we&#39;d probably prefer to have a <em>vector</em> of results. This is where R&#39;s <code>sapply()</code> (&quot;simplified apply&quot;) comes in. <code>sapply()</code> works the same way that <code>lapply()</code> does but returns a vector. Try it for yourself:</p>
 
 <pre><code class="r">data(&quot;ChickWeight&quot;)
 weights &lt;- ChickWeight$weight

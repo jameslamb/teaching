@@ -295,17 +295,15 @@ See ["Scoping"](../code/programming-supplement.html#Scoping) in the programming 
 R's `*apply` family of functions are a bit difficult to understand at first, but soon you'll come to love them. They make your code more expressive, flexible, and parallelizable (more on that final point later). One of the most popular is `lapply()` ("list apply"), which loops over a thing (e.g. vector, list) and returns a 1-level list. Let's try it out:
 
 ```{r lapplyExample, eval = FALSE}
-data("ChickWeight")
-weights <- ChickWeight$weight
+# Create a list
+studentList <- list(
+  kanye = c(80, 90, 100)
+  , talib = c(95, 85, 99)
+  , common = c(100, 100, 99)
+)
 
-# Loop over and encode "above mean" and "below mean"
-the_mean <- mean(weights)
-meanCheck <- function(val, ref_mean){
-    if (val > ref_mean){return("above mean")}
-    if (val < ref_mean){return("below mean")}
-    return("equal to the mean")
-}
-check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the_mean)})
+# Better way with lapply
+grades <- lapply(studentList, mean)
 ```
 
 --- .content_slide
@@ -317,7 +315,7 @@ check_vec <- lapply(weights, FUN = function(x){meanCheck(val = x, ref_mean = the
 
 <h2>Looping with sapply()</h2>
 
-On the previous slide, you saw how to loop over a vector/list and get back a list of function results. This may not be appropriate for some settings. Remember that you cannot execute statistical operations like `mean()` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply()` ("simplified apply") comes in. `sapply()` works the same way that `lapply()` does but returns a vector. Try it for yourself:
+Remember that you cannot execute statistical operations like `mean()` over a list. For that, we'd probably prefer to have a *vector* of results. This is where R's `sapply()` ("simplified apply") comes in. `sapply()` works the same way that `lapply()` does but returns a vector. Try it for yourself:
 
 ```{r sapplyExample, eval = FALSE}
 data("ChickWeight")
