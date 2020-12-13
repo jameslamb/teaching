@@ -987,15 +987,15 @@ FALSE | FALSE  # FALSE
 
 <p>As a general rule, when you put a vector on the left-hand side of a logical condition like <code>==</code> or <code>&gt;</code>, you will get back a vector as a result.</p>
 
-<pre><code class="r"># Load some data
-data(&quot;mtcars&quot;)
+<pre><code class="r">vehicleSizes &lt;- c(1, 5, 5, 2, 4)
 
 # Create a logical index. Note that we get a VECTOR of logicals back
-bigCarIndex &lt;- mtcars$wt &gt; 4
+bigCarIndex &lt;- vehicleSizes &gt; 4
 
 # Taking the SUM of a logical vector tells you the number of TRUEs.
-# Taking the MEAN of a logical vector tells you the proportion of TRUEs
 sum(bigCarIndex)
+
+# Taking the MEAN of a logical vector tells you the proportion of TRUEs
 mean(bigCarIndex)
 </code></pre>
 
