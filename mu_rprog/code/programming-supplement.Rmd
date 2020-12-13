@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-This document contains code that is long to display in the week's slides. Unlike code in [the slides](../slides/Week2_Lecture.html), all examples below are executed so you can see the values.
+This document contains code that is too long to display in the slides.
 
-You should use these programming supplements to follow along and try executing the example code yourself.
+You should use this supplement to follow along and try executing the example code yourself.
 
 # Variables and Namespaces
 
@@ -232,18 +232,18 @@ The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 3 >= 3 # TRUE
 ```
 
-As we learned in week two, you can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
+You can use vectors of logicals (TRUE and FALSE) to subset other objects. As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
 
 ```{r logicalCond3}
-# Load some data
-data("mtcars")
+vehicleSizes <- c(1, 5, 5, 2, 4)
 
 # Create a logical index. Note that we get a VECTOR of logicals back
-bigCarIndex <- mtcars$wt > 4
+bigCarIndex <- vehicleSizes > 4
 
 # Taking the SUM of a logical vector tells you the number of TRUEs.
-# Taking the MEAN of a logical vector tells you the proportion of TRUEs
 sum(bigCarIndex)
+
+# Taking the MEAN of a logical vector tells you the proportion of TRUEs
 mean(bigCarIndex)
 ```
 
@@ -1185,7 +1185,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 ## The Base Plotting System
 
-R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as "the base plotting system", and we're going to walk through a few examples of it this week.
+R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as "the base plotting system".
 
 The essential idea of the base plotting system is to build up plots in layers. You first create a simple 1-variable line plot, for example, then "add on" a legend, more variables, other plot types, etc. We'll try a few examples using the sample data created below.
 
@@ -1899,7 +1899,7 @@ print(aPirateTale)
 
 ## Common Preprocessing Steps
 
-In this section, we're going to revisit the [Shakespeare corpus](https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt) we looked at in Week 2 and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
+In this section, we're going to use the [Shakespeare corpus](https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt) and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
 
 ```{r startTextAnalysis}
 # Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
@@ -2042,7 +2042,7 @@ rbokeh::figure(
 
 # Creating R Packages
 
-As I mentioned in the first two weeks of class, there are around 10,000 packages currently on CRAN but MANY more privately-created packages in use by academics, professional data science teams, and hobbyists.
+There are around 10,000 packages currently on CRAN but MANY more privately-created packages in use by academics, professional data science teams, and hobbyists.
 
 I'd like to demystify the package through an exercise...we are going to build an R package from scratch here in class! Packages are a robust and effective way to share your code with others and to manage dependencies in your code.
 

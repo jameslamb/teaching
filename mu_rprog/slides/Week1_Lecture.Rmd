@@ -645,15 +645,15 @@ The most common operators used to generate logicals are `>`, `<`, `==`, and `!=`
 As a general rule, when you put a vector on the left-hand side of a logical condition like `==` or `>`, you will get back a vector as a result.
 
 ```{r logicalCond3, eval = FALSE, echo = TRUE}
-# Load some data
-data("mtcars")
+vehicleSizes <- c(1, 5, 5, 2, 4)
 
 # Create a logical index. Note that we get a VECTOR of logicals back
-bigCarIndex <- mtcars$wt > 4
+bigCarIndex <- vehicleSizes > 4
 
 # Taking the SUM of a logical vector tells you the number of TRUEs.
-# Taking the MEAN of a logical vector tells you the proportion of TRUEs
 sum(bigCarIndex)
+
+# Taking the MEAN of a logical vector tells you the proportion of TRUEs
 mean(bigCarIndex)
 ```
 
