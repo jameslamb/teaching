@@ -144,15 +144,15 @@ R is a [functional programming language](http://adv-r.had.co.nz/Functions.html).
 
 
 ```{r functionExample, eval = FALSE}
-# Function to return only the even numbers from a vector
-answers <- c(1, 3, 4, 8, 13, 24)
+# Function to return only the numbers smaller than 10
+nums <- c(1, 3, 4, 8, 13, 24)
 
-getEvens <- function(some_numbahs){
-    the_evens <- some_numbahs[some_numbahs %% 2 == 0]
-    return(the_evens)
+getLittleNumbers <- function(some_numbahs){
+    lil_ones <- some_numbahs[some_numbahs < 10]
+    return(lil_ones)
 }
 
-getEvens(answers)
+getLittleNumbers(nums)
 ```
 
 --- .content_slide
