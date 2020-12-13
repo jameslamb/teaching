@@ -437,7 +437,7 @@ For loops are suitable for many applications, but they can be too restrictive in
 Here is the `for` loop implementation:
 
 ```{r whileLoop1}
-movie_list <- c(
+movies <- c(
     "ace ventura"
     , "apocalypse now"
     , "return of the jedi"
@@ -448,7 +448,7 @@ MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
 # Naive for loop implementation
 i <- 1
-for (movie in movie_list) {
+for (movie in movies) {
     if (movie == MOVIE_TO_SEARCH_FOR) {
         print(paste0(i, ": found it!"))
     } else {
@@ -461,7 +461,7 @@ for (movie in movie_list) {
 And here is the `while` loop implementation. Notice that this one stops checking once it finds what it wants. In this case, it's more efficient to use a `while` loop to solve this problem.
 
 ```{r whileLoop2}
-movie_list <- c(
+movies <- c(
     "ace ventura"
     , "apocalypse now"
     , "return of the jedi"
@@ -472,22 +472,22 @@ MOVIE_TO_SEARCH_FOR <- "apocalypse now"
 
 # Faster while loop implementation
 KEEP_SEARCHING <- TRUE
-i = 1
+i <- 1
 while (KEEP_SEARCHING){
-    
+
     # Check this element
-    if (movie_list[i] == MOVIE_TO_SEARCH_FOR) {
+    if (movies[i] == MOVIE_TO_SEARCH_FOR) {
         print(paste0(i, ": found it!"))
         KEEP_SEARCHING <- FALSE
     } else {
         print(paste0(i, ": not found"))
-    }
-    
-    # If we've reached the end, break out. Otherwise, increment the counter
-    if (i == length(movie_list)){
-        print("Done searching. This movie isn't in the list")
-    } else {
         i <- i + 1
+    }
+
+    # If we've reached the end, break out. Otherwise, increment the counter
+    if (i == length(movies)){
+        print("Done searching. This movie isn't in the list")
+        KEEP_SEARCHING <- FALSE
     }
 }
 ```
