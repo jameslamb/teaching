@@ -802,31 +802,6 @@ find.package(&quot;dml&quot;)
     Using External Packages<span style="float:right">R Programming</span>
 </footer></p>
 
-<h2>Installing Local Code</h2>
-
-<p>On professional data science teams, you may find yourself passing around R packages on an internal file system.
-    - see, for example: <a href="https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d#.c3qbgjtdr">&quot;Using R packages and education to scale Data Science at Airbnb&quot;</a></p>
-
-<p>To install R packages sitting on your file system, you can use <code>install_local()</code> from the <code>{remotes}</code> package.</p>
-
-<p><center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/min-r-package.png"></a></center></p>
-
-<pre><code class="r">remotes::install_local(path = &quot;path/to/package&quot;)
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-  
-</slide>
-
-<slide class="content_slide" id="slide-31" style="background:;">
-  
-  <article data-timings="">
-    <p><footer>
-  <hr>
-    Using External Packages<span style="float:right">R Programming</span>
-</footer></p>
-
 <h2>Namespacing Calls</h2>
 
 <p>You may have noticed that I use <code>::</code> frequently in my code. Remember when we used <code>search()</code> to print the ordered list of namespaces that R searches for objects? <code>::</code> is used to circumvent this process. <code>lubridate::ymd_hms()</code> tells R <em>&quot;Use the function ymd_hms from the &#39;lubridate&#39; package&quot;</em></p>
@@ -848,7 +823,7 @@ The following object is masked from &#39;package:base&#39;:
   
 </slide>
 
-<slide class="content_slide" id="slide-32" style="background:;">
+<slide class="content_slide" id="slide-31" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -872,7 +847,7 @@ The following object is masked from &#39;package:base&#39;:
 
 my_func &lt;- function(n){
     require(some_package_that_does_not_exist)
-    return(&quot;JaVale McGee!!!!&quot;)
+    print(&quot;JaVale McGee!!!!&quot;)
 }
 </code></pre>
 
@@ -881,7 +856,7 @@ my_func &lt;- function(n){
   
 </slide>
 
-<slide class="content_slide" id="slide-33" style="background:;">
+<slide class="content_slide" id="slide-32" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -918,7 +893,7 @@ head(myData)
   
 </slide>
 
-<slide class="section_slide" id="slide-34" style="background:;">
+<slide class="section_slide" id="slide-33" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -930,7 +905,7 @@ head(myData)
   
 </slide>
 
-<slide class="content_slide" id="slide-35" style="background:;">
+<slide class="content_slide" id="slide-34" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -961,7 +936,7 @@ head(myData)
   
 </slide>
 
-<slide class="content_slide" id="slide-36" style="background:;">
+<slide class="content_slide" id="slide-35" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -976,9 +951,10 @@ head(myData)
 <p><br></p>
 
 <ul>
+<li><code>getwd()</code>: print the current working directory</li>
+<li><code>list.files()</code>: get a character vector with names of all files found in a directory</li>
 <li><code>file.path()</code>: create a filepath from multiple parts</li>
 <li><code>file.exists()</code>: returns <code>TRUE</code> is a file exists and  <code>FALSE</code> if it doesn&#39;t</li>
-<li><code>list.files()</code>: get a character vector with names of all files found in a directory</li>
 <li><code>dir.exists()</code>: returns <code>TRUE</code> is a directory exists and  <code>FALSE</code> if it doesn&#39;t</li>
 <li><code>dir.create()</code>: create a new directory</li>
 </ul>
@@ -992,7 +968,7 @@ head(myData)
   
 </slide>
 
-<slide class="content_slide" id="slide-37" style="background:;">
+<slide class="content_slide" id="slide-36" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1024,7 +1000,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-38" style="background:;">
+<slide class="content_slide" id="slide-37" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1036,22 +1012,14 @@ download.file(
 
 <p>Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character (&quot;delimiter&quot;). Common types include comma separated values (CSV), tab-separated values, and space-delimited. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimiter is and use it to split data into columns.</p>
 
-<ul>
-<li>Download some stock data from Quandl
-
-<ul>
-<li><a href="https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv">https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv</a></li>
-</ul></li>
-<li>Navigate to wherever you stored the file</li>
-<li>Right click on the file, and use &quot;Open With&quot; to open it with a text editor like Sublime or Notepad</li>
-</ul>
+<p><center><img src="assets/img/iris-csv.png"></center></p>
 
   </article>
   <!-- Presenter Notes -->
   
 </slide>
 
-<slide class="content_slide" id="slide-39" style="background:;">
+<slide class="content_slide" id="slide-38" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1080,7 +1048,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-40" style="background:;">
+<slide class="content_slide" id="slide-39" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1109,7 +1077,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-41" style="background:;">
+<slide class="content_slide" id="slide-40" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1141,7 +1109,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-42" style="background:;">
+<slide class="content_slide" id="slide-41" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1162,7 +1130,7 @@ download.file(
   
 </slide>
 
-<slide class="section_slide" id="slide-43" style="background:;">
+<slide class="section_slide" id="slide-42" style="background:;">
   
   <article data-timings="">
     <p></br></br></br></p>
@@ -1174,7 +1142,7 @@ download.file(
   
 </slide>
 
-<slide class="content_slide" id="slide-44" style="background:;">
+<slide class="content_slide" id="slide-43" style="background:;">
   
   <article data-timings="">
     <p><footer>
@@ -1506,13 +1474,6 @@ download.file(
       <a href="#" target="_self" rel='tooltip' 
         data-slide=43 title='NA'>
          43
-      </a>
-    </li>
-    
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='NA'>
-         44
       </a>
     </li>
     

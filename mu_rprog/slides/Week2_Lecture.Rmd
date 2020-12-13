@@ -576,26 +576,6 @@ find.package("dml")
     Using External Packages<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Installing Local Code</h2>
-
-On professional data science teams, you may find yourself passing around R packages on an internal file system.
-    - see, for example: ["Using R packages and education to scale Data Science at Airbnb"](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d#.c3qbgjtdr)
-
-To install R packages sitting on your file system, you can use `install_local()` from the `{remotes}` package.
-
-<center><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/"><img src = "assets/img/min-r-package.png"></a></center>
-
-```{r install_local, eval = FALSE, echo = TRUE, warning = FALSE, message = FALSE}
-remotes::install_local(path = "path/to/package")
-```
-
---- .content_slide
-
-<footer>
-  <hr>
-    Using External Packages<span style="float:right">R Programming</span>
-</footer>
-
 <h2>Namespacing Calls</h2>
 
 You may have noticed that I use `::` frequently in my code. Remember when we used `search()` to print the ordered list of namespaces that R searches for objects? `::` is used to circumvent this process. `lubridate::ymd_hms()` tells R *"Use the function ymd_hms from the 'lubridate' package"*
@@ -635,7 +615,7 @@ library(some_package_that_does_not_exist)
 
 my_func <- function(n){
     require(some_package_that_does_not_exist)
-    return("JaVale McGee!!!!")
+    print("JaVale McGee!!!!")
 }
 ```
 
@@ -708,9 +688,10 @@ R provides a few other utilities for working with file paths and directory struc
 
 <br>
 
+* `getwd()`: print the current working directory
+* `list.files()`: get a character vector with names of all files found in a directory
 * `file.path()`: create a filepath from multiple parts
 * `file.exists()`: returns `TRUE` is a file exists and  `FALSE` if it doesn't
-* `list.files()`: get a character vector with names of all files found in a directory
 * `dir.exists()`: returns `TRUE` is a directory exists and  `FALSE` if it doesn't
 * `dir.create()`: create a new directory
 
@@ -756,10 +737,9 @@ download.file(
 
 Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character ("delimiter"). Common types include comma separated values (CSV), tab-separated values, and space-delimited. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimiter is and use it to split data into columns.
 
-* Download some stock data from Quandl
-  - https://www.quandl.com/api/v3/datasets/WIKI/AAPL.csv
-* Navigate to wherever you stored the file
-* Right click on the file, and use "Open With" to open it with a text editor like Sublime or Notepad
+<br>
+
+<center><img src="assets/img/iris-csv.png"></center>
 
 --- .content_slide
 
