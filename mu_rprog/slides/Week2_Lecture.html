@@ -1012,6 +1012,8 @@ download.file(
 
 <p>Out in the wild, one of the most common types of flat file you will find is a delimited file. In these files, bits of data are separated by a common character (&quot;delimiter&quot;). Common types include comma separated values (CSV), tab-separated values, and space-delimited. When these files are opened by a program like R, SAS, or Excel, those programs can figure out what the delimiter is and use it to split data into columns.</p>
 
+<p><br></p>
+
 <p><center><img src="assets/img/iris-csv.png"></center></p>
 
   </article>
@@ -1121,7 +1123,7 @@ download.file(
 
 <p>Text files that are &quot;unstructured&quot; don&#39;t cleanly map to an R data structure like a data frame, matrix, or list. An example might be a collection of court transcripts.</p>
 
-<p>Working with these types of files typically involves reading them into R line-by line and then using something called <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">regular expression</a> (basically just pattern-matching on strings) to extract relevant features like word counts. For example:</p>
+<p>The best we can do with these is read them into character vectors, where each element in the vector corresponds to one line in the file.</p>
 
 <p>See <a href="../code/programming-supplement.html##Unstructured_Text_files">&quot;Unstructured Text Files&quot;</a> in the programming supplement for some hands-on experience with this approach.</p>
 
