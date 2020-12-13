@@ -254,22 +254,30 @@ mean(bigCarIndex)
 **Subsetting** is the act of retrieving a portion of an object, usually based on some logical condition (e.g. "all elements greater than 5"). In R, this is done with the `[` operator.
 
 ```{r subset_vecs}
-# Create a vector to work with
 myVec <- c(
-  var1 = 10
-  , var2 = 15
-  , var3 = 20
-  , av4 = 6
+    var1 = 10
+    , var2 = 15
+    , var3 = 20
+    , av4 = 6
 )
 
 # "the first element"
 myVec[1]
+
+# "second to fourth element"
+myVec[c(2, 3, 4)]
 
 # "second to fourth elements"
 myVec[2:4]
 
 # "the element named var3"
 myVec["var3"]
+
+# "the elements named var1 and var3"
+myVec[c("var1", "var3")]
+
+# "third element, then the fourth one repeated twice"
+myVec[c(3, 4, 4)]
 ```
 
 ## Subsetting Lists
@@ -361,15 +369,12 @@ playerDF[nameIndex,]
 playerDF[playerDF$ppg > 20, c("playerName", "apg")]
 
 # "Give me stats for all the guards""
-guardIndex <- grepl("G$", playerDF$position)
+guardIndex <- grepl("G", playerDF$position)
 print(guardIndex)
-playerDF[grepl("G$", playerDF$position)]
+playerDF[grepl("G", playerDF$position)]
 
 # "Give me stats for players who were guards OR show above 50% from the field"
-playerDF[grepl("G$", playerDF$position) | playerDF$fg_percent > 0.5,]
-
-# "Give me the column names that start with p"
-names(playerDF)[grepl("^p", names(playerDF))]
+playerDF[grepl("G", playerDF$position) | playerDF$fg_percent > 0.5,]
 ```
 
 # Controlling Program Flow
@@ -378,24 +383,16 @@ names(playerDF)[grepl("^p", names(playerDF))]
 
 Soon after you start writing code (in any language), you'll inevitably find yourself saying "I only want to do this thing if certain conditions are met". This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/wiki/Conditional_(computer_programming))
 
-```{r setseed, eval=TRUE, echo=FALSE}
-# prevent a new guassfact() from being printed every time this file is knitted
-set.seed(5678)
-```
-
 ```{r ifElse1}
-library(gaussfacts)
-
-# Set some variable
 DAY <- "SATURDAY"
 print(DAY)
 
 # If it's Monday, print 2 Gauss facts. Otherwise, print 1
 if (DAY == "MONDAY"){
-    gaussfact()
-    gaussfact()
+    print("message 1")
+    print("message 2")
 } else {
-    gaussfact()
+    print("other message")
 }
 ```
 

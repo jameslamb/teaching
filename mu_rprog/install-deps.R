@@ -3,8 +3,7 @@
 
 install.packages(
     pkgs = c(
-        "gaussfacts"
-        , "htmltab"
+        "htmltab"
         , "jsonlite"
         , "lubridate"
         , "openxlsx"
