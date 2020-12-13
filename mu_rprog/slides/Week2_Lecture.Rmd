@@ -195,7 +195,7 @@ rnorm(10, mean = 0, sd = 0.5)
 
 ```{r requiredArgs, eval = FALSE}
 # Take the square root of a vector of numbers
-sqrt(x = c(1,4,9,16,25))
+sqrt(x = c(1, 4, 9, 16, 25))
 
 # Note that calling this function without the argument will throw an error!
 sqrt()

@@ -627,23 +627,69 @@ x
 
 Remember when we talked about namespaces and how R searches for objects? It's time to extend that logic to functions...which is where things get a bit weird and hard to understand.
 
-R uses a search technique called [lexical scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping)
+R uses a search technique called [lexical scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping).
 
-```{r searchingForVariables}
-# Define an object + function in the global environment
+Let's define a function that takes a single input, named `y`.
+
+```{r sampleFunction}
+someFunc <- function(y){
+    return(x^2)
+}
+```
+
+```{r cleanUpX, eval = TRUE, echo = FALSE}
+if (exists("x")) {
+    rm(x)
+}
+```
+
+When you try to call this function in a clean environment, it throws an error. This is because the code inside the function is looking for something called `x`.
+
+```{r cannotFindX, eval = FALSE}
+someFunc(y = 5)
+
+### Error in someFunc(y = 5) : object 'x' not found
+```
+
+If you define `x` in the global environment and try again, the function won't throw an error...but does its result make sense?
+
+```{r tryAgain}
 x <- 4
+someFunc(y = 5)
+```
+
+What happened here? When R ran the statement `x ^ 2` inside the function `someFunc()`, it went searching for the value of `x`. It first looked around in the function's local environment, but all it found there was a `y` (the argument you passed in). Next, it went "up a level" in to the global environment. It found `x` there and used that.
+
+In practice, this is very dangerous. Functions should always be self-contained, which means they should only reference objects passed in to them or made available via libraries. Relying on data in the global environment can lead to strange outcomes. Notice that now, the output of `someFunc()` is the same no matter what we pass it!
+
+```{r sameOutput}
+someFunc(1)
+someFunc(8)
+someFunc(20)
+```
+
+It would be better to re-write the function to take in `x`.
+
+```{r rewriteSomeFunc}
 someFunc <- function(x){
     return(x^2)
 }
+```
 
-# If you call someFunc without an argument, it will go up one environment and look
-# for "X" in the global environment
-someFunc(x)
+With this re-write, now the function will use the `x` in its local environment (the one that was passed in), and not look at the one in the global environment.
 
-# If you pass in a new value, it will use that instead. Note that the value of
-# x in the global environment remains unchanged. 
-someFunc(x = 6)
-x
+```{r useLocalEnv}
+someFunc(x = 5)
+```
+
+Because the function's local environment is its own independent thing, calling the function `someFunc()` does not alter the value of `x` in the global environment.
+
+```{r callThatThing}
+print(x)
+
+someFunc(x = 10)
+
+print(x)
 ```
 
 ## Looping with lapply
