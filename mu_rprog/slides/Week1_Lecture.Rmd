@@ -806,7 +806,7 @@ One of the most powerful characteristics of general purpose programming language
 
 ```{r forLoop, eval = FALSE, echo = TRUE}
 # Create a vector
-x <- c(1,4,6)
+x <- c(1, 4, 6)
 
 # Print the square of each element one at a time
 print(1^2)
