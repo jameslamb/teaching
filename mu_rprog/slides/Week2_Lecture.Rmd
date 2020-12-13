@@ -45,24 +45,25 @@ widgets     : bootstrap
 <b class="toc_header"> Functions </b>
 <ol class="toc" type="none">
     <li> Intro to Functional Programming <span style="float:right"> 8 </span></li>
-    <li> Required and Default Arguments <span style="float:right"> 9-10 </span></li>
-    <li> Functions That Return Stuff <span style="float:right"> 11 </span></li>
-    <li> Functions That Return Nothing <span style="float:right"> 12 </span></li>
-    <li> Scoping <span style="float:right"> 13 </span></li>
-    <li> The "apply" family of functions <span style="float:right"> 14-16 </span></li>
+    <li> Intro to Functional Positional and Keyword Arguments <span style="float:right"> 9 </span></li>
+    <li> Required and Default Arguments <span style="float:right"> 10-11 </span></li>
+    <li> Functions That Return Stuff <span style="float:right"> 12 </span></li>
+    <li> Functions That Return Nothing <span style="float:right"> 13 </span></li>
+    <li> Scoping <span style="float:right"> 14 </span></li>
+    <li> The "apply" family of functions <span style="float:right"> 15-17 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Debugging Strategies </b>
 <ol class = "toc">
-    <li> Print Debugging <span style="float:right"> 18 </span></li>
-    <li> Googling Around <span style="float:right"> 19-20 </span></li>
-    <li> Stack Overflow <span style="float:right"> 21 </span></li>
-    <li> Building an MWE  <span style="float:right"> 22 </span></li>
-    <li> Built-in Docs with "?" <span style="float:right"> 23 </span></li>
-    <li> Package Vignettes <span style="float:right"> 24 </span></li>
-    <li> Looking at Source Code <span style="float:right"> 25 </span></li>
+    <li> Print Debugging <span style="float:right"> 19 </span></li>
+    <li> Googling Around <span style="float:right"> 20-21 </span></li>
+    <li> Stack Overflow <span style="float:right"> 22 </span></li>
+    <li> Building an MWE  <span style="float:right"> 23 </span></li>
+    <li> Built-in Docs with "?" <span style="float:right"> 24 </span></li>
+    <li> Package Vignettes <span style="float:right"> 25 </span></li>
+    <li> Looking at Source Code <span style="float:right"> 26 </span></li>
 </ol>
 
 --- .toc_slide &twocol
@@ -78,31 +79,31 @@ widgets     : bootstrap
 
 <b class="toc_header"> Using External Packages </b>
 <ol class="toc" type="none">
-    <li> Loading Installed Packages <span style="float:right"> 27 </span></li>
-    <li> Installing from CRAN <span style="float:right"> 28 </span></li>
-    <li> Installing from GitHub <span style="float:right"> 29 </span></li>
-    <li> Installing Local Code <span style="float:right"> 30 </span></li>
-    <li> Namespacing Calls <span style="float:right"> 31 </span></li>
-    <li> library() vs. require() <span style="float:right"> 32 </span></li>
-    <li> Using Local Code with source() <span style="float:right"> 33 </span></li>
+    <li> Loading Installed Packages <span style="float:right"> 28 </span></li>
+    <li> Installing from CRAN <span style="float:right"> 29 </span></li>
+    <li> Installing from GitHub <span style="float:right"> 30 </span></li>
+    <li> Installing Local Code <span style="float:right"> 31 </span></li>
+    <li> Namespacing Calls <span style="float:right"> 32 </span></li>
+    <li> library() vs. require() <span style="float:right"> 33 </span></li>
+    <li> Using Local Code with source() <span style="float:right"> 34 </span></li>
 </ol>
 
 *** =right
 
 <b class="toc_header"> Working with Files </b>
 <ol class = "toc" type="none">
-    <li> File Paths <span style="float:right"> 35-36 </span></li>
-    <li> Downloading files from the internet <span style="float:right"> 37 </span></li>
-    <li> Delimited Files <span style="float:right"> 38 </span></li>
-    <li> CSV <span style="float:right"> 39 </span></li>
-    <li> Excel <span style="float:right"> 40 </span></li>
-    <li> JSON <span style="float:right"> 41 </span></li>
-    <li> Unstructured Text Files <span style="float:right"> 42 </span></li>
+    <li> File Paths <span style="float:right"> 36-37 </span></li>
+    <li> Downloading files from the internet <span style="float:right"> 38 </span></li>
+    <li> Delimited Files <span style="float:right"> 39 </span></li>
+    <li> CSV <span style="float:right"> 40 </span></li>
+    <li> Excel <span style="float:right"> 41 </span></li>
+    <li> JSON <span style="float:right"> 42 </span></li>
+    <li> Unstructured Text Files <span style="float:right"> 43 </span></li>
 </ol>
 
 <b class="toc_header"> Additional Resources </b>
 <ol class="toc" type="none">
-    <li> Learning More on Your Own <span style="float:right"> 44 </span></li>
+    <li> Learning More on Your Own <span style="float:right"> 45 </span></li>
 </ol>
 
 --- .section_slide
@@ -143,15 +144,40 @@ R is a [functional programming language](http://adv-r.had.co.nz/Functions.html).
 
 
 ```{r functionExample, eval = FALSE}
-# Function to return only the even numbers from a vector
-answers <- c(1, 3, 4, 8, 13, 24)
+# Function to return only the numbers smaller than 10
+nums <- c(1, 3, 4, 8, 13, 24)
 
-getEvens <- function(some_numbahs){
-    the_evens <- some_numbahs[some_numbahs %% 2 == 0]
-    return(the_evens)
+getLittleNumbers <- function(some_numbahs){
+    lil_ones <- some_numbahs[some_numbahs < 10]
+    return(lil_ones)
 }
 
-getEvens(answers)
+getLittleNumbers(nums)
+```
+
+--- .content_slide
+
+<footer>
+  <hr>
+  Functions<span style="float:right">R Programming</span>
+</footer>
+
+<h2>Positional and Keyword Arguments</h2>
+
+When you call a function with arguments in R, you can provide those arguments two ways:
+
+* "positional" = based on the order
+* "keyword" = matching a specific argument by name
+
+```{r argExample, eval = FALSE, echo = TRUE}
+# all positional
+rnorm(10, 0, 0.5)
+
+# all keyword
+rnorm(n = 10, mean = 0, sd = 0.5)
+
+# mix
+rnorm(10, mean = 0, sd = 0.5)
 ```
 
 --- .content_slide
