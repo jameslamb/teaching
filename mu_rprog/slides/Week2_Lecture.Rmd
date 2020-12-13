@@ -180,7 +180,6 @@ rnorm(n = 10, mean = 0, sd = 0.5)
 rnorm(10, mean = 0, sd = 0.5)
 ```
 
-
 --- .content_slide
 
 <footer>
