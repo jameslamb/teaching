@@ -75,7 +75,7 @@ This script is the main deliverable for the class...it is worth 20\% of your fin
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 5 session (Feb 17)**.
+This component of the project is **due prior to our Week 5 session**.
 
 Please submit your code to the "Final Project (script + report)" dropbox on D2L. If you use multiple scripts (totally acceptable!), please include an additional script called "build.R" which species the order to run the scripts in.
 
@@ -150,8 +150,8 @@ Your presentation will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) introduction is confusing or rambling*                  |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) no introduction of the problem*                           |                          |
 |&nbsp;&nbsp;2. Explanation of the dataset                                              |30                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(30-40) explains source and real-world meaning of the data*   |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(10-29) literal description with no connection to problem*    |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(20-30) explains source and real-world meaning of the data*   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(10-19) literal description with no connection to problem*    |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-9) inaccurate or confusing explanation*                    |                          |
 |&nbsp;&nbsp;3. Explanation of the Code                                                 |40                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(30-40) clear explanation of how the code solves the problem* |                          |
@@ -199,8 +199,8 @@ Your report will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) introduction is confusing rambling*                                      |                      |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) no introduction of the problem*                                            |                      |
 |&nbsp;&nbsp;2. Explanation of the dataset                                                               |30                    |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(30-40) clear, executive-level explanation*                                    |                      |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(11-29) literal or overly-technical description with no connection to problem* |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(20-30) clear, executive-level explanation*                                    |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(10-19) literal or overly-technical description with no connection to problem* |                      |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-9) inaccurate or confusing explanation*                                     |                      |
 |&nbsp;&nbsp;3. Explanation of the result                                                                |25                    |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(20-25) result of the project clearly expressed in business terms*             |                      |
