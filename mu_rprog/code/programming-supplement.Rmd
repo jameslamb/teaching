@@ -1463,7 +1463,7 @@ round(cor(swiss), 2)
 
 ## Hypothesis Testing
 
-Though orthodox hypothesis tests have been [maligned in the scientific press recently](http://fivethirtyeight.com/features/statisticians-found-one-thing-they-can-agree-on-its-time-to-stop-misusing-p-values/), they are still enormously valuable tools for discovering differences in datasets and evaluates relationships between variables.
+Hypothesis tests can be enormously valuable tools for discovering differences in datasets and evaluates relationships between variables.
 
 One approach to looking for statistically interesting features (right-hand-side variables) involves binning those variables into "above median" and "below median", and using a paired t-test to see whether or not the variable is statistically related to the target.
 
