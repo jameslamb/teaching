@@ -243,20 +243,9 @@ See ["The Base Plotting System"](../code/programming-supplement.html#The_Base_Pl
 
 Let's start with a simple scatter plot to answer the question *are sepal length and sepal width related?*
 
-```{r baseLinePlot, eval = FALSE, echo = TRUE}
-# Create a simple scatter plot
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = "p")
+<center><img src="assets/img/first-scatter-plot.png" style="max-width:80%;"></center>
 
-# Try again, but with labels!
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Second R plot!",
-     xlab = "sepal length", ylab = "sepal width", type = "p")
-
-# Try it AGAIN, this time coloring by species and a legend
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = "My Third R plot!",
-     xlab = "sepal length", ylab = "sepal width", type = "p", col = iris$Species,
-     bg = iris$Species, pch = 21)
-legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1)
-```
+See ["The Base Plotting System"](../code/programming-supplement.html#The_Base_Plotting_System) in the programming supplement.
 
 --- .content_slide
 
@@ -267,19 +256,11 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
 
 <h2>Histograms and Densities</h2>
 
-The base plotting system can be a great tool for quick exploratory analysis of data, such as examination of the distribution of variables in your data.
+Histograms and densities are useful for examining distributions.
 
-```{r histAndDensity, echo = TRUE, eval = FALSE}
-# Minimal Histogram
-hist(iris$Petal.Length)
+<center><img src="assets/img/hist-density.png" style="max-width:80%;"></center>
 
-# Better histogram
-hist(iris$Petal.Length, main = "Distribution of petal length",
-     xlab = "petal length", breaks = 25)
-
-# Empirical density
-plot(density(iris$Petal.Length), main = "Empirical density of petal length", col = "blue")
-```
+See ["The Base Plotting System"](../code/programming-supplement.html#The_Base_Plotting_System) in the programming supplement.
 
 --- .content_slide
 
@@ -290,19 +271,9 @@ plot(density(iris$Petal.Length), main = "Empirical density of petal length", col
 
 <h2>Multi-variable line charts</h2>
 
-You can add more than one variable to these plots! Let's compare the densities of Sepal length by species
+You can add more than one variable to these plots!
 
-```{r compareDensities, echo = TRUE, eval = FALSE}
-# Overlay densities of Petal length by species
-plot(density(iris[iris$Species == "setosa", "Petal.Length"]),
-     main = "Empirical density of petal length", col = "blue",
-     xlim = c(0, 7), ylim = c(0, 2.5))
-lines(density(iris[iris$Species == "versicolor", "Petal.Length"]), col = "red")
-lines(density(iris[iris$Species == "virginica", "Petal.Length"]), col = "black")
-
-# Add a legend
-legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), pch = 1)
-```
+<center><img src="assets/img/multiline-plot.png" style="max-width:80%;"></center>
 
 --- .content_slide
 
@@ -313,21 +284,9 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c("blue", "red", "black"), 
 
 <h2>Creating a Grid of plots</h2>
 
-You can control the plotting options to make a grid of plots. The code below creates a 2x2 grid with a density for Sepal Width and scatter plots of the other three variables against sepal width.
+You can combine multiple plots in a grid layout. See ["The Base Plotting System"](../code/programming-supplement.html#The_Base_Plotting_System) for an example.
 
-```{r gridOfPlots, echo = TRUE, eval = FALSE}
-# Set global options
-par(mfrow = c(2,2))
-
-# Dump in some plots
-plot(density(iris$Sepal.Width), main = "Empirical density of petal length", col = "red")
-plot(x = iris$Sepal.Width, y = iris$Sepal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Width, col = iris$Species, bg = iris$Species, pch = 21)
-
-# reset options
-par(mfrow = c(1,1))
-```
+<center><img src="assets/img/plot-grid.png" style="max-width:75%;"></center>
 
 --- .content_slide
 
@@ -342,6 +301,7 @@ We don't have time in this short class to go into great depth on data visualizat
 
 - [ggplot2](http://www.r-graph-gallery.com/portfolio/ggplot2-package/): One of the most popular packages in the R world. Based on the "grammar of graphics" approach to building plots
 - [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html): Send your data to the google charts API to make fancy interactive visualizations
+- [plotly](https://plotly.com/r/): easy-to-use library for creating interactive data visualizations and dashboards
 - [rbokeh](https://hafen.github.io/rbokeh/#preview): high-level library for creating interactive charts that can be embedded directly in HTML
 
 --- .content_slide
@@ -355,21 +315,7 @@ We don't have time in this short class to go into great depth on data visualizat
 
 When R (or any other program!) creates plots, it needs to know where to put them! When you call `plot()` or other commands from within and RStudio session, the default is to just display the resulting figure in the "Plots" pane. However, you can use other **graphics devices** (places to put visual output) to tell R to put your figures elsewhere.
 
-```{r path2png, eval = FALSE, echo = TRUE}
-# Create 10 plots in a loop
-outDir <- file.path(Sys.getenv("HOME"), "sandbox")
-for (i in 1:10){
-    # Open a connection to a .png file
-    filePath <- paste0(outDir, "/plot_", i, ".png")
-    png(filePath)
-
-    # Write out a plot to that file
-    plot(x = rnorm(100), y = rnorm(100))
-
-    # Close the connection to that file
-    dev.off()
-}
-```
+<center><img src="assets/img/plot-files.png" style="max-width:40%;"></center>
 
 --- .section_slide
 

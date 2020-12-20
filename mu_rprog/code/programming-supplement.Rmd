@@ -782,7 +782,11 @@ library(quantmod)
 library(rbokeh)
 
 # Get data and plot it
-quantmod::getSymbols('CPIAUCSL', src = 'FRED')
+quantmod::getSymbols(
+    Symbols = "CPIAUCSL"
+    , src = "FRED"
+    , auto.assign = TRUE
+)
 cpiDT <- data.table::data.table(
     CPIAUCSL
     , keep.rownames = TRUE
@@ -892,7 +896,7 @@ All relative paths in R are relative to your **working directory**, a single loc
 ```{r setwdExample, eval = FALSE, echo = TRUE}
 # Check and then change the current working directory
 print(getwd())
-sandbox_repo <- file.path(Sys.getenv("HOME"), "repos", "sandbox")
+sandbox_repo <- file.path(getwd(), "repos", "sandbox")
 setwd(sandbox_repo)
 
 # Reference a file with a full path
@@ -919,7 +923,7 @@ R provides a few other utilities for working with file paths and directory struc
 ```{r moarFilez, eval = FALSE, echo = TRUE}
 # List all the files in some directory and put the list in a vector
 docs_dir <- file.path(
-    Sys.getenv("HOME")
+    getwd()
     , "some_folder"
     , "docs"
 )
@@ -1057,7 +1061,7 @@ openxlsx::writeData(
 )
 
 # Write out the file
-testing_file <- file.path(Sys.getenv("HOME"), "testing.xlsx")
+testing_file <- "testing.xlsx"
 openxlsx::saveWorkbook(
     wb = testWB
     , file = testing_file
@@ -1300,7 +1304,7 @@ legend(
   x = 7
   , y = 4.3
   , unique(iris$Species)
-  , col = 1:length(iris$Species)
+  , col = seq_len(length(iris$Species))
   , pch = 1
 )
 ```
@@ -1330,7 +1334,6 @@ plot(
 You can add more than one variable to these plots! Let's compare the densities of Sepal length by species
 
 ```{r compareDensities}
-
 # Overlay densities of Petal length by species
 plot(
   density(iris[iris$Species == "setosa", "Petal.Length"])
@@ -1355,35 +1358,48 @@ legend(
 You can control the plotting options to make a grid of plots. The code below creates a 2x2 grid with a density for Sepal Width and scatter plots of the other three variables against sepal width.
 
 ```{r gridOfPlots}
-# Set global options
 par(mfrow = c(2,2))
 
-# Dump in some plots
 plot(
   density(iris$Sepal.Width)
   , main = "Empirical density of petal length"
   , col = "red"
 )
 plot(
-  x = iris$Sepal.Width
-  , y = iris$Sepal.Length
-  , col = iris$Species
-  , bg = iris$Species
-  , pch = 21
+    x = iris[iris$Species == "setosa", "Sepal.Width"]
+    , y = iris[iris$Species == "setosa", "Petal.Length"]
+    , ylab = "Petal Length"
+    , xlab = "Sepal Width"
+    , ylim = range(iris$Petal.Length)
+    , xlim = range(iris$Sepal.Width)
+    , main = "sepal width vs petal length (species = setosa)"
+    , col = 1
+    , bg = 1
+    , pch = 21
 )
 plot(
-  x = iris$Sepal.Width
-  , y = iris$Petal.Length
-  , col = iris$Species
-  , bg = iris$Species
-  , pch = 21
+    x = iris[iris$Species == "versicolor", "Sepal.Width"]
+    , y = iris[iris$Species == "versicolor", "Petal.Length"]
+    , ylab = "Petal Length"
+    , xlab = "Sepal Width"
+    , ylim = range(iris$Petal.Length)
+    , xlim = range(iris$Sepal.Width)
+    , main = "sepal width vs petal length (species = versicolor)"
+    , col = 2
+    , bg = 2
+    , pch = 21
 )
 plot(
-  x = iris$Sepal.Width
-  , y = iris$Petal.Width
-  , col = iris$Species
-  , bg = iris$Species
-  , pch = 21
+    x = iris[iris$Species == "virginica", "Sepal.Width"]
+    , y = iris[iris$Species == "virginica", "Petal.Length"]
+    , ylab = "Petal Length"
+    , xlab = "Sepal Width"
+    , ylim = range(iris$Petal.Length)
+    , xlim = range(iris$Sepal.Width)
+    , main = "sepal width vs petal length (species = virginica)"
+    , col = 3
+    , bg = 3
+    , pch = 21
 )
 
 # reset options
@@ -1395,11 +1411,17 @@ par(mfrow = c(1,1))
 When R (or any other program!) creates plots, it needs to know where to put them! When you call `plot()` or other commands from within and RStudio session, the default is to just display the resulting figure in the "Plots" pane. However, you can use other **graphics devices** (places to put visual output) to tell R to put your figures elsewhere.
 
 ```{r path2png, eval = FALSE, echo = TRUE}
+outDir <- file.path(getwd(), "plots")
+
+if (!dir.exists(outDir)) {
+    dir.create("plots")
+}
+
 # Create 10 plots in a loop
-outDir <- getwd()
-for (i in 1:10){
+for (i in seq_len(10)){
     # Open a connection to a .png file
-    filePath <- paste0(outDir, "/plot_", i, ".png")
+    fileName <- paste0("plot_", i, ".png")
+    filePath <- file.path(outDir, fileName)
     png(filePath)
     
     # Write out a plot to that file
@@ -1564,7 +1586,7 @@ set.seed(708)
 
 ```{r traintest, eval = TRUE, echo = TRUE}
 # Test vs. Training Data: Let's hold out 40 random records right now for testing
-testIndx    <- sample(1:nrow(swiss), size = 10, replace = FALSE)
+testIndx    <- sample(seq_len(nrow(swiss)), size = 10, replace = FALSE)
 swissTestDF <- swiss[testIndx,]
 swiss       <- swiss[-testIndx,]
 ```
@@ -2017,7 +2039,7 @@ createSentence <- function(){
 # Function to create a "page" with n sentences
 createPage <- function(n){
 
-    # Call the function to create pages n times
+    # Call the function to create a sentence n times
 
     # Paste the n results together into one string, separated by a period and a space.
 
@@ -2079,9 +2101,9 @@ createSentence <- function(){
 # Function to create a "page" with n sentences
 createPage <- function(n){
 
-    # Call the function to create pages n times
+    # Call the function to create a sentence n times
     some_sentences <- sapply(
-        X = 1:n
+        X = seq_len(n)
         , FUN = function(x){
             createSentence()
         }
@@ -2099,7 +2121,7 @@ createBook <- function(n_pages, sentences_per_page){
 
     # Call the function to create pages n_pages times
     a_book <- lapply(
-        X = 1:n_pages
+        X = seq_len(n_pages)
         , FUN = function(x){
             createPage(n = sentences_per_page)
         }
@@ -2148,7 +2170,11 @@ VAR_UNITS   <- "Index (1982-1984 = 100)" # "% of labor force"
 #===== 2. Get Data =====#
 
 # Get data from FRED
-quantmod::getSymbols(Symbols = FRED_SERIES, src = 'FRED')
+quantmod::getSymbols(
+    Symbols = FRED_SERIES
+    , src = "FRED"
+    , auto.assign = TRUE
+)
 
 # Put it in a data.table
 dataDT <- data.table::data.table(
@@ -2212,7 +2238,7 @@ You can do most of the setup with R code!
 1. set your working directory (with `setwd()`) to wherever you'd like the package to live.
 
 ```{r, eval=FALSE}
-repo_directory <- file.path(Sys.getenv("HOME"), "repos")
+repo_directory <- file.path(getwd(), "repos")
 dir.create(
     repo_directory
     , showWarnings = FALSE
@@ -2349,7 +2375,7 @@ Now that we have a function in the package, we need to generate documentation fo
 1. Set your working directory to the package
 
 ```{r, eval = FALSE, echo = TRUE}
-package_path <- file.path(Sys.getenv("HOME"), "repos", "RquetteBB")
+package_path <- file.path(getwd(), "repos", "RquetteBB")
 setwd(package_path)
 ```
 
@@ -2644,5 +2670,5 @@ CompareOnStats(
 
 ## Additional Resources
 
-- **writing packages**: [Hillary Parker tutorial](https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/) | [Hadley's R Packages book](http://r-pkgs.had.co.nz/)
+- **writing packages**: [Hilary Parker tutorial](https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/) | [Hadley's R Packages book](http://r-pkgs.had.co.nz/)
 - **unit testing**: [Getting Started with testthat](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf) | [testthat repo](https://github.com/hadley/testthat) | [testthat docs](https://cran.r-project.org/web/packages/testthat/index.html)
