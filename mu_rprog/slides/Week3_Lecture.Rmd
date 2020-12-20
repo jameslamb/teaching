@@ -228,13 +228,9 @@ R's built-in plotting tools, called "the base plotting system", is one of its mo
 
 <br>
 
-The essential idea of the base plotting system is to build up plots in layers. You first create a simple 1-variable line plot, for example, then "add on" a legend, more variables, other plot types, etc. We'll try a few examples using the sample data created below.
+The essential idea of the base plotting system is to build up plots in layers. You first create a simple plot, then "add on" a legend, more variables, other plot types, etc.
 
-```{r getPlotData, echo = TRUE, eval = FALSE}
-# Load up the famous iris dataset
-data("iris")
-head(iris, n = 10)
-```
+See ["The Base Plotting System"](../code/programming-supplement.html#The_Base_Plotting_System) in the programming supplement.
 
 --- .content_slide
 
@@ -243,12 +239,12 @@ head(iris, n = 10)
     Visualizing Data<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Creating a Line Plot</h2>
+<h2>Creating a Scatter Plot</h2>
 
-Let's start with a simple line plot to answer the question *are sepal length and sepal width related?*
+Let's start with a simple scatter plot to answer the question *are sepal length and sepal width related?*
 
 ```{r baseLinePlot, eval = FALSE, echo = TRUE}
-# Create a simple line plot
+# Create a simple scatter plot
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = "p")
 
 # Try again, but with labels!

@@ -1028,17 +1028,31 @@ mean(bigCarIndex)
 
 <p><strong>Subsetting</strong> is the act of retrieving a portion of an object, usually based on some logical condition (e.g. &quot;all elements greater than 5&quot;). In R, this is done with the <code>[</code> operator.</p>
 
-<pre><code class="subset_vecs"># Create a vector to work with
+<pre><code class="r"># Create a vector to work with
 myVec &lt;- c(var1 = 10, var2 = 15, var3 = 20, av4 = 6)
 
 # &quot;the first element&quot;
 myVec[1]
+</code></pre>
 
-# &quot;second to fourth elements&quot;
+<pre><code>## var1 
+##   10
+</code></pre>
+
+<pre><code class="r"># &quot;second to fourth elements&quot;
 myVec[2:4]
+</code></pre>
 
-# &quot;the element named var3&quot;
+<pre><code>## var2 var3  av4 
+##   15   20    6
+</code></pre>
+
+<pre><code class="r"># &quot;the element named var3&quot;
 myVec[&quot;var3&quot;]
+</code></pre>
+
+<pre><code>## var3 
+##   20
 </code></pre>
 
   </article>
@@ -1056,7 +1070,29 @@ myVec[&quot;var3&quot;]
 
 <h2>Subsetting Lists</h2>
 
-<p>Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use <code>[</code> with a list, you are guaranteed to get back another list. If you use <code>[[</code>, you will get back an object in its natural form (whatever it would look like if it wasn&#39;t in the list). You can also use <code>$</code> to access named elements.</p>
+<p>Lists, arbitrary collections of R objects, support three subsetting operators.</p>
+
+<ul>
+<li><code>[</code> = returns a 1-element list
+
+<ul>
+<li><code>someList[&quot;grades&quot;]</code></li>
+<li><code>someList[1]</code></li>
+</ul></li>
+<li><code>[[</code> = returns the object in its natural form (whatever it would look like if it wasn&#39;t in a list)
+
+<ul>
+<li><code>someList[[&quot;grades&quot;]]</code></li>
+<li><code>someList[[1]]</code></li>
+</ul></li>
+<li><code>$</code> = similar to <code>[[</code>, but uses unquoted keys and cannot use positions
+
+<ul>
+<li><code>someList$grades</code></li>
+</ul></li>
+</ul>
+
+<p><br></p>
 
 <p>Please see <a href="../code/programming-supplement.html#Subsetting_Lists">&quot;Subsetting Lists&quot;</a> in the programming supplement.</p>
 
