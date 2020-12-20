@@ -98,14 +98,14 @@ Due before class: Pre-course survey
 
 \begin{itemize}
     \item Introductions
-    \item Brief syllabus review
+    \item Syllabus review
     \item Environment setup
-    \item What is R?
+    \item Introduction to R
     \item Variables, namespaces, objects, and types
-    \item What is functional programming?
     \item Basic math operations in R
-    \item Controlling program flow: if-then, for, and while
-    \item Introduction to data frames
+    \item Data structures
+    \item Subsetting
+    \item Controlling program flow (if, for, while)
 \end{itemize}
 
 \underline{Week 2: December 21, 2020}
@@ -113,13 +113,10 @@ Due before class: Pre-course survey
 Due before class: Quiz 1
 
 \begin{itemize}
-    \item Using External Packages
-    \item Fitting Regressions in R
-    \item Subsetting
+    \item Functions
+    \item Using external packages
+    \item Debugging
     \item Working with Files
-    \item Introduction to data.table
-    \item User-Defined Functions
-    \item Debugging Strategies
 \end{itemize}
 
 \underline{Week 3: December 28, 2020}
@@ -127,12 +124,9 @@ Due before class: Quiz 1
 Due before class: Quiz 2, Programming Assignment 1
 
 \begin{itemize}
-    \item Getting data from databases
-    \item Working with web APIs
     \item Dealing with missing data
-    \item Visualizing Data
-    \item More data.table
-    \item Final Project Discussion
+    \item Visualizing data
+    \item Combining and transforming data frames
 \end{itemize}
 
 \underline{Week 4: January 4, 2021}
@@ -140,10 +134,10 @@ Due before class: Quiz 2, Programming Assignment 1
 Due before class: Programming Assignment 2, Final Project Proposal
 
 \begin{itemize}
-    \item Introduction to regular expressions
-    \item Dates and Time Series
-    \item Review of Material From Weeks 1-3
-    \item Discussion of Project Proposals
+    \item Statistical analysis
+    \item Working with text
+    \item Building software
+    \item Final project discussion
 \end{itemize}
 
 \underline{Week 5: January 15, 2021}
@@ -152,8 +146,7 @@ Due before class: Final Project script + report
 
 \begin{itemize}
     \item Final Project Code Reviews
-    \item Intermediate R: functional programming
-    \item Intermediate R: wrapping your code in a package
+    \item Writing R packages
     \item R/Data Science AMA
 \end{itemize}
 
