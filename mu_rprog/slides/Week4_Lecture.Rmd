@@ -239,11 +239,11 @@ regPreds2 <- EvaluateModel(
 
 <h2>Regression Trees</h2>
 
-Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data.
+Linear regressions aren't the right tool when the relationships between the independent variables and the target are non-linear. In this situation, regression trees might perform better.
 
-Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
+<center><img src="assets/img/regression-tree.png" style="max-width:50%;"></center>
 
-The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
+See  [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) for a nice visual overview of the key concepts.
 
 --- .content_slide
 
@@ -256,22 +256,11 @@ The details of tree-based learning are outside the scope of this class, but I en
 
 For larger datasets, you may find that a single decision tree does not perform well. It's common to use a "forest" of decision trees.
 
-```{r randomForest, eval = FALSE}
-# Fit
-rfMod <- randomForest::randomForest(
-  Fertility ~ .
-  , data = swiss
-  , ntree = 50
-  , do.trace = TRUE
-)
+<center><img src="assets/img/random-forest.png" style="max-width:50%;"></center>
 
-# Evaluate
-rfPreds <- EvaluateModel(
-  rfMod
-  , swissTestDF
-  , "Random Forest (ntree=100)"
-)
-```
+image credit: [Vern Greenholt](https://morioh.com/p/2d4243726fdb)
+
+See the ["Random Forests"](../code/programming-supplement.html#Random_Forests) in the programming supplement for an example.
 
 --- .content_slide
 
@@ -282,20 +271,13 @@ rfPreds <- EvaluateModel(
 
 <h2>Model Evaluation</h2>
 
-In a real project, at some point you will find yourself saying "OK, I have all these models. What should I actually use to generate predictions?". This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
+For a prediction tasks, you want the model that you think will perform best on new data. To get at this, you can compare how well different models perform on the held-out "test" dataset.
 
-Let's see how the models we trained in this exercise performed:
+<br><br>
+<center><img src="assets/img/model-evaluation.png" style="max-width:100%;"></center>
+<br><br>
 
-```{r modelEval, eval = FALSE}
-# Build a table showing performance of each model type on the holdout
-compDF <- data.frame(
-  modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)")
-  , MAE     = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE)
-  , MSE     = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE)
-  , MAPE    = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
-)
-print(compDF)
-```
+See the ["Model Evaluation"](../code/programming-supplement.html#Model_Evaluation) in the programming supplement for an example.
 
 --- .section_slide
 

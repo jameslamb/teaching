@@ -372,19 +372,9 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
 
 <p>Let&#39;s start with a simple scatter plot to answer the question <em>are sepal length and sepal width related?</em></p>
 
-<pre><code class="r"># Create a simple scatter plot
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = &quot;p&quot;)
+<p><center><img src="assets/img/first-scatter-plot.png" style="max-width:80%;"></center></p>
 
-# Try again, but with labels!
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = &quot;My Second R plot!&quot;,
-     xlab = &quot;sepal length&quot;, ylab = &quot;sepal width&quot;, type = &quot;p&quot;)
-
-# Try it AGAIN, this time coloring by species and a legend
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width, main = &quot;My Third R plot!&quot;,
-     xlab = &quot;sepal length&quot;, ylab = &quot;sepal width&quot;, type = &quot;p&quot;, col = iris$Species,
-     bg = iris$Species, pch = 21)
-legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1)
-</code></pre>
+<p>See <a href="../code/programming-supplement.html#The_Base_Plotting_System">&quot;The Base Plotting System&quot;</a> in the programming supplement.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -401,18 +391,11 @@ legend(x = 7,y = 4.3,unique(iris$Species), col = 1:length(iris$Species), pch = 1
 
 <h2>Histograms and Densities</h2>
 
-<p>The base plotting system can be a great tool for quick exploratory analysis of data, such as examination of the distribution of variables in your data.</p>
+<p>Histograms and densities are useful for examining distributions.</p>
 
-<pre><code class="r"># Minimal Histogram
-hist(iris$Petal.Length)
+<p><center><img src="assets/img/hist-density.png" style="max-width:80%;"></center></p>
 
-# Better histogram
-hist(iris$Petal.Length, main = &quot;Distribution of petal length&quot;,
-     xlab = &quot;petal length&quot;, breaks = 25)
-
-# Empirical density
-plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&quot;, col = &quot;blue&quot;)
-</code></pre>
+<p>See <a href="../code/programming-supplement.html#The_Base_Plotting_System">&quot;The Base Plotting System&quot;</a> in the programming supplement.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -429,18 +412,9 @@ plot(density(iris$Petal.Length), main = &quot;Empirical density of petal length&
 
 <h2>Multi-variable line charts</h2>
 
-<p>You can add more than one variable to these plots! Let&#39;s compare the densities of Sepal length by species</p>
+<p>You can add more than one variable to these plots!</p>
 
-<pre><code class="r"># Overlay densities of Petal length by species
-plot(density(iris[iris$Species == &quot;setosa&quot;, &quot;Petal.Length&quot;]),
-     main = &quot;Empirical density of petal length&quot;, col = &quot;blue&quot;,
-     xlim = c(0, 7), ylim = c(0, 2.5))
-lines(density(iris[iris$Species == &quot;versicolor&quot;, &quot;Petal.Length&quot;]), col = &quot;red&quot;)
-lines(density(iris[iris$Species == &quot;virginica&quot;, &quot;Petal.Length&quot;]), col = &quot;black&quot;)
-
-# Add a legend
-legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;red&quot;, &quot;black&quot;), pch = 1)
-</code></pre>
+<p><center><img src="assets/img/multiline-plot.png" style="max-width:80%;"></center></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -457,20 +431,9 @@ legend(x = 5.5,y = 2.25, unique(iris$Species), col = c(&quot;blue&quot;, &quot;r
 
 <h2>Creating a Grid of plots</h2>
 
-<p>You can control the plotting options to make a grid of plots. The code below creates a 2x2 grid with a density for Sepal Width and scatter plots of the other three variables against sepal width.</p>
+<p>You can combine multiple plots in a grid layout. See <a href="../code/programming-supplement.html#The_Base_Plotting_System">&quot;The Base Plotting System&quot;</a> for an example.</p>
 
-<pre><code class="r"># Set global options
-par(mfrow = c(2,2))
-
-# Dump in some plots
-plot(density(iris$Sepal.Width), main = &quot;Empirical density of petal length&quot;, col = &quot;red&quot;)
-plot(x = iris$Sepal.Width, y = iris$Sepal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Length, col = iris$Species, bg = iris$Species, pch = 21)
-plot(x = iris$Sepal.Width, y = iris$Petal.Width, col = iris$Species, bg = iris$Species, pch = 21)
-
-# reset options
-par(mfrow = c(1,1))
-</code></pre>
+<p><center><img src="assets/img/plot-grid.png" style="max-width:75%;"></center></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -492,6 +455,7 @@ par(mfrow = c(1,1))
 <ul>
 <li><a href="http://www.r-graph-gallery.com/portfolio/ggplot2-package/">ggplot2</a>: One of the most popular packages in the R world. Based on the &quot;grammar of graphics&quot; approach to building plots</li>
 <li><a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a>: Send your data to the google charts API to make fancy interactive visualizations</li>
+<li><a href="https://plotly.com/r/">plotly</a>: easy-to-use library for creating interactive data visualizations and dashboards</li>
 <li><a href="https://hafen.github.io/rbokeh/#preview">rbokeh</a>: high-level library for creating interactive charts that can be embedded directly in HTML</li>
 </ul>
 
@@ -512,20 +476,7 @@ par(mfrow = c(1,1))
 
 <p>When R (or any other program!) creates plots, it needs to know where to put them! When you call <code>plot()</code> or other commands from within and RStudio session, the default is to just display the resulting figure in the &quot;Plots&quot; pane. However, you can use other <strong>graphics devices</strong> (places to put visual output) to tell R to put your figures elsewhere.</p>
 
-<pre><code class="r"># Create 10 plots in a loop
-outDir &lt;- file.path(Sys.getenv(&quot;HOME&quot;), &quot;sandbox&quot;)
-for (i in 1:10){
-    # Open a connection to a .png file
-    filePath &lt;- paste0(outDir, &quot;/plot_&quot;, i, &quot;.png&quot;)
-    png(filePath)
-
-    # Write out a plot to that file
-    plot(x = rnorm(100), y = rnorm(100))
-
-    # Close the connection to that file
-    dev.off()
-}
-</code></pre>
+<p><center><img src="assets/img/plot-files.png" style="max-width:40%;"></center></p>
 
   </article>
   <!-- Presenter Notes -->
