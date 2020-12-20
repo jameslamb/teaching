@@ -1254,7 +1254,7 @@ cleanDF <- randomForest::na.roughfix(testDF)
 
 R is famous, in part, for its ability to create production-quality plots within the default graphics package it ships with. This plotting paradigm is often referred to as "the base plotting system".
 
-The essential idea of the base plotting system is to build up plots in layers. You first create a simple 1-variable line plot, for example, then "add on" a legend, more variables, other plot types, etc. We'll try a few examples using the sample data created below.
+The essential idea of the base plotting system is to build up plots in layers. You first create a simple scatter plot, for example, then "add on" a legend, more variables, other plot types, etc. We'll try a few examples using the sample data created below.
 
 ```{r getPlotData}
 # Load up the famous iris dataset
@@ -1262,10 +1262,10 @@ data("iris")
 head(iris, n = 10)
 ```
 
-Let's start with a simple line plot to answer the question *are sepal length and sepal width related?*.
+Let's start with a simple scatter plot to answer the question *are sepal length and sepal width related?*.
 
 ```{r baseLinePlot}
-# Create a simple line plot
+# Create a simple scatter plot
 plot(
   x = iris$Sepal.Length
   , y = iris$Sepal.Width
@@ -1872,7 +1872,7 @@ The sonnets officially begin a few lines after the text "THE SONNETS". So to sta
 # find where the sonnets begin
 START_TEXT <- "THE SONNETS"
 start_position <- which(bsText == START_TEXT) + 5
-bsText <- bs_text[start_position:length(bsText)]
+bsText <- bsText[start_position:length(bsText)]
 ```
 
 ```{r textConversions}

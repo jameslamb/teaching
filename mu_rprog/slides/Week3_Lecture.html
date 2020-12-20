@@ -351,12 +351,9 @@ cleanDF &lt;- randomForest::na.roughfix(testDF)
 
 <p><br></p>
 
-<p>The essential idea of the base plotting system is to build up plots in layers. You first create a simple 1-variable line plot, for example, then &quot;add on&quot; a legend, more variables, other plot types, etc. We&#39;ll try a few examples using the sample data created below.</p>
+<p>The essential idea of the base plotting system is to build up plots in layers. You first create a simple plot, then &quot;add on&quot; a legend, more variables, other plot types, etc.</p>
 
-<pre><code class="r"># Load up the famous iris dataset
-data(&quot;iris&quot;)
-head(iris, n = 10)
-</code></pre>
+<p>See <a href="../code/programming-supplement.html#The_Base_Plotting_System">&quot;The Base Plotting System&quot;</a> in the programming supplement.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -371,11 +368,11 @@ head(iris, n = 10)
     Visualizing Data<span style="float:right">R Programming</span>
 </footer></p>
 
-<h2>Creating a Line Plot</h2>
+<h2>Creating a Scatter Plot</h2>
 
-<p>Let&#39;s start with a simple line plot to answer the question <em>are sepal length and sepal width related?</em></p>
+<p>Let&#39;s start with a simple scatter plot to answer the question <em>are sepal length and sepal width related?</em></p>
 
-<pre><code class="r"># Create a simple line plot
+<pre><code class="r"># Create a simple scatter plot
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, type = &quot;p&quot;)
 
 # Try again, but with labels!

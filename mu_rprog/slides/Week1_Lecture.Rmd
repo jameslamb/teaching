@@ -673,7 +673,7 @@ mean(bigCarIndex)
 
 **Subsetting** is the act of retrieving a portion of an object, usually based on some logical condition (e.g. "all elements greater than 5"). In R, this is done with the `[` operator.
 
-```{subset_vecs}
+```{r subsetVecs}
 # Create a vector to work with
 myVec <- c(var1 = 10, var2 = 15, var3 = 20, av4 = 6)
 
@@ -696,7 +696,18 @@ myVec["var3"]
 
 <h2>Subsetting Lists</h2>
 
-Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors. If you use `[` with a list, you are guaranteed to get back another list. If you use `[[`, you will get back an object in its natural form (whatever it would look like if it wasn't in the list). You can also use `$` to access named elements.
+Lists, arbitrary collections of R objects, support three subsetting operators.
+
+* `[` = returns a 1-element list
+    - `someList["grades"]`
+    - `someList[1]`
+* `[[` = returns the object in its natural form (whatever it would look like if it wasn't in a list)
+    - `someList[["grades"]]`
+    - `someList[[1]]`
+* `$` = similar to `[[`, but uses unquoted keys and cannot use positions
+    - `someList$grades`
+
+<br>
 
 Please see ["Subsetting Lists"](../code/programming-supplement.html#Subsetting_Lists) in the programming supplement.
 
