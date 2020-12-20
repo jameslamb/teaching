@@ -29,7 +29,7 @@ You should use this supplement to follow along and try executing the example cod
 
 When you execute a statement like `x <- 5` in R, you are creating an **object** in memory which holds the numeric **value** 5 and is referenced by the **variable name** "x".
 
-If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thoguht of as collections of labels pointing to places in memory. You can use R's `search()` command to examine the ordered list of namespaces that R will search in for variables.
+If you later ask R to do something like `y <- x + 2`, it will search sequentially through a series of **namespaces** until it finds a variable called "x". Namespaces can be thought of as collections of labels pointing to places in memory. You can use R's `search()` command to examine the ordered list of namespaces that R will search in for variables.
 
 ```{r namespaces}
 # Check the search path of namespaces
@@ -84,7 +84,7 @@ rep(TRUE, 6)
 # Concatenate multiple values with the "c" operator
 c("all", "of", "the", "lights")
 
-# Watch out! Mixing types wil lead to silent coercion
+# Watch out! Mixing types will lead to silent coercion
 c(1, TRUE, "hellos")
 
 # Some functions, when applied over a vector, return a single value
@@ -109,7 +109,7 @@ c(x, y)
 
 ## Lists
 
-Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle casses where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
+Vectors are the first multi-item data structure all R programmers learn. Soon, though, you may find yourself frustrated with the fact that they can only hold a single type. To handle cases where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
 
 |Capabilities                        |Vectors |Lists   |
 |:----------------------------------:|:------:|:------:|
@@ -143,7 +143,7 @@ str(regions)
 str(region_fac)
 ```
 
-What does it mean for `region` to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep aroudn a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
+What does it mean for `region` to be a factor? Essentially, a factor is a categorical variable. R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
 
 ```{r factorVar2}
 # Check it out! R has assigned integer values to the "region_fac" variable
@@ -345,7 +345,7 @@ someDF[1:3, c("wins", "ppg")]
 
 ## Using Logical Vectors
 
-So far, we've seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the obejct you're working with.
+So far, we've seen how to subset R objects using numeric indices and named elements. These are useful approaches, but both require you to know something about the contents of the object you're working with.
 
 Using these methods (especially numeric indices like saying *give me columns 2-4*) can make your code confusing and hard for others to reason about. Wherever possible, I strongly recommend using logical vectors for subsetting. This makes your code intuitive and more flexible to change.
 
@@ -1212,7 +1212,7 @@ cleanDF <- myDF[complete.cases(myDF), ]
 
 ## Strategy 2: Handle on Subsets
 
-You may find the "remove all the NAs everywhere" strategy a bit too aggreesive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
+You may find the "remove all the NAs everywhere" strategy a bit too aggressive for your use case. If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA? A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
 ```{r subsetNAwisely}
 # Create a data frame where some variable have more NAs than others
@@ -1615,16 +1615,16 @@ One approach to looking for statistically interesting features (right-hand-side 
 ```{r hypothesisTests}
 # t-tests
 
-# 1. Is fertility very different in provinces with above-median % of men in Agriculture
+# Is fertility very different in provinces with above-median % of men in Agriculture
 swiss$majority_agg <- swiss$Agriculture > median(swiss$Agriculture)
 t.test(Fertility ~ majority_agg, data = swiss)
 
-# 2. Let's create this feature for every variable (we'll re-use it)
+#  Let's create this feature for every variable (we'll re-use it)
 
-#=== a. Drop that majority_agg feature
+#=== Drop that majority_agg feature
 swiss$majority_agg <- NULL
 
-#=== b. Create the binary columns
+#=== Create the binary columns
 x_var_names <- names(swiss)[names(swiss) != "Fertility"]
 for (var_name in x_var_names){
 
@@ -1639,7 +1639,7 @@ for (var_name in x_var_names){
 We can use `lapply()` to apply the same test to every variable in our data frame.
 
 ```{r tTestFunc}
-# 3. Could just loop over every non-Fertility column and do this test!
+# Could just loop over every non-Fertility column and do this test!
 bin_var_names <- grep("_above_median", names(swiss), value = TRUE)
 t_tests <- lapply(bin_var_names, function(bin_var){
     t_test <- t.test(
@@ -1662,7 +1662,7 @@ tDT
 Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regression, estimated using the `lm()` command.
 
 ```{r simpleOLS}
-# 4. Simple regression: Fertility = f(Agriculture)
+# Simple regression: Fertility = f(Agriculture)
 mod1 <- lm(Fertility ~ Agriculture, data = swiss)
 
 # model summary
@@ -1701,7 +1701,7 @@ lines(x = 0:100, y = 0:100, col = "red")
 The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a function so it's easy to call downstream.
 
 ```{r evalFunction}
-# 5. Before moving on...lets wrap that pipeline in a function
+# Before moving on...lets wrap that pipeline in a function
 EvaluateModel <- function(model, testDF, modelName){
     # Check how well our model does on the held-out data
     preds <- predict(model, newdata = testDF)
@@ -1803,7 +1803,7 @@ rattle::fancyRpartPlot(
 
 ## Random Forests
 
-For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation detaisl are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
+For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation details are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
 
 I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
 
@@ -1943,7 +1943,7 @@ bsText <- gsub("'ll", " will", bsText)
 
 ## Tokenization
 
-The next task we need to acomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
+The next task we need to accomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
 
 ```{r tokenization}
 # Loop over the vector of lines, split on whitespace, create a list of data.frames
@@ -2226,7 +2226,7 @@ library(testthat)
 
 - An R package requires a particular directory structure, as explained below:
     - `DESCRIPTION` = a file containing information on dependencies, authors, and other useful metadata
-    - `NAMESPACE` = an auto-generated file that contains informaiton on the names of objects defined in your package and the names of objects from other packages that your package relies on
+    - `NAMESPACE` = an auto-generated file that contains information on the names of objects defined in your package and the names of objects from other packages that your package relies on
     - `LICENSE` = a text file with some statement of the license that applies to the package. Don't stress...this can be informal and goofy.
     - `R/` = a directory with all the ".R" functions that your package exports
     - `tests/testthat` = a directory with all the tests used to verify that your functions are working correctly
@@ -2455,14 +2455,14 @@ There are [four types](http://r-pkgs.had.co.nz/description.html) of dependency d
 
 - **Depends**: This section holds all things that are checked when someone calls `library()` on your package. Typically this section will just be used to enforce a minimum version of R that users of your package must have. If you put R packages here, they will automatically be loaded with `library()` whenever someone loads your package.
 - **Imports**: This section is really important. Imports holds the name of all the packages that your package's functions use. These packages will not be loaded by default when someone calls `library(your_package)` but they will be *installed* when someone tries to install your package.
-- **Suggests**: R packages that are used to support your package but aren't needed to run the code. Examples that commonly end up here are `{testthat}` for writing unit tests and `{rmarkdown}` for building documentaiton PDFs.
+- **Suggests**: R packages that are used to support your package but aren't needed to run the code. Examples that commonly end up here are `{testthat}` for writing unit tests and `{rmarkdown}` for building documentation PDFs.
 - **LinkingTo**: Irrelevant unless your package has C, C++, or Fortran code in it.
 
 ## Unit Tests
 
 In software development, it's a best practice to write your code in modular, composible "units". Units are essentially small, related pieces of functionality. It's also common to write tests for these bit of code, commonly referred to as "unit tests".
 
-The main idea behind [unit tests](https://en.wikipedia.org/wiki/Unit_testing) is to try to imagine every possible type of input that a user might try to feed to your function, and then to test that the function does what it should when given that input. These tests are tedious to write at first, but they help you to make chagnes rapidly in the future...you can experiment and innovate with confidence when you know that your tests will catch any mistakes you make!
+The main idea behind [unit tests](https://en.wikipedia.org/wiki/Unit_testing) is to try to imagine every possible type of input that a user might try to feed to your function, and then to test that the function does what it should when given that input. These tests are tedious to write at first, but they help you to make changes rapidly in the future...you can experiment and innovate with confidence when you know that your tests will catch any mistakes you make!
 
 The preferred unit testing framework in R is a package called `{testthat}`. The easiest way to learn this package is just to use it...let's try it out!
 
@@ -2489,11 +2489,11 @@ Save this file, the run `testthat::test_dir("tests/testthat/")` from the console
 
 <center><img src="../slides/assets/img/test-output.png" height=200px, width=400px></center>
 
-The text in white is the "context" you specified. The white dot signifies one passed tests. The number 1 indicates your first test failure. I you had 5 failures and 12 successes you may see somthing like `.1...23...4...5..`. 
+The text in white is the "context" you specified. The white dot signifies one passed tests. The number 1 indicates your first test failure. I you had 5 failures and 12 successes you may see something like `.1...23...4...5..`. 
 
-It looks like we messed up our second test! We were testing that the result would be numeric, but this funciton will always return a character vector. Change the "numeric" to "character'" in your test file and re-run.
+It looks like we messed up our second test! We were testing that the result would be numeric, but this function will always return a character vector. Change the "numeric" to "character'" in your test file and re-run.
 
-FWIW...the test we just wrote is called an "end-to-end" test. Basically, that means a "test where we didn't do anything weird". End-to-end tests are the most straightfoward, since they just involve testing that the funciton behaves as expected with the expected input type. Other tests (we may write some later) go out of their way to test behavior in particular weird situations.
+FWIW...the test we just wrote is called an "end-to-end" test. Basically, that means a "test where we didn't do anything weird". End-to-end tests are the most straightforward, since they just involve testing that the function behaves as expected with the expected input type. Other tests (we may write some later) go out of their way to test behavior in particular weird situations.
 
 Now that we're using `testthat`, we should add it to the `Suggests` section in our `DESCRIPTION` file. Open up that file and add this under your `Imports` section.
 
@@ -2529,7 +2529,7 @@ GetData <- function(season = "2018"){
         , ".html"
     )
 
-    # Grab tables from college basketbal reference
+    # Grab tables from college basketball reference
     result <- htmltab::htmltab(
         queryURL
         , which = "//table[@id = 'per_game']"
@@ -2552,7 +2552,7 @@ GetData <- function(season = "2018"){
 
 Now that we've added a new function, we need to re-do a few thing:
 
-1. Re-run `roxygen2::roxygenize()` to regenerate package documentaiton
+1. Re-run `roxygen2::roxygenize()` to regenerate package documentation
 2. Add any new packages we've added to the `DESCRIPTION` file
     - for this, we need to add data.table and XML
 3. Write unit tests
@@ -2584,9 +2584,9 @@ test_that("GetData should return a data.table", {
 
 ## Add One More Function to Plot Data
 
-You're doing great! We should add one more function to the package. This function, `CompareOnStats()`, should take a data table of season stats and create a scatterplot showing pairs of statistics for each player. For example, you could use this function to answer the question *Did Marquette's highest scorers also tend to be beter rebounders?*.
+You're doing great! We should add one more function to the package. This function, `CompareOnStats()`, should take a data table of season stats and create a scatterplot showing pairs of statistics for each player. For example, you could use this function to answer the question *Did Marquette's highest scorers also tend to be better rebounders?*.
 
-You're a pro at adding new functions now, so I won't belabor the points about adding documentation, updating the DESCRIPTION file, etc.. Let's jump straight into an implementation of the funciton:
+You're a pro at adding new functions now, so I won't belabor the points about adding documentation, updating the DESCRIPTION file, etc.. Let's jump straight into an implementation of the function:
 
 **RquetteBB/R/my_functions.R**
 

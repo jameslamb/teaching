@@ -1,6 +1,6 @@
 Package: RquetteBB
 Type: Package
-Title: Marquette BB in R
+Title: Marquette Men's Basketball in R
 Version: 0.1
 Authors@R: person("James", "Lamb", email = "jaylamb20@gmail.com", role = c("aut", "cre"))
 Description: This package can be used to pull, analyze, and visualize Marquette men's basketball data.
@@ -14,7 +14,7 @@ Suggests:
 	roxygen2,
 	testthat
 URL: https://github.com/jameslamb/teaching/tree/main/mu_rprog/code/RquetteBB
-BugReports: https://github.com/jameslamb/teaching//issues
+BugReports: https://github.com/jameslamb/teaching/issues
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true

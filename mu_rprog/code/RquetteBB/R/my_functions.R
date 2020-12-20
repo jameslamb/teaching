@@ -44,7 +44,7 @@ GetData <- function(team = "marquette", season = "2018") {
         , season
     )
 
-    # Grab tables from college basketbal reference
+    # Grab tables from college basketball reference
     result <- htmltab::htmltab(
         queryURL
         , which = "//table[@id = 'per_game']"
