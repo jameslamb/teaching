@@ -1410,280 +1410,6 @@ for (i in 1:10){
 }
 ```
 
-# Statistical Analysis
-
-R Was Made for Statistics!
-
-In this section, we're going to walk through all the steps of basic statistical analysis: getting data, exploring it, creating features, building models, evaluating models, and comparing those models' performance.
-
-<center><img src="../slides/assets/img/statistics.jpg"></center>
-
-## Getting and Splitting the Data
-
-We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html) dataset. This cross-sectional dataset contains measures of fertility and some economic indicators collected in Switzerland in 1888. Our first task will be to load the data and immediately hold out a piece of it as [testing data](http://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test). The idea here is that when we evaluate the performance of our models later on, it will be better to do it on data that the models haven't seen. This will give a more honest picture of how well they might perform on new data.
-
-In this exercise, we're going to evaluate the following question: **Can we predict fertility based on regional socioeconomic characteristics?**
-
-```{r getData}
-# Load in some data
-data("swiss")
-```
-
-```{r docs, eval = FALSE, echo = TRUE}
-# Research: What do the variables mean?
-?swiss
-```
-
-```{r, eval = TRUE, echo = FALSE}
-# make the sampling below the same every time this is knitted
-set.seed(8910)
-```
-
-```{r traintest, eval = TRUE, echo = TRUE}
-# Test vs. Training Data: Let's hold out 40 random records right now for testing
-testIndx    <- sample(1:nrow(swiss), size = 10, replace = FALSE)
-swissTestDF <- swiss[testIndx,]
-swiss       <- swiss[-testIndx,]
-```
-
-## Examine Your Training Data
-
-Once you've split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on data frame columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
-
-```{r eda}
-# Look at the structure
-str(swiss)
-
-# Tables of summary stats
-summary(swiss)
-
-# Correlation matrix
-round(cor(swiss), 2)
-```
-
-## Hypothesis Testing
-
-Hypothesis tests can be enormously valuable tools for discovering differences in datasets and evaluates relationships between variables.
-
-One approach to looking for statistically interesting features (right-hand-side variables) involves binning those variables into "above median" and "below median", and using a paired t-test to see whether or not the variable is statistically related to the target.
-
-```{r hypothesisTests}
-# t-tests
-
-# 1. Is fertility very different in provinces with above-median % of men in Agriculture
-swiss$majority_agg <- swiss$Agriculture > median(swiss$Agriculture)
-t.test(Fertility ~ majority_agg, data = swiss)
-
-# 2. Let's create this feature for every variable (we'll re-use it)
-
-    #=== a. Drop that majority_agg feature
-    swiss$majority_agg <- NULL
-
-    #=== b. Create the binary columns
-    x_var_names <- names(swiss)[names(swiss) != "Fertility"]
-    for (var_name in x_var_names){
-
-        bin_var_name <- paste0(var_name, "_above_median")
-        swiss[, bin_var_name] <- swiss[, var_name] > median(swiss[, var_name])
-
-        # Remember to give the test set these new features!
-        swissTestDF[, bin_var_name] <- swissTestDF[, var_name] > median(swiss[, var_name])
-    }
-```
-
-We can use `lapply()` to apply the same test to every variable in our data frame.
-
-```{r tTestFunc}
-# 3. Could just loop over every non-Fertility column and do this test!
-bin_var_names <- grep("_above_median", names(swiss), value = TRUE)
-t_tests <- lapply(bin_var_names, function(bin_var){
-    t_test <- t.test(
-        Fertility ~ get(bin_var)
-        , data = swiss
-    )
-    p_val  <- t_test$p.value 
-    return(data.frame(
-        signal = bin_var
-        , p_val = round(t_test$p.value, 2)
-        , t_stat = round(t_test$statistic, 2)
-    ))
-})
-tDT <- data.table::rbindlist(t_tests)
-tDT
-```
-
-## Simple OLS Model
-
-Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regression, estimated using the `lm()` command.
-
-```{r simpleOLS}
-# 4. Simple regression: Fertility = f(Agriculture)
-mod1 <- lm(Fertility ~ Agriculture, data = swiss)
-
-# model summary
-summary(mod1)
-
-# QQ plot (are the residuals normal?)
-plot(mod1, which = 2)
-```
-
-Once you have the fitted model, you can pass it and some new data to `predict()` to generate predictions. I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
-
-```{r predOLS}
-# Check how well our model does on the held-out data
-preds <- predict(mod1, newdata = swissTestDF)
-errors <- swissTestDF$Fertility - preds
-
-MAE   <- mean(abs(errors))
-MSE   <- mean(errors^2)
-MAPE  <- 100*mean(abs(errors)/swissTestDF$Fertility)
-
-# Actuals vs. Preds plot
-plot(
-    x = swissTestDF$Fertility
-    , y = preds
-    , xlab = "Actual Fertility"
-    , ylab = "Predicted Fertility"
-    , main = "Predictions from a simple OLS model"
-    , ylim = c(0, 100)
-    , xlim = c(0, 100)
-)
-lines(x = 0:100, y = 0:100, col = "red")
-```
-
-## Wrap Parts of Your Pipeline in Functions
-
-The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a function so it's easy to call downstream.
-
-```{r evalFunction}
-# 5. Before moving on...lets wrap that pipeline in a function
-EvaluateModel <- function(model, testDF, modelName){
-    # Check how well our model does on the held-out data
-    preds <- predict(model, newdata = testDF)
-    errors <- testDF$Fertility - preds
-
-    MAE   <- mean(abs(errors))
-    MSE   <- mean(errors^2)
-    MAPE  <- 100 * mean(abs(errors) / testDF$Fertility)
-
-    # Actuals vs. Preds plot
-    plot(
-        x = testDF$Fertility
-        , y = preds
-        , xlab = "Actual Fertility"
-        , ylab = "Predicted Fertility"
-        , main = paste0(modelName, ": predictions")
-        , ylim = c(0, 100)
-        , xlim = c(0, 100)
-    )
-
-    # Add a 45-degree line
-    lines(x = 0:100, y = 0:100, col = "red")
-
-    # add error metrics
-    text(x = rep(5,3), y = c(72,80,88), labels = c("MAE: ", "MSE: ", "MAPE: "))
-    text(x = rep(15,3), y = c(72,80,88), labels = round(c(MAE, MSE, MAPE), 2))
-
-    # Give back the preds in case user wants to do something customized
-    return(list(
-        pred = preds
-        , MAE = MAE
-        , MSE = MSE
-        , MAPE = MAPE
-    ))
-}
-```
-
-## OLS with Multiple RHS Variables
-
-To add more variables to a model in R, you have to use formula notation.
-
-```{r olsMoreVars}
-# Fit
-mod2 <- lm(
-    Fertility ~ Education + Infant.Mortality + Examination_above_median
-    , data = swiss
-)
-
-# Predict + Evaluate
-regPreds2 <- EvaluateModel(
-    mod2
-    , testDF = swissTestDF
-    , modelName = "Expanded OLS"
-)
-```
-
-## Regression Trees
-
-Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data. 
-
-Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
-
-The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
-
-```{r tree_seed, echo = FALSE, eval = TRUE, error = FALSE}
-# set random seed so we get the same model every time these docs are generated
-set.seed(708)
-```
-  
-```{r decisionTrees}
-# Fit
-treeMod <- rpart::rpart(Fertility ~ ., data = swiss)
-
-# Evaluate
-dtPreds <- EvaluateModel(
-    treeMod
-    , swissTestDF
-    , "Decision Tree"
-)
-```
-
-You can walk through the tree with this awesome package called `rattle`. This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
-
-```{r plotTheTree, eval = TRUE, echo = TRUE}
-# Plot the tree
-rattle::fancyRpartPlot(
-    treeMod
-    , main = "Single Decision Tree"
-)
-```
-
-## Random Forests
-
-For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation detaisl are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
-
-I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
-
-```{r randomForest}
-# Fit
-rfMod <- randomForest::randomForest(
-    Fertility ~ .
-    , data = swiss
-    , ntree = 50
-    , do.trace = TRUE
-)
-
-# Evaluate
-rfPreds <- EvaluateModel(rfMod, swissTestDF, "Random Forest (ntree=100)")
-```
-
-## Model Evaluation
-
-In a real project, at some point you will find yourself saying "ok, I have all these models. What should I actually use to generate predictions?". This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
-
-Let's see how the models we trained in this exercise performed:
-
-```{r modelEval}
-# Build a table showing performance of each model type on the holdout
-compDF <- data.frame(
-    modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)")
-    , MAE     = c(regPreds2$MAE, dtPreds$MAE, rfPreds$MAE)
-    , MSE     = c(regPreds2$MSE, dtPreds$MSE, rfPreds$MSE)
-    , MAPE    = c(regPreds2$MAPE, dtPreds$MAPE, rfPreds$MAPE)
-)
-compDF
-```
-
 # Manipulating Data Frames
 
 ## Columnwise combination with cbind
@@ -1805,6 +1531,432 @@ fullDF <- data.table::rbindlist(
     , fill = TRUE
 )
 print(fullDF)
+```
+
+# Statistical Analysis
+
+R Was Made for Statistics!
+
+In this section, we're going to walk through all the steps of basic statistical analysis: getting data, exploring it, creating features, building models, evaluating models, and comparing those models' performance.
+
+<center><img src="../slides/assets/img/statistics.jpg"></center>
+
+## Getting and Splitting the Data
+
+We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html) dataset. This cross-sectional dataset contains measures of fertility and some economic indicators collected in Switzerland in 1888. Our first task will be to load the data and immediately hold out a piece of it as [testing data](http://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test). The idea here is that when we evaluate the performance of our models later on, it will be better to do it on data that the models haven't seen. This will give a more honest picture of how well they might perform on new data.
+
+In this exercise, we're going to evaluate the following question: **Can we predict fertility based on regional socioeconomic characteristics?**
+
+```{r getData}
+# Load in some data
+data("swiss")
+```
+
+```{r docs, eval = FALSE, echo = TRUE}
+# Research: What do the variables mean?
+?swiss
+```
+
+```{r, eval = TRUE, echo = TRUE}
+# make the sampling below the same every time this is knitted
+set.seed(708)
+```
+
+```{r traintest, eval = TRUE, echo = TRUE}
+# Test vs. Training Data: Let's hold out 40 random records right now for testing
+testIndx    <- sample(1:nrow(swiss), size = 10, replace = FALSE)
+swissTestDF <- swiss[testIndx,]
+swiss       <- swiss[-testIndx,]
+```
+
+## Examine Your Training Data
+
+Once you've split your data into training and test, you should start poking it a bit to see if you find anything interesting. You can use `str()` to view the contents of your data objects, `summary()` to view some basic summary statistics on data frame columns, and `cor()` to get a correlation matrix between all pairs of numeric variables.
+
+```{r eda}
+# Look at the structure
+str(swiss)
+
+# Tables of summary stats
+summary(swiss)
+
+# Correlation matrix
+round(cor(swiss), 2)
+```
+
+## Hypothesis Testing
+
+Hypothesis tests can be enormously valuable tools for discovering differences in datasets and evaluates relationships between variables.
+
+One approach to looking for statistically interesting features (right-hand-side variables) involves binning those variables into "above median" and "below median", and using a paired t-test to see whether or not the variable is statistically related to the target.
+
+```{r hypothesisTests}
+# t-tests
+
+# 1. Is fertility very different in provinces with above-median % of men in Agriculture
+swiss$majority_agg <- swiss$Agriculture > median(swiss$Agriculture)
+t.test(Fertility ~ majority_agg, data = swiss)
+
+# 2. Let's create this feature for every variable (we'll re-use it)
+
+#=== a. Drop that majority_agg feature
+swiss$majority_agg <- NULL
+
+#=== b. Create the binary columns
+x_var_names <- names(swiss)[names(swiss) != "Fertility"]
+for (var_name in x_var_names){
+
+    bin_var_name <- paste0(var_name, "_above_median")
+    swiss[, bin_var_name] <- swiss[, var_name] > median(swiss[, var_name])
+
+    # Remember to give the test set these new features!
+    swissTestDF[, bin_var_name] <- swissTestDF[, var_name] > median(swiss[, var_name])
+}
+```
+
+We can use `lapply()` to apply the same test to every variable in our data frame.
+
+```{r tTestFunc}
+# 3. Could just loop over every non-Fertility column and do this test!
+bin_var_names <- grep("_above_median", names(swiss), value = TRUE)
+t_tests <- lapply(bin_var_names, function(bin_var){
+    t_test <- t.test(
+        Fertility ~ get(bin_var)
+        , data = swiss
+    )
+    p_val  <- t_test$p.value 
+    return(data.frame(
+        signal = bin_var
+        , p_val = round(t_test$p.value, 2)
+        , t_stat = round(t_test$statistic, 2)
+    ))
+})
+tDT <- data.table::rbindlist(t_tests)
+tDT
+```
+
+## Simple OLS Model
+
+Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models! Let's begin with a simple one-variable OLS regression, estimated using the `lm()` command.
+
+```{r simpleOLS}
+# 4. Simple regression: Fertility = f(Agriculture)
+mod1 <- lm(Fertility ~ Agriculture, data = swiss)
+
+# model summary
+summary(mod1)
+
+# QQ plot (are the residuals normal?)
+plot(mod1, which = 2)
+```
+
+Once you have the fitted model, you can pass it and some new data to `predict()` to generate predictions. I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
+
+```{r predOLS}
+# Check how well our model does on the held-out data
+preds <- predict(mod1, newdata = swissTestDF)
+errors <- swissTestDF$Fertility - preds
+
+MAE   <- mean(abs(errors))
+MSE   <- mean(errors^2)
+MAPE  <- 100*mean(abs(errors)/swissTestDF$Fertility)
+
+# Actuals vs. Preds plot
+plot(
+    x = swissTestDF$Fertility
+    , y = preds
+    , xlab = "Actual Fertility"
+    , ylab = "Predicted Fertility"
+    , main = "Predictions from a simple OLS model"
+    , ylim = c(0, 100)
+    , xlim = c(0, 100)
+)
+lines(x = 0:100, y = 0:100, col = "red")
+```
+
+## Wrap Parts of Your Pipeline in Functions
+
+The error metric calculations and plotting we just did seem general enough to apply to other models of this phenomenon. Since we could reuse the code for other models, we should just wrap it in a function so it's easy to call downstream.
+
+```{r evalFunction}
+# 5. Before moving on...lets wrap that pipeline in a function
+EvaluateModel <- function(model, testDF, modelName){
+    # Check how well our model does on the held-out data
+    preds <- predict(model, newdata = testDF)
+    errors <- testDF$Fertility - preds
+
+    MAE   <- mean(abs(errors))
+    MSE   <- mean(errors^2)
+    MAPE  <- 100 * mean(abs(errors) / testDF$Fertility)
+
+    # Actuals vs. Preds plot
+    plot(
+        x = testDF$Fertility
+        , y = preds
+        , xlab = "Actual Fertility"
+        , ylab = "Predicted Fertility"
+        , main = paste0(modelName, ": predictions")
+        , ylim = c(0, 100)
+        , xlim = c(0, 100)
+    )
+
+    # Add a 45-degree line
+    lines(x = 0:100, y = 0:100, col = "red")
+
+    # add error metrics
+    text(x = rep(5,3), y = c(72,80,88), labels = c("MAE: ", "MSE: ", "MAPE: "))
+    text(x = rep(15,3), y = c(72,80,88), labels = round(c(MAE, MSE, MAPE), 2))
+
+    # Give back the preds in case user wants to do something customized
+    return(list(
+        pred = preds
+        , MAE = MAE
+        , MSE = MSE
+        , MAPE = MAPE
+    ))
+}
+
+EvaluateModel(
+    model = mod1
+    , testDF = swissTestDF
+    , modelName = "ols-1-var"
+)
+```
+
+## OLS with Multiple RHS Variables
+
+To add more variables to a model in R, you have to use formula notation.
+
+```{r olsMoreVars}
+# Fit
+mod2 <- lm(
+    Fertility ~ Education + Infant.Mortality + Examination_above_median
+    , data = swiss
+)
+
+# Predict + Evaluate
+regPreds2 <- EvaluateModel(
+    mod2
+    , testDF = swissTestDF
+    , modelName = "Expanded OLS"
+)
+```
+
+## Regression Trees
+
+Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data. 
+
+Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
+
+The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
+
+```{r tree_seed, echo = FALSE, eval = TRUE, error = FALSE}
+# set random seed so we get the same model every time these docs are generated
+set.seed(708)
+```
+  
+```{r decisionTrees}
+library(rpart)
+
+# Fit
+treeMod <- rpart::rpart(Fertility ~ ., data = swiss)
+
+# Evaluate
+dtPreds <- EvaluateModel(
+    treeMod
+    , swissTestDF
+    , "Decision Tree"
+)
+```
+
+You can walk through the tree with this awesome package called `rattle`. This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
+
+```{r plotTheTree, eval = TRUE, echo = TRUE}
+# Plot the tree
+rattle::fancyRpartPlot(
+    treeMod
+    , main = "Single Decision Tree"
+)
+```
+
+## Random Forests
+
+For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables. To correct for this, many analysts will use a "forest" of decision trees. The implementation detaisl are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
+
+I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
+
+```{r randomForest}
+library(randomForest)
+
+# Fit
+rfMod <- randomForest::randomForest(
+    Fertility ~ .
+    , data = swiss
+    , ntree = 50
+    , do.trace = TRUE
+)
+
+# Evaluate
+rfPreds <- EvaluateModel(
+  model = rfMod
+  , testDF = swissTestDF
+  , modelName = "Random Forest (ntree=50)"
+)
+```
+
+## Model Evaluation
+
+In a real project, at some point you will find yourself saying "ok, I have all these models. What should I actually use to generate predictions?". This question was our motivation for holding out a test set at the beginning of this walkthrough. Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
+
+Let's see how the models we trained in this exercise performed:
+
+```{r modelEval}
+# Linear Model
+linear_model <- lm(
+    Fertility ~ Education + Infant.Mortality + Examination_above_median
+    , data = swiss
+)
+linearPreds <- EvaluateModel(
+    linear_model
+    , testDF = swissTestDF
+    , modelName = "Expanded OLS"
+)
+
+# Regression Tree
+treeMod <- rpart::rpart(Fertility ~ ., data = swiss)
+dtPreds <- EvaluateModel(
+    treeMod
+    , swissTestDF
+    , "Decision Tree"
+)
+
+# Random Forest
+rfMod <- randomForest::randomForest(
+    Fertility ~ .
+    , data = swiss
+    , ntree = 50
+    , do.trace = TRUE
+)
+rfPreds <- EvaluateModel(
+  model = rfMod
+  , testDF = swissTestDF
+  , modelName = "Random Forest (ntree=50)"
+)
+
+# Build a table showing performance of each model type on the holdout
+compDF <- data.frame(
+    modelName = c("Expanded OLS", "Decision Tree", "Random Forest (ntree=100)")
+    , MAE     = c(linearPreds$MAE, dtPreds$MAE, rfPreds$MAE)
+    , MSE     = c(linearPreds$MSE, dtPreds$MSE, rfPreds$MSE)
+    , MAPE    = c(linearPreds$MAPE, dtPreds$MAPE, rfPreds$MAPE)
+)
+compDF
+```
+
+# Text Processing
+
+## Common Preprocessing Steps
+
+In this section, we're going to use the [Shakespeare corpus](https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt) and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
+
+```{r startTextAnalysis}
+shakespeareFile <- "https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt"
+bsText <- readLines(con = shakespeareFile)
+```
+
+If you navigate to in a web browser, you'll see that the beginning of that file has some text that isn't actually part of Shakespeare's sonnets. It's just legal disclaimers and background information.
+
+The sonnets officially begin a few lines after the text "THE SONNETS". So to start, find that line using `which()`, and remove the header text from the dataset.
+
+```{r removeHeader}
+# find where the sonnets begin
+START_TEXT <- "THE SONNETS"
+start_position <- which(bsText == START_TEXT) + 5
+bsText <- bs_text[start_position:length(bsText)]
+```
+
+```{r textConversions}
+# Convert everything to lowercase
+bsText <- tolower(bsText)
+
+# Trim leading and trailing whitespace (e.g. change "   a" to "a")
+bsText <- trimws(bsText)
+
+# Remove empty lines
+bsText <- bsText[sapply(bsText, nchar)>0]
+```
+
+## Regular Expressions
+
+After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
+
+Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let's work through some examples to demonstrate the properties.
+
+```{r regex1}
+# Remove punctuation
+bsText <- gsub(
+    pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\["
+    , replacement = ""
+    , x =  bsText
+)
+```
+
+You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
+
+```{r moreRegex}
+# split some common contractions into two words
+bsText <- gsub("he's", "he is", bsText)
+bsText <- gsub("how's", "how is", bsText)
+bsText <- gsub("it's", "it is", bsText)
+bsText <- gsub("she's", "she is", bsText)
+bsText <- gsub("that's", "that is", bsText)
+bsText <- gsub("there's", "there is", bsText)
+bsText <- gsub("what's", "what is", bsText)
+bsText <- gsub("when's", "when is", bsText)
+bsText <- gsub("where's", "where is", bsText)
+bsText <- gsub("why's", "why is", bsText)
+
+bsText <- gsub("'ll", " will", bsText)
+```
+
+## Tokenization
+
+The next task we need to acomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
+
+```{r tokenization}
+# Loop over the vector of lines, split on whitespace, create a list of data.frames
+library(stringr)
+library(data.table)
+allWords <- lapply(
+    X = bsText
+    , FUN = function(thisLine){
+        return(data.frame(words = str_split(thisLine, " ")[[1]]))
+    }
+)
+
+# Put into a data.table and print that just to make sure it worked
+wordDT <- data.table::rbindlist(allWords)
+print(wordDT[1:10], row.names = FALSE)
+```
+
+## Counting Words in Text
+
+Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
+
+The `data.table` package makes this operation easy to carry out.
+
+```{r countTheWords}
+# Get Word counts and sort by those counts
+wordCountDT <- wordDT[, .N, by = words]
+data.table::setnames(
+    wordCountDT
+    , old = "N"
+    , new = "word_count"
+)
+data.table::setorder(wordCountDT, -word_count)
+print(wordCountDT[1:10], row.names = FALSE)
+
+key_words <- wordCountDT[21:40]
 ```
 
 # Software Principles
@@ -1960,93 +2112,6 @@ createBook <- function(n_pages, sentences_per_page){
 # Call the book function and create a 5-page book
 aPirateTale <- createBook(n_pages = 5, sentences_per_page = 10)
 print(aPirateTale)
-```
-
-# Text Processing
-
-## Common Preprocessing Steps
-
-In this section, we're going to use the [Shakespeare corpus](https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt) and implement a basic "keyword extraction" pipeline. Let's start by loading it and doing some common string preprocessing on it.
-
-```{r startTextAnalysis}
-# Grab a random 5000 lines from the corpus (skipping a bunch of that MIT text at the beginning)
-shakespeareFile <- "https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt"
-bsText <- readLines(con = shakespeareFile, n = 10000)[5001:10000]
-
-# 1 - Convert everything to lowercase
-bsText <- tolower(bsText)
-
-# 2 - Trim leading and trailing whitespace (e.g. change "   a" to "a")
-bsText <- trimws(bsText)
-
-# 3 - Remove empty lines
-bsText <- bsText[sapply(bsText, nchar)>0]
-```
-
-## Regular Expressions
-
-After applying these basic steps, we're going to want to do some more powerful things like removing or replacing text based on particular character patterns. It is time to enter the mystical world of [regular expressions](https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html).
-
-Regular expressions (used in many programming languages) offer a way to express complex pattern matching. Let's work through some examples to demonstrate the properties.
-
-```{r regex1}
-# 4 - Remove punctuation
-bsText <- gsub(
-    pattern = ";|,|!|?|\\.|\\:|<|>|\\]|\\["
-    , replacement = ""
-    , x =  bsText
-)
-```
-
-You can run `sample(bsText, 10)` and see that our data are looking cleaner...but we still have work to do! Next, let's use regular expressions (commonly just called "regex") to handle some other issues.
-
-```{r moreRegex}
-# 5 - split some common contractions into two words
-bsText <- gsub("he('s)", "he is", bsText)
-bsText <- gsub("'ll", " will", bsText)
-
-# 6 - Change any numbers to __number__
-bsText <- gsub("[:digit:]", "__number__", bsText)
-```
-
-## Tokenization
-
-The next task we need to acomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words. These individual words can then be used downstream to get build a language model and identify key terms.
-
-```{r tokenization}
-# 7- Loop over the vector of lines, split on whitespace, create a list of data.frames
-library(stringr)
-library(data.table)
-allWords <- lapply(
-    X = bsText
-    , FUN = function(thisLine){
-        return(data.frame(words = str_split(thisLine, " ")[[1]]))
-    }
-)
-
-# 8 - Put into a data.table and print that just to make sure it worked
-wordDT <- data.table::rbindlist(allWords)
-print(wordDT[1:10], row.names = FALSE)
-```
-
-## Counting Words in Text
-
-Now that our data are a bit cleaner, it's time to try finding key terms! Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word). We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
-
-The `data.table` package makes this operation easy to carry out.
-
-```{r countTheWords}
-# 9 - Get Word counts and sort by those counts
-wordCountDT <- wordDT[, .N, by = words]
-data.table::setnames(
-    wordCountDT
-    , old = "N"
-    , new = "word_count"
-)
-data.table::setorder(wordCountDT, -word_count)
-print(wordCountDT[1:10], row.names = FALSE)
-
-key_words <- wordCountDT[21:40]
 ```
 
 # R Programming Best Practices
