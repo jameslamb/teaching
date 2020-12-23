@@ -19,5 +19,4 @@ install.packages(
     , dependencies = c("Depends", "Imports")
     , verbose = TRUE
     , quiet = FALSE
-    , type = "binary"
 )
