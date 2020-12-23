@@ -22,6 +22,7 @@
 
 * [Programming Assignment 1](./assignments/programming_assignment1.R)
 * [Programming Assignment 2](./assignments/programming_assignment2.html)
+* [Extra Credit Programming Assignment](./assignments/extra-credit.html)
 * [Final Project](./assignments/final_project.html)
     - [example data sources](./assignments/some_data_sources.md)
     - [package list](./assignments/final_project_packages.md)
