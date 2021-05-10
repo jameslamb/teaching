@@ -773,7 +773,7 @@ Install these packages:
 
 ```r
 install.packages(c("data.table", "quantmod", "rbokeh"))
-``
+```
 
 ```{r makePlots, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 # Load dependencies
