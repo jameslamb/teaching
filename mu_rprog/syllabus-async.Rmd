@@ -189,9 +189,9 @@ Quizzes will be delivered online via D2L (see the "Quizzes" section of the cours
 
 |Quiz                       |Opens                             |Due                      |
 |:-------------------------:|:--------------------------------:|:-----------------------:|
-|Pre-class survey           | Immediately                      | 12:00p on June 5, 2021  |
-|Quiz 1                     | Immediately                      | 12:00p on June 12, 2021 |
-|Quiz 2                     | Immediately                      | 12:00p on June 19, 2021 |
+|Pre-class survey           | Immediately                      | 11:00p on June 5, 2021  |
+|Quiz 1                     | Immediately                      | 11:00p on June 12, 2021 |
+|Quiz 2                     | Immediately                      | 11:00p on June 19, 2021 |
 
 \subsection{B. Programming Assignments (30\%)}
 
@@ -203,8 +203,8 @@ Your completed assignment must be uploaded to the appropriate folder in the "Dro
 
 |Assignment                 |Due                      |
 |:-------------------------:|:-----------------------:|
-|Programming Assignment 1   | 12:00p on June 19, 2021 |
-|Programming Assignment 2   | 12:00p on June 26, 2021 |
+|Programming Assignment 1   | 11:00p on June 19, 2021 |
+|Programming Assignment 2   | 11:00p on June 26, 2021 |
 
 \subsection{C. Final Project (45\%)}
 
@@ -225,10 +225,10 @@ Full details of the project and each of its components are available at [https:/
 
 |Assignment                      |Due                       |
 |:------------------------------:|:------------------------:|
-|Final Project proposal          | 12:00p on June 26, 2021  |
-|Final Project (script + report) | 12:00p on July 2, 2021   |
-|Final Project code review video | 12:00p on July 2, 2021   |
-|Final Project peer reviews      | 12:00p on July 2, 2021   |
+|Final Project proposal          | 11:00p on June 26, 2021  |
+|Final Project (script + report) | 11:00p on July 2, 2021   |
+|Final Project code review video | 11:00p on July 2, 2021   |
+|Final Project peer reviews      | 11:00p on July 2, 2021   |
 
 \subsection{D. Grade Appeal}
 
