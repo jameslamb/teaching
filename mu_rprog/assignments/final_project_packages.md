@@ -9,6 +9,8 @@
 - drake
 - feather
 - foreach
+- foreign
+- haven
 - httr
 - jsonlite
 - lubridate
@@ -38,6 +40,7 @@
 - prophet
 - randomForest
 - rpart
+- tidymodels
 - xgboost
 - zoo
 
@@ -50,7 +53,9 @@
 - ggforce
 - ggplot2
 - googleVis
+- ggvis
 - knitr
+- leaflet
 - openxlsx
 - patchwork
 - plotly
