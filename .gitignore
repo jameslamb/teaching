@@ -1,85 +1,61 @@
-# build artifacts
 *.7z
 *.a
+*.bak
 **/build/
 *.bz2
+*.cache
+.coverage
+*.csv
+dask-worker-space/
+*.db
 **/dist/
 *.dll
+*.doc
+*.docx
+*.docm
+*.DS_Store
 *.dylib
 **/*.egg-info/
 *.exe
-*.msi
-*.o
-**/__pycache__/
-*.py[cod]
-*.rar
-*.so
-*.tar.gz
-*.zip
-
-# documentation
-*.pdf
-
-# notebook stuff
+*history
+**/htmlcov/
+**/.idea/
 *.ipynb_checkpoints/
 *.ipynb
-
-# misc files
-*.bak
-*.DS_Store
-*.log
-*.cache
-*history
-
-# backup files from tools like aspell and sed
-*.bak
-
-# data files
-*.csv
-*.db
 *.json
-*.ndjson
-*.npy
-*.parquet
-*.pkl
-*.pq
-*.RData
-*.rda
-*.rds
-*.sqlite
-*.xls
-*.xlsm
-*.xlsx
-
-# files from local testing
-.coverage
-dask-worker-space/
-**/htmlcov/
-.mypy_cache/
-prefect-fork/*
-.pytest_cache/
-
-# editor files
-**/.idea/
-**/.vscode/
-
-# R files
-*.Rhistory
-
-# MS Office files
-*.doc
-*.docm
-*.docx
-*.ppt
-*.pptm
-*.pptx
-*.xls
-*.xlsm
-*.xlsx
-!mu_rprog/sample-data/gdp.xlsx
-
-# intermediate knitr files
+*.log
+*.msi
 mu_rprog/slides/*.md
 mu_rprog/slides/.cache
 mu_rprog/code/*_files/
+.mypy_cache/
+*.ndjson
+*.npy
+*.o
+*.parquet
+*.pdf
+*.pkl
+*.ppt
+*.pptm
+*.pptx
+*.pq
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+*.rar
+*.rda
+*.RData
+*.rds
+*.Rhistory
 **/*.Rmd.html
+*.so
+*.sqlite
+*.tar.gz
+**/.vscode/
+*.xls
+*.xlsm
+*.xlsx
+*.zip
+
+# exclusions
+!mu_rprog/sample-data/gdp.xlsx
