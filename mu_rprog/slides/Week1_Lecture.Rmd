@@ -135,8 +135,8 @@ knit        : slidify::knit2slides
     - B.S., Economics & Marketing (2013), M.S.A.E. (2014)
 
 >- <b>Since Marquette:</b>
-    - Engineer @ [Saturn Cloud](https://www.saturncloud.io/s/), 2020-present
-    - Data Scientist @ [Uptake](https://uptake.com/) then [AWS](https://aws.amazon.com/), 2016-2020
+    - Machine Learning Engineer @ [SpotHero](https://spothero.com/), 2021-present
+    - Data Scientist/Engineer @ [Uptake](https://uptake.com/), [AWS](https://aws.amazon.com/), [Saturn Cloud](https://www.saturncloud.io/s/) 2016-2021
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
     - Co-author and maintainer of [`{uptasticsearch}`](https://github.com/UptakeOpenSource/uptasticsearch) and [`{pkgnet}`](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
     - Maintainer on [`LightGBM`](https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues)

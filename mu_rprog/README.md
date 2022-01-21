@@ -4,7 +4,7 @@
 
 **Org:** Marquette University
 
-**Dates:** Spring 2017, Spring 2018, Spring 2019, Spring 2020, J-term 2020
+**Dates:** Spring 2017, Spring 2018, Spring 2019, Spring 2020, J-term 2020, Summer 2021, Spring 2022
 
 ## Slides:
 

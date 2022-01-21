@@ -10,13 +10,15 @@ output:
     theme: spacelab
 ---
 
-This article describes some practices that are common in R programming but should be avoided because they make programs slow, hard to maintain, or unsafe.
+This page describes some practices that are common in R programming but should be avoided because they make programs slow, hard to maintain, or unsafe.
 
 ## Using `T` or `F`
 
 > Never use `T` or `F`. Always use `TRUE` or `FALSE` instead.
 
-R uses some special "reserved words" which can never be overwritten. For example, you cannot name a variable `if` because `if` is a foundational element of how R programs are structure. To see the full list of reserved words, run `?reserved`.
+R uses some special "reserved words" which can never be overwritten.
+For example, you cannot name a variable `if` because `if` is a foundational element of how R programs are structure.
+To see the full list of reserved words, run `?reserved`.
 
 Two of these are `TRUE` and `FALSE`. These are used to represent logical values and control flow, like this:
 
@@ -34,7 +36,9 @@ Because `TRUE` and `FALSE` are reserved keywords, it's impossible to change thei
 TRUE <- "hello"
 ```
 
-R also comes with two objects `T` and `F`. If you type one of these in the terminal, you'll see that `T` is an alias for `TRUE` and `F` is an alias for `FALSE`. It's common for R programmers to believe that `T` and `TRUE` are interchangeable, but they are not!
+R also comes with two objects `T` and `F`.
+If you type one of these in the terminal, you'll see that `T` is an alias for `TRUE` and `F` is an alias for `FALSE`.
+It's common for R programmers to believe that `T` and `TRUE` are interchangeable, but they are not!
 
 Unlike `TRUE` and `FALSE`, `T` and `F` can be changed!
 
@@ -79,7 +83,9 @@ for (i in 1:length(cost)){
 }
 ```
 
-This is because `1:0` generates a 2-element vector equivalent to `c(1, 0)`. In this case, what we really want is to not run the cost at all bcause the input is empty! R provides two functions that are safer for this task:
+This is because `1:0` generates a 2-element vector equivalent to `c(1, 0)`.
+In this case, what we really want is to not run the cost at all bcause the input is empty!
+R provides two functions that are safer for this task:
 
 * `seq_along()`: equivalent to `1:length(x)`, but returns a length-0 input for length-0 output
 * `seq_len(length.out)`: generates an integer vector with length `length.out`
@@ -97,9 +103,11 @@ for (i in seq_along(cost)){
 
 ## Using `require()` to load libraries
 
-> Never use `require()`, use `library()` instead.
+> Never use `require()` in scripts, use `library()` instead.
 
-In R, "packages" are bundles of R code which you can load into your programs and re-use. Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code. For example, the code below throws an error because I have not loaded `{data.table}`. 
+In R, "packages" are bundles of R code which you can load into your programs and re-use.
+Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code.
+For example, the code below throws an error because I have not loaded `{data.table}`. 
 
 ```{r, error = TRUE}
 set.seed(708)
@@ -120,9 +128,12 @@ data.table(
 )
 ```
 
-The most popular commands to load packages are `library()` and `require()`. You may find examples on the internet which say or at least imply that these can be used interchangeably. Those examples are not correct.
+The most popular commands to load packages are `library()` and `require()`.
+You may find examples on the internet which say or at least imply that these can be used interchangeably.
+Those examples are not correct.
 
-`require()` will throw a warning if you use it on a package that has not been installed, but it will not throw an error. That means that code that comes after `require()` will run, which increases the time until you find out that you are missing a required package for some program!
+`require()` will throw a warning if you use it on a package that has not been installed, but it will not throw an error.
+That means that code that comes after `require()` will run, which increases the time until you find out that you are missing a required package for some program!
 
 ```{r, warning=TRUE}
 require("nonsense-package")
@@ -137,7 +148,9 @@ library("nonsense-package")
 
 > Never use positional subsetting for data frames. Always use names or logical conditions that references names.
 
-In R, it's possible to subset objects by numbers. You can say things like "get the 5th column" or "get rows 15-88 from this matrix". This practice, called positional subsetting, is often a bad idea.
+In R, it's possible to subset objects by numbers.
+You can say things like "get the 5th column" or "get rows 15-88 from this matrix".
+This practice, called positional subsetting, is often a bad idea.
 
 Look at the example above. Can you tell what it does?
 
@@ -176,7 +189,8 @@ data_frames <- lapply(
 cpiDT <- data.table::rbindlist(data_frames)
 ```
 
-This code will only work on a machine that has those files stored in a directory `/home/fnourzad/Downloads/data-files`. If you intend to share this code with people, it would be better to use relative file paths.
+This code will only work on a machine that has those files stored in a directory `/home/fnourzad/Downloads/data-files`.
+If you intend to share this code with people, it would be better to use relative file paths.
 
 ```{r, eval=FALSE}
 DATA_DIR <- file.path(getwd(), "data-files")
@@ -195,7 +209,8 @@ cpiDT <- data.table::rbindlist(data_frames)
 
 > In any R code you want other people to run, do not install packages. Use `library()` instead so people will get loud errors telling them to install things.
 
-When you write R code for other people to run, don't install packages. R only allows you to have one version of a package installed at a time, and it's bad practice to update other peoples' environments for them.
+When you write R code for other people to run, don't install packages
+R only allows you to have one version of a package installed at a time, and it's bad practice to update other peoples' environments for them.
 
 **bad**
 
@@ -215,7 +230,8 @@ library(corrplot)
 
 > Always store important literal values in informatively-named variables and re-use those variables everywhere.
 
-Consider the following snippet. Given distance traveled in kilometers and time spent in minutes, it tries to calculate the average trip speed (in miles per hour).
+Consider the following snippet.
+Given distance traveled in kilometers and time spent in minutes, it tries to calculate the average trip speed (in miles per hour).
 
 ```{r, eval=FALSE}
 distance_travelled <- distance_travelled * 0.621371
@@ -223,7 +239,8 @@ hours_spent <- travel_time / 60
 mph <- distance_travelled / hours_spent
 ```
 
-This code might not make sense if you didn't have the two sentences of documentation above it. If someone else handed you this code, you might wonder "where did 0.621371 come from? why is travel time being divided by 60".
+This code might not make sense if you didn't have the two sentences of documentation above it.
+If someone else handed you this code, you might wonder "where did 0.621371 come from? why is travel time being divided by 60".
 
 The following is a better way to write this:
 

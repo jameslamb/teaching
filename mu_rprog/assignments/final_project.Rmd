@@ -8,13 +8,15 @@ output:
 
 <h2>Final Project Introduction</h2>
 
-This final project, which is worth 45\% of your final grade, is your opportunity to test the progress you've made as an R programmer. Once you've completed it, you'll be able to say that you have experience in the following:
+This final project, which is worth 45\% of your final grade, is your opportunity to test the progress you've made as an R programmer.
+Once you've completed it, you'll be able to say that you have experience in the following:
 
 - Designing an end-to-end analysis pipeline in R
 - Cleaning messy real-world data
 - Using data visualization to communicate results
 
-Your task for the final project is construct a small analysis of a real-world dataset relevant to economics, finance, or business. The main deliverable will be one or more R scripts (you are more than welcome to have, for example, a `get_data.R` and a separate `analyze_data.R`) which accomplish all the following tasks:
+Your task for the final project is construct a small analysis of a real-world dataset relevant to economics, finance, or business.
+The main deliverable will be one or more R scripts (you are more than welcome to have, for example, a `get_data.R` and a separate `analyze_data.R`) which accomplish all the following tasks:
 
 1. **Read in data from the internet**
     - Anyone should be able to run your code to load the data, without needing any data files you provide. If you have manually-collected data, I can show you how to host it publicly.
@@ -35,7 +37,16 @@ Your task for the final project is construct a small analysis of a real-world da
     - Line plots to compare progression of variables over time
     - Tables of regression results (formatted with `{stargazer}`, perhaps) showing comparisons across models
 
-While it is certainly possible to complete the tasks listed above with the base functionality of R, you will likely find that using external libraries will make your code more powerful and expressive. The ability to use external packages is another key learning outcome for the course. For the remainder of this assignment, I'll refer to **the package list**, [this package list I've hosted on GitHub](./final_project_packages.md). In this assignment, you must use **at least one** external package from each of the three sections in **the package list**: "Data Retrieval and Munging", "Math and Statistics", and "Visualization, Presentation, and Reporting". You are, of course, welcome to use any other packages you deem appropriate *in addition to this minimum requirement*.
+While it is certainly possible to complete the tasks listed above with the base functionality of R, you will likely find that using external libraries will make your code more powerful and expressive.
+The ability to use external packages is another key learning outcome for the course.
+For the remainder of this assignment, I'll refer to **the package list**, [this package list I've hosted on GitHub](./final_project_packages.md).
+In this assignment, you must use **at least one** external package from each of the three sections in **the package list**:
+
+* "Data Retrieval and Munging"
+* "Math and Statistics"
+* "Visualization, Presentation, and Reporting"
+
+You are, of course, welcome to use any other packages you deem appropriate *in addition to this minimum requirement*.
 
 See the following sections for submission details on each of the four parts of this assignment
 
@@ -45,7 +56,9 @@ See the following sections for submission details on each of the four parts of t
 
 <h3>Description</h3>
 
-The first deliverable for this project is a 1-2 page written report detailing your plans for the final project. This is not meant to lock you in to a particular data set, set of packages, or approach...all those details can change between this report and your final project submission in Week 5. It is just meant to get your thinking about the project and ensure that you're on the right track.
+The first deliverable for this project is a 1-2 page written report detailing your plans for the final project.
+This is not meant to lock you in to a particular data set, set of packages, or approach...all those details can change between this report and your final project submission in Week 5.
+It is just meant to get your thinking about the project and ensure that you're on the right track.
 
 This report should answer the following items:
 
@@ -69,7 +82,9 @@ Please submit your report (as a Word doc, PDF, or HTML doc) to the "Final Projec
 
 <h3>Description</h3>
 
-This script is the main deliverable for the class...it is worth 20\% of your final grade. This is the part of the assignment where you get to show off what you've learned! Your goal is to create one or more R scripts that meet the requirements listed in the project description above.
+This code is the main deliverable for the class...it is worth 20\% of your final grade.
+This is the part of the assignment where you get to show off what you've learned!
+Your goal is to create one or more R scripts that meet the requirements listed in the project description above.
 
 <center><img src="assets/img/programming_not_sure.jpg"></center>
 
@@ -77,7 +92,8 @@ This script is the main deliverable for the class...it is worth 20\% of your fin
 
 This component of the project is **due prior to our Week 5 session**.
 
-Please submit your code to the "Final Project (script + report)" dropbox on D2L. If you use multiple scripts (totally acceptable!), please include an additional script called "build.R" which species the order to run the scripts in.
+Please submit your code to the "Final Project (script + report)" dropbox on D2L.
+If you use multiple scripts (totally acceptable!), please include an additional script called "build.R" which species the order to run the scripts in.
 
 Your script will be scored out of 100 points, using the following rubric:
 
@@ -85,11 +101,13 @@ Your script will be scored out of 100 points, using the following rubric:
 |:-----------------------------------------------------------------------------------|:------------------------:|
 |**All-or-Nothing Grade Items**                                                      |                          |
 |&nbsp;&nbsp;1. All code runs without error (with no reliance on local data)         |25                        |
-|&nbsp;&nbsp;2. Uses at least one Data Retrieval and Munging package                 |5                         |
-|&nbsp;&nbsp;3. Uses at least one Math and Statistics package                        |5                         |
-|&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |5                         |
+|&nbsp;&nbsp;2. Uses at least one Data Retrieval and Munging package                 |4                         |
+|&nbsp;&nbsp;3. Uses at least one Math and Statistics package                        |4                         |
+|&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |4                         |
+|&nbsp;&nbsp;5. Every external package used is imported with `library()`             |4                         |
+|&nbsp;&nbsp;6. Code does not call `install.packages()`, `install_github()`, etc.    |4                         |
 |**Code Quality Items**                                                              |                          |
-|&nbsp;&nbsp;1. Code commenting                                                      |10                        |
+|&nbsp;&nbsp;1. Code commenting                                                      |5                         |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(5-10) Clearly commented*                                  |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) Minimal comments, code is hard to understand*        |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) No comments*                                           |                          |
@@ -98,15 +116,16 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(8-11)  Difficult to understand without comments*          |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-8)   Takes significant effort to understand*            |                          |
 |&nbsp;&nbsp;3. Use of External Functions                                            |15                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(11-15) Appropriate use of :: library()*                   |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(6-10)  Some but not all calls use :: or library()*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(11-15) All/most external functions are called with `::`*  |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(6-10)  Some external function calls use `::`*             |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-5)  Unclear use of external functions*                  |                          |
 |&nbsp;&nbsp;4. Problem Solving                                                      |20                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) Excellent problem decomposition, R solution*       |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*          |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution appears rushed, sloppy*                     |                          |
 
-There are definitely good and bad ways to comment code. For some tips, see [this code-commenting tutorial](https://www.learncpp.com/cpp-tutorial/comments/) I really like.
+There are definitely good and bad ways to comment code.
+For some tips, see [this code-commenting tutorial](https://www.learncpp.com/cpp-tutorial/comments/) I really like.
 
 ---
 
@@ -114,23 +133,21 @@ There are definitely good and bad ways to comment code. For some tips, see [this
 
 In professional data science teams, it is common for team members to present their work in internal "code reviews", small meetings where a data scientist shares brief background on the problem he/she sought to solve and then invites criticism of his/her code.
 
-This can be a nerve-wracking experience in the context of a new job (trust me), so I'd like to give you the opportunity to practice sharing code with others in the safe setting of this introductory course. In the code review component of this project, you will do a 5-10 minutes live presentation of your final project.
+This can be a nerve-wracking experience in the context of a new job (trust me), so I'd like to give you the opportunity to practice sharing code with others in the safe setting of this introductory course.
+In the code review component of this project, you will do a 5-10 minutes live presentation of your final project.
 
 <h3>Submission (in-person class)</h3>
 
-When this course is taught in-person, code reviews will be done in-class **during our Week 5 session**. You do not need to present slides or turn in anything on D2L. Please set up a Google doc called "FIRSTNAME LASTNAME <> MU RPROG Code Review" and give the rest of the class edit rights. While you present, everyone in the class will have this doc up on their machines and use it to give you comments and questions. The benefit of this practice, in professional settings, is that days after your code review you'll have a written record of your audience's feedback.
-
-<h3>Submission (asynchronous class)</h3>
-
-When this course is taught asynchronously, students are expected to record their final project code reviews and upload them to the "Final Project Code Reviews" dropbox under the "Assessments" section in D2L.
-
-Once all final project code reviews have been submitted, they'll all be made available so you can see each others' presentations. You are then responsible for watching all other final projects and providing written feedback. These notes can just be bullet points with comments and questions. Upload a single document to the "Peer Review" dropbox under the "Assessmets" section in D2L.
-
-Peer reviews will not affect your grade. However, if you fail to submit peer review for all of your classmates by the date indicated in the syllabus, 25 points will be subtracted from your code review grade.
+Code reviews will be done in-class **during the Week 5 session**.
+You do not need to present slides or turn in anything on D2L.
+Please set up a Google doc called "FIRSTNAME LASTNAME <> MU RPROG Code Review" with permissions "anyone with the link can edit".
+While you present, everyone in the class will have this doc up on their machines and use it to give you comments and questions.
+The benefit of this practice, in professional settings, is that days after your code review you'll have a written record of your audience's feedback.
 
 <h3>Description and Rubric</h3>
 
-Be prepared to show your code + report in front of the class. Your code review should consist of the following:
+Be prepared to show your code + report in front of the class.
+Your code review should consist of the following:
 
 - Introduce the problem you investigated.
 - Explain the data set *(where did it come from? what variables does it contain?)*
@@ -180,11 +197,16 @@ You'll do great!
 
 <h3>Description</h3>
 
-The final deliverable for this project is a written report with your findings. This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client. Your report should focus on the problem (not the specifics of the code). It should describe the problem, a brief summary of the work that was done, and a description of the result. Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).
+The final deliverable for this project is a written report with your findings.
+This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client.
+Your report should focus on the problem (not the specifics of the code).
+It should describe the problem, a brief summary of the work that was done, and a description of the result.
+Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 5 session**. Please upload your report to the "Final Project (script + report)" dropbox on D2L.
+This component of the project is **due prior to our Week 5 session**.
+Please upload your report to the "Final Project (script + report)" dropbox on D2L.
 
 Your report will be scored out of 100 points, using the following rubric:
 
