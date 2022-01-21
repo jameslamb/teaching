@@ -253,7 +253,14 @@ All times below are in Central Time.
 |Final Project code review video | 11:00p on February 19, 2022 |
 |Final Project peer reviews      | 11:00p on February 19, 2022 |
 
-\subsection{D. Grade Appeal}
+\subsection{D. Extra Credit}
+
+There is an optional Extra Credit assignment available, worth up to 3 percentage points on your final grade.
+Follow the instructions at https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html.
+
+This extra credit must be submitted prior to midnight on February 21, 2022.
+
+\subsection{E. Grade Appeal}
 
 The grading policies described above will be used to calculate your final grade for the course
 Individual assignment grades will follow rubrics available on the D2L site for this course.
