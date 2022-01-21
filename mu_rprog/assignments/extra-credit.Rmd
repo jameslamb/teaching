@@ -35,6 +35,10 @@ Some packages in R do support this pattern of just modifying inputs directly, wh
 
 See the example below.
 
+```{r setSeed, echo = FALSE, eval = TRUE}
+set.seed(708L)
+```
+
 ```{r dataTableExample}
 library(data.table)
 
