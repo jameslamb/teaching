@@ -17,15 +17,23 @@
 
 ###=== Code Correction Challenges ===#
 
-# a. Put your name in a variable and print "hello, my name is <your_name>". A correct
-#    solution for a student named "Bartholomew" would print the string
+# a. Put your name in a variable and print "hello, my name is <your_name>".
+#    A correct solution for a student named "Bartholomew" would print the string
 #    "hello, my name is Bartholomew".
+#
+#    Your code in print() must reference the variable my_name.
 my_name <- "James"
 print("hello,", myname, "    is ", James)
 
 # b. Write a function that takes in an integer n (1-26) and returns a character vector with
-#    the nth element repeated n times. e.g. RepLetter(3) would yield c("c", "c", "c")
-#    and RepLetter(7) would yield c("g", "g", "g", "g", "g", "g", "g")
+#    the nth element repeated n times. e.g.:
+#    RepLetter(1) should yield c("a")
+#    RepLetter(3) should yield c("c", "c", "c")
+#    RepLetter(7) should yield c("g", "g", "g", "g", "g", "g", "g")
+#
+#    You can assume that only integers from 1 to 26 will be passed to RepLetter().
+#
+#    Your implementation of RepLetter() must use the return() function.
 RepLetter(n) <- function() {
     return(rep(letters[7]))
 }
