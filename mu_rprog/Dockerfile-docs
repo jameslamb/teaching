@@ -1,0 +1,7 @@
+FROM rocker/verse:latest
+
+COPY Makefile /usr/local/src/mu_rprog/Makefile
+COPY install-deps.R /usr/local/src/mu_rprog/install-deps.R
+COPY code/ /usr/local/src/code/
+
+RUN make -C /usr/local/src/mu_rprog install
