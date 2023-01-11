@@ -6,19 +6,17 @@ urlcolor: blue
 
 \textbf{ECON 6114} \hspace{30mm}
 \textbf{R Programming} \hspace{30mm}
-\textbf{Spring 2022}
+\textbf{Spring 2023}
 
 \hrulefill
 
-\textbf{Instructor:} James Lamb - jaylamb20@gmail.com | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb)
+\textbf{Instructor:} James Lamb - jaylamb20@gmail.com | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb) | [Mastodon](https://hachyderm.io/@_jameslamb)
 
 \hrulefill
 
 \section{I. Course Info}
 
 Welcome to R Programming!
-
-This syllabus describes a virtual, asynchronous version of this course.
 
 \subsection{A. Learning Objectives and Outcomes}
 
@@ -82,7 +80,7 @@ Slides and assignment rubrics are available both in the "Content" section of the
 
 \subsection{C. To-Do Before the First Session}
 
-The course begins on 1/22/2022.
+The course begins on 1/21/2023.
 
 Before that date, please do the following:
 
@@ -93,7 +91,7 @@ This is just to help me understand your previous experience with programming and
 
 **2. Set up your development environment**
 
-- Try to [install R v4.1.2](https://cloud.r-project.org/) or higher on your personal laptop
+- Try to [install R v4.2.2](https://cloud.r-project.org/) or higher on your personal laptop
 - Try to [install RStudio v2021.09.2](https://www.rstudio.com/products/rstudio/download/) or higher on your personal laptop
 
 I hope you'll be able to install these components using the information at those links and some moderate Googling.
@@ -103,11 +101,11 @@ If you run into any issues, please email me and I'll help you out.
 
 The outline below describes my goals for each lecture.
 Weeks 1-4 of the course are *asynchronous*...I've provided pre-recorded lecture videos which you are encouraged to watch at a time that works for you.
-Week 5 is an in-person meeting at the Marquette Business School.
+Week 5 is a **virtual, synchronous** session, where students will present their final projects on a video call.
 
-\underline{Week 1: January 22, 2022}
+\underline{Week 1: January 21, 2023}
 
-Due before class: Pre-course survey
+Due this week: Pre-course survey
 
 \begin{itemize}
     \item Introductions
@@ -121,9 +119,9 @@ Due before class: Pre-course survey
     \item Controlling program flow (if, for, while)
 \end{itemize}
 
-\underline{Week 2: January 29, 2022}
+\underline{Week 2: January 28, 2023}
 
-Due before class: Quiz 1
+Due this week: Quiz 1
 
 \begin{itemize}
     \item Functions
@@ -132,9 +130,9 @@ Due before class: Quiz 1
     \item Working with Files
 \end{itemize}
 
-\underline{Week 3: February 5, 2022}
+\underline{Week 3: February 4, 2023}
 
-Due before class: Quiz 2, Programming Assignment 1
+Due this week: Quiz 2, Programming Assignment 1
 
 \begin{itemize}
     \item Dealing with missing data
@@ -142,9 +140,9 @@ Due before class: Quiz 2, Programming Assignment 1
     \item Combining and transforming data frames
 \end{itemize}
 
-\underline{Week 4: February 12, 2022}
+\underline{Week 4: February 11, 2023}
 
-Due before class: Programming Assignment 2, Final Project Proposal
+Due this week: Programming Assignment 2, Final Project Proposal
 
 \begin{itemize}
     \item Statistical analysis
@@ -153,10 +151,12 @@ Due before class: Programming Assignment 2, Final Project Proposal
     \item Final project discussion
 \end{itemize}
 
-\underline{Week 5: February 19, 2022}
+\underline{Week 5: February 18, 2023}
 
-Due before class: Final Project script + report
-NOTE: In-person class, 9:00a-12:00p in David Straz Hall, Room 250.
+Due this week: Final Project script + report
+
+This week is a synchronous video call.
+All students will receive a calendar invitation.
 
 \begin{itemize}
     \item Final Project Code Reviews
@@ -208,9 +208,9 @@ All times below are in Central Time.
 
 |Quiz                       |Opens                             |Due                         |
 |:-------------------------:|:--------------------------------:|:--------------------------:|
-|Pre-class survey           | Immediately                      | 11:00p on January 22, 2022 |
-|Quiz 1                     | Immediately                      | 11:00p on January 29, 2021 |
-|Quiz 2                     | Immediately                      | 11:00p on February 5, 2022 |
+|Pre-class survey           | Immediately                      | 11:00p on January 21, 2023 |
+|Quiz 1                     | Immediately                      | 11:00p on January 28, 2023 |
+|Quiz 2                     | Immediately                      | 11:00p on February 4, 2023 |
 
 \subsection{B. Programming Assignments (30\%)}
 
@@ -224,8 +224,8 @@ All times below are in Central Time.
 
 |Assignment                 |Due                          |
 |:-------------------------:|:---------------------------:|
-|Programming Assignment 1   | 11:00p on February 5, 2022  |
-|Programming Assignment 2   | 11:00p on February 12, 2022 |
+|Programming Assignment 1   | 11:00p on February 4, 2023  |
+|Programming Assignment 2   | 11:00p on February 11, 2023 |
 
 \subsection{C. Final Project (45\%)}
 
@@ -248,17 +248,17 @@ All times below are in Central Time.
 
 |Assignment                      |Due                          |
 |:------------------------------:|:---------------------------:|
-|Final Project proposal          | 11:00p on February 12, 2022 |
-|Final Project (script + report) | 11:00p on February 19, 2022 |
-|Final Project code review video | 11:00p on February 19, 2022 |
-|Final Project peer reviews      | 11:00p on February 19, 2022 |
+|Final Project proposal          | 11:00p on February 11, 2023 |
+|Final Project (script + report) | 11:00p on February 18, 2023 |
+|Final Project code review video | 11:00p on February 18, 2023 |
+|Final Project peer reviews      | 11:00p on February 18, 2023 |
 
 \subsection{D. Extra Credit}
 
 There is an optional Extra Credit assignment available, worth up to 3 percentage points on your final grade.
 Follow the instructions at https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html.
 
-This extra credit must be submitted prior to midnight on February 21, 2022.
+This extra credit must be submitted prior to midnight on February 21, 2023.
 
 \subsection{E. Grade Appeal}
 
