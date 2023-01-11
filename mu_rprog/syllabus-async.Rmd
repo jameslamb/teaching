@@ -18,8 +18,6 @@ urlcolor: blue
 
 Welcome to R Programming!
 
-This syllabus describes a virtual, asynchronous version of this course.
-
 \subsection{A. Learning Objectives and Outcomes}
 
 In this course, we'll explore the basic building blocks of statistical programming in R.
