@@ -108,8 +108,8 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;6. Code does not call `install.packages()`, `install_github()`, etc.    |4                         |
 |**Code Quality Items**                                                              |                          |
 |&nbsp;&nbsp;1. Code commenting                                                      |5                         |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(5-10) Clearly commented*                                  |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) Minimal comments, code is hard to understand*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(4-5) Clearly commented*                                   |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(1-3) Minimal comments, code is hard to understand*        |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) No comments*                                           |                          |
 |&nbsp;&nbsp;2. Code Organization                                                    |15                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) Well-organized, intuitive flow*                    |                          |
