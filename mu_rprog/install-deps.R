@@ -4,6 +4,7 @@
 install.packages(
     pkgs = c(
         "htmltab"
+        , "ineq"
         , "jsonlite"
         , "lubridate"
         , "openxlsx"
