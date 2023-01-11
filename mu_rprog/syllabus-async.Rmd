@@ -105,7 +105,7 @@ Week 5 is a **virtual, synchronous** session, where students will present their 
 
 \underline{Week 1: January 21, 2023}
 
-Due before class: Pre-course survey
+Due this week: Pre-course survey
 
 \begin{itemize}
     \item Introductions
@@ -121,7 +121,7 @@ Due before class: Pre-course survey
 
 \underline{Week 2: January 28, 2023}
 
-Due before class: Quiz 1
+Due this week: Quiz 1
 
 \begin{itemize}
     \item Functions
@@ -132,7 +132,7 @@ Due before class: Quiz 1
 
 \underline{Week 3: February 4, 2023}
 
-Due before class: Quiz 2, Programming Assignment 1
+Due this week: Quiz 2, Programming Assignment 1
 
 \begin{itemize}
     \item Dealing with missing data
@@ -142,7 +142,7 @@ Due before class: Quiz 2, Programming Assignment 1
 
 \underline{Week 4: February 11, 2023}
 
-Due before class: Programming Assignment 2, Final Project Proposal
+Due this week: Programming Assignment 2, Final Project Proposal
 
 \begin{itemize}
     \item Statistical analysis
@@ -153,7 +153,7 @@ Due before class: Programming Assignment 2, Final Project Proposal
 
 \underline{Week 5: February 18, 2023}
 
-Due before class: Final Project script + report
+Due this week: Final Project script + report
 
 This week is a synchronous video call.
 All students will receive a calendar invitation.
