@@ -1,7 +1,5 @@
 SHELL = bash
 
-.PHONY: install assignments code-samples slides syllabus course
-
 .PHONY: install
 install:
 	Rscript install-deps.R && \

@@ -36,7 +36,7 @@
 
 Throughout the course, students are asked to follow along with example code in slides and coding supplements. Those who want to install all the dependencies needed for this upfront (instead of as they go, week-by-week) can run the provided script in this repo.
 
-```
+```shell
 Rscript install-deps.R
 ```
 
@@ -44,7 +44,7 @@ Rscript install-deps.R
 
 The links above lead to hosted versions of the course content. If you want to make modifications and recreate your own local versions to test them, you can do so using [GNU Make](https://www.gnu.org/software/make/). Install `make`, then run the following:
 
-```
+```shell
 make course
 ```
 
