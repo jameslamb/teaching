@@ -203,6 +203,16 @@ Your report should focus on the problem (not the specifics of the code).
 It should describe the problem, a brief summary of the work that was done, and a description of the result.
 Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).
 
+This report should be free from statistical jargon, or such jargon should be clearly and concisely explained in the report.
+
+**Bad**
+
+> *I used a Breusch-Pagan test to check for heteroskedasticity, and it had a Chi-squared statistic of 46.98 with a p-value of 0.00715.*
+
+**Good**
+
+> *I observed larger model errors for higher-value stocks, so I'm not confident that these results would hold for a portfolio with a different mix of company sizes.*
+
 <h3>Submission</h3>
 
 This component of the project is **due prior to our Week 5 session**.
