@@ -120,6 +120,13 @@ lines(
     type = "l",
     col = ### FILL THIS IN ###
 )
+
+legend(
+    x = "topright"
+    , col = c("black", "red")
+    , legend = c("JPN", "USA")
+    , lty = c(1, 1)
+)
 ```
 
 If this works correctly, you should see a plot similar to this:
