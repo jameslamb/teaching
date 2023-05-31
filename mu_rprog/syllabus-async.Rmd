@@ -6,7 +6,7 @@ urlcolor: blue
 
 \textbf{ECON 6114} \hspace{30mm}
 \textbf{R Programming} \hspace{30mm}
-\textbf{Spring 2023}
+\textbf{Summer 2023}
 
 \hrulefill
 
@@ -80,7 +80,7 @@ Slides and assignment rubrics are available both in the "Content" section of the
 
 \subsection{C. To-Do Before the First Session}
 
-The course begins on 1/21/2023.
+The course begins on 6/5/2023.
 
 Before that date, please do the following:
 
@@ -91,8 +91,8 @@ This is just to help me understand your previous experience with programming and
 
 **2. Set up your development environment**
 
-- Try to [install R v4.2.2](https://cloud.r-project.org/) or higher on your personal laptop
-- Try to [install RStudio v2021.09.2](https://www.rstudio.com/products/rstudio/download/) or higher on your personal laptop
+- Try to [install R](https://cloud.r-project.org/) on your personal laptop
+- Try to [install RStudio](https://www.rstudio.com/products/rstudio/download/) on your personal laptop
 
 I hope you'll be able to install these components using the information at those links and some moderate Googling.
 If you run into any issues, please email me and I'll help you out.
@@ -103,7 +103,7 @@ The outline below describes my goals for each lecture.
 Weeks 1-4 of the course are *asynchronous*...I've provided pre-recorded lecture videos which you are encouraged to watch at a time that works for you.
 Week 5 is a **virtual, synchronous** session, where students will present their final projects on a video call.
 
-\underline{Week 1: January 21, 2023}
+\underline{Week 1: June 10, 2023}
 
 Due this week: Pre-course survey
 
@@ -119,7 +119,7 @@ Due this week: Pre-course survey
     \item Controlling program flow (if, for, while)
 \end{itemize}
 
-\underline{Week 2: January 28, 2023}
+\underline{Week 2: June 17, 2023}
 
 Due this week: Quiz 1
 
@@ -130,7 +130,7 @@ Due this week: Quiz 1
     \item Working with Files
 \end{itemize}
 
-\underline{Week 3: February 4, 2023}
+\underline{Week 3: June 24, 2023}
 
 Due this week: Quiz 2, Programming Assignment 1
 
@@ -140,7 +140,7 @@ Due this week: Quiz 2, Programming Assignment 1
     \item Combining and transforming data frames
 \end{itemize}
 
-\underline{Week 4: February 11, 2023}
+\underline{Week 4: July 1, 2023}
 
 Due this week: Programming Assignment 2, Final Project Proposal
 
@@ -151,7 +151,7 @@ Due this week: Programming Assignment 2, Final Project Proposal
     \item Final project discussion
 \end{itemize}
 
-\underline{Week 5: February 18, 2023}
+\underline{Week 5: July 8, 2023}
 
 Due this week: Final Project script + report
 
@@ -208,9 +208,9 @@ All times below are in Central Time.
 
 |Quiz                       |Opens                             |Due                         |
 |:-------------------------:|:--------------------------------:|:--------------------------:|
-|Pre-class survey           | Immediately                      | 11:00p on January 21, 2023 |
-|Quiz 1                     | Immediately                      | 11:00p on January 28, 2023 |
-|Quiz 2                     | Immediately                      | 11:00p on February 4, 2023 |
+|Pre-class survey           | Immediately                      | 11:00p on June 10, 2023    |
+|Quiz 1                     | Immediately                      | 11:00p on June 17, 2023    |
+|Quiz 2                     | Immediately                      | 11:00p on June 24, 2023    |
 
 \subsection{B. Programming Assignments (30\%)}
 
@@ -224,8 +224,8 @@ All times below are in Central Time.
 
 |Assignment                 |Due                          |
 |:-------------------------:|:---------------------------:|
-|Programming Assignment 1   | 11:00p on February 4, 2023  |
-|Programming Assignment 2   | 11:00p on February 11, 2023 |
+|Programming Assignment 1   | 11:00p on June 24, 2023     |
+|Programming Assignment 2   | 11:00p on July 1, 2023      |
 
 \subsection{C. Final Project (45\%)}
 
@@ -246,19 +246,19 @@ The project comprises four parts:
 Full details of the project and each of its components are available at [https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html).
 All times below are in Central Time.
 
-|Assignment                      |Due                          |
-|:------------------------------:|:---------------------------:|
-|Final Project proposal          | 11:00p on February 11, 2023 |
-|Final Project (script + report) | 11:00p on February 18, 2023 |
-|Final Project code review video | 11:00p on February 18, 2023 |
-|Final Project peer reviews      | 11:00p on February 18, 2023 |
+|Assignment                      |Due                     |
+|:------------------------------:|:----------------------:|
+|Final Project proposal          | 11:00p on July 1, 2023 |
+|Final Project (script + report) | 11:00p on July 8, 2023 |
+|Final Project code review video | 11:00p on July 8, 2023 |
+|Final Project peer reviews      | 11:00p on July 8, 2023 |
 
 \subsection{D. Extra Credit}
 
 There is an optional Extra Credit assignment available, worth up to 3 percentage points on your final grade.
 Follow the instructions at https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html.
 
-This extra credit must be submitted prior to midnight on February 21, 2023.
+This extra credit must be submitted prior to midnight on July 15, 2023.
 
 \subsection{E. Grade Appeal}
 
