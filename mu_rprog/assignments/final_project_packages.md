@@ -1,6 +1,6 @@
 ## External Packages for Final Project
 
-**Data Retrieval and Munging**
+**Data Retrieval and Transformation**
 
 - arrow
 - ctar

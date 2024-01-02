@@ -394,7 +394,7 @@ What if you have 5 tables? 10? 1000? Use `data.table::rbindlist()`.
 
 **Choosing External Packages**
 
-- You need to choose one data munging package, one statistics package, and one visualization package from [this list](../assignments/final_project_packages.md)
+- You need to choose one data retrieval package, one statistics package, and one visualization package from [this list](../assignments/final_project_packages.md)
 - Don't stress! You can do all of the following:
     - Change which packages you actually use in the final project
     - Use a package that isn't on the list (as long as you clear it with me)
