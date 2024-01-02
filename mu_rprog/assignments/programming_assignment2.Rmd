@@ -24,7 +24,7 @@ In this part of the assignment, I'd like you to practice reading and running the
 - `str_extract()` from the `{stringr}` package
 - `setnames()` from the `{data.table}` package
 - `map_dbl()` from the `{purrr}` package
-- Two functions from the "Data Retrieval and Munging" section of **the package list**
+- Two functions from the "Data Retrieval and Transformation" section of **the package list**
     - NOTE: must be from two different packages
 - Two functions from the "Math and Statistics" section of **the package list**
     - NOTE: must be from two different packages
