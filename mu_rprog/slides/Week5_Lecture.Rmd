@@ -43,11 +43,6 @@ knit        : slidify::knit2slides
     <li> Code Reviews Today! <span style="float:right"> 5 </span></li>
 </ol>
 
-<b class="toc_header"> Wrapping Your Code in a Package </b>
-<ol class = "toc" type="none">
-    <li> In-Class Exercise: RquetteBB<span style="float:right"> 7 </span></li>
-</ol>
-
 <b class="toc_header"> R/Data Science AMA </b>
 <ol class = "toc" type="none">
     <li> Ask Me Anything <span style="float:right"> 9 </span></li>
@@ -72,24 +67,6 @@ knit        : slidify::knit2slides
 <br>
 
 <center><img src="assets/img/rafiki.jpg"></center>
-
---- .section_slide
-
-</br></br></br>
-<h2>Wrapping Your Code in a Package</h2>
-
---- .content_slide
-
-<footer>
-  <hr>
-    Wrapping Your Code in A Package<span style="float:right">R Programming</span>
-</footer>
-
-<h2>In-Class Exercise: RquetteBB</h2>
-
-As a final exercise, we're going to talk through the process of creating an R package from scratch! In this class, we're going to create a package called `{RquetteBB}` for getting and visualizing Marquette Men's basketball statistics!
-
-See ["Creating R Packages"](../code/programming-supplement.html#Creating_R_Packages) in the programming supplement.
 
 --- .section_slide
 
