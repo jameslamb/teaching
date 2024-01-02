@@ -30,10 +30,6 @@
     - [package list](./assignments/final_project_packages.md)
     - [Practices to Avoid in R Programming](./assignments/bad-practices.html)
 
-## Other Resources:
-
-[RquetteBB: Example R Package](./code/RquetteBB)
-
 ## Installing R Dependencies
 
 Throughout the course, students are asked to follow along with example code in slides and coding supplements.

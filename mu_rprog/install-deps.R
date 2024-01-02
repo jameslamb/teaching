@@ -10,8 +10,7 @@ if (!requireNamespace("slidifyLibraries")) {
 
 install.packages(
     pkgs = c(
-        "htmltab"
-        , "ineq"
+        "ineq"
         , "jsonlite"
         , "lubridate"
         , "openxlsx"
