@@ -2,9 +2,7 @@ SHELL = bash
 
 .PHONY: install
 install:
-	Rscript install-deps.R && \
-	Rscript -e "remotes::install_github('ramnathv/slidify', force = FALSE)" && \
-	Rscript -e "remotes::install_github('ramnathv/slidifyLibraries', force = FALSE)"
+	Rscript install-deps.R
 
 .PHONY: assignments
 assignments:
