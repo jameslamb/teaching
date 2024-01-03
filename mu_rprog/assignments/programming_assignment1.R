@@ -7,10 +7,12 @@
 # above it. You may want to comment out my bad code so that you still have it for reference.
 
 # To get full points on this assignment:
-#   - Your corrected code should be uncommented
-#   - This entire script should run without errors
-#   - You should fulfill the specific instructions provided
+#   - This entire script should run without errors.
+#   - Your code should fulfill the specific instructions provided.
 
+# Please note:
+#   - Partial credit will be given for each question.
+#   - all lines not beginning with "#" will be considered for grading
 
 # You should upload a file called Firstname_Lastname_Assignment1.R (with your first and last name)
 # to the Programming Assignment 1 dropbox on the D2L course site.
@@ -33,6 +35,8 @@ print("hello,", myname, "    is ", James)
 #
 #    You can assume that only integers from 1 to 26 will be passed to RepLetter().
 #
+#    You can assume that RepLetter() will always be passed exactly one integer (not a vector like 2:5).
+#
 #    Your implementation of RepLetter() must use the return() function.
 RepLetter(n) <- function() {
     return(rep(letters[7]))
@@ -40,8 +44,11 @@ RepLetter(n) <- function() {
 
 # c. Given a data.frame myDF (do not change the code that defines myDF!), find the
 #    maximum of each numeric column. Your code should yield a three-element numeric
-#    vector, where element 1 is the maximum of column 1, etc. Your code should be sure
-#    to account for NAs. In a correct solution, maxes will hold c(8, 20, 30)
+#    vector, where element 1 is the maximum of column 1, etc.
+#
+#    Your code should be sure to account for NAs.
+#
+#    In a correct solution, maxes will hold c(8, 20, 30).
 myDF <- data.frame(
     var1 = c(rep(1:8), NA, NA)
     , var2 = 11:20
@@ -54,7 +61,11 @@ maxes <- apply(
 )
 
 # d. Loop over a list object and return the entropy (ineq::entropy) of each vector
-#    Assume that the code to define faultList is correct.
+#
+#    Do not modify faultList or the code used to generate it.
+#
+#    Your solution must use the "ineq" package.
+#
 #    The "entropies" vector should contain values roughly like:
 #    c(0.03061904, 0.09126107, 0, 0.09578598)
 library("package:ineq")
@@ -67,10 +78,12 @@ faultList <- list(
 entropies <- apply(fault_list, inqe::entropy)
 
 # e. Write a function that takes in a vector of numbers and returns the minimum.
-#    You are NOT allowed to use the built-in min() function. Your implementation
-#    should involve the use of a while loop.
-#    NOTE: Just change the function body...do not change the calls
-#    to findMin() at the end
+#
+#    You are NOT allowed to use the built-in min() function.
+#
+#    Your implementation must involve the use of a while loop.
+#
+#    Just change the function body...do not change the calls to findMin() at the end.
 findMin <- function(numVec) {
 
     lowest_val <- -Inf
