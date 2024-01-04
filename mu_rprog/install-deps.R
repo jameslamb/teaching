@@ -14,7 +14,6 @@ install.packages(
         , "jsonlite"
         , "lubridate"
         , "openxlsx"
-        , "Quandl"
         , "quantmod"
         , "randomForest"
         , "rattle"
