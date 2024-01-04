@@ -24,18 +24,25 @@
 #    "hello, my name is Bartholomew".
 #
 #    Your code in print() must reference the variable my_name.
+#
+#    Only modify code between the '### BEGIN ###' and '### END ###'.
 my_name <- "James"
-print("hello,", myname, "    is ", James)
+print(
+    ### BEGIN ###
+    "hello,", myname, "    is ", James
+    ### END ####
+)
 
-# b. Write a function that takes in an integer n (1-26) and returns a character vector with
+# b. Write a function that takes in a positive integer `n`` and returns a character vector with
 #    the nth element repeated n times. e.g.:
+#
 #    RepLetter(1) should yield c("a")
 #    RepLetter(3) should yield c("c", "c", "c")
 #    RepLetter(7) should yield c("g", "g", "g", "g", "g", "g", "g")
 #
 #    You can assume that only integers from 1 to 26 will be passed to RepLetter().
 #
-#    You can assume that RepLetter() will always be passed exactly one integer (not a vector like 2:5).
+#    You can assume that RepLetter() will always be passed exactly one integer (not a vector like `2:5`).
 #
 #    Your implementation of RepLetter() must use the return() function.
 RepLetter(n) <- function() {
@@ -47,6 +54,14 @@ RepLetter(n) <- function() {
 #    vector, where element 1 is the maximum of column 1, etc.
 #
 #    Your code should be sure to account for NAs.
+#
+#    Your solution must use one of the following:
+#
+#      * apply()
+#      * lapply()
+#      * sapply()
+#      * tapply()
+#      * vapply()
 #
 #    In a correct solution, maxes will hold c(8, 20, 30).
 myDF <- data.frame(
@@ -79,7 +94,12 @@ entropies <- apply(fault_list, inqe::entropy)
 
 # e. Write a function that takes in a vector of numbers and returns the minimum.
 #
-#    You are NOT allowed to use the built-in min() function.
+#    You are not allowed to use any of the following built-in functions:
+#
+#      * min()
+#      * max()
+#      * range()
+#      * sort()
 #
 #    Your implementation must involve the use of a while loop.
 #
