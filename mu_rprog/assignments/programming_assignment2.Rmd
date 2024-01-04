@@ -60,12 +60,13 @@ cor(1:10, 2:11) # == 1
 
 As you wade further into the world of data science, you'll hear this said often: [most of a data scientist's time is spent getting and cleaning data](http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html). Let's practice that crucial activity.
 
-In the second half of this assignment, we'll be working with data from [Quandl](https://www.quandl.com/). Quandl offers a single interface into a wide variety of datasets. You can find populations of small island nations, a history of Japanese stock prices, European nonfat dry milk inventories, and much more!
+In the second half of this assignment, we'll be working with data from the St. Louis Federal Reserve ([FRED](https://fred.stlouisfed.org/)).
 
-Using the resources I've provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change). Then you'll join them into a single data.frame and plot them against each other on a line plot using R's base plotting system.
+Using the resources I've provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change).
 
-- Brief R + Quandl tutorial: [Quandl R docs](https://www.quandl.com/tools/r)
-- Quandl pages for the data:  [U.S. inflation](https://www.quandl.com/data/RATEINF/INFLATION_USA-Inflation-YOY-USA) | [Japanese inflation](https://www.quandl.com/data/RATEINF/INFLATION_JPN-Inflation-YOY-Japan)
+Then you'll join them into a single `data.frame` and plot them against each other on a line plot using R's base plotting system.
+
+- Brief R + `{quantmod}` + FRED tutorial: https://www.quantmod.com/documentation/getSymbols.FRED.html
 - Tutorial on creating line plots in R's base plotting system: http://www.harding.edu/fmccown/r/
 
 <h3>Submission</h3>
@@ -74,12 +75,12 @@ Upload a file to the **Programming Assignment 2** dropbox on D2L with a name lik
 
 You need to complete all of the following steps, indicated by the phrase `### FILL THIS IN ###` in the example script below:
 
-- Add the command to pull the [Japanese inflation data](https://www.quandl.com/data/RATEINF/INFLATION_JPN-Inflation-YOY-Japan)
+- Add the command to pull the Japanese inflation data (https://fred.stlouisfed.org/series/FPCPITOTLZGJPN)
 - Rename the columns of the Japanese data so that the inflation series is called "JPN_INF_YOY"
 - Add the Japanese data to the `merge()` command to create a single dataset for plotting
     - please look at the documentation for `?merge`
 - set the plot type to line (hint: see `?graphics::plot`)
-- set the plot title to "Quandl Inflation Data"
+- set the plot title to "Inflation Data"
 - set the plot y-axis label to "CPI Inflation (%yoy)"
 - set the plot x-axis label to "time"
 - add the U.S. data to the plot with `lines(type = "l")`
@@ -87,14 +88,23 @@ You need to complete all of the following steps, indicated by the phrase `### FI
 
 ```{r quandlData, eval = FALSE, echo = TRUE, message = FALSE, warning=FALSE}
 # Load dependencies
-library(Quandl)
+library(quantmod)
 
 # Get Data
-usaDF <- Quandl::Quandl(code = "RATEINF/INFLATION_USA")
-jpnDF <- ### FILL THIS IN ###
+usaDF <- quantmod::getSymbols(
+    Symbols = "FPCPITOTLZGUSA"
+    , src = "FRED"
+    , auto.assign = FALSE
+)
+usaDF["Date"] <- as.Date(row.names(usaDF))
+
+jpnDF <- quantmod::getSymbols(
+    ### FILL THIS IN ###
+)
+jpnDF["Date"] <- as.Date(row.names(jpnDF))
 
 # rename columns
-names(usaDF) <- c("Date", "USA_INF_YOY")
+names(usaDF) <- c("USA_INF_YOY", "Date")
 names(jpnDF) <- ### FILL THIS IN ###
 
 # Combine the two data.frames with merge()
