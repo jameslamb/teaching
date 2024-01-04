@@ -101,11 +101,12 @@ Your script will be scored out of 100 points, using the following rubric:
 |:-----------------------------------------------------------------------------------|:------------------------:|
 |**All-or-Nothing Grade Items**                                                      |                          |
 |&nbsp;&nbsp;1. All code runs without error (with no reliance on local data)         |25                        |
-|&nbsp;&nbsp;2. Uses at least one Data Retrieval and Transformation package              |4                         |
+|&nbsp;&nbsp;2. Uses at least one Data Retrieval and Transformation package          |4                         |
 |&nbsp;&nbsp;3. Uses at least one Math and Statistics package                        |4                         |
 |&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |4                         |
 |&nbsp;&nbsp;5. Every external package used is imported with `library()`             |4                         |
-|&nbsp;&nbsp;6. Code does not call `install.packages()`, `install_github()`, etc.    |4                         |
+|&nbsp;&nbsp;6. All `library()` calls are at the top of submitted script(s)          |1                         |
+|&nbsp;&nbsp;7. Code does not call `install.packages()`, `install_github()`, etc.    |4                         |
 |**Code Quality Items**                                                              |                          |
 |&nbsp;&nbsp;1. Code commenting                                                      |5                         |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(4-5) Clearly commented*                                   |                          |
@@ -122,7 +123,7 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;4. Problem Solving                                                      |20                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) Excellent problem decomposition, R solution*       |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*          |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution appears rushed, sloppy*                     |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution is significantly incomplete*                |                          |
 
 There are definitely good and bad ways to comment code.
 For some tips, see [this code-commenting tutorial](https://www.learncpp.com/cpp-tutorial/comments/) I really like.
