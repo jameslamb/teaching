@@ -8,14 +8,14 @@ output:
     toc_float:
       collapsed: true
       smooth_scroll: true
-    toc_depth: 2
+    toc_depth: 3
 linkcolor: blue
 urlcolor: blue
 ---
 
 \hrulefill
 
-**Instructor:** James Lamb - jaylamb20@gmail.com | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb) | [Mastodon](https://hachyderm.io/@_jameslamb)
+**Instructor:** James Lamb - jaylamb20@gmail.com | [GitHub](https://github.com/jameslamb)
 
 \hrulefill
 
@@ -57,7 +57,7 @@ BOOKMARK THIS RIGHT NOW: https://jameslamb.github.io/teaching/mu_rprog/
 
 **Required Textbooks:**
 
-None :)
+None.
 
 **Lecture Videos:**
 
@@ -68,7 +68,8 @@ Videos describing the solutions to quizzes and assignments will be made availabl
 
 **Required Hardware:**
 
-\textcolor{red}{You are required to use your own laptop for this class.} If you do not have a personal laptop, please let me know as soon as possible.
+\textcolor{red}{You are required to use your own laptop for this class.}
+If you do not have a personal laptop, please let me know as soon as possible.
 
 The use of personal hardware is required because one of the objectives for this course is to help each of you set up a data science development environment on your own machines.
 
@@ -105,67 +106,82 @@ If you run into any issues, please email me and I'll help you out.
 ## D. Course Outline
 
 The outline below describes my goals for each lecture.
-Weeks 1-4 of the course are *asynchronous*...I've provided pre-recorded lecture videos which you are encouraged to watch at a time that works for you.
+Weeks 1-4 of the course are *asynchronous*.
+I've provided pre-recorded lecture videos which you are encouraged to watch at a time that works for you.
+
 Week 5 is a **virtual, synchronous** session, where students will present their final projects on a video call.
 
-\underline{Week 1 (ends July 15, 2023)}
+### Week 1 (ends July 15, 2023)
 
-Due this week: Pre-course survey
+Due at the beginning of this week:
 
-\begin{itemize}
-    \item Introductions
-    \item Syllabus review
-    \item Environment setup
-    \item Introduction to R
-    \item Variables, namespaces, objects, and types
-    \item Basic math operations in R
-    \item Data structures
-    \item Subsetting
-    \item Controlling program flow (if, for, while)
-\end{itemize}
+* Pre-course survey
 
-\underline{Week 2 (ends July 22, 2023)}
+Topics covered:
 
-Due this week: Quiz 1
+* Introductions
+* Syllabus review
+* Environment setup
+* Introduction to R
+* Variables, namespaces, objects, and types
+* Basic math operations in R
+* Data structures
+* Subsetting
+* Controlling program flow (if, for, while)
 
-\begin{itemize}
-    \item Functions
-    \item Using external packages
-    \item Debugging
-    \item Working with Files
-\end{itemize}
+### Week 2 (ends July 22, 2023)
 
-\underline{Week 3 (ends July 29, 2023)}
+Due at the beginning of this week:
 
-Due this week: Quiz 2, Programming Assignment 1
+* Quiz 1
 
-\begin{itemize}
-    \item Dealing with missing data
-    \item Visualizing data
-    \item Combining and transforming data frames
-\end{itemize}
+Topics covered:
 
-\underline{Week 4 (ends August 5, 2023)}
+* Functions
+* Using external packages
+* Debugging
+* Working with Files
 
-Due this week: Programming Assignment 2, Final Project Proposal
+### Week 3 (ends July 29, 2023)
 
-\begin{itemize}
-    \item Statistical analysis
-    \item Working with text
-    \item Building software
-    \item Final project discussion
-\end{itemize}
+Due at the beginning of this week:
 
-\underline{Week 5 (ends August 12, 2023)}
+* Quiz 2
+* Programming Assignment 1
 
-Due this week: Final Project script + report
+Topics covered:
+
+* Dealing with missing data
+* Visualizing data
+* Combining and transforming data frames
+
+### Week 4 (ends August 5, 2023)
+
+Due at the beginning of this week:
+
+* Programming Assignment 2
+* Final Project Proposal
+
+Topics covered:
+
+* Statistical analysis
+* Working with text
+* Building software
+* Final project discussion
+
+### Week 5 (ends August 12, 2023)
+
+Due at the beginning of this week:
+
+* Final Project script
+* Final project report
 
 This week is a synchronous video call.
 All students will receive a calendar invitation.
 
-\begin{itemize}
-    \item Final Project Code Reviews
-\end{itemize}
+Topics covered:
+
+* Final Project Code Reviews
 
 \pagebreak
 
@@ -244,15 +260,13 @@ Unlike the quizzes and programming assignments, the final project will be relati
 In this project, you will be asked to augment what you've learned about base R with other functionality available in external packages.
 You will be responsible for building an end-to-end analysis in R...a script that gets/cleans real world data, creates some exploratory plots, executes some statistical analysis, and stores the results to a file for later re-use.
 
-The project comprises four parts:
+The project comprises the following parts:
 
-\begin{enumerate}
-    \item \emph{Final project proposal}: A 1-2 page briefing on your planned project
-    \item \emph{Final project script}: The R script/scripts supporting your project
-    \item \emph{Final project report}: A 2-4 page report detailing the outcome of your analysis
-    \item \emph{Final project code review}: A 5-10 minute overview of your project, presented live in the final week of the course.
-    \item \emph{Final Project peer review}: Written feedback for three of your classmates' presentations.
-\end{enumerate}
+1. *Final project proposal*: A 1-2 page briefing on your planned project
+2. *Final project script*: The R script/scripts supporting your project
+3. *Final project report*: A 2-4 page report detailing the outcome of your analysis
+4. *Final project code review*: A 5-10 minute overview of your project, presented live in the final week of the course.
+5. *Final Project peer review*: Written feedback for three of your classmates' presentations.
 
 Full details of the project and each of its components are available at [https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html).
 All times below are in Central Time.
@@ -304,11 +318,9 @@ All students are expected to complete all quizzes, assignments, and the final pr
 The policy above applies to "unexcused" absences.
 There are a handful of situations which are considered "excused" absences:
 
-\begin{itemize}
-    \item absences resulting from legal obligations (such as jury duty)
-    \item absences resulting from university-sanctioned activities and related travel
-    \item absences resulting from religious observance
-\end{itemize}
+* legal obligations (such as jury duty)
+* university-sanctioned activities and related travel
+* religious observance
 
 If you anticipate missing any classes, please let me know as early as possible so we can plan accordingly.
 
@@ -321,33 +333,23 @@ Don't cheat. For more see http://www.marquette.edu/provost/integrity-pledge.php.
 Academic dishonesty applies equally to electronic media and print and involves text, images and ideas.
 It includes but is not limited to the following examples:
 
-\begin{itemize}
-    \item \textbf{Cheating}
-    \begin{itemize}
-        \item Copying from others during an examination.
-        \item Communicating exam answers with other students during an examination.
-        \item Offering another person's work as one's own.
-        \item Taking an examination for another student or having someone take an examination for oneself.
-        \item Sharing answers for a take-home exam or assignment unless specifically authorized by the instructor.
-        \item Tampering with an examination after it has been corrected and then returning it for more credit.
-        \item Using unauthorized materials during an examination.
-        \item Allowing others to do the research and writing of an assigned paper (including use of the services of a commercial term-paper company).
-    \end{itemize}
-    \item \textbf{Dishonest Conduct}
-    \begin{itemize}
-        \item Stealing or attempting to steal an examination or answer key from the instructor.
-        \item Changing or attempting to change academic records without proper sanction.
-        \item Submitting substantial portions of the same work for credit in more than one course without consulting all instructors involved.
-        \item Intentionally disrupting the educational process in any manner.
-        \item Allowing another student to copy off of one's own work during a test.
-    \end{itemize}
-    \item \textbf{Plagiarism}
-    \begin{itemize}
-        \item Stealing or passing off as one's own the ideas or words, images or other creative works of another
-        \item Using a creative production without crediting the source, even if only minimal information is available to identify it for citation. Credit must be given for every direct quotation, for paraphrasing or summarizing a work (in whole, in part, in one's own words) and for information that is not common knowledge.
-    \end{itemize}
-    \item \textbf{Collusion}
-    \begin{itemize}
-        \item Knowingly or intentionally helping another student perform any of the above acts of cheating, dishonest conduct or plagiarism.
-    \end{itemize}
-\end{itemize}
+- **Cheating**
+  - Copying from others during an examination.
+  - Communicating exam answers with other students during an examination.
+  - Offering another person's work as one's own.
+  - Taking an examination for another student or having someone take an examination for oneself.
+  - Sharing answers for a take-home exam or assignment unless specifically authorized by the instructor.
+  - Tampering with an examination after it has been corrected and then returning it for more credit.
+  - Using unauthorized materials during an examination.
+  - Allowing others to do the research and writing of an assigned paper (including use of the services of a commercial term-paper company).
+- **Dishonest Conduct**
+  - Stealing or attempting to steal an examination or answer key from the instructor.
+  - Changing or attempting to change academic records without proper sanction.
+  - Submitting substantial portions of the same work for credit in more than one course without consulting all instructors involved.
+  - Intentionally disrupting the educational process in any manner.
+  - Allowing another student to copy off of one's own work during a test.
+- **Plagiarism**
+  - Stealing or passing off as one's own the ideas or words, images or other creative works of another
+  - Using a creative production without crediting the source, even if only minimal information is available to identify it for citation. Credit must be given for every direct quotation, for paraphrasing or summarizing a work (in whole, in part, in one's own words) and for information that is not common knowledge.
+- **Collusion**
+  - Knowingly or intentionally helping another student perform any of the above acts of cheating, dishonest conduct or plagiarism.
