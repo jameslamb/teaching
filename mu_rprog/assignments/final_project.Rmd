@@ -200,8 +200,21 @@ You'll do great!
 
 The final deliverable for this project is a written report with your findings.
 This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client.
-Your report should focus on the problem (not the specifics of the code).
-It should describe the problem, a brief summary of the work that was done, and a description of the result.
+
+Your report should focus on the problem, not the specifics of the code.
+
+It should describe the problem, a brief summary of the work that was done (including the data that was used), and the result.
+
+The problem should be stated as a falsifiable research question.
+
+**Bad**
+
+> *Every knows inflation is a big problem. I looked at how high inflation is.*
+
+**Good**
+
+> *This project explored whether the relationship between observed inflation and consumer sentiment in the U.S. changed in the period 2021-2023.*
+
 Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).
 
 This report should be free from statistical jargon, or such jargon should be clearly and concisely explained in the report.
@@ -213,6 +226,19 @@ This report should be free from statistical jargon, or such jargon should be cle
 **Good**
 
 > *I observed larger model errors for higher-value stocks, so I'm not confident that these results would hold for a portfolio with a different mix of company sizes.*
+
+For example, none of the following phrases should be used (unless they're clearly explained in jargon-free language):
+
+* "coefficient"
+* "F-statistic"
+* "heteroskedasticity"
+* "hypothesis test"
+* "p-value"
+* "regression"
+* "R squared"
+* "statistically significant"
+* "t-test"
+* "variance inflation factor"
 
 <h3>Submission</h3>
 
@@ -229,19 +255,22 @@ Your report will be scored out of 100 points, using the following rubric:
 |**Other Report  Items**                                                                                 |                      |
 |&nbsp;&nbsp;1. Problem Explanation                                                                      |10                    |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(5-10) introduction is clear and concise*                                      |                      |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) introduction is confusing rambling*                                      |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(1-4) introduction is not clear*                                               |                      |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) no introduction of the problem*                                            |                      |
-|&nbsp;&nbsp;2. Explanation of the dataset                                                               |30                    |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(20-30) clear, executive-level explanation*                                    |                      |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(10-19) literal or overly-technical description with no connection to problem* |                      |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-9) inaccurate or confusing explanation*                                     |                      |
-|&nbsp;&nbsp;3. Explanation of the result                                                                |25                    |
+|&nbsp;&nbsp;2. Explanation of where the data came from                                                  |10                    |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-10) clear explanation*                                                      |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) unclear or inaccurate explanation*                                       |                      |
+|&nbsp;&nbsp;3. Explanation what the dataset contains                                                    |20                    |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) clear, executive-level explanation*                                    |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(10-14) overly-technical description or somewhat unclear or inaccurate*        |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-9) very unclea, inaccurate, or confusing explanation or no explanation*     |                      |
+|&nbsp;&nbsp;4. Explanation of the result                                                                |25                    |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(20-25) result of the project clearly expressed in business terms*             |                      |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(10-19) overly-technical explanation of the result*                            |                      |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-10) inaccurate, confusing, or missing explanation of the result*            |                      |
-|&nbsp;&nbsp;4. Grammar and Formatting                                                                   |20                    |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) at most two very minor grammar and spelling issues*                    |                      |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) some grammar and spelling issues*                                       |                      |
+|&nbsp;&nbsp;5. Grammar and Formatting                                                                   |20                    |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(18-20) at most two minor grammar and spelling issues*                         |                      |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-17) some grammar and spelling issues*                                       |                      |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) many grammar and spelling issues*                                        |                      |
 
 ---
