@@ -6,21 +6,24 @@ install:
 
 .PHONY: assignments
 assignments:
-	for f in $$(ls assignments/ | grep Rmd) ; do \
-		Rscript -e "rmarkdown::render('assignments/$$f')" ; \
-	done
+	find \
+		./assignments \
+		-name '*.Rmd' \
+		-exec Rscript -e "rmarkdown::render(commandArgs(trailingOnly=TRUE)[[1]])" {} \;
 
 .PHONY: code-samples
 code-samples:
-	for f in $$(ls code/ | grep Rmd) ; do \
-		Rscript -e "rmarkdown::render('code/$$f')" ; \
-	done
+	find \
+		./code \
+		-name '*.Rmd' \
+		-exec Rscript -e "rmarkdown::render(commandArgs(trailingOnly=TRUE)[[1]])" {} \;
 
 .PHONY: slides
 slides:
-	for f in $$(ls slides/ | grep Rmd) ; do \
-		Rscript -e "slidify::slidify('slides/$$f')" ; \
-	done
+	find \
+		./slides \
+		-name '*.Rmd' \
+		-exec Rscript -e "slidify::slidify(commandArgs(trailingOnly=TRUE)[[1]])" {} \;
 
 .PHONY: syllabus
 syllabus:
