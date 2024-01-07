@@ -15,7 +15,7 @@ urlcolor: blue
 
 \hrulefill
 
-**Instructor:** James Lamb - jaylamb20@gmail.com https://github.com/jameslamb)
+**Instructor:** James Lamb
 
 \hrulefill
 
@@ -25,17 +25,13 @@ Welcome to R Programming!
 
 ## A. Learning Objectives and Outcomes
 
-In this course, we'll explore the basic building blocks of statistical programming in R.
+In this course, you'll learn the fundamentals of using the R programming language.
 
-The course focuses on three parallel learning objectives
+What you'll learn:
 
-* setting up an open-source software environment for practicing data science
-* translation of ideas to software solutions using R
-* management and sharing of code
-
-There will of course be some time spent learning syntax (e.g. "this is the command to do this thing in R"), but you'll also get the opportunity to hit each of these learning objectives through quizzes, programming assignments, a flexibly-defined final project and (finally) a "code review" presentation of your work.
-
-The R ecosystem is huge and there are new features being added daily. You will not learn all or even most of what the language has to offer in this course, but you will leave with enough knowledge to hack together solutions to data-rich problems in your academic and professional lives.
+* syntax (i.e. "this is the command to do this thing in R")
+* how to write complex R programs
+* how to use R to read data, conduct statistical analyses and create data visualizations
 
 ## B. Course Resources and Communication
 
@@ -188,15 +184,12 @@ And letter grades will be assigned using the following scale:
 >
 > **F**  - Less than 70\%
 
-The descriptions of all assignments are available immediately.
-
 ## A. Quizzes (25\%)
 
 There will be two quizzes which will test your understanding of topics covered in class.
-These quizzes will test your knowledge of terminology and core concepts.
 In addition, quizzes may require you to interpret pseudo-code or to write a bit of R code yourself to solve questions.
 
-Quizzes will be delivered online via D2L (see the "Quizzes" section of the course site).
+Quizzes are delivered online via D2L (see the "Quizzes" section of the course site).
 Quizzes have no time limit.
 You will be allowed two attempts for each quiz and your grade on each quiz will be the better of your two scores.
 All times below are in Central Time.

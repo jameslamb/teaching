@@ -1,24 +1,46 @@
-#####=== Programming Assignment 1: Debugging ==============================#####
+---
+title : Programming Assignment 1
+output:
+  html_document:
+    theme: spacelab
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+---
 
-# In this assignment, I've provided 5 small bits of code. Each of these is intentionally
-# incorrect. Your job is to correct the code so that it works as intended.
-#
-# Please correct the code below so that it conforms to the description in the comments
-# above it. You may want to comment out my bad code so that you still have it for reference.
+## Overview
 
-# To get full points on this assignment:
-#   - This entire script should run without errors.
-#   - Your code should fulfill the specific instructions provided.
+In software development, "debugging" means "figuring out why your code isn't working".
 
-# Please note:
-#   - Partial credit will be given for each question.
-#   - all lines not beginning with "#" will be considered for grading
+In this assignment, you'll practice debugging R code.
 
-# You should upload a file called Firstname_Lastname_Assignment1.R (with your first and last name)
-# to the Programming Assignment 1 dropbox on the D2L course site.
+## Instructions
 
-###=== Code Correction Challenges ===#
+I've provided 5 snippets of code below.
+Each is intentionally incorrect.
+To complete this assignment, correct the code so that it works as intended.
 
+Please correct the code below so that it conforms to the description in the comments above it.
+
+To get full points on this assignment:
+
+* The entire script you submit must run without errors.
+* Your code must fulfill the specific instructions provided.
+
+Note:
+
+* Partial credit will be given for eaach question.
+* All lines not beginning with `"#"` will be considered for grading.
+
+Instructions:
+
+1. Create a file called `{Firstname}_{Lastname}_Assignment1.R`.
+2. Copy the code below into that file.
+3. Change the code to meet all the requirements described in the comments.
+4. Upload that file to the "programming assignment 1" dropbox on D2L.
+
+```{r eval=FALSE}
 # a. Put your name in a variable and print "hello, my name is <your_name>".
 #    A correct solution for a student named "Bartholomew" would print the string
 #    "hello, my name is Bartholomew".
@@ -128,3 +150,4 @@ findMin(c(-5, 10, 100, -8))
 
 # should return 0.999
 findMin(c(1:10, 20:50, 0.999, 6))
+```
