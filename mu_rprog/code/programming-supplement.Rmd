@@ -1151,6 +1151,10 @@ In the context of statistical programming, text files that are "unstructured" ar
 
 The code below examines a text file with all of Shakespeare's sonnets.
 
+```{r echo=FALSE}
+set.seed(708)
+```
+
 ```{r unstructuredText}
 # Parameters
 shakespeare_url <- "https://ia800300.us.archive.org/5/items/shakespearessonn01041gut/wssnt10.txt"
@@ -1789,13 +1793,15 @@ dtPreds <- EvaluateModel(
 )
 ```
 
-You can walk through the tree with this awesome package called `rattle`. This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
+You can walk through the tree with this awesome package called `rattle`.
+This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
 
 ```{r plotTheTree, eval = TRUE, echo = TRUE}
 # Plot the tree
 rattle::fancyRpartPlot(
     treeMod
     , main = "Single Decision Tree"
+    , sub = ""
 )
 ```
 
