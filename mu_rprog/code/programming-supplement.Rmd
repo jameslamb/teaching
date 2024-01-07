@@ -788,7 +788,7 @@ quantmod::getSymbols(
     , auto.assign = TRUE
 )
 cpiDT <- data.table::data.table(
-    CPIAUCSL
+    CPIAUCSL["1947-01-01/2023-11-01"]
     , keep.rownames = TRUE
 )
 
