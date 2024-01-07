@@ -1,24 +1,29 @@
 ---
-output: pdf_document
+title: "ECON 6114: R Programming (Summer 2023)"
+output:
+  html_document:
+    number_sections: false
+    theme: spacelab
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    toc_depth: 2
 linkcolor: blue
 urlcolor: blue
 ---
 
-\textbf{ECON 6114} \hspace{30mm}
-\textbf{R Programming} \hspace{30mm}
-\textbf{Summer 2023}
+\hrulefill
+
+**Instructor:** James Lamb - jaylamb20@gmail.com | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb) | [Mastodon](https://hachyderm.io/@_jameslamb)
 
 \hrulefill
 
-\textbf{Instructor:} James Lamb - jaylamb20@gmail.com | [Twitter](https://twitter.com/_jameslamb) | [LinkedIn](https://www.linkedin.com/in/jameslamb1) | [GitHub](https://github.com/jameslamb) | [Mastodon](https://hachyderm.io/@_jameslamb)
-
-\hrulefill
-
-\section{I. Course Info}
+# I. Course Info
 
 Welcome to R Programming!
 
-\subsection{A. Learning Objectives and Outcomes}
+## A. Learning Objectives and Outcomes
 
 In this course, we'll explore the basic building blocks of statistical programming in R.
 
@@ -32,7 +37,7 @@ There will of course be some time spent learning syntax (e.g. "this is the comma
 
 The R ecosystem is huge and there are new features being added daily. You will not learn all or even most of what the language has to offer in this course, but you will leave with enough knowledge to hack together solutions to data-rich problems in your academic and professional lives.
 
-\subsection{B. Course Resources and Communication}
+## B. Course Resources and Communication
 
 **Your Professor:**
 
@@ -78,7 +83,7 @@ Instructions for setting up these components can be found in the section below.
 
 Slides and assignment rubrics are available both in the "Content" section of the course page on D2L and on the course [GitHub repository](https://github.com/jameslamb/teaching/tree/main/mu_rprog).
 
-\subsection{C. To-Do Before the First Session}
+## C. To-Do Before the First Session
 
 The course begins on July 10, 2023.
 
@@ -97,7 +102,7 @@ This is just to help me understand your previous experience with programming and
 I hope you'll be able to install these components using the information at those links and some moderate Googling.
 If you run into any issues, please email me and I'll help you out.
 
-\subsection{D. Course Outline}
+## D. Course Outline
 
 The outline below describes my goals for each lecture.
 Weeks 1-4 of the course are *asynchronous*...I've provided pre-recorded lecture videos which you are encouraged to watch at a time that works for you.
@@ -164,7 +169,7 @@ All students will receive a calendar invitation.
 
 \pagebreak
 
-\section{II. Grading and Assignments}
+# II. Grading and Assignments
 
 You will receive a letter grade for this course.
 Grades will be assigned using the following scheme (also available under the "Grades" section of the course D2L page).
@@ -183,18 +188,25 @@ Grades will be assigned using the following scheme (also available under the "Gr
 
 And letter grades will be assigned using the following scale:
 
-> \textbf{A}  - 94\% or higher \newline
-> \textbf{A-} - 87\% $\leq$ grade < 94\% \newline
-> \textbf{B+}  - 85\% $\leq$ grade < 87\% \newline
-> \textbf{B}  - 82\% $\leq$ grade < 85\% \newline
-> \textbf{B-} - 75\% $\leq$ grade < 82\% \newline
-> \textbf{C+}  - 73\% $\leq$ grade < 75\% \newline
-> \textbf{C}  - 70\% $\leq$ grade < 73\% \newline
-> \textbf{F}  - Less than 70\%
+> **A**  - 94\% or higher
+>
+> **A-** - 87\% $\leq$ grade < 94\%
+>
+> **B+**  - 85\% $\leq$ grade < 87\%
+>
+> **B**  - 82\% $\leq$ grade < 85\%
+>
+> **B-** - 75\% $\leq$ grade < 82\%
+>
+> **C+**  - 73\% $\leq$ grade < 75\%
+>
+> **C**  - 70\% $\leq$ grade < 73\%
+>
+> **F**  - Less than 70\%
 
 The descriptions of all assignments are available immediately.
 
-\subsection{A. Quizzes (25\%)}
+## A. Quizzes (25\%)
 
 There will be two quizzes which will test your understanding of topics covered in class.
 These quizzes will test your knowledge of terminology and core concepts.
@@ -211,7 +223,7 @@ All times below are in Central Time.
 |Quiz 1                     | Immediately                      | 11:00p on July 22, 2023    |
 |Quiz 2                     | Immediately                      | 11:00p on July 29, 2023    |
 
-\subsection{B. Programming Assignments (30\%)}
+## B. Programming Assignments (30\%)
 
 After we've covered preliminary topics in the first two weeks of the course, I'll ask you to complete two programming assignments.
 In these assignments, you'll create R scripts to accomplish common tasks in data exploration and statistical analysis.
@@ -226,7 +238,7 @@ All times below are in Central Time.
 |Programming Assignment 1   | 11:00p on July 29, 2023     |
 |Programming Assignment 2   | 11:00p on August 5, 2023    |
 
-\subsection{C. Final Project (45\%)}
+## C. Final Project (45\%)
 
 Unlike the quizzes and programming assignments, the final project will be relatively unstructured.
 In this project, you will be asked to augment what you've learned about base R with other functionality available in external packages.
@@ -252,33 +264,33 @@ All times below are in Central Time.
 |Final Project code review video | 11:00p on August 12, 2023 |
 |Final Project peer reviews      | 11:00p on August 12, 2023 |
 
-\subsection{D. Extra Credit}
+## D. Extra Credit
 
 There is an optional Extra Credit assignment available, worth up to 3 percentage points on your final grade.
 Follow the instructions at https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html.
 
 This extra credit must be submitted prior to midnight on August 18, 2023.
 
-\subsection{E. Grade Appeal}
+## E. Grade Appeal
 
 The grading policies described above will be used to calculate your final grade for the course
 Individual assignment grades will follow rubrics available on the D2L site for this course.
 If you disagree with any grade assigned to you in this course, please frame all appeals in the language of this document + those rubrics.
 
-\section{III. Administrative Information}
+# III. Administrative Information
 
-\subsection{A. Special Needs}
+## A. Special Needs
 
 Please inform me during the first week of class if you have any conditions that may limit or affect your ability to participate in this course so that we can make necessary arrangements.
 You may also contact the Office of Student Disability Services (http://www.marquette.edu/disability-services/).
 
-\subsection{B. Emergency Plan}
+## B. Emergency Plan
 
 Every Marquette University campus building has emergency shelter and evacuation plans.
 Please familiarize yourself with the plans of each building in which you take classes or attend meetings.
 Make sure to note the routes to the lowest level of the buildings for shelter during inclement weather, as well as exits from the buildings in the event of fire or other emergency.
 
-\subsection{C. Attendance Statement}
+## C. Attendance Statement
 
 The Marquette University Graduate School of Management considers regular class attendance an important component of the learning process.
 Students are expected to attend scheduled class meetings; excessive absences may have adverse consequences, ranging from a lowered course grade to forced withdrawal from the course.
@@ -300,7 +312,7 @@ There are a handful of situations which are considered "excused" absences:
 
 If you anticipate missing any classes, please let me know as early as possible so we can plan accordingly.
 
-\subsection{D. Academic Integrity}
+## D. Academic Integrity
 
 Don't cheat. For more see http://www.marquette.edu/provost/integrity-pledge.php.
 
