@@ -299,10 +299,10 @@ You can combine multiple plots in a grid layout. See ["The Base Plotting System"
 
 We don't have time in this short class to go into great depth on data visualization, but I want you to know that there are a bunch of cool visualization libraries a short `install.packages()` away!
 
+- [dygraphs](https://rstudio.github.io/dygraphs/): high-level library for creating interactive charts that can be embedded directly in HTML
 - [ggplot2](http://www.r-graph-gallery.com/portfolio/ggplot2-package/): One of the most popular packages in the R world. Based on the "grammar of graphics" approach to building plots
 - [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html): Send your data to the google charts API to make fancy interactive visualizations
 - [plotly](https://plotly.com/r/): easy-to-use library for creating interactive data visualizations and dashboards
-- [rbokeh](https://hafen.github.io/rbokeh/#preview): high-level library for creating interactive charts that can be embedded directly in HTML
 
 --- .content_slide
 

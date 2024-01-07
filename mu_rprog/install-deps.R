@@ -10,14 +10,14 @@ if (!requireNamespace("slidifyLibraries")) {
 
 install.packages(
     pkgs = c(
-        "ineq"
+        "dygraphs"
+        , "ineq"
         , "jsonlite"
         , "lubridate"
         , "openxlsx"
         , "quantmod"
         , "randomForest"
         , "rattle"
-        , "rbokeh"
         , "remotes"
         , "stringr"
     )

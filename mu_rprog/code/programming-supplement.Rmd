@@ -767,38 +767,36 @@ rwRanges <- apply(
 
 # Using External Packages
 
-This example shows some interesting data visualizations you can make using `{data.table}`, `{quantmod}`, and `{rbokeh}`.
+This example shows some interesting data visualizations you can make using `{data.table}`, `{dygraphs}`, and `{quantmod}`.
 
 Install these packages:
 
 ```r
-install.packages(c("data.table", "quantmod", "rbokeh"))
+install.packages(c("data.table", "dygraphs", "quantmod"))
 ```
 
 ```{r makePlots, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 # Load dependencies
 library(data.table)
+library(dygraphs)
 library(quantmod)
-library(rbokeh)
 
-# Get data and plot it
-quantmod::getSymbols(
+# Get data
+cpiData <- quantmod::getSymbols(
     Symbols = "CPIAUCSL"
     , src = "FRED"
-    , auto.assign = TRUE
-)
-cpiDT <- data.table::data.table(
-    CPIAUCSL
-    , keep.rownames = TRUE
-)
+    , auto.assign = FALSE
+)["1947-01-01/2023-11-01"]
 
 # Plot it!
-rbokeh::figure(
-    data = cpiDT
-    , title = "U.S. CPI"
-    , ylab = "Index (1982-1984 = 100)"
+dygraphs::dygraph(
+    data = cpiData
+    , main = "U.S. CPI"
     , xlab = "date"
-) %>% ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
+    , ylab = "Index (1982-1984 = 100)"
+    , elementId = "plot"
+) %>%
+    dygraphs::dyRangeSelector()
 ```
 
 ## Sourcing Helper Functions
@@ -2157,12 +2155,10 @@ My script below shows an example of a typical layout for professional-quality R 
 #===== 1. Setup =====#
 
 # Load dependencies
-library(data.table)
+library(dygraphs)
 library(quantmod)
-library(rbokeh)
-library(purrr)
 
-# Set global params
+# Set script-level constants
 FRED_SERIES <- "CPIAUCSL" # UNRATE
 TITLE       <- "U.S. CPI" # "U.S. unemployment""
 VAR_UNITS   <- "Index (1982-1984 = 100)" # "% of labor force"
@@ -2170,32 +2166,23 @@ VAR_UNITS   <- "Index (1982-1984 = 100)" # "% of labor force"
 #===== 2. Get Data =====#
 
 # Get data from FRED
-quantmod::getSymbols(
+cpiData <- quantmod::getSymbols(
     Symbols = FRED_SERIES
     , src = "FRED"
-    , auto.assign = TRUE
-)
-
-# Put it in a data.table
-dataDT <- data.table::data.table(
-    get(FRED_SERIES)
-    , keep.rownames = TRUE
+    , auto.assign = FALSE
 )
 
 #===== 3. Plot it! =====#
 
 # Plot it!
-rbokeh::figure(
-    data = dataDT
-    , title = TITLE
-    , ylab = VAR_UNITS
+dygraphs::dygraph(
+    data = cpiData
+    , main = TITLE
     , xlab = "date"
-    , width = 800
-) %>% rbokeh::ly_lines(
-    x = dataDT[,index]
-    , y = dataDT[,get(FRED_SERIES)]
-    , color = "blue"
-  )
+    , ylab = VAR_UNITS
+    , elementId = "plot"
+) %>%
+    dygraphs::dyRangeSelector()
 ```
 
 # Creating R Packages

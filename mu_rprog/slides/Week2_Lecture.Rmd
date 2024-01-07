@@ -506,20 +506,22 @@ https://github.com/microsoft/LightGBM
 
 <h2>Loading Installed Packages</h2>
 
-As you advance in R, you will find that the functions provided by packages like `{base}`, `{stats}`, and `{utils}` are not sufficient. For example, you may want to use `{rbokeh}` to make interactive plots.
+As you advance in R, you will find that the functions provided by packages like `{base}`, `{stats}`, and `{utils}` are not sufficient. For example, you may want to use `{dygraphs}` to make interactive plots.
 
 ```{r makePlots, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}
 # Load dependencies
-library(data.table); library(quantmod); library(rbokeh);
+library(data.table); library(dygraphs); library(quantmod);
 
-# Get data and plot it
-quantmod::getSymbols('CPIAUCSL', src = 'FRED', auto.assign = TRUE)
-cpiDT <- data.table::data.table(CPIAUCSL, keep.rownames = TRUE)
+# Get data
+cpiData <- quantmod::getSymbols(
+    Symbols = "CPIAUCSL", src = "FRED", auto.assign = FALSE
+)["1947-01-01/2023-11-01"]
 
-# Plot it!
-rbokeh::figure(data = cpiDT, title = "U.S. CPI",
-               ylab = "Index (1982-1984 = 100)", xlab = "date") %>%
-        ly_lines(x = cpiDT$index, y = cpiDT$CPIAUCSL, color = "blue")
+# Plot it
+dygraphs::dygraph(
+    data = cpiData, main = "U.S. CPI", xlab = "date", ylab = "Index (1982-1984 = 100)", elementId = "plot"
+) %>%
+    dygraphs::dyRangeSelector()
 ```
 
 --- .content_slide
