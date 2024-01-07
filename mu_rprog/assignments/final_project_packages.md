@@ -59,6 +59,5 @@
 - openxlsx
 - patchwork
 - plotly
-- rbokeh
 - RColorBrewer
 - stargazer
