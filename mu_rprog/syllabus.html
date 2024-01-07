@@ -1479,6 +1479,12 @@ font-size: 0.90em;
 .tocify .list-group-item {
 border-radius: 0px;
 }
+.tocify-subheader {
+display: inline;
+}
+.tocify-subheader .tocify-item {
+font-size: 0.95em;
+}
 </style>
 
 
@@ -1513,7 +1519,7 @@ border-radius: 0px;
 
 
 <p><strong>Instructor:</strong> James Lamb - <a href="mailto:jaylamb20@gmail.com" class="email">jaylamb20@gmail.com</a>
-| <a href="https://github.com/jameslamb">GitHub</a></p>
+<a href="https://github.com/jameslamb" class="uri">https://github.com/jameslamb</a>)</p>
 <div id="i.-course-info" class="section level1">
 <h1>I. Course Info</h1>
 <p>Welcome to R Programming!</p>
@@ -1541,147 +1547,167 @@ lives.</p>
 </div>
 <div id="b.-course-resources-and-communication" class="section level2">
 <h2>B. Course Resources and Communication</h2>
-<p><strong>Your Professor:</strong></p>
-<p>My contact information is given at the top of this syllabus. Email is
-my preferred contact method, and I will do my best to respond to all
-emails within 24 hours.</p>
-<p><strong>Office Hours:</strong></p>
+<div id="instructor" class="section level3">
+<h3>Instructor</h3>
+<ul>
+<li><strong>email:</strong> <a href="mailto:jaylamb20@gmail.com" class="email">jaylamb20@gmail.com</a></li>
+<li><strong>GitHub:</strong> <a href="https://github.com/jameslamb" class="uri">https://github.com/jameslamb</a></li>
+<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jameslamb1/" class="uri">https://www.linkedin.com/in/jameslamb1/</a></li>
+</ul>
+<p>Email is my preferred contact method, and I will do my best to
+respond to all emails within 24 hours.</p>
+</div>
+<div id="office-hours" class="section level3">
+<h3>Office Hours</h3>
 <p>Go to <a href="https://calendly.com/_jameslamb" class="uri">https://calendly.com/_jameslamb</a> to book time for a
 1-on-1 video call with me. That service is automatically synced with my
-calendars. If you don’t see a time that works with your schedule, please
-email me with your availability and we can find a time to meet.</p>
-<p><strong>Course Repo:</strong></p>
-<p>All course resources (including this syllabus!) can be found at <a href="https://github.com/jameslamb/teaching/tree/main/mu_rprog" class="uri">https://github.com/jameslamb/teaching/tree/main/mu_rprog</a>.</p>
-<p>BOOKMARK THIS RIGHT NOW: <a href="https://jameslamb.github.io/teaching/mu_rprog/" class="uri">https://jameslamb.github.io/teaching/mu_rprog/</a></p>
-<p><strong>Required Textbooks:</strong></p>
-<p>None.</p>
-<p><strong>Lecture Videos:</strong></p>
-<p>Pre-recorded lecture videos are hosted on my Google Drive, at <a href="https://drive.google.com/drive/folders/1gxLk7hH5sPd8QaBwKY9QqabyWq3TXoAh" class="uri">https://drive.google.com/drive/folders/1gxLk7hH5sPd8QaBwKY9QqabyWq3TXoAh</a>.</p>
-<p>All lecture videos are available as of the first day of class. Videos
-describing the solutions to quizzes and assignments will be made
-available after the deadlines for those items.</p>
-<p><strong>Required Hardware:</strong></p>
-<p> If you do not have a personal laptop, please let me know as soon as
+calendars.</p>
+<p>If you don’t see a time that works with your schedule, please email
+me with your availability and we can find a time to meet.</p>
+</div>
+<div id="course-materials" class="section level3">
+<h3>Course Materials</h3>
+<p>No textbooks or other paid resources.</p>
+<p>Bookmark these:</p>
+<ul>
+<li>course site: <a href="https://jameslamb.github.io/teaching/mu_rprog/" class="uri">https://jameslamb.github.io/teaching/mu_rprog/</a></li>
+<li>lecture videos: <a href="https://drive.google.com/drive/folders/1gxLk7hH5sPd8QaBwKY9QqabyWq3TXoAh" class="uri">https://drive.google.com/drive/folders/1gxLk7hH5sPd8QaBwKY9QqabyWq3TXoAh</a></li>
+<li>programming supplement: <a href="https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html" class="uri">https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html</a></li>
+</ul>
+<p>All lectures are delivered asynchronously, via those pre-recorded
+videos.</p>
+<p>Videos describing the solutions to quizzes and assignments will be
+made available after the deadlines for those items.</p>
+</div>
+<div id="required-hardware" class="section level3">
+<h3>Required Hardware</h3>
+<p></p>
+<p>If you do not have a personal laptop, please let me know as soon as
 possible.</p>
 <p>The use of personal hardware is required because one of the
 objectives for this course is to help each of you set up a data science
 development environment on your own machines.</p>
-<p><strong>Required Software:</strong></p>
+</div>
+<div id="required-software" class="section level3">
+<h3>Required Software</h3>
 <p>We will be working with the <a href="https://www.r-project.org/">R
 programming language</a>. For script editing and exploratory analysis,
 we’ll use <a href="https://www.rstudio.com/">RStudio</a>, a popular
 integrated development environment (IDE) for R.</p>
 <p>Instructions for setting up these components can be found in the
-section below.</p>
-<p><strong>Slides and Assignment Rubrics:</strong></p>
-<p>Slides and assignment rubrics are available both in the “Content”
-section of the course page on D2L and on the course <a href="https://github.com/jameslamb/teaching/tree/main/mu_rprog">GitHub
-repository</a>.</p>
+sections below.</p>
 </div>
-<div id="c.-to-do-before-the-first-session" class="section level2">
-<h2>C. To-Do Before the First Session</h2>
-<p>The course begins on July 10, 2023.</p>
-<p>Before that date, please do the following:</p>
-<p><strong>1. Take the pre-course survey on <a href="https://d2l.mu.edu/">d2l</a></strong></p>
-<p>The survey must be completed before the end of week 1. This is just
-to help me understand your previous experience with programming and data
-science.</p>
-<p><strong>2. Set up your development environment</strong></p>
-<ul>
-<li>Try to <a href="https://cloud.r-project.org/">install R</a> on your
-personal laptop</li>
-<li>Try to <a href="https://www.rstudio.com/products/rstudio/download/">install
-RStudio</a> on your personal laptop</li>
-</ul>
-<p>I hope you’ll be able to install these components using the
-information at those links and some moderate Googling. If you run into
-any issues, please email me and I’ll help you out.</p>
 </div>
-<div id="d.-course-outline" class="section level2">
-<h2>D. Course Outline</h2>
-<p>The outline below describes my goals for each lecture. Weeks 1-4 of
-the course are <em>asynchronous</em>. I’ve provided pre-recorded lecture
-videos which you are encouraged to watch at a time that works for
-you.</p>
-<p>Week 5 is a <strong>virtual, synchronous</strong> session, where
-students will present their final projects on a video call.</p>
-<div id="week-1-ends-july-15-2023" class="section level3">
-<h3>Week 1 (ends July 15, 2023)</h3>
-<p>Due at the beginning of this week:</p>
+<div id="c.-course-outline" class="section level2">
+<h2>C. Course Outline</h2>
+<p>As long as you meet all deadlines in thse course, you can approach
+the material at any pace and in any order you’d like.</p>
+<p>Recommended sequence:</p>
+<ol style="list-style-type: decimal">
+<li>Read this syllabus</li>
+<li>bookmark the course resources:
 <ul>
-<li>Pre-course survey</li>
-</ul>
-<p>Topics covered:</p>
+<li>course site: <a href="https://jameslamb.github.io/teaching/mu_rprog/" class="uri">https://jameslamb.github.io/teaching/mu_rprog/</a></li>
+<li>programming supplement: <a href="https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html" class="uri">https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html</a></li>
+<li>office hours link: <a href="https://calendly.com/_jameslamb" class="uri">https://calendly.com/_jameslamb</a></li>
+</ul></li>
+<li><strong>(due January 20, 2023)</strong> Take the
+<code>pre-course survey</code> on D2L</li>
+<li>Set up your development environment
 <ul>
-<li>Introductions</li>
-<li>Syllabus review</li>
-<li>Environment setup</li>
-<li>Introduction to R</li>
-<li>Variables, namespaces, objects, and types</li>
-<li>Basic math operations in R</li>
-<li>Data structures</li>
-<li>Subsetting</li>
-<li>Controlling program flow (if, for, while)</li>
-</ul>
-</div>
-<div id="week-2-ends-july-22-2023" class="section level3">
-<h3>Week 2 (ends July 22, 2023)</h3>
-<p>Due at the beginning of this week:</p>
+<li>install R on your personal laptop (<a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>)</li>
+<li>install RStudio on your personal laptop (<a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>)</li>
+</ul></li>
+<li>Review Week 1 lecture materials
 <ul>
-<li>Quiz 1</li>
-</ul>
-<p>Topics covered:</p>
+<li>lecture videos (<a href="https://drive.google.com/drive/folders/1wR0qZgDKSiOnhwlEkWiMjvhavuGi4WK2">link</a>)</li>
+<li>Programming Supplement topics (<a href="https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html">link</a>):
 <ul>
-<li>Functions</li>
-<li>Using external packages</li>
-<li>Debugging</li>
-<li>Working with Files</li>
-</ul>
-</div>
-<div id="week-3-ends-july-29-2023" class="section level3">
-<h3>Week 3 (ends July 29, 2023)</h3>
-<p>Due at the beginning of this week:</p>
+<li>“Variables and Namespaces”</li>
+<li>“Dollarstore Calculator Math”</li>
+<li>“Data Structures”</li>
+<li>“Logical Operators”</li>
+<li>“Subsetting”</li>
+<li>“Controlling Program Flow”</li>
+</ul></li>
+<li><em>(optional)</em> Quiz Description video (<a href="https://drive.google.com/file/d/1mA5umVuGeezZIVapP9t2ZMCMKdsDMzic/view?usp=sharing">link</a>)</li>
+</ul></li>
+<li><strong>(due January 27, 2023)</strong> Complete
+<code>Quiz 1</code></li>
+<li>Watch solution videos:
+<ul>
+<li>Quiz 1 (<a href="https://drive.google.com/file/d/1Yz0eF37P7BmW6C1t1-QFFeOwt_MyWogg/view?usp=drive_link">link</a>)</li>
+</ul></li>
+<li>Review Week 2 lecture materials
+<ul>
+<li>lecture videos (<a href="https://drive.google.com/drive/folders/1RzLcoA22EpZ2ijgemlyOiPQjXb6Dgnqt">link</a>)
+<ul>
+<li>“Functions”</li>
+<li>“Using External Packages”</li>
+<li>“Debugging”</li>
+<li>“Working with Files”</li>
+</ul></li>
+<li><em>(optional)</em> Programming Assignment 1 description video (<a href="https://drive.google.com/file/d/1lTCFRY9lpxvz-rPih8nf33TQiWaV2sum/view?usp=drive_link">link</a>)</li>
+</ul></li>
+<li><strong>(due February 3, 2023)</strong> Complete
+<code>Quiz 2</code></li>
+<li><strong>(due February 3, 2023)</strong> Submit
+<code>Programming Assignment 1</code></li>
+<li>Watch solution videos
 <ul>
 <li>Quiz 2</li>
 <li>Programming Assignment 1</li>
-</ul>
-<p>Topics covered:</p>
+</ul></li>
+<li>Review Week 3 lecture materials
 <ul>
-<li>Dealing with missing data</li>
-<li>Visualizing data</li>
-<li>Combining and transforming data frames</li>
-</ul>
-</div>
-<div id="week-4-ends-august-5-2023" class="section level3">
-<h3>Week 4 (ends August 5, 2023)</h3>
-<p>Due at the beginning of this week:</p>
+<li>lecture videos (<a href="https://drive.google.com/drive/folders/17q_QMf5TTT_gMYGDhkn5V8yY_dpjHUeO">link</a>)</li>
+<li>Programming Supplement topics (<a href="https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html">link</a>):
 <ul>
-<li>Programming Assignment 2</li>
-<li>Final Project Proposal</li>
-</ul>
-<p>Topics covered:</p>
+<li>“Missing Values”</li>
+<li>“Plotting”</li>
+<li>“Manipulating Data Frames”</li>
+</ul></li>
+<li><em>(optional)</em> Programming Assignment 2 description video (<a href="https://drive.google.com/file/d/1o-KPSFapjP85TooNywc6HdPNv7csaFRE/view?usp=drive_link">link</a>)</li>
+</ul></li>
+<li>Review Final Project materials
 <ul>
-<li>Statistical analysis</li>
-<li>Working with text</li>
-<li>Building software</li>
-<li>Final project discussion</li>
-</ul>
-</div>
-<div id="week-5-ends-august-12-2023" class="section level3">
-<h3>Week 5 (ends August 12, 2023)</h3>
-<p>Due at the beginning of this week:</p>
+<li>videos (<a href="https://drive.google.com/drive/folders/1zP8VsIt9vpvD5LvLn4aUk5CtT9uJ-vmU">link</a>)</li>
+<li>rubrics (<a href="https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html">link</a>)</li>
+<li>“Practices to Avoid in R Programming” (<a href="https://jameslamb.github.io/teaching/mu_rprog/assignments/bad-practices.html">link</a>)</li>
+</ul></li>
+<li><strong>(due February 10, 2023)</strong> Submit
+<code>Programming Assignment 2</code></li>
+<li><strong>(due February 10, 2023)</strong> Submit
+<code>Final Project Proposal</code></li>
+<li>Watch solution videos
 <ul>
-<li>Final Project script</li>
-<li>Final project report</li>
-</ul>
-<p>This week is a synchronous video call. All students will receive a
-calendar invitation.</p>
-<p>Topics covered:</p>
+<li>Programming Assignment 2 (<a href="https://drive.google.com/file/d/1BjkwPfre3iRSeY6HjzMWPQy8VKh7qFl1/view?usp=drive_link">link</a>)</li>
+</ul></li>
+<li>Review Week 4 lecture materials
 <ul>
-<li>Final Project Code Reviews</li>
+<li>lecture videos (<a href>link</a>)</li>
+<li>Programming Supplement topics (<a href="https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html">link</a>):
+<ul>
+<li>“Statistical Analysis”</li>
+<li>“Text Processing”</li>
+<li>“Software Principles”</li>
+<li>“R Programming Best Practices”</li>
+</ul></li>
+</ul></li>
+<li><strong>(due February 17, 2023)</strong> Submit
+<code>Final Project Script(s)</code></li>
+<li><strong>(due February 17, 2023)</strong> Attend
+<code>Final Project Code Review</code> (Zoom call)</li>
+</ol>
+<ul>
+<li>present your final project code to your classmates</li>
+<li>provide peer review feedback to your classmates</li>
 </ul>
+<ol start="25" style="list-style-type: decimal">
+<li><strong>(due February 20, 2023)</strong> <em>(optional)</em>
+complete <code>Extra Credit Assignment</code></li>
+</ol>
 <div style="page-break-after: always;"></div>
-</div>
 </div>
 </div>
 <div id="ii.-grading-and-assignments" class="section level1">
@@ -1781,17 +1807,17 @@ your two scores. All times below are in Central Time.</p>
 <tr class="odd">
 <td align="center">Pre-class survey</td>
 <td align="center">Immediately</td>
-<td align="center">11:00p on July 15, 2023</td>
+<td align="center">11:00p on January 20, 2023</td>
 </tr>
 <tr class="even">
 <td align="center">Quiz 1</td>
 <td align="center">Immediately</td>
-<td align="center">11:00p on July 22, 2023</td>
+<td align="center">11:00p on January 27, 2023</td>
 </tr>
 <tr class="odd">
 <td align="center">Quiz 2</td>
 <td align="center">Immediately</td>
-<td align="center">11:00p on July 29, 2023</td>
+<td align="center">11:00p on February 3, 2023</td>
 </tr>
 </tbody>
 </table>
@@ -1817,11 +1843,11 @@ in the table below. All times below are in Central Time.</p>
 <tbody>
 <tr class="odd">
 <td align="center">Programming Assignment 1</td>
-<td align="center">11:00p on July 29, 2023</td>
+<td align="center">11:00p on February 3, 2023</td>
 </tr>
 <tr class="even">
 <td align="center">Programming Assignment 2</td>
-<td align="center">11:00p on August 5, 2023</td>
+<td align="center">11:00p on February 10, 2023</td>
 </tr>
 </tbody>
 </table>
@@ -1845,8 +1871,6 @@ project</li>
 outcome of your analysis</li>
 <li><em>Final project code review</em>: A 5-10 minute overview of your
 project, presented live in the final week of the course.</li>
-<li><em>Final Project peer review</em>: Written feedback for three of
-your classmates’ presentations.</li>
 </ol>
 <p>Full details of the project and each of its components are available
 at <a href="https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html">https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html</a>.
@@ -1861,19 +1885,15 @@ All times below are in Central Time.</p>
 <tbody>
 <tr class="odd">
 <td align="center">Final Project proposal</td>
-<td align="center">11:00p on August 5, 2023</td>
+<td align="center">11:00p on February 10, 2023</td>
 </tr>
 <tr class="even">
 <td align="center">Final Project (script + report)</td>
-<td align="center">11:00p on August 12, 2023</td>
+<td align="center">11:00p on February 17, 2023</td>
 </tr>
 <tr class="odd">
 <td align="center">Final Project code review video</td>
-<td align="center">11:00p on August 12, 2023</td>
-</tr>
-<tr class="even">
-<td align="center">Final Project peer reviews</td>
-<td align="center">11:00p on August 12, 2023</td>
+<td align="center">11:00p on February 17, 2023</td>
 </tr>
 </tbody>
 </table>
@@ -1882,16 +1902,16 @@ All times below are in Central Time.</p>
 <h2>D. Extra Credit</h2>
 <p>There is an optional Extra Credit assignment available, worth up to 3
 percentage points on your final grade. Follow the instructions at <a href="https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html" class="uri">https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html</a>.</p>
-<p>This extra credit must be submitted prior to midnight on August 18,
+<p>This extra credit must be submitted prior to midnight on February 21,
 2023.</p>
 </div>
 <div id="e.-grade-appeal" class="section level2">
 <h2>E. Grade Appeal</h2>
 <p>The grading policies described above will be used to calculate your
 final grade for the course Individual assignment grades will follow
-rubrics available on the D2L site for this course. If you disagree with
-any grade assigned to you in this course, please frame all appeals in
-the language of this document + those rubrics.</p>
+rubrics available on the course site.</p>
+<p>If you disagree with any grade assigned to you in this course, please
+refer to this document and those rubrics in your appeal.</p>
 </div>
 </div>
 <div id="iii.-administrative-information" class="section level1">
@@ -1905,12 +1925,7 @@ the Office of Student Disability Services (<a href="http://www.marquette.edu/dis
 </div>
 <div id="b.-emergency-plan" class="section level2">
 <h2>B. Emergency Plan</h2>
-<p>Every Marquette University campus building has emergency shelter and
-evacuation plans. Please familiarize yourself with the plans of each
-building in which you take classes or attend meetings. Make sure to note
-the routes to the lowest level of the buildings for shelter during
-inclement weather, as well as exits from the buildings in the event of
-fire or other emergency.</p>
+<p>See <a href="https://www.marquette.edu/university-safety/guides/emergency-planning.php" class="uri">https://www.marquette.edu/university-safety/guides/emergency-planning.php</a>.</p>
 </div>
 <div id="c.-attendance-statement" class="section level2">
 <h2>C. Attendance Statement</h2>
@@ -1937,59 +1952,12 @@ of situations which are considered “excused” absences:</p>
 </ul>
 <p>If you anticipate missing any classes, please let me know as early as
 possible so we can plan accordingly.</p>
+<p>For more, see <a href="https://www.marquette.edu/business/graduate/current-policies.php" class="uri">https://www.marquette.edu/business/graduate/current-policies.php</a>.</p>
 </div>
 <div id="d.-academic-integrity" class="section level2">
 <h2>D. Academic Integrity</h2>
-<p>Don’t cheat. For more see <a href="http://www.marquette.edu/provost/integrity-pledge.php" class="uri">http://www.marquette.edu/provost/integrity-pledge.php</a>.</p>
-<p><strong>DEFINITIONS OF ACADEMIC DISHONESTY</strong></p>
-<p>Academic dishonesty applies equally to electronic media and print and
-involves text, images and ideas. It includes but is not limited to the
-following examples:</p>
-<ul>
-<li><strong>Cheating</strong>
-<ul>
-<li>Copying from others during an examination.</li>
-<li>Communicating exam answers with other students during an
-examination.</li>
-<li>Offering another person’s work as one’s own.</li>
-<li>Taking an examination for another student or having someone take an
-examination for oneself.</li>
-<li>Sharing answers for a take-home exam or assignment unless
-specifically authorized by the instructor.</li>
-<li>Tampering with an examination after it has been corrected and then
-returning it for more credit.</li>
-<li>Using unauthorized materials during an examination.</li>
-<li>Allowing others to do the research and writing of an assigned paper
-(including use of the services of a commercial term-paper company).</li>
-</ul></li>
-<li><strong>Dishonest Conduct</strong>
-<ul>
-<li>Stealing or attempting to steal an examination or answer key from
-the instructor.</li>
-<li>Changing or attempting to change academic records without proper
-sanction.</li>
-<li>Submitting substantial portions of the same work for credit in more
-than one course without consulting all instructors involved.</li>
-<li>Intentionally disrupting the educational process in any manner.</li>
-<li>Allowing another student to copy off of one’s own work during a
-test.</li>
-</ul></li>
-<li><strong>Plagiarism</strong>
-<ul>
-<li>Stealing or passing off as one’s own the ideas or words, images or
-other creative works of another</li>
-<li>Using a creative production without crediting the source, even if
-only minimal information is available to identify it for citation.
-Credit must be given for every direct quotation, for paraphrasing or
-summarizing a work (in whole, in part, in one’s own words) and for
-information that is not common knowledge.</li>
-</ul></li>
-<li><strong>Collusion</strong>
-<ul>
-<li>Knowingly or intentionally helping another student perform any of
-the above acts of cheating, dishonest conduct or plagiarism.</li>
-</ul></li>
-</ul>
+<p>Don’t cheat.</p>
+<p>For more, see <a href="http://www.marquette.edu/provost/integrity-pledge.php" class="uri">http://www.marquette.edu/provost/integrity-pledge.php</a>.</p>
 </div>
 </div>
 
@@ -2051,7 +2019,7 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = true;
+    options.showAndHide = false;
     options.smoothScroll = true;
 
     // tocify
