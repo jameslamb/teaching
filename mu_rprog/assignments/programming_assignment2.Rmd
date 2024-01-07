@@ -2,8 +2,11 @@
 title : Programming Assignment 2
 output:
   html_document:
-    toc: true
     theme: spacelab
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
 ---
 
 <h2>Assignment Introduction</h2>

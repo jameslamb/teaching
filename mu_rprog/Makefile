@@ -24,7 +24,7 @@ slides:
 
 .PHONY: syllabus
 syllabus:
-	Rscript -e "rmarkdown::render('syllabus-async.Rmd')"
+	Rscript -e 'rmarkdown::render("syllabus.Rmd", output_format = c("pdf_document", "html_document"))'
 
 .PHONY: course
 course: install assignments code-samples slides syllabus

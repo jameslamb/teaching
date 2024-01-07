@@ -8,7 +8,11 @@
 
 **Previous Course Codes:** ECON 6931
 
-## Slides:
+## Syllabus
+
+[syllabus](./syllabus.html)
+
+## Slides
 
 [Week1](./slides/Week1_Lecture.html#1) | 
 [Week2](./slides/Week2_Lecture.html#1) |
@@ -16,13 +20,13 @@
 [Week4](./slides/Week4_Lecture.html#1) |
 [Week5](./slides/Week5_Lecture.html#1)
 
-## Code:
+## Code
 
 [Programming Supplement](./code/programming-supplement.html)
 
-## Assignments:
+## Assignments
 
-* [Programming Assignment 1](./assignments/programming_assignment1.R)
+* [Programming Assignment 1](./assignments/programming_assignment1.html)
 * [Programming Assignment 2](./assignments/programming_assignment2.html)
 * [Extra Credit Programming Assignment](./assignments/extra-credit.html)
 * [Final Project](./assignments/final_project.html)

@@ -87,7 +87,7 @@ knit        : slidify::knit2slides
 
 <h2>Assignment 1 Discussion</h2>
 
-IMHO, [this assignment](../assignments/programming_assignment1.R) was the single hardest thing you'll be asked to do in this class.
+IMHO, [this assignment](../assignments/programming_assignment1.html) was the single hardest thing you'll be asked to do in this class.
 
 <center><img src="assets/img/aliens.jpg" height=200px width = 500px></center>
 
