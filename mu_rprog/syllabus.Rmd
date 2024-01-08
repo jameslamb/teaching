@@ -62,6 +62,8 @@ Bookmark these:
 
 All lectures are delivered asynchronously, via those pre-recorded videos.
 
+**YOU WILL PRESENT YOUR FINAL PROJECT ON A VIDEO CALL SATURDAY, FEBRUARY 17, 9:00a-12:00P CT**.
+
 Videos describing the solutions to quizzes and assignments will be made available after the deadlines for those items.
 
 ### Required Hardware
@@ -86,16 +88,17 @@ As long as you meet all deadlines in thse course, you can approach the material 
 Recommended sequence:
 
 1. Read this syllabus
-2. bookmark the course resources:
+2. Accept the calendar invitation for the final project presentation call.
+3. bookmark the course resources:
     * course site ([link](https://jameslamb.github.io/teaching/mu_rprog/))
     * programming supplement: ([link](https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html))
     * office hours link: https://calendly.com/_jameslamb
-3. Watch the course intro video ([link](https://drive.google.com/file/d/1BHRiFxOTSNRXyD1rAF7CPa7MC3xD3sRf/view?usp=drive_link))
-4. **(due January 20, 2024)** Take the `pre-course survey` on D2L
-5. Set up your development environment
+4. Watch the course intro video ([link](https://drive.google.com/file/d/1BHRiFxOTSNRXyD1rAF7CPa7MC3xD3sRf/view?usp=drive_link))
+5. **(due January 20, 2024)** Take the `pre-course survey` on D2L
+6. Set up your development environment
     * install R on your personal laptop (https://cloud.r-project.org/)
     * install RStudio on your personal laptop (https://www.rstudio.com/products/rstudio/download/)
-6. Review Week 1 lecture materials
+7. Review Week 1 lecture materials
     * lecture videos ([link](https://drive.google.com/drive/folders/1wR0qZgDKSiOnhwlEkWiMjvhavuGi4WK2))
     * Programming Supplement topics ([link](https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html)):
       - "Variables and Namespaces"
@@ -105,48 +108,48 @@ Recommended sequence:
       - "Subsetting"
       - "Controlling Program Flow"
     * *(optional)* Quiz Description video ([link](https://drive.google.com/file/d/1mA5umVuGeezZIVapP9t2ZMCMKdsDMzic/view?usp=sharing))
-7. **(due January 27, 2024)** Complete `Quiz 1`
-8. Watch solution videos:
+8. **(due January 27, 2024)** Complete `Quiz 1`
+9. Watch solution videos:
     * Quiz 1 ([link](https://drive.google.com/file/d/1Yz0eF37P7BmW6C1t1-QFFeOwt_MyWogg/view?usp=drive_link))
-9. Review Week 2 lecture materials
+10. Review Week 2 lecture materials
     * lecture videos ([link](https://drive.google.com/drive/folders/1RzLcoA22EpZ2ijgemlyOiPQjXb6Dgnqt))
       - "Functions"
       - "Using External Packages"
       - "Debugging"
       - "Working with Files"
     * *(optional)* Programming Assignment 1 description video ([link](https://drive.google.com/file/d/1lTCFRY9lpxvz-rPih8nf33TQiWaV2sum/view?usp=drive_link))
-10. **(due February 3, 2024)** Complete `Quiz 2`
-11. **(due February 3, 2024)** Submit `Programming Assignment 1`
-12. Watch solution videos
+11. **(due February 3, 2024)** Complete `Quiz 2`
+12. **(due February 3, 2024)** Submit `Programming Assignment 1`
+13. Watch solution videos
     * Quiz 2 ([link](https://drive.google.com/file/d/1LvTJXAe9_zeA8ISH2D1iTJWQFjO5suLs/view?usp=drive_link))
     * Programming Assignment 1 ([link](https://drive.google.com/file/d/196tA7oURjCh7-aEV3OLkmbo-0Cf1_BrV/view?usp=drive_link))
-13. Review Week 3 lecture materials
+14. Review Week 3 lecture materials
     * lecture videos ([link](https://drive.google.com/drive/folders/17q_QMf5TTT_gMYGDhkn5V8yY_dpjHUeO))
     * Programming Supplement topics ([link](https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html)):
       - "Missing Values"
       - "Plotting"
       - "Manipulating Data Frames"
     * *(optional)* Programming Assignment 2 description video ([link](https://drive.google.com/file/d/1o-KPSFapjP85TooNywc6HdPNv7csaFRE/view?usp=drive_link))
-12. Review Final Project materials
+15. Review Final Project materials
     * videos ([link](https://drive.google.com/drive/folders/1zP8VsIt9vpvD5LvLn4aUk5CtT9uJ-vmU))
     * rubrics ([link](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html))
     * "Practices to Avoid in R Programming" ([link](https://jameslamb.github.io/teaching/mu_rprog/assignments/bad-practices.html))
-13. **(due February 10, 2024)** Submit `Programming Assignment 2`
-14. **(due February 10, 2024)** Submit `Final Project Proposal`
-15. Watch solution videos
+16. **(due February 10, 2024)** Submit `Programming Assignment 2`
+17. **(due February 10, 2024)** Submit `Final Project Proposal`
+18. Watch solution videos
     * Programming Assignment 2 ([link](https://drive.google.com/file/d/1BjkwPfre3iRSeY6HjzMWPQy8VKh7qFl1/view?usp=drive_link))
-16. Review Week 4 lecture materials
+19. Review Week 4 lecture materials
     * lecture videos ([link](https://drive.google.com/drive/folders/1pIHR3RXgqI9vbKm6u1HX_pYQDD9QOgyf?usp=drive_link))
     * Programming Supplement topics ([link](https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html)):
       - "Statistical Analysis"
       - "Text Processing"
       - "Software Principles"
       - "R Programming Best Practices"
-17. **(due February 17, 2024)** Submit `Final Project Script(s)`
-18. **(due February 17, 2024)** Attend `Final Project Code Review` (Zoom call)
+20. **(due February 17, 2024)** Submit `Final Project Script(s)`
+21. **(due February 17, 2024)** Attend `Final Project Code Review` (video call)
   * present your final project code to your classmates
   * provide peer review feedback to your classmates
-19. **(due February 20, 2024)** *(optional)* complete `Extra Credit Assignment`
+22. **(due February 20, 2024)** *(optional)* complete `Extra Credit Assignment`
 
 \pagebreak
 
