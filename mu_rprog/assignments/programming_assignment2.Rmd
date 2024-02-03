@@ -94,15 +94,19 @@ You need to complete all of the following steps, indicated by the phrase `### FI
 library(quantmod)
 
 # Get Data
-usaDF <- quantmod::getSymbols(
-    Symbols = "FPCPITOTLZGUSA"
-    , src = "FRED"
-    , auto.assign = FALSE
+usaDF <- as.data.frame(
+    quantmod::getSymbols(
+        Symbols = "FPCPITOTLZGUSA"
+        , src = "FRED"
+        , auto.assign = FALSE
+    )
 )
 usaDF["Date"] <- as.Date(row.names(usaDF))
 
-jpnDF <- quantmod::getSymbols(
+jpnDF <- as.data.frame(
+    quantmod::getSymbols(
     ### FILL THIS IN ###
+    )
 )
 jpnDF["Date"] <- as.Date(row.names(jpnDF))
 
