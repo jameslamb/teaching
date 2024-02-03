@@ -1645,15 +1645,19 @@ the color of this line to “red”</li>
 library(quantmod)
 
 # Get Data
-usaDF &lt;- quantmod::getSymbols(
-    Symbols = &quot;FPCPITOTLZGUSA&quot;
-    , src = &quot;FRED&quot;
-    , auto.assign = FALSE
+usaDF &lt;- as.data.frame(
+    quantmod::getSymbols(
+        Symbols = &quot;FPCPITOTLZGUSA&quot;
+        , src = &quot;FRED&quot;
+        , auto.assign = FALSE
+    )
 )
 usaDF[&quot;Date&quot;] &lt;- as.Date(row.names(usaDF))
 
-jpnDF &lt;- quantmod::getSymbols(
+jpnDF &lt;- as.data.frame(
+    quantmod::getSymbols(
     ### FILL THIS IN ###
+    )
 )
 jpnDF[&quot;Date&quot;] &lt;- as.Date(row.names(jpnDF))
 
