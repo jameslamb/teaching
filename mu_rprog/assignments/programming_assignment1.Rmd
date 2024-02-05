@@ -47,8 +47,10 @@ Instructions:
 #
 #    Your code in print() must reference the variable my_name.
 #
-#    Only modify code between the '### BEGIN ###' and '### END ###'.
+#    Only modify code between '### BEGIN ###' and '### END ###' comments.
+### BEGIN ###
 my_name <- "James"
+### END ####
 print(
     ### BEGIN ###
     "hello,", myname, "    is ", James
