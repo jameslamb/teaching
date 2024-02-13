@@ -239,11 +239,11 @@ The project comprises the following parts:
 Full details of the project and each of its components are available at [https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html).
 All times below are in Central Time.
 
-|Assignment                      |Due                          |
-|:------------------------------:|:---------------------------:|
-|Final Project proposal          | 11:00p on February 10, 2024 |
-|Final Project (script + report) | 11:00p on February 17, 2024 |
-|Final Project code review video | 11:00p on February 17, 2024 |
+|Assignment                             |Due                            |
+|:-------------------------------------:|:-----------------------------:|
+|Final Project proposal                 | 11:00p on February 10, 2024   |
+|Final Project (script + report)        | 11:00p on February 17, 2024   |
+|Final Project code review presentation | live, 9:00a February 17, 2024 |
 
 ## D. Extra Credit
 
