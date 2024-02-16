@@ -207,7 +207,7 @@ You'll do great!
 <h3>Description</h3>
 
 The final deliverable for this project is a written report with your findings.
-This should be a 1-2 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client.
+This should be a 2-4 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client.
 
 Your report should focus on the problem, not the specifics of the code.
 
