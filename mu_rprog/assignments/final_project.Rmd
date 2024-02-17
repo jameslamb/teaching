@@ -104,7 +104,7 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;2. Uses at least one Data Retrieval and Transformation package          |4                         |
 |&nbsp;&nbsp;3. Uses at least one Math and Statistics package                        |4                         |
 |&nbsp;&nbsp;4. Uses at least one Visualization, Presentation, and Reporting package |4                         |
-|&nbsp;&nbsp;5. Every external package used is imported with `library()`             |4                         |
+|&nbsp;&nbsp;5. Every external package used is imported with `library()`             |3                         |
 |&nbsp;&nbsp;6. All `library()` calls are at the top of submitted script(s)          |1                         |
 |&nbsp;&nbsp;7. Code does not call `install.packages()`, `install_github()`, etc.    |4                         |
 |**Code Quality Items**                                                              |                          |
