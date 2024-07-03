@@ -105,6 +105,9 @@ maxes <- apply(
 #
 #    Your solution must use the "ineq" package.
 #
+#    Your solution must not use `install.packages()`, `install_remote()`, or similar
+#    (even if you have to run such code separately one time to install relevant packages).
+#
 #    The "entropies" vector should contain values roughly like:
 #    c(0.03061904, 0.09126107, 0, 0.09578598)
 library("package:ineq")
