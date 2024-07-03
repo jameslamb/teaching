@@ -39,8 +39,7 @@ jobs:
           OS_NAME: ${{ matrix.task }}
           TASK: ${{ matrix.task }}
         run: |
-          conda install -c conda-forge --yes \
-            pre-commit
+          pip install -vvv pre-commit
           pre-commit run --all-files
           $GITHUB_WORKSPACE/.ci/test.sh
   all-successful:
