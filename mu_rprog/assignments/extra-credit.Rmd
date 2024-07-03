@@ -78,7 +78,7 @@ The `{data.table}` package is not covered in this class. You can learn about it 
 * ["Reference Semantics"](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reference-semantics.html)
 * using R's built-in help, for example running `?data.table::setnames`
 
-To complete this assignment, fill out the body of the function defined below. Do not remove or change any of the code or comments. The function assums that the input is the built-in `attitude` dataset.
+To complete this assignment, fill out the body of the function defined below. Do not remove or change any of the code or comments. The function assumes that the input is the built-in `attitude` dataset.
 
 ```{r seeDataset, echo = TRUE, eval = FALSE}
 library(data.table)

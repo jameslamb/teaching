@@ -1,6 +1,6 @@
 # teaching
 
-This repository holds code, slides, and other documents from courses I have taught. 
+This repository holds code, slides, and other documents from courses I have taught.
 
 ## Courses
 
