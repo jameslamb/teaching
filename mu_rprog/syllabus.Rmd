@@ -3,7 +3,7 @@ title: "ECON 6114: R Programming (Summer 2024)"
 output:
   html_document:
     number_sections: false
-    theme: spacelab
+    theme: bootstrap
     toc: true
     toc_float:
       collapsed: false
@@ -170,6 +170,7 @@ Grades will be assigned using the following scheme (also available under the "Gr
 |Final Project - Code Review     |10\%                      |
 |Final Project - Written Report  |5\%                       |
 
+<br>
 And letter grades will be assigned using the following scale:
 
 > **A**  - 94\% or higher
@@ -215,12 +216,14 @@ Assignment rubrics are available on the course site.
 * Assignment 2 ([link](https://jameslamb.github.io/teaching/mu_rprog/assignments/programming_assignment2.html))
 
 Your completed assignment must be uploaded to the appropriate folder in the "Dropbox" section on the course D2L page by the due date listed in the table below.
+<br>
 
-|Assignment                 |Due                       |
-|:-------------------------:|:------------------------:|
-|Programming Assignment 1   | 11:00p on July 27, 2024  |
-|Programming Assignment 2   | 11:00p on August 3, 2024 |
+|Quiz                       |Opens                             |Due                       |
+|:-------------------------:|:--------------------------------:|:------------------------:|
+|Programming Assignment 1   | Immediately                      | 11:00p on July 27, 2024  |
+|Programming Assignment 2   | Immediately                      | 11:00p on August 3, 2024 |
 
+<br>
 All times below are in Central Time.
 
 ## C. Final Project (45\%)
@@ -239,11 +242,13 @@ The project comprises the following parts:
 Full details of the project and each of its components are available at [https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html).
 All times below are in Central Time.
 
-|Assignment                             |Due                          |
-|:-------------------------------------:|:---------------------------:|
-|Final Project proposal                 | 11:00p on August 3, 2024    |
-|Final Project (script + report)        | 11:00p on August 10, 2024   |
-|Final Project code review presentation | live, 9:00a August 10, 2024 |
+|Assignment                              |Materials Available  | Due                        |
+|:--------------------------------------:|:-------------------:|:--------------------------:|
+|Final Project proposal                  | Immediately         |11:00p on August 3, 2024    |
+|Final Project (script + report)         | Immediately         |11:00p on August 10, 2024   |
+|Final Project code review presentation  | Immediately         |live, 9:00a August 10, 2024 |
+
+<br>
 
 ## D. Extra Credit
 
