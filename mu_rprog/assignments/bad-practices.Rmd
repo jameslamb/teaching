@@ -84,7 +84,7 @@ for (i in 1:length(cost)){
 ```
 
 This is because `1:0` generates a 2-element vector equivalent to `c(1, 0)`.
-In this case, what we really want is to not run the cost at all bcause the input is empty!
+In this case, what we really want is to not run the cost at all because the input is empty!
 R provides two functions that are safer for this task:
 
 * `seq_along()`: equivalent to `1:length(x)`, but returns a length-0 input for length-0 output
@@ -107,7 +107,7 @@ for (i in seq_along(cost)){
 
 In R, "packages" are bundles of R code which you can load into your programs and re-use.
 Except for a few absolutely essential default packages (`getOption("defaultPackages")`), the code from these packages had to be explicitly loaded to be used by your code.
-For example, the code below throws an error because I have not loaded `{data.table}`. 
+For example, the code below throws an error because I have not loaded `{data.table}`.
 
 ```{r, error = TRUE}
 set.seed(708)
@@ -157,7 +157,7 @@ Look at the example above. Can you tell what it does?
 ```{r}
 data(mtcars)
 mtcars[27:31, ]
-``` 
+```
 
 What about this one?
 

@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 5
           submodules: true
-      - name: Use conda 
+      - name: Use conda
         uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: false
@@ -39,6 +39,8 @@ jobs:
           OS_NAME: ${{ matrix.task }}
           TASK: ${{ matrix.task }}
         run: |
+          pip install pre-commit
+          pre-commit run --all-files
           $GITHUB_WORKSPACE/.ci/test.sh
   all-successful:
     if: always()

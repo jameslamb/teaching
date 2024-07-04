@@ -1602,7 +1602,7 @@ for (i in 1:length(cost)){
 ## [1] &quot;  * profit: &quot;</code></pre>
 <p>This is because <code>1:0</code> generates a 2-element vector
 equivalent to <code>c(1, 0)</code>. In this case, what we really want is
-to not run the cost at all bcause the input is empty! R provides two
+to not run the cost at all because the input is empty! R provides two
 functions that are safer for this task:</p>
 <ul>
 <li><code>seq_along()</code>: equivalent to <code>1:length(x)</code>,

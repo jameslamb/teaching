@@ -849,7 +849,7 @@ while (i < 5) {
 }
 ```
 
-See ["While Loops"](../code/programming-supplement.html#While_Loops) in the programing supplement for a hands-on example.
+See ["While Loops"](../code/programming-supplement.html#While_Loops) in the programming supplement for a hands-on example.
 
 --- .section_slide
 
