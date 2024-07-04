@@ -7,6 +7,7 @@
 - data.table
 - dplyr
 - drake
+- feasts
 - feather
 - foreach
 - foreign
@@ -21,26 +22,35 @@
 - readxl
 - reshape2
 - stringr
+- targets
+- tsfeatures
 - xts
 
 **Math and Statistics**
 
+- bonsai
 - caret
 - dbscan
 - dml
 - entropy
+ fable
 - forecast
 - forcats
 - glmnet
 - lightgbm
 - lmtest
+- marginaleffects
 - MASS
 - Metrics
+- modeltime
 - parsnip
+- plm
 - prophet
 - randomForest
 - rpart
+- sandwich
 - tidymodels
+- treesnip
 - xgboost
 - zoo
 
@@ -54,6 +64,7 @@
 - ggplot2
 - googleVis
 - ggvis
+- igraph
 - knitr
 - leaflet
 - openxlsx
