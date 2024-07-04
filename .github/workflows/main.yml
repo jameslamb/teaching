@@ -39,7 +39,7 @@ jobs:
           OS_NAME: ${{ matrix.task }}
           TASK: ${{ matrix.task }}
         run: |
-          pip install -vvv pre-commit
+          pip install pre-commit
           pre-commit run --all-files
           $GITHUB_WORKSPACE/.ci/test.sh
   all-successful:
