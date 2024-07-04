@@ -10,7 +10,8 @@ In this extra credit assignment, your task is to write an R function that shows 
 
 ## Modifying In Place
 
-In most R code, when you pass data into a function, R creates a copy of it. Consider this example.
+In most R code, when you pass data into a function, R creates a copy of it.
+Consider this example.
 
 ```{r aCopy}
 some_number <- 11
@@ -27,11 +28,17 @@ addSix(some_number)
 print(some_number)
 ```
 
-In the example code, the value `some_number` is unchanged by the code inside the function `addSix()`. This is because when the function is called, a **copy** of that object is created. Changing a copy doesn't change the original value.
+In the example code, the value `some_number` is unchanged by the code inside the function `addSix()`.
+This is because when the function is called, a **copy** of that object is created.
+Changing a copy doesn't change the original value.
 
-This is good because it makes your code safe and easy to reason about. But that ease-of-use comes at a cost. Creating copies consumes time and memory. If R functions just modified their arguments directly, they could run more quickly and use less memory.
+This is good because it makes your code safe and easy to reason about.
+But that ease-of-use comes at a cost.
+Creating copies consumes time and memory.
+If R functions just modified their arguments directly, they could run more quickly and use less memory.
 
-Some packages in R do support this pattern of just modifying inputs directly, which is called "modifying in place" or "pass-by-reference". On such package, `{data.table}`, allows you to modify data frames in R without copying them.
+Some packages in R do support this pattern of just modifying inputs directly, which is called "modifying in place" or "pass-by-reference".
+One such package, `{data.table}`, allows you to modify data frames in R without copying them.
 
 See the example below.
 
@@ -78,7 +85,9 @@ The `{data.table}` package is not covered in this class. You can learn about it 
 * ["Reference Semantics"](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reference-semantics.html)
 * using R's built-in help, for example running `?data.table::setnames`
 
-To complete this assignment, fill out the body of the function defined below. Do not remove or change any of the code or comments. The function assumes that the input is the built-in `attitude` dataset.
+To complete this assignment, fill out the body of the function defined below.
+Do not remove or change any of the code or comments.
+The function assumes that the input is the built-in `attitude` dataset.
 
 ```{r seeDataset, echo = TRUE, eval = FALSE}
 library(data.table)
@@ -142,7 +151,9 @@ changeDataset <- function(inDT) {
 }
 ```
 
-The code below can be used to test your solution. Define your function `changeDataset()`, then run this code. If it does not throw any errors, you've completed the assignment successfully.
+The code below can be used to test your solution.
+Define your function `changeDataset()`, then run this code.
+If it does not throw any errors, you've completed the assignment successfully.
 
 ```{r testCode, echo = TRUE, eval = FALSE}
 # tests
@@ -180,4 +191,5 @@ When you feel your solution is working, submit an R script with your solution to
 
 ## Grading
 
-This assignment is worth up to 3 percentage points added to your final grade for the class. 0.5 points will be awarded for each statement that you implement correctly.
+This assignment is worth up to 3 percentage points added to your final grade for the class.
+0.5 points will be awarded for each statement that you implement correctly.
