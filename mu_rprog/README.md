@@ -14,7 +14,7 @@
 
 ## Slides
 
-[Week1](./slides/Week1_Lecture.html#1) | 
+[Week1](./slides/Week1_Lecture.html#1) |
 [Week2](./slides/Week2_Lecture.html#1) |
 [Week3](./slides/Week3_Lecture.html#1) |
 [Week4](./slides/Week4_Lecture.html#1) |

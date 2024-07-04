@@ -494,7 +494,7 @@ while (KEEP_SEARCHING){
 
 # Functions
 
-R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions. 
+R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
 
 > "If you find yourself copying and pasting the same code more than twice, it's time to write a function."
 > - Hadley Wickham
@@ -540,7 +540,7 @@ someFunction(x = 1, z = 3, y = -1)
 someFunction(z = 3, y = -1, x = 1)
 ```
 
-If you pass a mix of positional and keyword, all of the keyword arguments are matched first. Once they've all been matched, the positional values are assigned to the remaining unmatched arguments in order. 
+If you pass a mix of positional and keyword, all of the keyword arguments are matched first. Once they've all been matched, the positional values are assigned to the remaining unmatched arguments in order.
 
 ```{r mixArgs}
 someFunction(10, 100, x = -5)
@@ -564,7 +564,7 @@ sqrt()
 
 - For more complicated functions, passing values to each argument can get burdensome
 - To handle this, R allows function authors to specify *default values*. These are values that certain arguments will take automatically unless you decide to overwrite them
-- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`. 
+- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`.
 
 ```{r normalDraw}
 # 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
@@ -587,12 +587,12 @@ simpFunction <- function(n){
     if (n > 5){
       return(TRUE)
     }
-    
+
     print("second print")
     if (n < 5){
       return(FALSE)
     }
-    
+
     print("third print")
     return("TRALSE")
 }
@@ -864,12 +864,12 @@ sumBigNums <- function(aVector){
     for (num in aVector){
         # Grab the sum before we hit this number
         sum_before <- running_sum
-        
+
         # If the number if greater than 10, increase the sum
         if (num >= 10){
             running_sum <- running_sum + num
         }
-        
+
         # print new state of the environment
         msg <- paste0("num: ", num, " | before: ", sum_before, " | after: ", running_sum)
         print(msg)
@@ -887,7 +887,7 @@ sumBigNums(some_vector)
 
 ## File Paths
 
-Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses). 
+Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths. File paths are just addresses on your computer's file system. These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses).
 
 All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
 
@@ -1425,10 +1425,10 @@ for (i in seq_len(10)){
     fileName <- paste0("plot_", i, ".png")
     filePath <- file.path(outDir, fileName)
     png(filePath)
-    
+
     # Write out a plot to that file
     plot(x = rnorm(100), y = rnorm(100))
-    
+
     # Close the connection to that file
     dev.off()
 }
@@ -1479,7 +1479,7 @@ x <- data.frame(
     , type = c(
         "personal", "tech", "personal", "tech",
         "tech", "news", "tech"
-    ) 
+    )
 )
 
 y <- data.frame(
@@ -1648,7 +1648,7 @@ t_tests <- lapply(bin_var_names, function(bin_var){
         Fertility ~ get(bin_var)
         , data = swiss
     )
-    p_val  <- t_test$p.value 
+    p_val  <- t_test$p.value
     return(data.frame(
         signal = bin_var
         , p_val = round(t_test$p.value, 2)
@@ -1768,7 +1768,7 @@ regPreds2 <- EvaluateModel(
 
 ## Regression Trees
 
-Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data. 
+Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data.
 
 Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
 
@@ -1778,7 +1778,7 @@ The details of tree-based learning are outside the scope of this class, but I en
 # set random seed so we get the same model every time these docs are generated
 set.seed(708)
 ```
-  
+
 ```{r decisionTrees}
 library(rpart)
 
@@ -2033,12 +2033,12 @@ createSentence <- function(){
 
     # Define a list of prepositions
 
-    # Choose randomly from each, construct a sentence of the form 
+    # Choose randomly from each, construct a sentence of the form
     # article-adjective-noun-adverb-verb-preposition
 
     # Return the sentence
 
-} 
+}
 
 # Function to create a "page" with n sentences
 createPage <- function(n){
@@ -2100,7 +2100,7 @@ createSentence <- function(){
 
     # Return the sentence
     return(sentence)
-} 
+}
 
 # Function to create a "page" with n sentences
 createPage <- function(n){

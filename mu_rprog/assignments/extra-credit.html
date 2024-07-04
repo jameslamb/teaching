@@ -427,6 +427,7 @@ randomDT &lt;- data.table::data.table(
 )
 print(randomDT)</code></pre>
 <pre><code>##              x           y
+##          &lt;num&gt;       &lt;num&gt;
 ##  1: -0.3635938 -0.93689125
 ##  2:  0.8000444  1.15348849
 ##  3:  0.2545262 -0.49272222
@@ -455,6 +456,7 @@ print(ret)</code></pre>
 <pre class="r"><code># but the data.table has been changed!
 print(randomDT)</code></pre>
 <pre><code>##          x_old       y_old
+##          &lt;num&gt;       &lt;num&gt;
 ##  1: -0.3635938 -0.93689125
 ##  2:  0.8000444  1.15348849
 ##  3:  0.2545262 -0.49272222
@@ -484,7 +486,7 @@ Semantics”</a></li>
 </ul>
 <p>To complete this assignment, fill out the body of the function
 defined below. Do not remove or change any of the code or comments. The
-function assums that the input is the built-in <code>attitude</code>
+function assumes that the input is the built-in <code>attitude</code>
 dataset.</p>
 <pre class="r"><code>library(data.table)
 data(attitude)
