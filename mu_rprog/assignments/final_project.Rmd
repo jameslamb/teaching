@@ -142,9 +142,20 @@ In the code review component of this project, you will do a 5-10 minutes live pr
 
 <h3>Submission (in-person class)</h3>
 
-Code reviews will be done in-class **during the Week 5 session**.
+Code reviews will be a live, synchronous presentation near the end of the class.
+Details about timing will be sent out at the beginning of the term.
 
-You do not need to present slides or turn in anything on D2L.
+You'll do this:
+
+* share your screen (showing the code)
+* describe your research question and data
+* talk through the code from top to bottom, explaining how it works and why you made certain design choices
+
+And you do NOT have to do any of the following:
+
+* run your code live
+* present slides or any other presentation-specific materials
+* turn in anything on D2L (like a recording, slides, etc.)
 
 When presentations begin, a Google Doc will be shared with the class.
 
