@@ -7,6 +7,7 @@
 - data.table
 - dplyr
 - drake
+- duckdb
 - feasts
 - feather
 - foreach
@@ -24,6 +25,7 @@
 - stringr
 - targets
 - tsfeatures
+- ucimlrepo
 - xts
 
 **Math and Statistics**
