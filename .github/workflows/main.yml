@@ -3,10 +3,10 @@ name: GitHub Actions
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
     branches:
-    - main
+      - main
 
 jobs:
   test:
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
-    - name: Note that all tests succeeded
-      uses: re-actors/alls-green@v1.2.2
-      with:
-        jobs: ${{ toJSON(needs) }}
+      - name: Note that all tests succeeded
+        uses: re-actors/alls-green@v1.2.2
+        with:
+          jobs: ${{ toJSON(needs) }}
