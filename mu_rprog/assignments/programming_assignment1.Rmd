@@ -35,7 +35,7 @@ Note:
 
 Instructions:
 
-1. Create a file called `{Firstname}_{Lastname}_Assignment1.R`.
+1. Create a file called `{Firstname}_{Lastname}_Assignment1.R` (example: `James_Lamb_Assignment1.R`)
 2. Copy the code below into that file.
 3. Change the code to meet all the requirements described in the comments.
 4. Upload that file to the "programming assignment 1" dropbox on D2L.
@@ -155,4 +155,7 @@ findMin(c(-5, 10, 100, -8))
 
 # should return 0.999
 findMin(c(1:10, 20:50, 0.999, 6))
+
+# should return 57
+findMin(c(500, 204, 57, 58, 57, 238))
 ```
