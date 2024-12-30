@@ -1,5 +1,5 @@
 ---
-title: "ECON 6114: R Programming (Summer 2024)"
+title: "ECON 6114: R Programming (Spring 2025)"
 output:
   html_document:
     number_sections: false
@@ -45,7 +45,7 @@ Email is my preferred contact method, and I will do my best to respond to all em
 
 ### Office Hours
 
-Go to https://calendly.com/_jameslamb to book time for a 1-on-1 video call with me.
+Go to https://calendar.app.google/iKAUGVQjBhegyLHH8 to book time for a 1-on-1 video call with me.
 That service is automatically synced with my calendars.
 
 If you don't see a time that works with your schedule, please email me with your availability and we can find a time to meet.
@@ -62,15 +62,15 @@ Bookmark these:
 
 All lectures are delivered asynchronously, via those pre-recorded videos.
 
-**YOU WILL PRESENT YOUR FINAL PROJECT ON A VIDEO CALL SATURDAY, AUGUST 10, 9:00a-12:00P CT**.
+**YOU WILL PRESENT YOUR FINAL PROJECT ON A VIDEO CALL SATURDAY, FEBRUARY 15, 9:00a-12:00P CT**.
 
 Videos describing the solutions to quizzes and assignments will be made available after the deadlines for those items.
 
 ### Required Hardware
 
-\textcolor{red}{You are required to use your own laptop for this class.}
+\textcolor{red}{You are required to use your own computer for this class.}
 
-If you do not have a personal laptop, please let me know as soon as possible.
+If you do not have a personal computer, please let me know as soon as possible.
 
 The use of personal hardware is required because one of the objectives for this course is to help each of you set up a data science development environment on your own machines.
 
@@ -92,12 +92,12 @@ Recommended sequence:
 3. bookmark the course resources:
     * course site ([link](https://jameslamb.github.io/teaching/mu_rprog/))
     * programming supplement: ([link](https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html))
-    * office hours link: https://calendly.com/_jameslamb
+    * office hours link: https://calendar.app.google/iKAUGVQjBhegyLHH8
 4. Watch the course intro video ([link](https://drive.google.com/file/d/1BHRiFxOTSNRXyD1rAF7CPa7MC3xD3sRf/view?usp=drive_link))
-5. **(due July 13, 2024)** Take the `pre-course survey` on D2L
+5. **(due January 18, 2025)** Take the `pre-course survey` on D2L
 6. Set up your development environment
-    * install R on your personal laptop (https://cloud.r-project.org/)
-    * install RStudio on your personal laptop (https://www.rstudio.com/products/rstudio/download/)
+    * install R on your personal computer (https://cloud.r-project.org/)
+    * install RStudio on your personal computer (https://www.rstudio.com/products/rstudio/download/)
 7. Review Week 1 lecture materials
     * lecture videos ([link](https://drive.google.com/drive/folders/1wR0qZgDKSiOnhwlEkWiMjvhavuGi4WK2))
     * Programming Supplement topics ([link](https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html)):
@@ -108,7 +108,7 @@ Recommended sequence:
       - "Subsetting"
       - "Controlling Program Flow"
     * *(optional)* Quiz Description video ([link](https://drive.google.com/file/d/1mA5umVuGeezZIVapP9t2ZMCMKdsDMzic/view?usp=sharing))
-8. **(due July 20, 2024)** Complete `Quiz 1`
+8. **(due January 25, 2025)** Complete `Quiz 1`
 9. Watch solution videos:
     * Quiz 1 ([link](https://drive.google.com/file/d/1Yz0eF37P7BmW6C1t1-QFFeOwt_MyWogg/view?usp=drive_link))
 10. Review Week 2 lecture materials
@@ -118,8 +118,8 @@ Recommended sequence:
       - "Debugging"
       - "Working with Files"
     * *(optional)* Programming Assignment 1 description video ([link](https://drive.google.com/file/d/1lTCFRY9lpxvz-rPih8nf33TQiWaV2sum/view?usp=drive_link))
-11. **(due July 27, 2024)** Complete `Quiz 2`
-12. **(due July 27, 2024)** Submit `Programming Assignment 1`
+11. **(due February 1, 2025)** Complete `Quiz 2`
+12. **(due February 1, 2025)** Submit `Programming Assignment 1`
 13. Watch solution videos
     * Quiz 2 ([link](https://drive.google.com/file/d/1LvTJXAe9_zeA8ISH2D1iTJWQFjO5suLs/view?usp=drive_link))
     * Programming Assignment 1 ([link](https://drive.google.com/file/d/196tA7oURjCh7-aEV3OLkmbo-0Cf1_BrV/view?usp=drive_link))
@@ -134,8 +134,8 @@ Recommended sequence:
     * videos ([link](https://drive.google.com/drive/folders/1zP8VsIt9vpvD5LvLn4aUk5CtT9uJ-vmU))
     * rubrics ([link](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html))
     * "Practices to Avoid in R Programming" ([link](https://jameslamb.github.io/teaching/mu_rprog/assignments/bad-practices.html))
-16. **(due August 3, 2024)** Submit `Programming Assignment 2`
-17. **(due August 3, 2024)** Submit `Final Project Proposal`
+16. **(due February 8, 2025)** Submit `Programming Assignment 2`
+17. **(due February 8, 2025)** Submit `Final Project Proposal`
 18. Watch solution videos
     * Programming Assignment 2 ([link](https://drive.google.com/file/d/1BjkwPfre3iRSeY6HjzMWPQy8VKh7qFl1/view?usp=drive_link))
 19. Review Week 4 lecture materials
@@ -145,11 +145,11 @@ Recommended sequence:
       - "Text Processing"
       - "Software Principles"
       - "R Programming Best Practices"
-20. **(due August 10, 2024)** Submit `Final Project Script(s)`
-21. **(due August 10, 2024)** Attend `Final Project Code Review` (video call)
+20. **(due February 15, 2025)** Submit `Final Project Script(s)`
+21. **(due February 15, 2025)** Attend `Final Project Code Review` (video call)
   * present your final project code to your classmates
   * provide peer review feedback to your classmates
-22. **(due August 15, 2024)** *(optional)* complete `Extra Credit Assignment`
+22. **(due February 20, 2025)** *(optional)* complete `Extra Credit Assignment`
 
 \pagebreak
 
@@ -199,11 +199,11 @@ Quizzes have no time limit.
 You will be allowed two attempts for each quiz and your grade on each quiz will be the better of your two scores.
 All times below are in Central Time.
 
-|Quiz                       |Opens                             |Due                      |
-|:-------------------------:|:--------------------------------:|:-----------------------:|
-|Pre-class survey           | Immediately                      | 11:00p on July 13, 2024 |
-|Quiz 1                     | Immediately                      | 11:00p on July 20, 2024 |
-|Quiz 2                     | Immediately                      | 11:00p on July 27, 2024 |
+|Quiz                       |Opens                             |Due                         |
+|:-------------------------:|:--------------------------------:|:--------------------------:|
+|Pre-class survey           | Immediately                      | 11:00p on January 18, 2025 |
+|Quiz 1                     | Immediately                      | 11:00p on January 25, 2025 |
+|Quiz 2                     | Immediately                      | 11:00p on February 1, 2025 |
 
 ## B. Programming Assignments (30\%)
 
@@ -218,10 +218,10 @@ Assignment rubrics are available on the course site.
 Your completed assignment must be uploaded to the appropriate folder in the "Dropbox" section on the course D2L page by the due date listed in the table below.
 <br>
 
-|Quiz                       |Opens                             |Due                       |
-|:-------------------------:|:--------------------------------:|:------------------------:|
-|Programming Assignment 1   | Immediately                      | 11:00p on July 27, 2024  |
-|Programming Assignment 2   | Immediately                      | 11:00p on August 3, 2024 |
+|Quiz                       |Opens                             |Due                         |
+|:-------------------------:|:--------------------------------:|:--------------------------:|
+|Programming Assignment 1   | Immediately                      | 11:00p on February 1, 2025 |
+|Programming Assignment 2   | Immediately                      | 11:00p on February 8, 2025 |
 
 <br>
 All times below are in Central Time.
@@ -242,11 +242,11 @@ The project comprises the following parts:
 Full details of the project and each of its components are available at [https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html](https://jameslamb.github.io/teaching/mu_rprog/assignments/final_project.html).
 All times below are in Central Time.
 
-|Assignment                              |Materials Available  | Due                        |
-|:--------------------------------------:|:-------------------:|:--------------------------:|
-|Final Project proposal                  | Immediately         |11:00p on August 3, 2024    |
-|Final Project (script + report)         | Immediately         |11:00p on August 10, 2024   |
-|Final Project code review presentation  | Immediately         |live, 9:00a August 10, 2024 |
+|Assignment                             |Materials Available | Due                          |
+|:-------------------------------------:|:------------------:|:----------------------------:|
+|Final Project proposal                 | Immediately        |11:00p on February 8, 2025    |
+|Final Project (script + report)        | Immediately        |11:00p on February 15, 2025   |
+|Final Project code review presentation | Immediately        |live, 9:00a February 15, 2025 |
 
 <br>
 
@@ -255,7 +255,7 @@ All times below are in Central Time.
 There is an optional Extra Credit assignment available, worth up to 3 percentage points on your final grade.
 Follow the instructions at https://jameslamb.github.io/teaching/mu_rprog/assignments/extra-credit.html.
 
-This extra credit must be submitted prior to midnight on August 15, 2024.
+This extra credit must be submitted prior to midnight on February 20, 2025.
 
 ## E. Grade Appeal
 
@@ -281,12 +281,11 @@ The Marquette University Graduate School of Management considers regular class a
 Students are expected to attend scheduled class meetings; excessive absences may have adverse consequences, ranging from a lowered course grade to forced withdrawal from the course.
 Excessive absence is generally defined as missing more than 10-15 percent of the regularly scheduled class time.
 
-For this course, anything more than 1 class period is determined to be "excessive".
-Because this is a short (5-week) course, missing even one week will make it difficult to learn the material and satisfactorily complete the course requirements.
-If you miss more than one class, your grade will be reduced by a full letter grade for each absence after the first.
+There is only 1 synchronous meeting in this course... the final project presentations.
+**An unexcused absence from the final project presentation will result in a grade of 0 on that portion of the course.**
+
 All students are expected to complete all quizzes, assignments, and the final project.
 
-The policy above applies to "unexcused" absences.
 There are a handful of situations which are considered "excused" absences:
 
 * legal obligations (such as jury duty)
@@ -302,3 +301,8 @@ For more, see https://www.marquette.edu/business/graduate/current-policies.php.
 Don't cheat.
 
 For more, see http://www.marquette.edu/provost/integrity-pledge.php.
+
+## E. Important Dates
+
+See https://www.marquette.edu/central/registrar/2025-spring-academic-calendar.php for dates like the deadlines
+for dropping or withdrawing from the course.
