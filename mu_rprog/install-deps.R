@@ -23,6 +23,7 @@ install.packages(
     )
     , repos = "http://cran.r-project.org"
     , dependencies = c("Depends", "Imports", "LinkingTo")
+    , type = "both"
     , verbose = TRUE
     , quiet = FALSE
 )
