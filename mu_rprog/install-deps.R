@@ -22,7 +22,8 @@ install.packages(
         , "stringr"
     )
     , repos = "http://cran.r-project.org"
-    , dependencies = c("Depends", "Imports")
+    , dependencies = c("Depends", "Imports", "LinkingTo")
+    , type = "both"
     , verbose = TRUE
     , quiet = FALSE
 )

@@ -62,19 +62,79 @@ It is just meant to get your thinking about the project and ensure that you're o
 
 This report should answer the following items:
 
-- What data set do you plan to use? Where can others find it? What variables does it contain?
-- What is the question you're trying to answer?
+- What is the research question you're trying to answer?
     - good: *"I am using data on Japanese 10-year bond yields and inflation to predict BOJ monetary policy dovishness / hawkishness."*
     - bad: *"I am analyzing bond data"*
+- What data set do you plan to use? Where can others find it? What variables does it contain?
 - What "Data Retrieval and Transformation" package do you plan to use? What does that package do?
 - What "Math and Statistics" package do you plan to use? What does that package do?
 - What "Visualization, Presentation, and Reporting" package do you plan to use? What does that package do?
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 4 session**.
+Please submit your proposal (as a Word doc, PDF, or HTML doc) to the "Final Project Proposal" dropbox on D2L.
 
-Please submit your report (as a Word doc, PDF, or HTML doc) to the "Final Project Proposal" dropbox on D2L.
+The proposal must begin with a section titled "Research Question", which only contains your research question.
+For example:
+
+> **Research Question**
+>
+> *Do changes in the price of crude oil affect the wholesale prices of dairy-based commodities like non-fat dry milk?*
+
+A good research question is:
+
+- specific
+- feasible (relevant data can be collected)
+- researchable (the research can provide evidence that answers the question)
+- actually a question
+
+Example 1: Make it specific
+
+- bad: *"I'm looking at interest rate data to see what the relationships are."*
+- good: *"Did the relationship between CPI inflation and interest rates on long-term treasury bonds in the U.S. change after the 2007-2009 financial crisis?*
+
+Example 2: Make it feasible
+
+- bad: *"What are the determinants of unemployment?"*
+- good: *"If the Euro Area achieves 2% real GDP growth in 2025, what range might its unemployment rate fall in?"*
+
+Example 3: Make it researchable
+
+- bad: *"Are Wisconsinites buying a lot of electric vehicles?"*
+- good: *"From 2018-2023, how did the number of electric vehicles purchased in Wisconsin compare to what would have been expected based on the state's income, age, education distribution?"*
+
+Your proposal will be scored out of 100 points, using the following rubric:
+
+|Grade Item                                                                                  |Total Possible Points     |
+|:-------------------------------------------------------------------------------------------|:------------------------:|
+|**Research Question Description**                                                           |                          |
+|&nbsp;&nbsp;1. Report begins with a "Research Question" section                             |5                         |
+|&nbsp;&nbsp;2. "Research Question" section only contains the research question              |5                         |
+|&nbsp;&nbsp;3. "Research Question" meets expectations                                       |30                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(25-30) question is specific, feasible, researchable*              |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(11-25) question is overly-broad or somewhat unclear*              |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8) not a question, very unclear, or completely missing*         |                          |
+|**Dataset Description**                                                                     |                          |
+|&nbsp;&nbsp;1. How to acquire the dataset                                                   |15                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) clearly describes where to find the dataset*               |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-11) insufficient detail for someone else to access the dataset* |                          |
+|&nbsp;&nbsp;2. Dataset contents                                                             |15                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) clear, succinct, complete description of the contents*      |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-11) unclear or incopmlete description*                          |                          |
+|**Planned Package Usage**                                                                   |                          |
+|&nbsp;&nbsp;1. Data Retrieval and Transformation package                                    |8                         |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(7-8) mentions at least 1, and package is clearly relevant*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-6) 0 packages mentioned, or relevance is unclear*               |                          |
+|&nbsp;&nbsp;2. Math and Statistics package                                                  |8                         |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(7-8) mentions at least 1, and package is clearly relevant*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-6) 0 packages mentioned, or relevance is unclear*               |                          |
+|&nbsp;&nbsp;3. Visualization, Presentation, and Reporting package                           |8                         |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(7-8) mentions at least 1, and package is clearly relevant*        |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-6) 0 packages mentioned, or relevance is unclear*               |                          |
+|**Grammar and Formatting**                                                                  |                          |
+|&nbsp;&nbsp;1. Grammar and Formatting                                                       |6                         |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(9-10) At most 2 minor grammatical issues*                         |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8) Many grammatical or formatting issues*                       |                          |
 
 ---
 
@@ -124,6 +184,8 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) Excellent problem decomposition, R solution*       |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*          |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-7) Solution is significantly incomplete*                |                          |
+
+<h3>Tips</h3>
 
 There are definitely good and bad ways to comment code.
 For some tips, see [this code-commenting tutorial](https://www.learncpp.com/cpp-tutorial/comments/) I really like.
@@ -194,6 +256,8 @@ Your presentation will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(30-40) clear explanation of how the code solves the problem* |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(10-29) literal description of the code as-is*                |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-9) inaccurate or confusing explanation*                    |                          |
+
+<h3>Tips</h3>
 
 Avoid these common code review issues:
 
