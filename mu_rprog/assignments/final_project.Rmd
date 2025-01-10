@@ -15,7 +15,7 @@ Once you've completed it, you'll be able to say that you have experience in the 
 - Cleaning messy real-world data
 - Using data visualization to communicate results
 
-Your task for the final project is construct a small analysis of a real-world dataset relevant to economics, finance, or business.
+Your task for the final project is construct a small analysis of a real-world dataset.
 The main deliverable will be one or more R scripts (you are more than welcome to have, for example, a `get_data.R` and a separate `analyze_data.R`) which accomplish all the following tasks:
 
 1. **Read in data from the internet**
@@ -57,7 +57,7 @@ See the following sections for submission details on each of the four parts of t
 <h3>Description</h3>
 
 The first deliverable for this project is a 1-2 page written report detailing your plans for the final project.
-This is not meant to lock you in to a particular data set, set of packages, or approach...all those details can change between this report and your final project submission in Week 5.
+This is not meant to lock you in to a particular data set, set of packages, or approach...all those details can change between this report and your final project submission.
 It is just meant to get your thinking about the project and ensure that you're on the right track.
 
 This report should answer the following items:
@@ -133,8 +133,8 @@ Your proposal will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-6) 0 packages mentioned, or relevance is unclear*               |                          |
 |**Grammar and Formatting**                                                                  |                          |
 |&nbsp;&nbsp;1. Grammar and Formatting                                                       |6                         |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(9-10) At most 2 minor grammatical issues*                         |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8) Many grammatical or formatting issues*                       |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(5-6) At most 2 minor grammatical issues*                          |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-4) Many grammatical or formatting issues*                       |                          |
 
 ---
 
@@ -149,8 +149,6 @@ Your goal is to create one or more R scripts that meet the requirements listed i
 <center><img src="assets/img/programming_not_sure.jpg"></center>
 
 <h3>Submission</h3>
-
-This component of the project is **due prior to our Week 5 session**.
 
 Please submit your code to the "Final Project (script + report)" dropbox on D2L.
 If you use multiple scripts (totally acceptable!), please include an additional script called "build.R" which species the order to run the scripts in.
@@ -202,7 +200,7 @@ This can be a nerve-wracking experience in the context of a new job (trust me), 
 to practice sharing code with others in the safe setting of this introductory course.
 In the code review component of this project, you will do a 5-10 minutes live presentation of your final project.
 
-<h3>Submission (in-person class)</h3>
+<h3>Submission (live video call)</h3>
 
 Code reviews will be a live, synchronous presentation near the end of the class.
 Details about timing will be sent out at the beginning of the term.
@@ -325,7 +323,6 @@ For example, none of the following phrases should be used (unless they're clearl
 
 <h3>Submission</h3>
 
-This component of the project is **due prior to our Week 5 session**.
 Please upload your report to the "Final Project (script + report)" dropbox on D2L.
 
 Your report will be scored out of 100 points, using the following rubric:
