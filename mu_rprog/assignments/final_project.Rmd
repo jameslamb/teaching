@@ -119,8 +119,8 @@ Your proposal will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) clearly describes where to find the dataset*               |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-11) insufficient detail for someone else to access the dataset* |                          |
 |&nbsp;&nbsp;2. Dataset contents                                                             |15                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) clear, succinct, complete description of the contents*      |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-11) unclear or incopmlete description*                          |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) clear, succinct, complete description of the contents*     |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-11) unclear or incomplete description*                          |                          |
 |**Planned Package Usage**                                                                   |                          |
 |&nbsp;&nbsp;1. Data Retrieval and Transformation package                                    |8                         |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(7-8) mentions at least 1, and package is clearly relevant*        |                          |
@@ -170,14 +170,14 @@ Your script will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(4-5) Clearly commented*                                   |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(1-3) Minimal comments, code is hard to understand*        |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) No comments*                                           |                          |
-|&nbsp;&nbsp;2. Code Organization                                                    |15                        |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) Well-organized, intuitive flow*                    |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(8-11)  Difficult to understand without comments*          |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8)   Takes significant effort to understand*            |                          |
-|&nbsp;&nbsp;3. Use of External Functions                                            |15                        |
+|&nbsp;&nbsp;2. Use of External Functions                                            |15                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(11-15) All/most external functions are called with `::`*  |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(6-10)  Some external function calls use `::`*             |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-5)  Unclear use of external functions*                  |                          |
+|&nbsp;&nbsp;3. Code Organization                                                    |15                        |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(12-15) Well-organized, intuitive flow*                    |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(8-11)  Difficult to understand without comments*          |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(0-8)   Takes significant effort to understand*            |                          |
 |&nbsp;&nbsp;4. Problem Solving                                                      |20                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(15-20) Excellent problem decomposition, R solution*       |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(8-14) Good solution, meets minimum requirements*          |                          |
@@ -248,7 +248,7 @@ Your presentation will be scored out of 100 points, using the following rubric:
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0) no introduction of the problem*                           |                          |
 |&nbsp;&nbsp;2. Explanation of the dataset                                              |30                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(20-30) explains source and real-world meaning of the data*   |                          |
-|&nbsp;&nbsp;&nbsp;&nbsp;*(10-19) literal description with no connection to problem*    |                          |
+|&nbsp;&nbsp;&nbsp;&nbsp;*(10-19) overly-literal description or unclear connection to the problem"*    |                          |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(0-9) inaccurate or confusing explanation*                    |                          |
 |&nbsp;&nbsp;3. Explanation of the Code                                                 |40                        |
 |&nbsp;&nbsp;&nbsp;&nbsp;*(30-40) clear explanation of how the code solves the problem* |                          |
@@ -283,6 +283,10 @@ The final deliverable for this project is a written report with your findings.
 This should be a 2-4 page "executive briefing", the type that you would write if you were doing this analysis for a consulting client.
 
 Your report should focus on the problem, not the specifics of the code.
+None of the following should be included:
+
+* "R", "RStudio", etc.
+* names of any R packages
 
 It should describe the problem, a brief summary of the work that was done (including the data that was used), and the result.
 
@@ -295,6 +299,8 @@ The problem should be stated as a falsifiable research question.
 **Good**
 
 > *This project explored whether the relationship between observed inflation and consumer sentiment in the U.S. changed in the period 2021-2023.*
+
+The description of the dataset should be sufficiently detailed for anyone trying to replicate your research to retrieve the exact same data.
 
 Your report should NOT include any raw R code, but it should include the output of the visualization step of your script (i.e. a table, plot, or other viz).
 

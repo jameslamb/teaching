@@ -14,6 +14,7 @@
 - foreign
 - haven
 - httr
+- httr2
 - jsonlite
 - lubridate
 - openxlsx
@@ -22,11 +23,16 @@
 - quantmod
 - readxl
 - reshape2
+- rvest
 - stringr
 - targets
 - tsfeatures
 - ucimlrepo
 - xts
+
+Or any of the packages from these:
+
+- https://cran.r-project.org/web/views/Databases.html
 
 **Math and Statistics**
 
@@ -35,7 +41,7 @@
 - dbscan
 - dml
 - entropy
- fable
+- fable
 - forecast
 - forcats
 - glmnet
@@ -56,16 +62,25 @@
 - xgboost
 - zoo
 
+Or any of the packages from these:
+
+- https://cran.r-project.org/web/views/Econometrics.html
+- https://cran.r-project.org/web/views/MachineLearning.html
+- https://cran.r-project.org/web/views/Robust.html
+
 **Visualization, Presentation, and Reporting**
 
 - corrplot
 - DT
 - dygraphs
 - gganimate
+- ggbump
 - ggforce
+- gghighlight
 - ggplot2
-- googleVis
 - ggvis
+- googleVis
+- gt
 - igraph
 - knitr
 - leaflet
@@ -73,4 +88,9 @@
 - patchwork
 - plotly
 - RColorBrewer
+- scales
 - stargazer
+
+Or any of the packages from these:
+
+- https://cran.r-project.org/web/views/DynamicVisualizations.html
