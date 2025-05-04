@@ -11,32 +11,46 @@ output:
 
 <h2>Assignment Introduction</h2>
 
-In the final project, you'll be asked to use some external packages to create an R processing pipeline that gets data, cleans it, analyzes it, and present results. In this assignment, we're going to work with some of those packages to get familiar with them.
+In this assignment, you'll practice some of the R skills you'll need for the final project.
+The assignment is broken into 3 parts:
 
-For the remainder of this assignment, I'll refer to [**the package list**](./final_project_packages.md).
+* `Part 1: Reading Package Docs` (20 points)
+* `Part 2: Getting and Cleaning Data` (40 points)
+* `Part 3: Reading Remote Files` (40 points)
 
 <h2>Part 1: Reading Package Docs</h2>
 
 <h3>Description</h3>
 
-As we learned in the first week of class, you can access R function documentation using syntax like `?function`. This documentation typically contains a description of the function's purpose, a list of parameters, and the function signature. In addition, many package authors include examples, small blocks of code using the package's functionality that you can copy, paste, and run directly.
+In the final project, you'll be asked to use some external packages to create an R processing pipeline that gets data, cleans it, analyzes it, and present results.
+In this assignment, we're going to work with some of those packages to get familiar with them.
 
-In this part of the assignment, I'd like you to practice reading and running these examples. Please copy one example of each of the following functions from its documentation. I encourage you to try running these yourself, but you do not need to include the output in your submission.
+You can access R function documentation using syntax like `?function`.
+This documentation typically contains a description of the function's purpose, a list of parameters, and the function signature.
+In addition, many package authors include examples, small blocks of code using the package's functionality that you can copy, paste, and run directly.
+
+In this part of the assignment, I'd like you to practice reading and running these examples.
+Please copy one example of each of the following functions from its documentation.
+Try running these yourself, but you do not need to include the output in your submission.
 
 - `ymd_hms()` from the `{lubridate}` package
 - `str_extract()` from the `{stringr}` package
 - `setnames()` from the `{data.table}` package
 - `map_dbl()` from the `{purrr}` package
-- Two functions from the "Data Retrieval and Transformation" section of **the package list**
+- Two functions from the "Data Retrieval and Transformation" section of **the package list** ([link](./final_project_packages.md))
     - NOTE: must be from two different packages
-- Two functions from the "Math and Statistics" section of **the package list**
+- Two functions from the "Math and Statistics" section of **the package list** ([link](./final_project_packages.md))
     - NOTE: must be from two different packages
-- Two functions from the "Visualization, Presentation, and Reporting" section of **the package list**
+- Two functions from the "Visualization, Presentation, and Reporting" section of **the package list** ([link](./final_project_packages.md))
     - NOTE: must be from two different packages
+
+**NOTE: Please, just COPY from these packages' documentation... do not write your own custom examples.**
 
 <h3>Submission</h3>
 
-Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt1.R*. This file should contain 10 sections, one for each of the functions above. Please copy one example per function into your script, and use the format given in the example below:
+Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt1.R*.
+This file should contain 10 sections, one for each of the functions above.
+Please copy one example per function into your script, and use the format given in the example below:
 
 ```{r echo = TRUE, eval = FALSE}
 #==============================================================================#
@@ -61,9 +75,10 @@ cor(1:10, 2:11) # == 1
 
 <h3>Description</h3>
 
-As you wade further into the world of data science, you'll hear this said often: [most of a data scientist's time is spent getting and cleaning data](http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html). Let's practice that crucial activity.
+As you wade further into the world of data science, you'll hear this said often: [most of a data scientist's time is spent getting and cleaning data](http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html).
+Let's practice that crucial activity.
 
-In the second half of this assignment, we'll be working with data from the St. Louis Federal Reserve ([FRED](https://fred.stlouisfed.org/)).
+In the second part of this assignment, we'll be working with data from the St. Louis Federal Reserve ([FRED](https://fred.stlouisfed.org/)).
 
 Using the resources I've provided below, your goal is to download two series: Japanese inflation (YOY percent change) and U.S. inflation (YOY percent change).
 
@@ -74,15 +89,17 @@ Then you'll join them into a single `data.frame` and plot them against each othe
 
 <h3>Submission</h3>
 
-Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt2.R*. In the example script below, I've filled in the pieces needed to pull the U.S. data. Your task is to fill out the rest of this script so that it produces a plot comparing Japan and the U.S.
+Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt2.R*.
+In the example script below, I've filled in the pieces needed to pull the U.S. data.
+Your task is to fill out the rest of this script so that it produces a plot comparing Japan and the U.S.
 
 You need to complete all of the following steps, indicated by the phrase `### FILL THIS IN ###` in the example script below:
 
-- Add the command to pull the Japanese inflation data (https://fred.stlouisfed.org/series/FPCPITOTLZGJPN)
-- Rename the columns of the Japanese data so that the inflation series is called "JPN_INF_YOY"
-- Add the Japanese data to the `merge()` command to create a single dataset for plotting
+- add the command to pull the Japanese inflation data (https://fred.stlouisfed.org/series/FPCPITOTLZGJPN)
+- rename the columns of the Japanese data so that the inflation series is called "JPN_INF_YOY"
+- add the Japanese data to the `merge()` command to create a single dataset for plotting
     - please look at the documentation for `?merge`
-- set the plot type to line (hint: see `?graphics::plot`)
+- ensure the plot is a line plot (hint: see `?graphics::plot`)
 - set the plot title to "Inflation Data"
 - set the plot y-axis label to "CPI Inflation (%yoy)"
 - set the plot x-axis label to "time"
@@ -150,8 +167,78 @@ If this works correctly, you should see a plot similar to this:
 
 <center><img src = "assets/img/assignment_2.png"></center>
 
-<h2>I Believe In You</h2>
+<h2>Part 3: Reading Remote Files/h2>
 
-<center><img src = "assets/img/good_luck.jpg"></center>
+<h3>Description</h3>
+
+In the final project, you'll be asked to submit code that reads in data from remote storage.
+
+In this part of the assignment, you'll practice this important skill.
+
+**hint:** Read https://jameslamb.github.io/teaching/mu_rprog/code/programming-supplement.html#Working_with_Files for some information about reading data from files.
+
+<h3>Submission</h3>
+
+Upload a file to the **Programming Assignment 2** dropbox on D2L with a name like *firstname_lastname_assignment2pt3.R*.
+
+In the file, implement 2 functions:
+
+* `get_remote_data()`
+    - takes exactly 1 argument:
+        - `url`: string containing a URL pointing to a CSV file on the internet
+    - prints the following message: `"Downloaded data from '<url>'. Dataset has <m> rows and <n> columns."`
+        - With
+    - returns a `data.frame` representation of the file's contents
+    - does not directly call `download.file()`, or otherwise leave files on the filesystem
+* `get_dataset()`
+    - takes 2 arguments:
+        - `url`: same interpretation as above
+        - `num_rows`: an integer. If `> -`, the function returns the first `n` rows of the data. If `<= 0`, the function returns all rows.
+    - calls `get_remote_data()` and uses its result
+    - returns a `data.frame` with the first `num_rows` of the data indicated by `url`
+    - does not directly call `download.file()`, or otherwise leave files on the filesystem
+
+Your submitted script should only contain `library()` calls (if you choose to use external packages) and your implementations
+of those 2 functions.
+Follow the template below, only adding code code between the `###` comments.
+
+**Any code you add outside those `###` comments will be ignored.**
+
+```r
+### BEGIN CODE ###
+# (optional - add library() calls here)
+### END CODE ###
+
+get_remote_data <- function(url){
+    ### BEGIN CODE ###
+    # (add code here)
+    ### END CODE ###
+}
+
+get_dataset <- function(url, num_rows){
+    ### BEGIN CODE ###
+    # (add code here)
+    ### END CODE ###
+}
+```
+
+Test your code using the following snippet.
+
+**Do not include this test code in your submission**.
+
+```r
+fullDF <- get_remote_data(
+    url = "https://raw.githubusercontent.com/jameslamb/teaching/refs/heads/main/mu_rprog/sample-data/iris.csv"
+)
+# "Downloaded data from 'https://raw.githubusercontent.com/jameslamb/teaching/refs/heads/main/mu_rprog/sample-data/iris.csv'. Dataset has 150 rows and 6 columns."
+
+subsetDF <- get_dataset(
+    url = "https://raw.githubusercontent.com/jameslamb/teaching/refs/heads/main/mu_rprog/sample-data/iris.csv"
+    , num_rows = 27
+)
+
+# throw and error if returns value does not have the expected number of rows and columns
+stopifnot(dim(subsetDF) == c(27, 6))
+```
 
 <br><br><br>
