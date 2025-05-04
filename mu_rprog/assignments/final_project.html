@@ -601,7 +601,7 @@ of the contents</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
-<td align="left">    <em>(0-11) unclear or incopmlete
+<td align="left">    <em>(0-11) unclear or incomplete
 description</em></td>
 <td align="center"></td>
 </tr>
@@ -769,26 +769,7 @@ understand</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
-<td align="left">  2. Code Organization</td>
-<td align="center">15</td>
-</tr>
-<tr class="odd">
-<td align="left">    <em>(12-15) Well-organized, intuitive
-flow</em></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="left">    <em>(8-11) Difficult to understand without
-comments</em></td>
-<td align="center"></td>
-</tr>
-<tr class="odd">
-<td align="left">    <em>(0-8) Takes significant effort to
-understand</em></td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="left">  3. Use of External Functions</td>
+<td align="left">  2. Use of External Functions</td>
 <td align="center">15</td>
 </tr>
 <tr class="odd">
@@ -804,6 +785,25 @@ with <code>::</code></em></td>
 <tr class="odd">
 <td align="left">    <em>(0-5) Unclear use of external
 functions</em></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">  3. Code Organization</td>
+<td align="center">15</td>
+</tr>
+<tr class="odd">
+<td align="left">    <em>(12-15) Well-organized, intuitive
+flow</em></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">    <em>(8-11) Difficult to understand without
+comments</em></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">    <em>(0-8) Takes significant effort to
+understand</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
@@ -944,8 +944,8 @@ of the data</em></td>
 <td align="center"></td>
 </tr>
 <tr class="odd">
-<td align="left">    <em>(10-19) literal description with no connection
-to problem</em></td>
+<td align="left">    <em>(10-19) overly-literal description or unclear
+connection to the problem”</em></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
@@ -1015,7 +1015,11 @@ findings. This should be a 2-4 page “executive briefing”, the type that
 you would write if you were doing this analysis for a consulting
 client.</p>
 <p>Your report should focus on the problem, not the specifics of the
-code.</p>
+code. None of the following should be included:</p>
+<ul>
+<li>“R”, “RStudio”, etc.</li>
+<li>names of any R packages</li>
+</ul>
 <p>It should describe the problem, a brief summary of the work that was
 done (including the data that was used), and the result.</p>
 <p>The problem should be stated as a falsifiable research question.</p>
@@ -1030,6 +1034,9 @@ inflation is.</em></p>
 inflation and consumer sentiment in the U.S. changed in the period
 2021-2023.</em></p>
 </blockquote>
+<p>The description of the dataset should be sufficiently detailed for
+anyone trying to replicate your research to retrieve the exact same
+data.</p>
 <p>Your report should NOT include any raw R code, but it should include
 the output of the visualization step of your script (i.e. a table, plot,
 or other viz).</p>
