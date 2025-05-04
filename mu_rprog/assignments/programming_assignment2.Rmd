@@ -167,7 +167,7 @@ If this works correctly, you should see a plot similar to this:
 
 <center><img src = "assets/img/assignment_2.png"></center>
 
-<h2>Part 3: Reading Remote Files/h2>
+<h2>Part 3: Reading Remote Files</h2>
 
 <h3>Description</h3>
 
@@ -200,7 +200,7 @@ In the file, implement 2 functions:
 
 Your submitted script should only contain `library()` calls (if you choose to use external packages) and your implementations
 of those 2 functions.
-Follow the template below, only adding code code between the `###` comments.
+Follow the template below, only adding code between the `###` comments.
 
 **Any code you add outside those `###` comments will be ignored.**
 
