@@ -1740,8 +1740,8 @@ leave files on the filesystem</li>
 <li>takes 2 arguments:
 <ul>
 <li><code>url</code>: same interpretation as above</li>
-<li><code>num_rows</code>: an integer. If <code>&gt; -</code>, the
-function returns the first <code>n</code> rows of the data. If
+<li><code>num_rows</code>: an integer. If <code>&gt;=1</code>, the
+function returns the first <code>num_rows</code> rows of the data. If
 <code>&lt;= 0</code>, the function returns all rows.</li>
 </ul></li>
 <li>calls <code>get_remote_data()</code> and uses its result</li>
@@ -1784,9 +1784,13 @@ subsetDF &lt;- get_dataset(
     url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/refs/heads/main/mu_rprog/sample-data/iris.csv&quot;
     , num_rows = 27
 )
+stopifnot(dim(subsetDF) == c(27, 6))
 
-# throw and error if returns value does not have the expected number of rows and columns
-stopifnot(dim(subsetDF) == c(27, 6))</code></pre>
+subsetDF &lt;- get_dataset(
+    url = &quot;https://raw.githubusercontent.com/jameslamb/teaching/refs/heads/main/mu_rprog/sample-data/iris.csv&quot;
+    , num_rows = -1
+)
+stopifnot(dim(subsetDF) == c(150, 6))</code></pre>
 <p><br><br><br></p>
 
 
