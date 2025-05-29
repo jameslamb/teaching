@@ -1599,7 +1599,7 @@ maxes &lt;- apply(
     , MARGIN = 1
 )
 
-# d. Loop over a list object and return the entropy (ineq::entropy) of each vector
+# d. Loop over a list object and return the entropy (ineq::entropy) of each vector.
 #
 #    Do not modify faultList or the code used to generate it.
 #
@@ -1608,14 +1608,20 @@ maxes &lt;- apply(
 #    Your solution must not use `install.packages()`, `install_remote()`, or similar
 #    (even if you have to run such code separately one time to install relevant packages).
 #
-#    The &quot;entropies&quot; vector should contain values roughly like:
-#    c(0.03061904, 0.09126107, 0, 0.09578598)
+#    Your solution must not modify `entropies` after it has been created.
+#
+#    The `entropies` vector should contain values roughly like:
+#    c(0.03061904, 0.09126107, 0, 0.09578598, 0.05760576)
+#
+#    `entropies` must be a vector, NOT a list. (HINT: use `class(entropies)` to check).
+#
 library(&quot;package:ineq&quot;)
 faultList &lt;- list(
     asset1 = as.factor(c(&quot;engine&quot;, &quot;engine&quot;, &quot;brakes&quot;, &quot;engine&quot;, &quot;engine&quot;))
     , asset2 = as.factor(c(&quot;brakes&quot;, &quot;final_drive&quot;, &quot;engine&quot;, &quot;engine&quot;, &quot;alternator&quot;))
     , asset3 = rep(&quot;brakes&quot;, 1000)
     , asset4 = as.factor(c(&quot;final_drive&quot;, &quot;final_drive&quot;, &quot;torque_converter&quot;, &quot;spark_plug&quot;, &quot;engine&quot;))
+    , asset5 = c(&quot;battery&quot;, &quot;transmission&quot;)
 )
 entropies &lt;- apply(fault_list, inqe::entropy)
 
@@ -1646,6 +1652,12 @@ findMin &lt;- function(numVec) {
     }
     return(lowest_val)
 }
+
+# should return 617
+findMin(c(617))
+
+# should return 81.25
+findMin(c(81.25, 81.33))
 
 # should return 10
 findMin(rep(10:20))
