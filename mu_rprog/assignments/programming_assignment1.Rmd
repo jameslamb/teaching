@@ -99,7 +99,7 @@ maxes <- apply(
     , MARGIN = 1
 )
 
-# d. Loop over a list object and return the entropy (ineq::entropy) of each vector
+# d. Loop over a list object and return the entropy (ineq::entropy) of each vector.
 #
 #    Do not modify faultList or the code used to generate it.
 #
@@ -108,14 +108,20 @@ maxes <- apply(
 #    Your solution must not use `install.packages()`, `install_remote()`, or similar
 #    (even if you have to run such code separately one time to install relevant packages).
 #
-#    The "entropies" vector should contain values roughly like:
-#    c(0.03061904, 0.09126107, 0, 0.09578598)
+#    Your solution must not modify `entropies` after it has been created.
+#
+#    The `entropies` vector should contain values roughly like:
+#    c(0.03061904, 0.09126107, 0, 0.09578598, 0.05760576)
+#
+#    `entropies` must be a vector, NOT a list. (HINT: use `class(entropies)` to check).
+#
 library("package:ineq")
 faultList <- list(
     asset1 = as.factor(c("engine", "engine", "brakes", "engine", "engine"))
     , asset2 = as.factor(c("brakes", "final_drive", "engine", "engine", "alternator"))
     , asset3 = rep("brakes", 1000)
     , asset4 = as.factor(c("final_drive", "final_drive", "torque_converter", "spark_plug", "engine"))
+    , asset5 = c("battery", "transmission")
 )
 entropies <- apply(fault_list, inqe::entropy)
 
@@ -146,6 +152,12 @@ findMin <- function(numVec) {
     }
     return(lowest_val)
 }
+
+# should return 617
+findMin(c(617))
+
+# should return 81.25
+findMin(c(81.25, 81.33))
 
 # should return 10
 findMin(rep(10:20))
