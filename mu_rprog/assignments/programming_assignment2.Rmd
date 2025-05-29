@@ -186,8 +186,10 @@ In the file, implement 2 functions:
 * `get_remote_data()`
     - takes exactly 1 argument:
         - `url`: string containing a URL pointing to a CSV file on the internet
-    - prints the following message: `"Downloaded data from '<url>'. Dataset has <m> rows and <n> columns."`
-        - With
+    - prints the following message: `"Downloaded data from '<url>'. Full dataset has <m> rows and <n> columns."`
+        - `<url>` is replaced with the URL passed via `via`
+        - `<m>` is replaced with the number of rows in the data
+        - `<n>` is replaced with the number of columns in the data
     - returns a `data.frame` representation of the file's contents
     - does not directly call `download.file()`, or otherwise leave files on the filesystem
 * `get_dataset()`

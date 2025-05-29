@@ -1727,9 +1727,14 @@ dropbox on D2L with a name like
 the internet</li>
 </ul></li>
 <li>prints the following message:
-<code>&quot;Downloaded data from &#39;&lt;url&gt;&#39;. Dataset has &lt;m&gt; rows and &lt;n&gt; columns.&quot;</code>
+<code>&quot;Downloaded data from &#39;&lt;url&gt;&#39;. Full dataset has &lt;m&gt; rows and &lt;n&gt; columns.&quot;</code>
 <ul>
-<li>With</li>
+<li><code>&lt;url&gt;</code> is replaced with the URL passed via
+<code>via</code></li>
+<li><code>&lt;m&gt;</code> is replaced with the number of rows in the
+data</li>
+<li><code>&lt;n&gt;</code> is replaced with the number of columns in the
+ddata</li>
 </ul></li>
 <li>returns a <code>data.frame</code> representation of the file’s
 contents</li>
