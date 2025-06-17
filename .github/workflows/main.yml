@@ -28,7 +28,6 @@ jobs:
             --max-retries 2
             --accept 200,429
             --exclude-path docs/conf.py
-            './**/*.html'
             './**/*.md'
             './**/*.R'
             './**/*.Rmd'
