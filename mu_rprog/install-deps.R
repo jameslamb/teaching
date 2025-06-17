@@ -2,10 +2,10 @@
 # in the provided code supplements
 
 if (!requireNamespace("slidify")) {
-    remotes::install_github("ramnathv/slidify", force = FALSE)
+    remotes::install_github("ramnathv/slidify", force = FALSE)  # nolint: non_portable_path
 }
 if (!requireNamespace("slidifyLibraries")) {
-    remotes::install_github("ramnathv/slidifyLibraries", force = FALSE)
+    remotes::install_github("ramnathv/slidifyLibraries", force = FALSE)  # nolint: non_portable_path
 }
 
 install.packages(
