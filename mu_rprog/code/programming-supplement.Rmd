@@ -494,7 +494,7 @@ while (KEEP_SEARCHING){
 
 # Functions
 
-R is a [functional programming language](https://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
+R is a [functional programming language](https://adv-r.hadley.nz/functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
 
 > "If you find yourself copying and pasting the same code more than twice, it's time to write a function."
 > - Hadley Wickham
