@@ -68,7 +68,7 @@ ls("package:stats")
 
 ## Vectors
 
-- Because R was designed for use with statistics, most of its operations are [vectorized](http://www.cs.cornell.edu/courses/cs1112/2016sp/Exams/exam2/vectorizedCode.pdf)
+- Because R was designed for use with statistics, most of its operations are [vectorized](https://www.cs.cornell.edu/courses/cs1112/2016sp/Exams/exam2/vectorizedCode.pdf)
 - You can create vectors a few ways:
 
 ```{r vectors_pt1}
@@ -494,7 +494,7 @@ while (KEEP_SEARCHING){
 
 # Functions
 
-R is a [functional programming language](http://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
+R is a [functional programming language](https://adv-r.had.co.nz/Functions.html). To write powerful, concise code, you'll need to master the use and creation of functions.
 
 > "If you find yourself copying and pasting the same code more than twice, it's time to write a function."
 > - Hadley Wickham
@@ -1003,7 +1003,7 @@ print(head(irisDF))
 
 In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable. You'll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R. There are a few packages for doing this, but in this course we'll focus on [openxlsx](https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf).
 
-NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of [JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or 2) exploring other packages like [xlsx](https://cran.r-project.org/web/packages/xlsx/xlsx.pdf) or [readxl](https://cran.r-project.org/web/packages/readxl/readxl.pdf).
+NOTE: This package requires certain Java components that you may not have on your machine. If you run into issues, I recommend 1) installing an updated version of [JRE](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or 2) exploring other packages like [xlsx](https://cran.r-project.org/web/packages/xlsx/xlsx.pdf) or [readxl](https://cran.r-project.org/web/packages/readxl/readxl.pdf).
 
 To begin this example, download the example file from the course repository.
 
@@ -1567,7 +1567,11 @@ In this section, we're going to walk through all the steps of basic statistical 
 
 ## Getting and Splitting the Data
 
-We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html) dataset. This cross-sectional dataset contains measures of fertility and some economic indicators collected in Switzerland in 1888. Our first task will be to load the data and immediately hold out a piece of it as [testing data](http://info.salford-systems.com/blog/bid/337783/Why-Data-Scientists-Split-Data-into-Train-and-Test). The idea here is that when we evaluate the performance of our models later on, it will be better to do it on data that the models haven't seen. This will give a more honest picture of how well they might perform on new data.
+We're going to work with R's [swiss](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html) dataset.
+This cross-sectional dataset contains measures of fertility and some economic indicators collected in Switzerland in 1888.
+Our first task will be to load the data and immediately hold out a piece of it as [testing data](https://builtin.com/data-science/train-test-split).
+The idea here is that when we evaluate the performance of our models later on, it will be better to do it on data that the models haven't seen.
+This will give a more honest picture of how well they might perform on new data.
 
 In this exercise, we're going to evaluate the following question: **Can we predict fertility based on regional socioeconomic characteristics?**
 
@@ -1772,7 +1776,7 @@ Linear regressions are powerful tools, but there are certain classes of complex 
 
 Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
 
-The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
+The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](https://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
 
 ```{r tree_seed, echo = FALSE, eval = TRUE, error = FALSE}
 # set random seed so we get the same model every time these docs are generated
@@ -1794,7 +1798,7 @@ dtPreds <- EvaluateModel(
 ```
 
 You can walk through the tree with this awesome package called `rattle`.
-This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](http://www.milbo.org/doc/prp.pdf).
+This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](https://www.milbo.org/doc/prp.pdf).
 
 ```{r plotTheTree, eval = TRUE, echo = TRUE}
 # Plot the tree
@@ -2150,8 +2154,6 @@ Use this slide as a general reference of coding best practices.
 - Set global variables (like file paths) in all-caps near the top of your script(s)
 - Use comments like `#===== Section 1 - Do Stuff =====#` to separate major sections of the code
 - Namespace any calls to external functions with `::` (e.g. `lubridate::ymd_hms()`)
-
-For other practices to keep your code clean and readable, check out [Hadley Wickham's style guide for R](http://adv-r.had.co.nz/Style.html).
 
 My script below shows an example of a typical layout for professional-quality R code.
 

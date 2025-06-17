@@ -714,11 +714,7 @@ To download files hosted on the internet, you can use `download.file()`.
 
 ```{r, eval = FALSE, echo = TRUE}
 iris_url <- paste(
-    c(
-         "https://raw.githubusercontent.com/jameslamb"
-        , "teaching/main/mu_rprog/sample-data"
-        , "iris.csv"
-    )
+    "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
     , collapse = "/"
 )
 

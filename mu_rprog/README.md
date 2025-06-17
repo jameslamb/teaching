@@ -53,4 +53,4 @@ Install `make`, then run the following:
 make course
 ```
 
-That recipe will install all the necessary R packages to generate example code and regenerate slides and other HTML using [slidify](https://github.com/ramnathv/slidify) and [rmarkdown](http://rmarkdown.rstudio.com/).
+That recipe will install all the necessary R packages to generate example code and regenerate slides and other HTML using [slidify](https://github.com/ramnathv/slidify) and [rmarkdown](https://rmarkdown.rstudio.com/).

@@ -21,7 +21,7 @@ install.packages(
         , "remotes"
         , "stringr"
     )
-    , repos = "http://cran.r-project.org"
+    , repos = "https://cran.r-project.org"
     , dependencies = c("Depends", "Imports", "LinkingTo")
     , type = "both"
     , verbose = TRUE
@@ -31,7 +31,7 @@ install.packages(
 # {markdown} v1.2.0 removed the markdownExtensions() function used by {slidify}
 # ref: https://github.com/rstudio/markdown/commit/6ef44310980aca1df52913678916d534fa739902
 install.packages(
-    "http://cran.r-project.org/src/contrib/Archive/markdown/markdown_1.1.tar.gz"
+    "https://cran.r-project.org/src/contrib/Archive/markdown/markdown_1.1.tar.gz"
     , repos = NULL
     , type = "source"
 )
