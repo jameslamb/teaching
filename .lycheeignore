@@ -1,0 +1,14 @@
+# this 403s but is still there
+https://blog.revolutionanalytics.com/2014/08/using-r-inside-the-enterprise-integration-with-existing-systems.html
+
+# TODO: remove as part of https://github.com/jameslamb/teaching/issues/182
+https://twitter*
+
+# Stack Exchange sites started throwing 403s around June 2025
+https://serverfault.com*
+https://stackoverflow.com*
+https://superuser.com*
+
+# broken links from vendored slides/libraries directory
+https://cdn.rawgit.com/ramnathv/*
+http://github.com/isagalaev/highlight.js/blob/master/classref.txt

@@ -6,7 +6,7 @@ The list below is not exhaustive, but should give a good idea of the types of da
 - [Kaggle Datasets](https://www.kaggle.com/datasets)
 - [Open Data on AWS](https://aws.amazon.com/opendata/?wwps-cards.sort-by=item.additionalFields.sortDate&wwps-cards.sort-order=desc)
 - [Google Dataset search](https://toolbox.google.com/datasetsearch)
-- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.html)
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/datasets)
 - [St. Louis Fed (FRED)](https://www.stlouisfed.org/)
 - [Comed hourly power price API](https://hourlypricing.comed.com/live-prices/)
 - [EIA API](https://www.eia.gov/opendata/).com/trends/correlate)
