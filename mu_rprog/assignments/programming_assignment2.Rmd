@@ -75,7 +75,7 @@ cor(1:10, 2:11) # == 1
 
 <h3>Description</h3>
 
-As you wade further into the world of data science, you'll hear this said often: [most of a data scientist's time is spent getting and cleaning data](https://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html).
+As you go further into the world of data science, you'll hear this said often: **most of a data scientist's time is spent getting and cleaning data**.
 Let's practice that crucial activity.
 
 In the second part of this assignment, we'll be working with data from the St. Louis Federal Reserve ([FRED](https://fred.stlouisfed.org/)).

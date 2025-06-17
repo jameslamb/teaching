@@ -1776,7 +1776,7 @@ Linear regressions are powerful tools, but there are certain classes of complex 
 
 Regression Trees are one mainstream tool used to fit complex functions. They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
 
-The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](https://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
+The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
 
 ```{r tree_seed, echo = FALSE, eval = TRUE, error = FALSE}
 # set random seed so we get the same model every time these docs are generated
@@ -1798,7 +1798,7 @@ dtPreds <- EvaluateModel(
 ```
 
 You can walk through the tree with this awesome package called `rattle`.
-This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](https://www.milbo.org/doc/prp.pdf).
+This package can be [super hard to build](https://gist.github.com/sebkopf/9405675)... if you run into any issues, there are lots of nice options available via the [rpart.plot package](https://cran.r-project.org/web/packages/rpart.plot/rpart.plot.pdf).
 
 ```{r plotTheTree, eval = TRUE, echo = TRUE}
 # Plot the tree
