@@ -2,7 +2,6 @@
 exclude: |
   (?x)^(
       .*\.html$
-      |datacamp_audition/.*
       |mu_rprog/slides/libraries/.*
   )$
 

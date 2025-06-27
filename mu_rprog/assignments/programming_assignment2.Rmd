@@ -75,7 +75,7 @@ cor(1:10, 2:11) # == 1
 
 <h3>Description</h3>
 
-As you wade further into the world of data science, you'll hear this said often: [most of a data scientist's time is spent getting and cleaning data](http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html).
+As you go further into the world of data science, you'll hear this said often: **most of a data scientist's time is spent getting and cleaning data**.
 Let's practice that crucial activity.
 
 In the second part of this assignment, we'll be working with data from the St. Louis Federal Reserve ([FRED](https://fred.stlouisfed.org/)).
@@ -85,7 +85,7 @@ Using the resources I've provided below, your goal is to download two series: Ja
 Then you'll join them into a single `data.frame` and plot them against each other on a line plot using R's base plotting system.
 
 - Brief R + `{quantmod}` + FRED tutorial: https://www.quantmod.com/documentation/getSymbols.FRED.html
-- Tutorial on creating line plots in R's base plotting system: http://www.harding.edu/fmccown/r/
+- Tutorial on creating line plots in R's base plotting system: https://www.harding.edu/fmccown/r/
 
 <h3>Submission</h3>
 

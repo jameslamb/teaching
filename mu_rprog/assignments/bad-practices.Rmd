@@ -20,7 +20,8 @@ R uses some special "reserved words" which can never be overwritten.
 For example, you cannot name a variable `if` because `if` is a foundational element of how R programs are structure.
 To see the full list of reserved words, run `?reserved`.
 
-Two of these are `TRUE` and `FALSE`. These are used to represent logical values and control flow, like this:
+Two of these are `TRUE` and `FALSE`.
+These are used to represent logical values and control flow, like this:
 
 ```{r}
 if (TRUE && FALSE){
@@ -152,7 +153,8 @@ In R, it's possible to subset objects by numbers.
 You can say things like "get the 5th column" or "get rows 15-88 from this matrix".
 This practice, called positional subsetting, is often a bad idea.
 
-Look at the example above. Can you tell what it does?
+Look at the example above
+Can you tell what it does?
 
 ```{r}
 data(mtcars)
@@ -166,7 +168,8 @@ data(mtcars)
 mtcars[mtcars$gear == 5, ]
 ```
 
-Both statements produce the same result: a dataframe with all the cars in `mtcars` that have 5-gear transmissions. The second statement, though, will still produce the right answer even if `mtcars` is sorted or randomly shuffled.
+Both statements produce the same result: a dataframe with all the cars in `mtcars` that have 5-gear transmissions.
+The second statement, though, will still produce the right answer even if `mtcars` is sorted or randomly shuffled.
 
 ## Using absolute file paths in shared code
 

@@ -140,8 +140,8 @@ knit        : slidify::knit2slides
     - M.I. in Data Science, University of California - Berkeley ([MIDS](https://datascience.berkeley.edu/))
     - Co-author and maintainer of [`{uptasticsearch}`](https://github.com/UptakeOpenSource/uptasticsearch) and [`{pkgnet}`](https://github.com/UptakeOpenSource/pkgnet) packages on CRAN
     - Maintainer on [`LightGBM`](https://lightgbm.readthedocs.io/en/latest/FAQ.html#critical-issues)
-    - Created ["Timeseries with data.table in R"](https://www.datacamp.com/courses/time-series-with-datatable-in-r) DataCamp course
-    - Analyst/Economist @ [IHS Economics](https://www.ihs.com/industry/economics-country-risk.html), [Abbott Laboratories](http://www.abbott.com/), 2014-2015
+    - Created "Timeseries with data.table in R" DataCamp course
+    - Analyst/Economist @ IHS Economics, Abbott Laboratories, 2014-2015
 
 --- .content_slide
 
@@ -867,7 +867,7 @@ See ["While Loops"](../code/programming-supplement.html#While_Loops) in the prog
 
 For the brave and curious, I've included a few online free resources for learning more about the technologies we discussed.
 
-**Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.cyberciti.biz/open-source/learning-bash-scripting-for-beginners/)
+**Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.gnu.org/software/bash/manual/bash.html)
 
 **R**: [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
 

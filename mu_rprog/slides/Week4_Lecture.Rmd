@@ -258,7 +258,7 @@ For larger datasets, you may find that a single decision tree does not perform w
 
 <center><img src="assets/img/random-forest.png" style="max-width:50%;"></center>
 
-image credit: [Vern Greenholt](https://morioh.com/p/2d4243726fdb)
+image credit: Vern Greenholt
 
 See the ["Random Forests"](../code/programming-supplement.html#Random_Forests) in the programming supplement for an example.
 
