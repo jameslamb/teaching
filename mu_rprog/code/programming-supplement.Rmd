@@ -863,7 +863,7 @@ dygraphs::dygraph(
 In the examples so far, I've been defining functions and using them in the same breath.
 As your projects grow in complexity, you will find this really tedious and hard to keep track of.
 
-An alternative that many intermediate R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
+An alternative that many R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
 
 Let's create two scripts.
 
@@ -1425,7 +1425,7 @@ plot(
 ```
 
 You can add more than one variable to these plots!
-Let's compare the densities of Sepal length by species
+Let's compare the densities of Sepal length by species.
 
 ```{r compareDensities}
 # Overlay densities of Petal length by species
@@ -1948,8 +1948,7 @@ rfPreds <- EvaluateModel(
 
 ## Model Evaluation
 
-In a real project, at some point you will find yourself saying "ok, I have all these models.
-What should I actually use to generate predictions?".
+In a real project, at some point you will find yourself saying "ok, I have all these models. What should I actually use to generate predictions?".
 This question was our motivation for holding out a test set at the beginning of this walkthrough.
 Accuracy when predicting on previously unseen data is a totally defensible measure for choosing the "best" model from a set of candidate models.
 

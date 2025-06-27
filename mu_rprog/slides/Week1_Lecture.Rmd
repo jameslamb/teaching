@@ -194,7 +194,7 @@ Programming in R begins with installing R!
 
 R comes with a command-line client and a default GUI, but most users prefer to use other IDEs (*"integrated development environment"*). The most popular IDE for R, and the one we'll use in this class, is RStudio:
 
-* Go to https://www.rstudio.com/products/rstudio/download/
+* Go to https://posit.co/products/open-source/rstudio/
 * Choose the appropriate download under "All Installers"
 * Open the file and follow the prompts on the screen
 

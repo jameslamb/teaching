@@ -4,7 +4,6 @@
 
 Which (if any) of the following programming languages have you used before?
 
-
 * [ ] Bash
 * [ ] C++
 * [ ] CSS
