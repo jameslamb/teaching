@@ -78,7 +78,8 @@ print(randomDT)
 
 Your task in this assignment is to write an R function that modifies a `data.table` in place.
 
-The `{data.table}` package is not covered in this class. You can learn about it from the following resources.
+The `{data.table}` package is not covered in this class.
+You can learn about it from the following resources.
 
 * ["Introduction to data.table"](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)
 * ["Frequently Asked Questions about data.table"](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-faq.html)
@@ -95,7 +96,10 @@ data(attitude)
 attitudeDT <- data.table::as.data.table(attitude)
 ```
 
-The function below contains comments that describe what the function should do. Add exactly one statement under each comment block. The `[must-use]` section describes the functions or operators from the `{data.table}` package that you must use in that statement. The `[description]` block describes what the code should do.
+The function below contains comments that describe what the function should do.
+Add exactly one statement under each comment block.
+The `[must-use]` section describes the functions or operators from the `{data.table}` package that you must use in that statement.
+The `[description]` block describes what the code should do.
 
 ```{r assignment}
 library(data.table)
