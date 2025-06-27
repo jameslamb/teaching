@@ -828,11 +828,13 @@ rwRanges <- apply(
 
 This example shows some interesting data visualizations you can make using `{data.table}`, `{dygraphs}`, and `{quantmod}`.
 
-Install these packages:
+Install these packages (this only needs to be done once):
 
 ```r
 install.packages(c("data.table", "dygraphs", "quantmod"))
 ```
+
+Then run the following:
 
 ```{r makePlots, echo = TRUE, eval = TRUE, message = FALSE, warning = FALSE}
 # Load dependencies
@@ -858,9 +860,42 @@ dygraphs::dygraph(
     dygraphs::dyRangeSelector()
 ```
 
+## Telling R which package to use
+
+The use of `::` in the example above is important.
+That tells R exactly which package namespace to look in for a given function.
+
+Consider this example:
+
+```{r}
+library(data.table)
+
+find("fread")
+
+fread <- function(){
+    print("using my custom fread()")
+}
+
+find("fread")
+
+fread
+```
+
+The first `find("fread")` there finds the one from `{data.table}`.
+The `fread()` custom function defined later then takes precedence over that one that was loaded earlier.
+
+To ensure that your code isn't dependent on the order that libraries are loaded, you should always
+use `::` when referencing functions from external packages.
+
+Like this:
+
+```r
+data.table::fread(...)
+```
+
 ## Sourcing Helper Functions
 
-In the examples so far, I've been defining functions and using them in the same breath.
+In the examples so far, I've been defining functions and using them in the same script.
 As your projects grow in complexity, you will find this really tedious and hard to keep track of.
 
 An alternative that many R programmers turn to is defining one or more `helperfuns.R` scripts to store custom functions and then using `source()` at the top of their run scripts to make those functions available in the main program.
