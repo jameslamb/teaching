@@ -806,7 +806,7 @@ JSON ("Javascript Object Notation") is a standard format for "semi-structured" o
 
 <br>
 
-This type of data is commonly represented as an R `list`. See the ["JSON"](../code/programming-supplement.html#JSON) in the programming supplement for an example using some JSON data describing a tweet.
+This type of data is commonly represented as an R `list`. See ["JSON"](../code/programming-supplement.html#JSON) in the programming supplement for an example using some JSON data from the GitHub API.
 
 --- .content_slide
 

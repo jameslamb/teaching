@@ -1155,45 +1155,47 @@ It's a plain-text format that can be used by many programs and programming langu
 To begin this example, download the example file from the course repository.
 
 ```{r, eval=FALSE, echo=TRUE}
-tweet_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/tweets.json"
-tweet_file <- "tweets.json"
+data_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/data.json"
+data_file <- "data.json"
 download.file(
-  url = tweet_url
-  , destfile = tweet_file
+  url = data_url
+  , destfile = data_file
 )
 ```
 
 Open the file in a text editor and inspect its contents.
-It contains a sample response from the Twitter API, which is used by developers to build applications that interact with Twitter.
+It contains a sample response from the GitHub API.
 
 Here's a preview:
 
 ```javascript
 {
-  "created_at": "Mon May 06 20:01:29 +0000 2019",
-  "id": 1125490788736032800,
-  "id_str": "1125490788736032770",
-  "text": "Today's new update means that you can finally add Pizza Cat to your Retweet with comments! Learn more about this ne… https://t.co/Rbc9TF2s5X",
-  "display_text_range": [
-    0,
-    140
-  ],
-  "truncated": true,
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
-  "user": {
-    "id": 2244994945,
-    "id_str": "2244994945",
-    "name": "Twitter Dev",
-    "screen_name": "TwitterDev",
-    "location": "Internet",
-    "url": "https://developer.twitter.com/",
-    "description": "Your official source for Twitter Platform news, updates & events. Need technical help? Visit https://twittercommunity.com/ ⌨️ #TapIntoTwitter",
-    "translator_type": "null"
-  }
+  "id": 77707418,
+  "node_id": "MDEwOlJlcG9zaXRvcnk3NzcwNzQxOA==",
+  "name": "teaching",
+  "owner": {
+    "login": "jameslamb",
+    "id": 7608904,
+    "node_id": "MDQ6VXNlcjc2MDg5MDQ=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/7608904?v=4",
+  },
+  "html_url": "https://github.com/jameslamb/teaching",
+  "description": "Repository to hold slides, syllabi, etc. for courses I've taught.",
+  "fork": false,
+  "url": "https://api.github.com/repos/jameslamb/teaching",
+  "forks_url": "https://api.github.com/repos/jameslamb/teaching/forks",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "topics": [
+    "r",
+    "rstats",
+    "teaching"
+  ]
 }
 ```
 
@@ -1204,28 +1206,28 @@ Read in the file with `jsonlite::fromJSON()` and view its contents with `str()`.
 ```{r, eval=FALSE, echo=TRUE}
 library(jsonlite)
 
-tweetList <- jsonlite::fromJSON(
-  txt  = tweet_file
+responseList <- jsonlite::fromJSON(
+  txt = data_file
   , simplifyDataFrame = FALSE
 )
 
-str(tweetList, max.level = 3)
+str(responseList, max.level = 3)
 ```
 
 This function can also read JSON data directly from files on the internet.
 
 ```{r, eval=FALSE, echo=TRUE}
-tweetList <- jsonlite::fromJSON(
-  txt  = tweet_url
+responseList <- jsonlite::fromJSON(
+  txt = data_url
   , simplifyDataFrame = FALSE
 )
-str(tweetList, max.level = 3)
+str(responseList, max.level = 3)
 ```
 
 ## Unstructured Text files
 
 In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store.
-An example might be a large archive of tweets or a collection of court transcripts.
+An example might be a large archive of product reviews or a collection of court transcripts.
 
 The code below examines a text file with all of Shakespeare's sonnets.
 
