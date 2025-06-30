@@ -201,7 +201,7 @@ All times below are in Central Time.
 
 |Quiz                       |Opens                             |Due                      |
 |:-------------------------:|:--------------------------------:|:-----------------------:|
-|Pre-class survey           | Immediately                      | 11:00p on July 12, 2025 |
+|Pre-course survey          | Immediately                      | 11:00p on July 12, 2025 |
 |Quiz 1                     | Immediately                      | 11:00p on July 19, 2025 |
 |Quiz 2                     | Immediately                      | 11:00p on July 26, 2025 |
 
@@ -259,7 +259,7 @@ This extra credit must be submitted prior to midnight on August 13, 2025.
 
 ## E. Grade Appeal
 
-The grading policies described above will be used to calculate your final grade for the course
+The grading policies described above will be used to calculate your final grade for the course.
 Individual assignment grades will follow rubrics available on the course site.
 
 If you disagree with any grade assigned to you in this course, please refer to this document and those rubrics in your appeal.
@@ -304,5 +304,4 @@ For more, see http://www.marquette.edu/provost/integrity-pledge.php.
 
 ## E. Important Dates
 
-See https://www.marquette.edu/central/registrar/2025-spring-academic-calendar.php for dates like the deadlines
-for dropping or withdrawing from the course.
+See https://www.marquette.edu/central/registrar/2025-summer-academic-calendar.php for dates like the deadlines for dropping or withdrawing from the course.

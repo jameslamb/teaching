@@ -181,9 +181,8 @@
 
 <h2>Specialness of NAs</h2>
 
-<p><code>NA</code> is a special object in R, used to capture the idea of &quot;a value whose value is unknown&quot;. Confusing, right? They&#39;re an inevitability in real-world data.</p>
-
-<p><strong>PRO TIP</strong>: See <code>?NA</code> for R&#39;s documentation on the nuances of <code>NA</code></p>
+<p><code>NA</code> is a special object in R, used to capture the idea of &quot;a value whose value is unknown&quot;.
+See <code>?NA</code> for R&#39;s documentation on the nuances of <code>NA</code></p>
 
 <pre><code class="r"># Create a vector w/ missing data
 some_nums &lt;- c(1,2,NA, 6, NA, 8)
@@ -222,7 +221,9 @@ class(some_nums)
 
 <h2>You Should Care About NAs</h2>
 
-<p>It&#39;s common for introductory programmers to think of missing values as problems to address, but that isn&#39;t always the case! <code>NA</code> can actually hold valuable information. For example, imagine that you get a dump of data from Salesforce or some other CRM system with information like customer_name, date_of_first_contact, and date_of_second_contact.</p>
+<p><code>NA</code> values are not necessarily problems!</p>
+
+<p>NA` can actually hold valuable information. For example, imagine that you get a dump of data from Salesforce or some other CRM system with information like customer_name, date_of_first_contact, and date_of_second_contact.</p>
 
 <p><br></p>
 
@@ -241,7 +242,7 @@ class(some_nums)
     Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer></p>
 
-<h2>Strategy 1: Total Eradication</h2>
+<h2>Strategy 1: Total Removal</h2>
 
 <p>The first approach you may take to dealing with <code>NA</code> values is to simply drop them from your data. If you don&#39;t think these missing data have any business value and your dataset is big enough that you can afford to drop some rows / columns, this is the right move for you.</p>
 

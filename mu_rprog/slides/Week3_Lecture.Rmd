@@ -105,9 +105,8 @@ IMHO, [this assignment](../assignments/programming_assignment1.html) was the sin
 
 <h2>Specialness of NAs</h2>
 
-`NA` is a special object in R, used to capture the idea of "a value whose value is unknown". Confusing, right? They're an inevitability in real-world data.
-
-**PRO TIP**: See `?NA` for R's documentation on the nuances of `NA`
+`NA` is a special object in R, used to capture the idea of "a value whose value is unknown".
+See `?NA` for R's documentation on the nuances of `NA`
 
 ```{r introToNAs, eval - FALSE, echo = TRUE}
 # Create a vector w/ missing data
@@ -130,7 +129,9 @@ class(some_nums)
 
 <h2>You Should Care About NAs</h2>
 
-It's common for introductory programmers to think of missing values as problems to address, but that isn't always the case! `NA` can actually hold valuable information. For example, imagine that you get a dump of data from Salesforce or some other CRM system with information like customer_name, date_of_first_contact, and date_of_second_contact.
+`NA` values are not necessarily problems!
+
+NA` can actually hold valuable information. For example, imagine that you get a dump of data from Salesforce or some other CRM system with information like customer_name, date_of_first_contact, and date_of_second_contact.
 
 <br>
 
@@ -143,7 +144,7 @@ Depending on how the system was set up, `date_of_second_contact1` may have dates
     Dealing with Missing Data<span style="float:right">R Programming</span>
 </footer>
 
-<h2>Strategy 1: Total Eradication</h2>
+<h2>Strategy 1: Total Removal</h2>
 
 The first approach you may take to dealing with `NA` values is to simply drop them from your data. If you don't think these missing data have any business value and your dataset is big enough that you can afford to drop some rows / columns, this is the right move for you.
 

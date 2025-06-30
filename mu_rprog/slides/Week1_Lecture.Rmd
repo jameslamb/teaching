@@ -25,8 +25,6 @@ knit        : slidify::knit2slides
 
 <h2 class="content_slide">Welcome to Class!</h2>
 
-<center><img src="./assets/img/you-gon-learn-today.jpg"></center>
-
 --- .toc_slide &twocol
 
 <footer>
@@ -866,8 +864,6 @@ See ["While Loops"](../code/programming-supplement.html#While_Loops) in the prog
 <h2>Learning More on Your Own</h2>
 
 For the brave and curious, I've included a few online free resources for learning more about the technologies we discussed.
-
-**Bash**: [Codecademy](https://www.codecademy.com/learn/learn-the-command-line) | [Learn Bash](https://www.gnu.org/software/bash/manual/bash.html)
 
 **R**: [swirl](http://swirlstats.com/) | [JHU Data Science](https://www.coursera.org/specializations/jhu-data-science)
 
