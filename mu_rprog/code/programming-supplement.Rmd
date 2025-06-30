@@ -1168,7 +1168,7 @@ print(head(gdpDF))
 ```
 
 Notice that that `observation_date` column has numbers that don't look like dates.
-Microsoft Excel stores dates as "number of days 
+Microsoft Excel stores dates as "number of days
 
 You can also use this package to write Excel files.
 You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R.
