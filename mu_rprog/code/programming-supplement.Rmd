@@ -39,9 +39,14 @@ search()
 
 # use ls() to list the objects in one of those namespaces
 ls("package:stats")
+
+# use find() to check which namespace R is finding an object in
+find("read.csv")
 ```
 
 # Dollarstore Calculator Math
+
+Math in R looks very similar to how you might write it by hand.
 
 ```{r simpleMath1}
 # Addition with "+"
@@ -70,8 +75,7 @@ ls("package:stats")
 
 ## Vectors
 
-- Because R was designed for use with statistics, most of its operations are [vectorized](https://www.cs.cornell.edu/courses/cs1112/2016sp/Exams/exam2/vectorizedCode.pdf)
-- You can create vectors a few ways:
+Because R was designed for use with statistics, most of its operations are "vectorized" ([click here to learn more](https://www.cs.cornell.edu/courses/cs1112/2016sp/Exams/exam2/vectorizedCode.pdf)) [vectorized]().
 
 ```{r vectors_pt1}
 # Ordered sequence of integers
@@ -111,9 +115,9 @@ c(x, y)
 
 ## Lists
 
-Vectors are the first multi-item data structure all R programmers learn.
+Vectors are the first multi-item data structure most R programmers learn.
 Soon, though, you may find yourself frustrated with the fact that they can only hold a single type.
-To handle cases where you want to package multiple types (and even multiple objects!) together, we will turn to a data structure called a `list`.
+The `list` data structure is useful for cases where you want to hold objects of different types together in the same object.
 
 |Capabilities                        |Vectors |Lists   |
 |:----------------------------------:|:------:|:------:|
@@ -138,8 +142,9 @@ str(myList)
 ## Factors
 
 Imagine that you want to build a model of the relationship between resource wealth and quality-of-life outcomes like life expectancy.
-You got out to the World Bank to grab some data, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America".
+You get some data from the Wold Bank, and the dataset you get includes a column called "region" with values like "Africa", "European Union", and "South America".
 How can you use this variable in a model or for generating region-by-region summary stats?
+
 This is where R's **factor type** comes in.
 
 ```{r factorVar1}
@@ -151,8 +156,9 @@ str(region_fac)
 ```
 
 What does it mean for `region` to be a factor?
+
 Essentially, a factor is a categorical variable.
-R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table the tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
+R uses a cool trick to save memory when storing factors...internally, R will convert factor values to integers and then keep around a single table that tells it, e.g., that 1 = "Africa", 2 = "European Union", etc..
 
 ```{r factorVar2}
 # Check it out! R has assigned integer values to the "region_fac" variable
@@ -168,7 +174,7 @@ levels(region_fac)
 
 ## Data Frames
 
-Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with in model training and other data science tasks.
+Vectors and lists are crucial data structures in R, but you may find that they're difficult to work with for statistical tasks.
 It is now time to introduce a third foundational data structure: the data frame.
 
 Data frames are tables of data.
@@ -209,6 +215,7 @@ tail(mtcars, n = 10)
 # Logical Operators
 
 Often in your code, you'll want to do/not do something or select / not select some data based on a logical condition (a statement that evaluates to TRUE or FALSE).
+
 Here are some examples of how to construct these statements in R.
 
 ```{r logicalCond1}
@@ -253,6 +260,7 @@ vehicleSizes <- c(1, 5, 5, 2, 4)
 
 # Create a logical index. Note that we get a VECTOR of logicals back
 bigCarIndex <- vehicleSizes > 4
+print(bigCarIndex)
 
 # Taking the SUM of a logical vector tells you the number of TRUEs.
 sum(bigCarIndex)
@@ -298,9 +306,11 @@ myVec[c(3, 4, 4)]
 ## Subsetting Lists
 
 Lists, arbitrary collections of (potentially heterogeneous) R objects, are subsetted a bit differently than vectors.
-If you use `[` with a list, you are guaranteed to get back another list.
-If you use `[[`, you will get back an object in its natural form (whatever it would look like if it wasn't in the list).
-You can also use `$` to access named elements.
+You have a few options:
+
+* `[` = guaranteed to return a list
+* `[[` = get back an object in its natural form (whatever it would look like if it wasn't in the list)
+* `$` = similar to `[[`, but only accepts element names
 
 ```{r subsettingLists}
 # Set up a sample list object
@@ -340,7 +350,8 @@ someList[["econ_stats"]][["DAXmonthly"]]
 ## Subsetting Data Frames
 
 Data frames are the workhorse data structure of statistics in R.
-The best way to learn data frame subsetting is to just walk through the examples below:
+
+To practice subsetting data frames, try modifying the examples below.
 
 ```{r subsetDF}
 # Create a data frame
@@ -367,9 +378,9 @@ someDF[1:3, c("wins", "ppg")]
 So far, we've seen how to subset R objects using numeric indices and named elements.
 These are useful approaches, but both require you to know something about the contents of the object you're working with.
 
-Using these methods (especially numeric indices like saying *give me columns 2-4*) can make your code confusing and hard for others to reason about.
+Using these methods (especially numeric indices like saying *"give me columns 2-4"*) can make your code confusing and hard for others to reason about.
 Wherever possible, I strongly recommend using logical vectors for subsetting.
-This makes your code intuitive and more flexible to change.
+This makes your code easier to read and more likely to be correct if the data changes.
 
 ```{r logicalSubsetting}
 # Some data frame
@@ -410,12 +421,12 @@ This type of logic is expressed using [if-else syntax](https://en.wikipedia.org/
 DAY <- "SATURDAY"
 print(DAY)
 
-# If it's Monday, print 2 Gauss facts. Otherwise, print 1
+# If it's Monday, print 2 messages. Otherwise, print 1
 if (DAY == "MONDAY"){
-    print("message 1")
-    print("message 2")
+    print("It is Monday.")
+    print("I love Monday!")
 } else {
-    print("other message")
+    print("I wish it were Monday.")
 }
 ```
 
@@ -458,7 +469,8 @@ for (some_number in x){
 
 ## While Loops
 
-For loops are suitable for many applications, but they can be too restrictive in some cases.
+`for` loops are suitable for many applications, but they can be too restrictive in some cases.
+
 For example, imagine that you are writing a simple movie search engine and you want to tell R "look through an alphabetized list of movies and tell me if you find Apocalypse Now".
 A `for` loop can certainly do this, but it will keep running over ALL movies...long after it finds Ace Ventura!
 This is a great place to use a `while` loop.
@@ -526,9 +538,10 @@ while (KEEP_SEARCHING){
 # Functions
 
 R is a [functional programming language](https://adv-r.hadley.nz/functions.html).
-To write powerful, concise code, you'll need to master the use and creation of functions.
+To write powerful, concise code, you'll want to learn how to use and create functions.
 
-> "If you find yourself copying and pasting the same code more than twice, it's time to write a function."
+> _"If you find yourself copying and pasting the same code more than twice, it's time to write a function."_
+>
 > - Hadley Wickham
 
 ```{r functionExample}
@@ -583,9 +596,11 @@ someFunction(10, 100, x = -5)
 
 ## Required Arguments
 
-- R functions take 0 or more arguments...basically named variables that the function uses to do it's work
-- Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt()` will return the square root of each element
-- In this case, we'd say `x` is a *required argument* of `sqrt()`
+R functions take 0 or more arguments...basically named variables that the function uses to do it work
+
+Take a look at `?sqrt`. You'll see that it takes one argument, named `x`. You can pass any vector of numeric values to this argument and `sqrt()` will return the square root of each element
+
+In this case, we'd say `x` is a *required argument* of `sqrt()`.
 
 ```{r requiredArgs, error = TRUE}
 # Take the square root of a vector of numbers
@@ -597,9 +612,14 @@ sqrt()
 
 ## Default Argument Values
 
-- For more complicated functions, passing values to each argument can get burdensome
-- To handle this, R allows function authors to specify *default values*. These are values that certain arguments will take automatically unless you decide to overwrite them
-- Example: look at `?rnorm`. You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`.
+For more complicated functions, passing values to each argument can be tedious.
+
+To handle this, R allows function authors to specify *default values*.
+These are values that certain arguments will take automatically unless you decide to overwrite them
+
+Example: look at `?rnorm`.
+You'll see that this function's signature reads `rnorm(n, mean = 0, sd = 1)`.
+That means that, for example, if you do not pass an argument for `mean`, it will *default* to `0`.
 
 ```{r normalDraw}
 # 100 random draws from a normal distribution w/ mean 0 and standard deviation 1
@@ -932,8 +952,8 @@ plot(x = 1:20, y = le_stuff)
 
 ## Print Debugging
 
-As you've probably already learned, writing code involves a never-ending process of trying this, fixing errors, trying other things, fixing new errors, etc.
-The process of identifying and fixing errors/bugs is called **debugging**.
+Writing code involves a never-ending process of trying things, fixing errors, trying other things, fixing new errors, etc.
+The process of identifying and fixing issues is called **debugging**.
 
 The simplest way to debug an issue in your code is to use **print debugging**.
 This approach involves forming expectations about the state of the objects in your environment at each point in your code, then printing those states at each point to find where things broke.
@@ -986,7 +1006,11 @@ sumBigNums(some_vector)
 
 Whenever you find yourself reading data into R or writing data out of it, you will need to work with file paths.
 File paths are just addresses on your computer's file system.
-These paths can either be *relative* (expressed as steps above/below your current location) or *absolute* (full addresses).
+
+There are 2 types of file paths:
+
+- **relative**: expressed in relation to the current working directory (e.g. `datasets/data.csv`)
+- **absolute**: full address (e.g. `/Users/fnourzad/research/datasets/data.csv`)
 
 All relative paths in R are relative to your **working directory**, a single location that you can set and reset any time in your session.
 
@@ -1069,7 +1093,7 @@ date,open,close
 
 To begin this example, download the example file from the course repository.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 iris_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/iris.csv"
 iris_file <- "iris.csv"
 download.file(
@@ -1080,7 +1104,7 @@ download.file(
 
 Then read it in with `read.csv()` and inspect it with `head()`.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 irisDF <- read.csv(
   file = iris_file
   , header = TRUE
@@ -1091,7 +1115,7 @@ print(head(irisDF))
 
 This function can also read CSV data directly from files on the internet.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 irisDF <- read.csv(
   file = iris_url
   , header = TRUE
@@ -1102,7 +1126,8 @@ print(head(irisDF))
 
 ## Excel
 
-In the Economics / Business world (and many other areas!), Microsoft Excel is pretty much unavoidable.
+Microsoft Excel is widely used for curating and sharing datasets.
+
 You'll get data from the internet, your colleagues, clients, etc. in Excel format and may want to work with it in R.
 There are a few packages for doing this, but in this course we'll focus on [openxlsx](https://cran.r-project.org/web/packages/openxlsx/openxlsx.pdf).
 
@@ -1111,7 +1136,7 @@ If you run into issues, I recommend 1) installing an updated version of [JRE](ht
 
 To begin this example, download the example file from the course repository.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 gdp_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/gdp.xlsx"
 gdp_file <- "gdp.xlsx"
 download.file(
@@ -1122,29 +1147,34 @@ download.file(
 
 Then read it in with `openxlsx::read.xlsx()` and view it with `head()`.
 
-```{r readingExcel, eval = FALSE, echo = TRUE}
+```{r readingExcel, eval = TRUE, echo = TRUE}
 library(openxlsx)
 gdpDF <- openxlsx::read.xlsx(
     xlsxFile = gdp_file
+    , detectDates = TRUE
 )
 print(head(gdpDF))
 ```
 
 This function can also read Excel data directly from files on the internet.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 library(openxlsx)
 gdpDF <- openxlsx::read.xlsx(
     xlsxFile = gdp_url
+    , detectDates = TRUE
 )
 print(head(gdpDF))
 ```
+
+Notice that that `observation_date` column has numbers that don't look like dates.
+Microsoft Excel stores dates as "number of days 
 
 You can also use this package to write Excel files.
 You can do really complicated stuff (like conditional formatting, named ranges, and live formulas) from inside of R.
 It's tough to set up at first, but can be VERY useful if you find yourself spending a lot of time running routine reports whose format is the same from update to update.
 
-```{r writingExcel, eval = FALSE, echo = TRUE}
+```{r writingExcel, eval = TRUE, echo = TRUE}
 library(openxlsx)
 
 # load mtcars
@@ -1177,7 +1207,7 @@ openxlsx::saveWorkbook(
 JSON ("Javascript Object Notation") is a standard format for "semi-structured" or "nested" data.
 It's a plain-text format that can be used by many programs and programming languages.
 
-```
+```javascript
 {
   "status": 200,
   "data": [
@@ -1189,7 +1219,7 @@ It's a plain-text format that can be used by many programs and programming langu
 
 To begin this example, download the example file from the course repository.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 data_url <- "https://raw.githubusercontent.com/jameslamb/teaching/main/mu_rprog/sample-data/data.json"
 data_file <- "data.json"
 download.file(
@@ -1238,7 +1268,7 @@ There are a few packages for reading this type of data in R.
 The example below uses one of the most popular, `{jsonlite}`.
 Read in the file with `jsonlite::fromJSON()` and view its contents with `str()`.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 library(jsonlite)
 
 responseList <- jsonlite::fromJSON(
@@ -1246,22 +1276,22 @@ responseList <- jsonlite::fromJSON(
   , simplifyDataFrame = FALSE
 )
 
-str(responseList, max.level = 3)
+str(responseList, max.level = 2)
 ```
 
 This function can also read JSON data directly from files on the internet.
 
-```{r, eval=FALSE, echo=TRUE}
+```{r, eval=TRUE, echo=TRUE}
 responseList <- jsonlite::fromJSON(
   txt = data_url
   , simplifyDataFrame = FALSE
 )
-str(responseList, max.level = 3)
+str(responseList, max.level = 2)
 ```
 
 ## Unstructured Text files
 
-In the context of statistical programming, text files that are "unstructured" are those that do not have an obvious parallel in a data object like a data frame, vector, list, or key-value store.
+In the context of statistical programming, text files that are "unstructured" are those whose contents don't have an obvious representation in a data structure like a data frame, vector, or list.
 An example might be a large archive of product reviews or a collection of court transcripts.
 
 The code below examines a text file with all of Shakespeare's sonnets.
@@ -1284,11 +1314,9 @@ sample(text_vec, 5)
 # Missing Values
 
 `NA` is a special object in R, used to capture the idea of "a value whose value is unknown".
-Confusing, right?
+
 We're going to go through a few examples to get you feeling comfortable with missing values.
 They're an inevitability in real-world data.
-
-**PRO TIP**: See `?NA` for R's documentation on the nuances of `NA`
 
 ```{r introToNAs}
 # Create a vector w/ missing data
@@ -1302,10 +1330,13 @@ is.na(some_nums)
 class(some_nums)
 ```
 
-## Strategy 1: Total Eradication
+See `?NA` for R's documentation on the nuances of `NA`.
 
-The first approach you may take to dealing with `NA` values is to simply drop them from your data.
-If you don't think these missing data have any business value and your dataset is big enough that you can afford to drop some rows / columns, this is the right move for you.
+## Strategy 1: Total Removal
+
+The first approach you may take to dealing with `NA` values is to completely remove them from your data.
+
+If you don't think these missing data are meaningful and your dataset is big enough that you can afford to drop some rows / columns, this is a defensible choice.
 
 ```{r removeNAs}
 # Removing NAs for vectors
@@ -1334,7 +1365,8 @@ cleanDF <- myDF[complete.cases(myDF), ]
 ## Strategy 2: Handle on Subsets
 
 You may find the "remove all the NAs everywhere" strategy a bit too aggressive for your use case.
-If you have a 100-variable dataset and a single variable (column) is 90\% NA values, do you really want to drop every row where that variable is NA?
+
+If you have a 100-variable dataset and a variable is 90\% NA values, do you really want to drop every row where that variable is NA?
 A better approach might be to selectively subset out columns where missing values are most severe before using `complete.cases()` to remove rows.
 
 ```{r subsetNAwisely}
@@ -1351,15 +1383,17 @@ testDF <- data.frame(
 }
 colsToDrop <- apply(testDF, MARGIN = 2, .percent_na) > 0.9
 cleanDF <- testDF[, !colsToDrop]
+print(str(cleanDF))
 
 # Remove rows w/ remaining NAs
 cleanDF <- cleanDF[complete.cases(cleanDF),]
+print(str(cleanDF))
 ```
 
 ## Strategy 3: Imputation
 
 A final strategy, particularly useful in modeling contexts, is to use some [imputation strategy](https://www.analyticsvidhya.com/blog/2016/03/tutorial-powerful-packages-imputing-missing-values/) to replace `NA` values with reasonable alternatives.
-One common approach (and my favorite), the `roughfix` method.
+One commonly-used approach is the `roughfix` method.
 
 It works like this:
 
@@ -1396,7 +1430,7 @@ data("iris")
 head(iris, n = 10)
 ```
 
-Let's start with a simple scatter plot to answer the question *are sepal length and sepal width related?*.
+Let's start with a simple scatter plot to answer the question *"are sepal length and sepal width related?"*.
 
 ```{r baseLinePlot}
 # Create a simple scatter plot
@@ -1540,9 +1574,10 @@ par(mfrow = c(1,1))
 
 ### A Note On Graphics Devices
 
-When R (or any other program!) creates plots, it needs to know where to put them!
-When you call `plot()` or other commands from within and RStudio session, the default is to just display the resulting figure in the "Plots" pane.
-However, you can use other **graphics devices** (places to put visual output) to tell R to put your figures elsewhere.
+When R creates plots, it needs to know where to put them.
+
+When you call `plot()` or other commands from within an RStudio session, the default is to just display the resulting figure in the "Plots" pane.
+However, you can use other **graphics devices** to tell R to put your figures elsewhere.
 
 ```{r path2png, eval = FALSE, echo = TRUE}
 outDir <- file.path(getwd(), "plots")
@@ -1757,7 +1792,7 @@ round(cor(swiss), 2)
 
 ## Hypothesis Testing
 
-Hypothesis tests can be enormously valuable tools for discovering differences in datasets and evaluates relationships between variables.
+Hypothesis tests are valuable tools for discovering differences in datasets and evaluating relationships between variables.
 
 One approach to looking for statistically interesting features (right-hand-side variables) involves binning those variables into "above median" and "below median", and using a paired t-test to see whether or not the variable is statistically related to the target.
 
@@ -1808,8 +1843,8 @@ tDT
 
 ## Simple OLS Model
 
-Ok now that we've done some basic preprocessing and exploration, it's time to start fitting models!
-Let's begin with a simple one-variable OLS regression, estimated using the `lm()` command.
+Ok now that we've done some preprocessing and exploration, it's time to start fitting models!
+Let's begin with a one-variable OLS regression, estimated using the `lm()` command.
 
 ```{r simpleOLS}
 # Simple regression: Fertility = f(Agriculture)
@@ -1822,8 +1857,8 @@ summary(mod1)
 plot(mod1, which = 2)
 ```
 
-Once you have the fitted model, you can pass it and some new data to `predict()` to generate predictions.
-I've also defined calculations of the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
+Once you have a fitted model, you can pass it and some new data to `predict()` to generate predictions.
+The code below also calculates the [mean absolute error](https://en.wikipedia.org/wiki/Mean_absolute_error), [mean squared error](https://en.wikipedia.org/wiki/Mean_squared_error), and [mean absolute percent error](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error), common error metrics used in regression problems.
 
 ```{r predOLS}
 # Check how well our model does on the held-out data
@@ -1920,7 +1955,7 @@ regPreds2 <- EvaluateModel(
 
 Linear regressions are powerful tools, but there are certain classes of complex relationships that they are unable to express and therefore unable to "learn" when trained on data.
 
-Regression Trees are one mainstream tool used to fit complex functions.
+Regression Trees are one tool used to fit non-linear functions.
 They recursively partition the dataset, trying to find "local" models of subsets of the data which, together, provide a better fit than the single "global" OLS model we're used to fitting.
 
 The details of tree-based learning are outside the scope of this class, but I encourage you to check out [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) to at least get the general intuition behind this and other ML techniques.
@@ -1959,8 +1994,9 @@ rattle::fancyRpartPlot(
 ## Random Forests
 
 For larger datasets than the one we're working with in this exercise, you may find that a single decision tree is not expressive enough or that one strong signal overpowers all the other variables.
-To correct for this, many analysts will use a "forest" of decision trees.
-The implementation details are again outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
+
+To correct for this, you might use a "forest" of decision trees.
+The implementation details are outside the scope of this course: see [Leo Breiman's excellent site](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm) if you're curious in learning more about this algorithm.
 
 I only mention the random forest here to demonstrate how easy it is to fit and predict with complex statistical models in R.
 
@@ -2068,6 +2104,9 @@ bsText <- trimws(bsText)
 
 # Remove empty lines
 bsText <- bsText[sapply(bsText, nchar)>0]
+
+# sample a few lines
+print(head(bsText, n=10))
 ```
 
 ## Regular Expressions
@@ -2106,10 +2145,12 @@ bsText <- gsub("why's", "why is", bsText)
 bsText <- gsub("'ll", " will", bsText)
 ```
 
+To experiment with regular expressions outside of R, try https://regexr.com/.
+
 ## Tokenization
 
 The next task we need to accomplish is **tokenizing** our text, i.e. splitting lines and sentences into individual words.
-These individual words can then be used downstream to get build a language model and identify key terms.
+These individual words can then be used to build a language model and identify key terms.
 
 ```{r tokenization}
 # Loop over the vector of lines, split on whitespace, create a list of data.frames
@@ -2130,10 +2171,11 @@ print(wordDT[1:10], row.names = FALSE)
 ## Counting Words in Text
 
 Now that our data are a bit cleaner, it's time to try finding key terms!
+
 Broadly speaking, "key terms" in a body of text are those that more common in the text than they are in the language as a whole (e.g. "the" will never be a key word).
 We aren't looking at any actual data on the distribution of words in Shakespeare-era English in this exercise, so we'll just drop the top 20 words and call the next 20 "key".
 
-The `data.table` package makes this operation easy to carry out.
+The `{data.table}` package makes this operation easy to carry out.
 
 ```{r countTheWords}
 # Get Word counts and sort by those counts
@@ -2364,7 +2406,7 @@ dygraphs::dygraph(
 
 # Creating R Packages
 
-There are around 20,000 packages currently on CRAN but MANY more privately-created packages in use by academics, professional data science teams, and hobbyists.
+There are more than 20,000 packages currently on CRAN but MANY more privately-created packages in use by academics, professional data science teams, and hobbyists.
 
 Packages are an effective way to share your code with others.
 

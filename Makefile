@@ -1,5 +1,9 @@
 SHELL = bash
 
+.PHONY: clean
+clean:
+	git clean -d -f -X
+
 .PHONY: install
 install:
 	Rscript ./.ci/install-deps.R
@@ -12,7 +16,7 @@ assignments:
 		-exec Rscript -e "rmarkdown::render(commandArgs(trailingOnly=TRUE)[[1]])" {} \;
 
 .PHONY: code-samples
-code-samples:
+code-samples: clean
 	find \
 		./mu_rprog/code \
 		-name '*.Rmd' \
@@ -30,5 +34,5 @@ syllabus:
 	Rscript -e 'rmarkdown::render("./mu_rprog/syllabus.Rmd", output_format = c("pdf_document", "html_document"))'
 
 .PHONY: course
-course: install assignments code-samples slides syllabus
+course: clean install assignments code-samples slides syllabus
 	@echo "made course"
