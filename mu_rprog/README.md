@@ -45,7 +45,7 @@ Rscript install-deps.R
 ## Building Locally
 
 The links above lead to hosted versions of the course content.
-If you want to make modifications and recreate your own local versions to test them, you can do so using [GNU Make](https://www.gnu.org/software/make/).
+If you want to make modifications and recreate your own local versions to test them, you can do so using GNU Make.
 Install `make`, then run the following:
 
 ```shell
