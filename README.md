@@ -4,4 +4,4 @@ This repository holds code, slides, and other documents from courses I have taug
 
 ## Courses
 
-[Introduction to R Programming (Marquette University)](https://github.com/jameslamb/teaching/tree/master/mu_rprog)
+[Introduction to R Programming (Marquette University)](https://github.com/jameslamb/teaching/tree/main/mu_rprog)
