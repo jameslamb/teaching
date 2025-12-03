@@ -56,6 +56,8 @@ jobs:
           git rev-parse HEAD
           echo "--- github.event.sha ---"
           echo "${{ github.event.sha }}"
+          echo "--- github.event.pull_request.head.sha ---"
+          echo "${{ github.event.pull_request.head.sha }}"
       - uses: pre-commit/action@v3.0.1
       - name: set up R
         uses: r-lib/actions/setup-r@v2
