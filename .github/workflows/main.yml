@@ -44,6 +44,16 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
           submodules: false
+      - name: check commits
+        run: |
+          echo "--- github.sha ---"
+          echo "${{ github.sha }}"
+          echo "--- github.ref ---"
+          echo "${{ github.ref }}"
+          echo "--- "github.head_ref" ---"
+          echo "${{ github.head_ref }}"
+          echo "--- HEAD ---"
+          git rev-parse HEAD
       - uses: pre-commit/action@v3.0.1
       - name: set up R
         uses: r-lib/actions/setup-r@v2
