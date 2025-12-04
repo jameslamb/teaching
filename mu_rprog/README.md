@@ -4,7 +4,7 @@
 
 **Org:** Marquette University
 
-**Dates:** Spring 2017, Spring 2018, Spring 2019, Spring 2020, J-term 2020, Summer 2021, Spring 2022, Spring 2023, Summer 2023, Spring 2024, Summer 2024, Spring 2025, Summer 2025
+**Dates:** Spring 2017, Spring 2018, Spring 2019, Spring 2020, J-term 2020, Summer 2021, Spring 2022, Spring 2023, Summer 2023, Spring 2024, Summer 2024, Spring 2025, Summer 2025, Spring 2026
 
 **Previous Course Codes:** ECON 6931
 
