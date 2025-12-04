@@ -2412,10 +2412,9 @@ Packages are an effective way to share your code with others.
 
 See the following to learn how to create packages:
 
-* "Using R packages and education to scale Data Science at Airbnb" ([Airbnb blog](https://medium.com/airbnb-engineering/using-r-packages-and-education-to-scale-data-science-at-airbnb-906faa58e12d))
+* "The CRAN Cookbook" ([link](https://contributor.r-project.org/cran-cookbook/))
 * R packages for creating and testing packages:
   - `{remotes}` ([link](https://cran.r-project.org/web/packages/remotes/index.html)) = R wrappers around some command-line tools used to build R packages. Also includes some utilities for installing packages from source code.
   - `{roxygen2}` ([link](https://cran.r-project.org/web/packages/roxygen2/index.html)) = provides a framework for turning specially-formatting comments in R functions into package documentation that you can call with `?`
   - `{testthat}` ([link](https://cran.r-project.org/web/packages/testthat/index.html)) = a popular library for running unit tests, essentially tests that your code works as it should
 * "R packages" book - Hadley Wickham and Jenny Bryan ([link](https://r-pkgs.org/))
-* unit testing with `{testthat}` ([link](https://testthat.r-lib.org/))
